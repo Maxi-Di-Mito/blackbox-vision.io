@@ -10,6 +10,7 @@ const contentReducer = (state = { "isFetching": true, "content": {} }, action) =
             //Using es6 spread operator in advantage of Object.assign({}, state, { your modifications }); ugly syntax
             return {
                 ...state,
+                "isFetching": false,
                 "content": action.content
             };
 

@@ -1,6 +1,6 @@
 import fetch from 'isomorphic-fetch'
 
-export const CONTENT_RECEIVE = 'TRANSLATIONS_RECEIVE';
+export const CONTENT_RECEIVE = 'CONTENT_RECEIVE';
 
 const receiveContent = (content) => {
     return {

@@ -10,6 +10,7 @@ const translationReducer = (state = { "isFetching": true, "translation": {} }, a
             //Using es6 spread operator in advantage of Object.assign({}, state, { your modifications }); ugly syntax
             return {
                 ...state,
+                "isFetching": false,
                 "translation": action.translation
             };
 
@@ -19,6 +20,7 @@ const translationReducer = (state = { "isFetching": true, "translation": {} }, a
             //Using es6 spread operator in advantage of Object.assign({}, state, { your modifications }); ugly syntax
             return {
                 ...state,
+                "isFetching": false,
                 "selectedLocale": action.locale
             };
 
