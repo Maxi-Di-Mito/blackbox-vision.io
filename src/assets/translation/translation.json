@@ -1,0 +1,33 @@
+{
+  "translation": {
+      "selectedLocale": "en",
+      "fallbackLocale": "en",
+      "availableLocales": [
+        "en",
+        "es"
+      ],
+      "translations": [
+        {
+          "componentId": "x",
+          "en": {
+          },
+          "es": {
+          }
+        },
+        {
+          "componentId": "y",
+          "en": {
+          },
+          "es": {
+          }
+        },
+        {
+          "componentId": "z",
+          "en": {
+          },
+          "es": {
+          }
+        }
+      ]
+  }
+}
