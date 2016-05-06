@@ -7,7 +7,7 @@ const contentReducer = (state = { "isFetching": true, "content": {} }, action) =
         case CONTENT_RECEIVE:
             Winston.log("info", "@TranslationReducer => calling action fetch content");
 
-            //Using es7 spread operator in advantage of Object.assign({}, state, { your modifications }); ugly syntax
+            //Using es6 spread operator in advantage of Object.assign({}, state, { your modifications }); ugly syntax
             return {
                 ...state,
                 "content": action.content

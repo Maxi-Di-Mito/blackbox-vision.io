@@ -4,7 +4,7 @@ var path = require("path");
 var ROOT_DIR = path.resolve(__dirname, "../..");
 
 var server_config = {
-	PORT: process.env.SERVER_PORT || 9003,
+	PORT: process.env.SERVER_PORT || 9001,
 	PUBLIC_STATIC_CONTENT_DIR: ROOT_DIR + "/public",
 	ROOT_DIR: ROOT_DIR,
 	SESSION_SIGNATURE: "ProdigyNetwork",
