@@ -5,8 +5,10 @@ import { createStore, applyMiddleware } from 'redux'
 import thunk from 'redux-thunk'
 import rootReducer from '../shared/reducers/combined_reducers'
 import Application from '../shared/containers/Application.jsx'
+import createLogger from 'redux-logger';
 
-const store = createStore(rootReducer, applyMiddleware(thunk));
+const Logger = createLogger("log");
+const store = createStore(rootReducer, applyMiddleware(thunk, Logger));
 
 ReactDOM.render(
     <Provider store={store}>

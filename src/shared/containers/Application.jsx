@@ -1,12 +1,30 @@
-import React, { Component } from 'react'
+import React, { Component ,PropTypes } from 'react'
 import LocaleLinks from '../../shared/components/LocaleLinks.jsx'
+import { connect } from 'react-redux'
 
-export default class Application extends Component {
+import fetchContent from '../actions/content_actions'
+import fetchTranslations from '../actions/translate_actions'
+
+
+class Application extends Component {
+
+    constructor(props) {
+        super(props);
+    }
+
+    componentDidMount() {
+        this.props.dispatch(fetchContent());
+        this.props.dispatch(fetchTranslations());
+    }
+
     render() {
-        return(
+        return (
             <div>
-                <LocaleLinks onLocaleChanged=""/>
+                <LocaleLinks/>
             </div>
         )
     }
 }
+
+
+export default connect()(Application);

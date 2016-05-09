@@ -73,18 +73,23 @@
 
 	var _combined_reducers2 = _interopRequireDefault(_combined_reducers);
 
-	var _LocaleLinks = __webpack_require__(203);
+	var _Application = __webpack_require__(203);
 
-	var _LocaleLinks2 = _interopRequireDefault(_LocaleLinks);
+	var _Application2 = _interopRequireDefault(_Application);
+
+	var _reduxLogger = __webpack_require__(205);
+
+	var _reduxLogger2 = _interopRequireDefault(_reduxLogger);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	var store = (0, _redux.createStore)(_combined_reducers2.default, (0, _redux.applyMiddleware)(_reduxThunk2.default));
+	var Logger = (0, _reduxLogger2.default)("log");
+	var store = (0, _redux.createStore)(_combined_reducers2.default, (0, _redux.applyMiddleware)(_reduxThunk2.default, Logger));
 
 	_reactDom2.default.render(_react2.default.createElement(
 	    _reactRedux.Provider,
 	    { store: store },
-	    _react2.default.createElement(_LocaleLinks2.default, null)
+	    _react2.default.createElement(_Application2.default, null)
 	), document.getElementById('app'));
 
 /***/ },
@@ -21937,10 +21942,11 @@
 
 	var _translate_actions = __webpack_require__(198);
 
-	//TODO JS: Delete log calls
 	var translationReducer = function translationReducer() {
 	    var state = arguments.length <= 0 || arguments[0] === undefined ? { "isFetching": true, "translation": {} } : arguments[0];
 	    var action = arguments[1];
+
+	    console.log("Translation " + JSON.stringify(action));
 
 	    switch (action.type) {
 	        case _translate_actions.TRANSLATIONS_RECEIVE:
@@ -21948,8 +21954,8 @@
 
 	            //Using es6 spread operator in advantage of Object.assign({}, state, { your modifications }); ugly syntax
 	            return _extends({}, state, {
-	                "isFetching": false,
-	                "translation": action.translation
+	                isFetching: false,
+	                translation: action.translation
 	            });
 
 	        case _translate_actions.CHANGE_LOCALE:
@@ -21957,12 +21963,11 @@
 
 	            //Using es6 spread operator in advantage of Object.assign({}, state, { your modifications }); ugly syntax
 	            return _extends({}, state, {
-	                "isFetching": false,
-	                "selectedLocale": action.locale
+	                isFetching: false,
+	                selectedLocale: action.locale
 	            });
 
 	        default:
-	            console.log("@TranslationReducer => calling default action");
 	            return state;
 	    }
 	};
@@ -21978,7 +21983,7 @@
 	Object.defineProperty(exports, "__esModule", {
 	    value: true
 	});
-	exports.fetchTranslations = exports.changeLocale = exports.CHANGE_LOCALE = exports.TRANSLATIONS_RECEIVE = undefined;
+	exports.changeLocale = exports.CHANGE_LOCALE = exports.TRANSLATIONS_RECEIVE = undefined;
 
 	var _isomorphicFetch = __webpack_require__(199);
 
@@ -21999,20 +22004,22 @@
 	var receiveTranslations = function receiveTranslations(translations) {
 	    return {
 	        type: TRANSLATIONS_RECEIVE,
-	        'translation': translations
+	        translation: translations
 	    };
 	};
 
 	//async action. with Thunk middleware applied to our store we can dispatch async actions.
-	var fetchTranslations = exports.fetchTranslations = function fetchTranslations() {
+	var fetchTranslations = function fetchTranslations() {
 	    return function (dispatch) {
-	        return (0, _isomorphicFetch2.default)('http://localhost:9001/content').then(function (response) {
+	        return (0, _isomorphicFetch2.default)('http://localhost:9001/translation').then(function (response) {
 	            return response.json();
-	        }).then(function (translations) {
-	            return dispatch(receiveTranslations(translations));
+	        }).then(function (translation) {
+	            return dispatch(receiveTranslations(translation));
 	        });
 	    };
 	};
+
+	exports.default = fetchTranslations;
 
 /***/ },
 /* 199 */
@@ -22479,23 +22486,23 @@
 
 	var _content_actions = __webpack_require__(202);
 
-	//TODO JS: Delete log calls
 	var contentReducer = function contentReducer() {
 	    var state = arguments.length <= 0 || arguments[0] === undefined ? { "isFetching": true, "content": {} } : arguments[0];
 	    var action = arguments[1];
 
+	    console.log("Content " + JSON.stringify(state));
+
 	    switch (action.type) {
 	        case _content_actions.CONTENT_RECEIVE:
-	            console.log("@TranslationReducer => calling action fetch content");
+	            console.log("@ContentReducer => calling action fetch content");
 
 	            //Using es6 spread operator in advantage of Object.assign({}, state, { your modifications }); ugly syntax
 	            return _extends({}, state, {
-	                "isFetching": false,
-	                "content": action.content
+	                isFetching: false,
+	                content: action.content
 	            });
 
 	        default:
-	            console.log("@TranslationReducer => calling default action");
 	            return state;
 	    }
 	};
@@ -22511,7 +22518,7 @@
 	Object.defineProperty(exports, "__esModule", {
 	    value: true
 	});
-	exports.fetchContent = exports.CONTENT_RECEIVE = undefined;
+	exports.CONTENT_RECEIVE = undefined;
 
 	var _isomorphicFetch = __webpack_require__(199);
 
@@ -22529,7 +22536,7 @@
 	};
 
 	//async action. with Thunk middleware applied to our store we can dispatch async actions.
-	var fetchContent = exports.fetchContent = function fetchContent() {
+	var fetchContent = function fetchContent() {
 	    return function (dispatch) {
 	        return (0, _isomorphicFetch2.default)('http://localhost:9001/content').then(function (response) {
 	            return response.json();
@@ -22539,11 +22546,82 @@
 	    };
 	};
 
+	exports.default = fetchContent;
+
 /***/ },
 /* 203 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(2);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _LocaleLinks = __webpack_require__(204);
+
+	var _LocaleLinks2 = _interopRequireDefault(_LocaleLinks);
+
+	var _reactRedux = __webpack_require__(169);
+
+	var _content_actions = __webpack_require__(202);
+
+	var _content_actions2 = _interopRequireDefault(_content_actions);
+
+	var _translate_actions = __webpack_require__(198);
+
+	var _translate_actions2 = _interopRequireDefault(_translate_actions);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var Application = function (_Component) {
+	    _inherits(Application, _Component);
+
+	    function Application(props) {
+	        _classCallCheck(this, Application);
+
+	        return _possibleConstructorReturn(this, Object.getPrototypeOf(Application).call(this, props));
+	    }
+
+	    _createClass(Application, [{
+	        key: 'componentDidMount',
+	        value: function componentDidMount() {
+	            this.props.dispatch((0, _content_actions2.default)());
+	            this.props.dispatch((0, _translate_actions2.default)());
+	        }
+	    }, {
+	        key: 'render',
+	        value: function render() {
+	            return _react2.default.createElement(
+	                'div',
+	                null,
+	                _react2.default.createElement(_LocaleLinks2.default, null)
+	            );
+	        }
+	    }]);
+
+	    return Application;
+	}(_react.Component);
+
+	exports.default = (0, _reactRedux.connect)()(Application);
+
+/***/ },
+/* 204 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
 
 	Object.defineProperty(exports, "__esModule", {
 	    value: true
@@ -22566,27 +22644,34 @@
 	var LocaleLinks = function (_Component) {
 	    _inherits(LocaleLinks, _Component);
 
-	    function LocaleLinks() {
+	    function LocaleLinks(props) {
 	        _classCallCheck(this, LocaleLinks);
 
-	        return _possibleConstructorReturn(this, Object.getPrototypeOf(LocaleLinks).apply(this, arguments));
+	        return _possibleConstructorReturn(this, Object.getPrototypeOf(LocaleLinks).call(this, props));
 	    }
 
 	    _createClass(LocaleLinks, [{
-	        key: 'render',
+	        key: "render",
 	        value: function render() {
+	            var divStyle = {
+	                "color": "white",
+	                "backgroundColor": "#009688",
+	                "display": "inline-block",
+	                "padding": "5px"
+	            };
+
 	            return _react2.default.createElement(
-	                'div',
+	                "div",
 	                null,
 	                _react2.default.createElement(
-	                    'div',
-	                    null,
-	                    'Hello'
+	                    "div",
+	                    { style: divStyle, onclick: "" },
+	                    "English"
 	                ),
 	                _react2.default.createElement(
-	                    'div',
-	                    null,
-	                    'World'
+	                    "div",
+	                    { style: divStyle, onClick: "" },
+	                    "Spanish"
 	                )
 	            );
 	        }
@@ -22596,6 +22681,239 @@
 	}(_react.Component);
 
 	exports.default = LocaleLinks;
+
+/***/ },
+/* 205 */
+/***/ function(module, exports) {
+
+	"use strict";
+
+	function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
+
+	function _typeof(obj) { return obj && typeof Symbol !== "undefined" && obj.constructor === Symbol ? "symbol" : typeof obj; }
+
+	var repeat = function repeat(str, times) {
+	  return new Array(times + 1).join(str);
+	};
+	var pad = function pad(num, maxLength) {
+	  return repeat("0", maxLength - num.toString().length) + num;
+	};
+	var formatTime = function formatTime(time) {
+	  return "@ " + pad(time.getHours(), 2) + ":" + pad(time.getMinutes(), 2) + ":" + pad(time.getSeconds(), 2) + "." + pad(time.getMilliseconds(), 3);
+	};
+
+	// Use the new performance api to get better precision if available
+	var timer = typeof performance !== "undefined" && typeof performance.now === "function" ? performance : Date;
+
+	/**
+	 * parse the level option of createLogger
+	 *
+	 * @property {string | function | object} level - console[level]
+	 * @property {object} action
+	 * @property {array} payload
+	 * @property {string} type
+	 */
+
+	function getLogLevel(level, action, payload, type) {
+	  switch (typeof level === "undefined" ? "undefined" : _typeof(level)) {
+	    case "object":
+	      return typeof level[type] === "function" ? level[type].apply(level, _toConsumableArray(payload)) : level[type];
+	    case "function":
+	      return level(action);
+	    default:
+	      return level;
+	  }
+	}
+
+	/**
+	 * Creates logger with followed options
+	 *
+	 * @namespace
+	 * @property {object} options - options for logger
+	 * @property {string | function | object} options.level - console[level]
+	 * @property {boolean} options.duration - print duration of each action?
+	 * @property {boolean} options.timestamp - print timestamp with each action?
+	 * @property {object} options.colors - custom colors
+	 * @property {object} options.logger - implementation of the `console` API
+	 * @property {boolean} options.logErrors - should errors in action execution be caught, logged, and re-thrown?
+	 * @property {boolean} options.collapsed - is group collapsed?
+	 * @property {boolean} options.predicate - condition which resolves logger behavior
+	 * @property {function} options.stateTransformer - transform state before print
+	 * @property {function} options.actionTransformer - transform action before print
+	 * @property {function} options.errorTransformer - transform error before print
+	 */
+
+	function createLogger() {
+	  var options = arguments.length <= 0 || arguments[0] === undefined ? {} : arguments[0];
+	  var _options$level = options.level;
+	  var level = _options$level === undefined ? "log" : _options$level;
+	  var _options$logger = options.logger;
+	  var logger = _options$logger === undefined ? console : _options$logger;
+	  var _options$logErrors = options.logErrors;
+	  var logErrors = _options$logErrors === undefined ? true : _options$logErrors;
+	  var collapsed = options.collapsed;
+	  var predicate = options.predicate;
+	  var _options$duration = options.duration;
+	  var duration = _options$duration === undefined ? false : _options$duration;
+	  var _options$timestamp = options.timestamp;
+	  var timestamp = _options$timestamp === undefined ? true : _options$timestamp;
+	  var transformer = options.transformer;
+	  var _options$stateTransfo = options.stateTransformer;
+	  var // deprecated
+	  stateTransformer = _options$stateTransfo === undefined ? function (state) {
+	    return state;
+	  } : _options$stateTransfo;
+	  var _options$actionTransf = options.actionTransformer;
+	  var actionTransformer = _options$actionTransf === undefined ? function (actn) {
+	    return actn;
+	  } : _options$actionTransf;
+	  var _options$errorTransfo = options.errorTransformer;
+	  var errorTransformer = _options$errorTransfo === undefined ? function (error) {
+	    return error;
+	  } : _options$errorTransfo;
+	  var _options$colors = options.colors;
+	  var colors = _options$colors === undefined ? {
+	    title: function title() {
+	      return "#000000";
+	    },
+	    prevState: function prevState() {
+	      return "#9E9E9E";
+	    },
+	    action: function action() {
+	      return "#03A9F4";
+	    },
+	    nextState: function nextState() {
+	      return "#4CAF50";
+	    },
+	    error: function error() {
+	      return "#F20404";
+	    }
+	  } : _options$colors;
+
+	  // exit if console undefined
+
+	  if (typeof logger === "undefined") {
+	    return function () {
+	      return function (next) {
+	        return function (action) {
+	          return next(action);
+	        };
+	      };
+	    };
+	  }
+
+	  if (transformer) {
+	    console.error("Option 'transformer' is deprecated, use stateTransformer instead");
+	  }
+
+	  var logBuffer = [];
+	  function printBuffer() {
+	    logBuffer.forEach(function (logEntry, key) {
+	      var started = logEntry.started;
+	      var startedTime = logEntry.startedTime;
+	      var action = logEntry.action;
+	      var prevState = logEntry.prevState;
+	      var error = logEntry.error;
+	      var took = logEntry.took;
+	      var nextState = logEntry.nextState;
+
+	      var nextEntry = logBuffer[key + 1];
+	      if (nextEntry) {
+	        nextState = nextEntry.prevState;
+	        took = nextEntry.started - started;
+	      }
+	      // message
+	      var formattedAction = actionTransformer(action);
+	      var isCollapsed = typeof collapsed === "function" ? collapsed(function () {
+	        return nextState;
+	      }, action) : collapsed;
+
+	      var formattedTime = formatTime(startedTime);
+	      var titleCSS = colors.title ? "color: " + colors.title(formattedAction) + ";" : null;
+	      var title = "action " + (timestamp ? formattedTime : "") + " " + formattedAction.type + " " + (duration ? "(in " + took.toFixed(2) + " ms)" : "");
+
+	      // render
+	      try {
+	        if (isCollapsed) {
+	          if (colors.title) logger.groupCollapsed("%c " + title, titleCSS);else logger.groupCollapsed(title);
+	        } else {
+	          if (colors.title) logger.group("%c " + title, titleCSS);else logger.group(title);
+	        }
+	      } catch (e) {
+	        logger.log(title);
+	      }
+
+	      var prevStateLevel = getLogLevel(level, formattedAction, [prevState], "prevState");
+	      var actionLevel = getLogLevel(level, formattedAction, [formattedAction], "action");
+	      var errorLevel = getLogLevel(level, formattedAction, [error, prevState], "error");
+	      var nextStateLevel = getLogLevel(level, formattedAction, [nextState], "nextState");
+
+	      if (prevStateLevel) {
+	        if (colors.prevState) logger[prevStateLevel]("%c prev state", "color: " + colors.prevState(prevState) + "; font-weight: bold", prevState);else logger[prevStateLevel]("prev state", prevState);
+	      }
+
+	      if (actionLevel) {
+	        if (colors.action) logger[actionLevel]("%c action", "color: " + colors.action(formattedAction) + "; font-weight: bold", formattedAction);else logger[actionLevel]("action", formattedAction);
+	      }
+
+	      if (error && errorLevel) {
+	        if (colors.error) logger[errorLevel]("%c error", "color: " + colors.error(error, prevState) + "; font-weight: bold", error);else logger[errorLevel]("error", error);
+	      }
+
+	      if (nextStateLevel) {
+	        if (colors.nextState) logger[nextStateLevel]("%c next state", "color: " + colors.nextState(nextState) + "; font-weight: bold", nextState);else logger[nextStateLevel]("next state", nextState);
+	      }
+
+	      try {
+	        logger.groupEnd();
+	      } catch (e) {
+	        logger.log("—— log end ——");
+	      }
+	    });
+	    logBuffer.length = 0;
+	  }
+
+	  return function (_ref) {
+	    var getState = _ref.getState;
+	    return function (next) {
+	      return function (action) {
+	        // exit early if predicate function returns false
+	        if (typeof predicate === "function" && !predicate(getState, action)) {
+	          return next(action);
+	        }
+
+	        var logEntry = {};
+	        logBuffer.push(logEntry);
+
+	        logEntry.started = timer.now();
+	        logEntry.startedTime = new Date();
+	        logEntry.prevState = stateTransformer(getState());
+	        logEntry.action = action;
+
+	        var returnedValue = undefined;
+	        if (logErrors) {
+	          try {
+	            returnedValue = next(action);
+	          } catch (e) {
+	            logEntry.error = errorTransformer(e);
+	          }
+	        } else {
+	          returnedValue = next(action);
+	        }
+
+	        logEntry.took = timer.now() - logEntry.started;
+	        logEntry.nextState = stateTransformer(getState());
+
+	        printBuffer();
+
+	        if (logEntry.error) throw logEntry.error;
+	        return returnedValue;
+	      };
+	    };
+	  };
+	}
+
+	module.exports = createLogger;
 
 /***/ }
 /******/ ]);

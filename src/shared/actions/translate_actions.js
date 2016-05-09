@@ -13,15 +13,17 @@ export const changeLocale = locale => {
 const receiveTranslations = translations => {
     return {
         type: TRANSLATIONS_RECEIVE,
-        'translation': translations
+        translation: translations
     }
 };
 
 //async action. with Thunk middleware applied to our store we can dispatch async actions.
-export const fetchTranslations = () => {
+const fetchTranslations = () => {
     return (dispatch) => {
-        return fetch('http://localhost:9001/content')
+        return fetch('http://localhost:9001/translation')
             .then(response => response.json())
-            .then(translations => dispatch(receiveTranslations(translations)))
+            .then(translation => dispatch(receiveTranslations(translation)))
     }
 };
+
+export default fetchTranslations;

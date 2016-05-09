@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 
 export default class LocaleLinks extends Component {
-    constructor() {
+    constructor(props) {
         super(props);
     }
 

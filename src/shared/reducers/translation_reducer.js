@@ -1,6 +1,8 @@
 import { TRANSLATIONS_RECEIVE, CHANGE_LOCALE} from '../actions/translate_actions';
 
 const translationReducer = (state = { "isFetching": true, "translation": {} }, action) => {
+    console.log("Translation " + JSON.stringify(action));
+    
     switch (action.type) {
         case TRANSLATIONS_RECEIVE:
             console.log("@TranslationReducer => calling action fetch translations");
@@ -8,8 +10,8 @@ const translationReducer = (state = { "isFetching": true, "translation": {} }, a
             //Using es6 spread operator in advantage of Object.assign({}, state, { your modifications }); ugly syntax
             return {
                 ...state,
-                "isFetching": false,
-                "translation": action.translation
+                isFetching: false,
+                translation: action.translation
             };
 
         case CHANGE_LOCALE:
@@ -18,12 +20,11 @@ const translationReducer = (state = { "isFetching": true, "translation": {} }, a
             //Using es6 spread operator in advantage of Object.assign({}, state, { your modifications }); ugly syntax
             return {
                 ...state,
-                "isFetching": false,
-                "selectedLocale": action.locale
+                isFetching: false,
+                selectedLocale: action.locale
             };
 
         default:
-            console.log("@TranslationReducer => calling default action");
             return state; 
     }
 };

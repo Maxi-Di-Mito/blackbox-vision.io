@@ -2,76 +2,76 @@
   "content": {
     "contents": [
       {
-        "componentId": "x",
-        "styles": {
-
-        },
-        "icons": [
-          {
-            "iconId": "",
-            "iconUrl": ""
-          }
-        ],
-        "images": [
-          {
-            "imageId": "",
-            "imageUrl": ""
-          }
-        ],
-        "videos": [
-          {
-            "videoId": "",
-            "videoUrl": ""
-          }
-        ]
+        "componentName": {
+          "styles": {
+          },
+          "icons": [
+            {
+              "iconId": "",
+              "iconUrl": ""
+            }
+          ],
+          "images": [
+            {
+              "imageId": "",
+              "imageUrl": ""
+            }
+          ],
+          "videos": [
+            {
+              "videoId": "",
+              "videoUrl": ""
+            }
+          ]
+        }
       },
       {
-        "componentId": "y",
-        "styles": {
-
-        },
-        "icons": [
-          {
-            "iconId": "",
-            "iconUrl": ""
-          }
-        ],
-        "images": [
-          {
-            "imageId": "",
-            "imageUrl": ""
-          }
-        ],
-        "videos": [
-          {
-            "videoId": "",
-            "videoUrl": ""
-          }
-        ]
+        "componentName": {
+          "styles": {
+          },
+          "icons": [
+            {
+              "iconId": "",
+              "iconUrl": ""
+            }
+          ],
+          "images": [
+            {
+              "imageId": "",
+              "imageUrl": ""
+            }
+          ],
+          "videos": [
+            {
+              "videoId": "",
+              "videoUrl": ""
+            }
+          ]
+        }
       },
       {
-        "componentId": "z",
-        "styles": {
-
-        },
-        "icons": [
-          {
-            "iconId": "",
-            "iconUrl": ""
-          }
-        ],
-        "images": [
-          {
-            "imageId": "",
-            "imageUrl": ""
-          }
-        ],
-        "videos": [
-          {
-            "videoId": "",
-            "videoUrl": ""
-          }
-        ]
+        "componentName": {
+          "styles": {
+          },
+          "icons": [
+            {
+              "iconId": "",
+              "iconUrl": ""
+            }
+          ],
+          "images": [
+            {
+              "imageId": "",
+              "imageUrl": ""
+            }
+          ],
+          "videos": [
+            {
+              "videoId": "",
+              "videoUrl": ""
+            }
+          ]
+        }
       }
     ]
   }
