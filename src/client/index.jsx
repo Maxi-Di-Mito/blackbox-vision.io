@@ -4,13 +4,13 @@ import { Provider } from 'react-redux'
 import { createStore, applyMiddleware } from 'redux'
 import thunk from 'redux-thunk'
 import rootReducer from '../shared/reducers/combined_reducers'
-import LocaleLinks from '../shared/components/LocaleLinks.jsx'
+import Application from '../shared/containers/Application.jsx'
 
 const store = createStore(rootReducer, applyMiddleware(thunk));
 
 ReactDOM.render(
     <Provider store={store}>
-		<LocaleLinks />
+		<Application />
     </Provider>,
     document.getElementById('app')
 );
