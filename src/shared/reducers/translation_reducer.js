@@ -1,11 +1,9 @@
 import { TRANSLATIONS_RECEIVE, CHANGE_LOCALE} from '../actions/translate_actions';
-import Winston from 'winston';
 
-//TODO JS: Delete log calls
 const translationReducer = (state = { "isFetching": true, "translation": {} }, action) => {
     switch (action.type) {
         case TRANSLATIONS_RECEIVE:
-            Winston.log("info", "@TranslationReducer => calling action fetch translations");
+            console.log("@TranslationReducer => calling action fetch translations");
 
             //Using es6 spread operator in advantage of Object.assign({}, state, { your modifications }); ugly syntax
             return {
@@ -15,7 +13,7 @@ const translationReducer = (state = { "isFetching": true, "translation": {} }, a
             };
 
         case CHANGE_LOCALE:
-            Winston.log("info", "@TranslationReducer => calling action translate for locale: " + action.locale);
+            console.log("@TranslationReducer => calling action translate for locale: " + action.locale);
 
             //Using es6 spread operator in advantage of Object.assign({}, state, { your modifications }); ugly syntax
             return {
@@ -25,7 +23,7 @@ const translationReducer = (state = { "isFetching": true, "translation": {} }, a
             };
 
         default:
-            Winston.log("info", "@TranslationReducer => calling default action");
+            console.log("@TranslationReducer => calling default action");
             return state; 
     }
 };

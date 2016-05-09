@@ -11,7 +11,9 @@ var router = express.Router();
 var app = express();
 
 //Default route
-router.get("/", services.getHtml);
+router.get("/", (request, response) => {
+    response.sendFile("index.html", {root: server_config.PUBLIC_STATIC_CONTENT_DIR});
+});
 
 //Custom routes
 router.get("/translation", Q.async(services.getTranslations));
