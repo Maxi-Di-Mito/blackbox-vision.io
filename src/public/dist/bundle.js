@@ -21952,22 +21952,14 @@
 	    var state = arguments.length <= 0 || arguments[0] === undefined ? { "isFetching": true, "translation": {} } : arguments[0];
 	    var action = arguments[1];
 
-	    console.log("Translation " + JSON.stringify(action));
-
 	    switch (action.type) {
 	        case _translate_actions.TRANSLATIONS_RECEIVE:
-	            console.log("@TranslationReducer => calling action fetch translations");
-
-	            //Using es6 spread operator in advantage of Object.assign({}, state, { your modifications }); ugly syntax
 	            return _extends({}, state, {
 	                isFetching: false,
 	                translation: action.translation
 	            });
 
 	        case _translate_actions.CHANGE_LOCALE:
-	            console.log("@TranslationReducer => calling action translate for locale: " + action.locale);
-
-	            //Using es6 spread operator in advantage of Object.assign({}, state, { your modifications }); ugly syntax
 	            return _extends({}, state, {
 	                isFetching: false,
 	                selectedLocale: action.locale
@@ -22496,13 +22488,8 @@
 	    var state = arguments.length <= 0 || arguments[0] === undefined ? { "isFetching": true, "content": {} } : arguments[0];
 	    var action = arguments[1];
 
-	    console.log("Content " + JSON.stringify(state));
-
 	    switch (action.type) {
 	        case _content_actions.CONTENT_RECEIVE:
-	            console.log("@ContentReducer => calling action fetch content");
-
-	            //Using es6 spread operator in advantage of Object.assign({}, state, { your modifications }); ugly syntax
 	            return _extends({}, state, {
 	                isFetching: false,
 	                content: action.content

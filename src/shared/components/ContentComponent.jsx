@@ -3,7 +3,6 @@ import { connect } from 'react-redux'
 
 const ContentComponent = () => (false);
 
-
 ContentComponent.propTypes = {
     content: PropTypes.object,
     translation: PropTypes.object,
