@@ -63,32 +63,19 @@
 
 	var _reactRedux = __webpack_require__(169);
 
-	var _redux = __webpack_require__(176);
+	var _store = __webpack_require__(195);
 
-	var _reduxThunk = __webpack_require__(195);
+	var _store2 = _interopRequireDefault(_store);
 
-	var _reduxThunk2 = _interopRequireDefault(_reduxThunk);
-
-	var _combined_reducers = __webpack_require__(196);
-
-	var _combined_reducers2 = _interopRequireDefault(_combined_reducers);
-
-	var _Application = __webpack_require__(203);
+	var _Application = __webpack_require__(205);
 
 	var _Application2 = _interopRequireDefault(_Application);
 
-	var _reduxLogger = __webpack_require__(205);
-
-	var _reduxLogger2 = _interopRequireDefault(_reduxLogger);
-
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	var Logger = (0, _reduxLogger2.default)("log");
-	var store = (0, _redux.createStore)(_combined_reducers2.default, (0, _redux.applyMiddleware)(_reduxThunk2.default, Logger));
 
 	_reactDom2.default.render(_react2.default.createElement(
 	    _reactRedux.Provider,
-	    { store: store },
+	    { store: _store2.default },
 	    _react2.default.createElement(_Application2.default, null)
 	), document.getElementById('app'));
 
@@ -21882,26 +21869,45 @@
 
 /***/ },
 /* 195 */
-/***/ function(module, exports) {
+/***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	exports.__esModule = true;
-	exports['default'] = thunkMiddleware;
-	function thunkMiddleware(_ref) {
-	  var dispatch = _ref.dispatch;
-	  var getState = _ref.getState;
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
 
-	  return function (next) {
-	    return function (action) {
-	      if (typeof action === 'function') {
-	        return action(dispatch, getState);
-	      }
+	var _combined_reducers = __webpack_require__(196);
 
-	      return next(action);
-	    };
-	  };
-	}
+	var _combined_reducers2 = _interopRequireDefault(_combined_reducers);
+
+	var _redux = __webpack_require__(176);
+
+	var _reduxLogger = __webpack_require__(203);
+
+	var _reduxLogger2 = _interopRequireDefault(_reduxLogger);
+
+	var _reduxThunk = __webpack_require__(204);
+
+	var _reduxThunk2 = _interopRequireDefault(_reduxThunk);
+
+	var _translate_actions = __webpack_require__(198);
+
+	var _translate_actions2 = _interopRequireDefault(_translate_actions);
+
+	var _content_actions = __webpack_require__(202);
+
+	var _content_actions2 = _interopRequireDefault(_content_actions);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var Logger = (0, _reduxLogger2.default)("log");
+	var store = (0, _redux.createStore)(_combined_reducers2.default, (0, _redux.applyMiddleware)(_reduxThunk2.default, Logger));
+
+	store.dispatch((0, _content_actions2.default)());
+	store.dispatch((0, _translate_actions2.default)());
+
+	exports.default = store;
 
 /***/ },
 /* 196 */
@@ -22550,140 +22556,6 @@
 
 /***/ },
 /* 203 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-	var _react = __webpack_require__(2);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _LocaleLinks = __webpack_require__(204);
-
-	var _LocaleLinks2 = _interopRequireDefault(_LocaleLinks);
-
-	var _reactRedux = __webpack_require__(169);
-
-	var _content_actions = __webpack_require__(202);
-
-	var _content_actions2 = _interopRequireDefault(_content_actions);
-
-	var _translate_actions = __webpack_require__(198);
-
-	var _translate_actions2 = _interopRequireDefault(_translate_actions);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-	var Application = function (_Component) {
-	    _inherits(Application, _Component);
-
-	    function Application(props) {
-	        _classCallCheck(this, Application);
-
-	        return _possibleConstructorReturn(this, Object.getPrototypeOf(Application).call(this, props));
-	    }
-
-	    _createClass(Application, [{
-	        key: 'componentDidMount',
-	        value: function componentDidMount() {
-	            this.props.dispatch((0, _content_actions2.default)());
-	            this.props.dispatch((0, _translate_actions2.default)());
-	        }
-	    }, {
-	        key: 'render',
-	        value: function render() {
-	            return _react2.default.createElement(
-	                'div',
-	                null,
-	                _react2.default.createElement(_LocaleLinks2.default, null)
-	            );
-	        }
-	    }]);
-
-	    return Application;
-	}(_react.Component);
-
-	exports.default = (0, _reactRedux.connect)()(Application);
-
-/***/ },
-/* 204 */
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-	var _react = __webpack_require__(2);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-	var LocaleLinks = function (_Component) {
-	    _inherits(LocaleLinks, _Component);
-
-	    function LocaleLinks(props) {
-	        _classCallCheck(this, LocaleLinks);
-
-	        return _possibleConstructorReturn(this, Object.getPrototypeOf(LocaleLinks).call(this, props));
-	    }
-
-	    _createClass(LocaleLinks, [{
-	        key: "render",
-	        value: function render() {
-	            var divStyle = {
-	                "color": "white",
-	                "backgroundColor": "#009688",
-	                "display": "inline-block",
-	                "padding": "5px"
-	            };
-
-	            return _react2.default.createElement(
-	                "div",
-	                null,
-	                _react2.default.createElement(
-	                    "div",
-	                    { style: divStyle, onclick: "" },
-	                    "English"
-	                ),
-	                _react2.default.createElement(
-	                    "div",
-	                    { style: divStyle, onClick: "" },
-	                    "Spanish"
-	                )
-	            );
-	        }
-	    }]);
-
-	    return LocaleLinks;
-	}(_react.Component);
-
-	exports.default = LocaleLinks;
-
-/***/ },
-/* 205 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -22914,6 +22786,147 @@
 	}
 
 	module.exports = createLogger;
+
+/***/ },
+/* 204 */
+/***/ function(module, exports) {
+
+	'use strict';
+
+	exports.__esModule = true;
+	exports['default'] = thunkMiddleware;
+	function thunkMiddleware(_ref) {
+	  var dispatch = _ref.dispatch;
+	  var getState = _ref.getState;
+
+	  return function (next) {
+	    return function (action) {
+	      if (typeof action === 'function') {
+	        return action(dispatch, getState);
+	      }
+
+	      return next(action);
+	    };
+	  };
+	}
+
+/***/ },
+/* 205 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(2);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _LocaleLinks = __webpack_require__(206);
+
+	var _LocaleLinks2 = _interopRequireDefault(_LocaleLinks);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var Application = function (_Component) {
+	    _inherits(Application, _Component);
+
+	    function Application() {
+	        _classCallCheck(this, Application);
+
+	        return _possibleConstructorReturn(this, Object.getPrototypeOf(Application).apply(this, arguments));
+	    }
+
+	    _createClass(Application, [{
+	        key: 'render',
+	        value: function render() {
+	            return _react2.default.createElement(
+	                'div',
+	                null,
+	                _react2.default.createElement(_LocaleLinks2.default, null)
+	            );
+	        }
+	    }]);
+
+	    return Application;
+	}(_react.Component);
+
+	exports.default = Application;
+
+/***/ },
+/* 206 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(2);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var LocaleLinks = function (_Component) {
+	    _inherits(LocaleLinks, _Component);
+
+	    function LocaleLinks(props) {
+	        _classCallCheck(this, LocaleLinks);
+
+	        return _possibleConstructorReturn(this, Object.getPrototypeOf(LocaleLinks).call(this, props));
+	    }
+
+	    _createClass(LocaleLinks, [{
+	        key: "render",
+	        value: function render() {
+	            var divStyle = {
+	                "color": "white",
+	                "backgroundColor": "#009688",
+	                "display": "inline-block",
+	                "padding": "5px"
+	            };
+
+	            return _react2.default.createElement(
+	                "div",
+	                null,
+	                _react2.default.createElement(
+	                    "div",
+	                    { style: divStyle, onclick: "" },
+	                    "English"
+	                ),
+	                _react2.default.createElement(
+	                    "div",
+	                    { style: divStyle, onClick: "" },
+	                    "Spanish"
+	                )
+	            );
+	        }
+	    }]);
+
+	    return LocaleLinks;
+	}(_react.Component);
+
+	exports.default = LocaleLinks;
 
 /***/ }
 /******/ ]);
