@@ -194,6 +194,9 @@
 	var queueIndex = -1;
 
 	function cleanUpNextTick() {
+	    if (!draining || !currentQueue) {
+	        return;
+	    }
 	    draining = false;
 	    if (currentQueue.length) {
 	        queue = currentQueue.concat(queue);
@@ -21938,7 +21941,7 @@
 /* 197 */
 /***/ function(module, exports, __webpack_require__) {
 
-	"use strict";
+	'use strict';
 
 	Object.defineProperty(exports, "__esModule", {
 	    value: true
@@ -21949,7 +21952,7 @@
 	var _translate_actions = __webpack_require__(198);
 
 	var translationReducer = function translationReducer() {
-	    var state = arguments.length <= 0 || arguments[0] === undefined ? { "isFetching": true, "translation": {} } : arguments[0];
+	    var state = arguments.length <= 0 || arguments[0] === undefined ? { isFetching: true, translation: {} } : arguments[0];
 	    var action = arguments[1];
 
 	    switch (action.type) {
@@ -21999,11 +22002,11 @@
 	    };
 	};
 
-	var receiveTranslations = function receiveTranslations(translations) {
-	    return {
+	var sendTranslations = function sendTranslations(dispatch, translations) {
+	    dispatch({
 	        type: TRANSLATIONS_RECEIVE,
 	        translation: translations
-	    };
+	    });
 	};
 
 	//async action. with Thunk middleware applied to our store we can dispatch async actions.
@@ -22012,7 +22015,7 @@
 	        return (0, _isomorphicFetch2.default)('http://localhost:9001/translation').then(function (response) {
 	            return response.json();
 	        }).then(function (translation) {
-	            return dispatch(receiveTranslations(translation));
+	            return sendTranslations(dispatch, translation);
 	        });
 	    };
 	};
@@ -22474,7 +22477,7 @@
 /* 201 */
 /***/ function(module, exports, __webpack_require__) {
 
-	"use strict";
+	'use strict';
 
 	Object.defineProperty(exports, "__esModule", {
 	    value: true
@@ -22485,7 +22488,7 @@
 	var _content_actions = __webpack_require__(202);
 
 	var contentReducer = function contentReducer() {
-	    var state = arguments.length <= 0 || arguments[0] === undefined ? { "isFetching": true, "content": {} } : arguments[0];
+	    var state = arguments.length <= 0 || arguments[0] === undefined ? { isFetching: true, content: {} } : arguments[0];
 	    var action = arguments[1];
 
 	    switch (action.type) {
@@ -22521,11 +22524,11 @@
 
 	var CONTENT_RECEIVE = exports.CONTENT_RECEIVE = 'CONTENT_RECEIVE';
 
-	var receiveContent = function receiveContent(content) {
-	    return {
+	var sendContent = function sendContent(dispatch, content) {
+	    dispatch({
 	        type: CONTENT_RECEIVE,
-	        'content': content
-	    };
+	        content: content
+	    });
 	};
 
 	//async action. with Thunk middleware applied to our store we can dispatch async actions.
@@ -22534,7 +22537,7 @@
 	        return (0, _isomorphicFetch2.default)('http://localhost:9001/content').then(function (response) {
 	            return response.json();
 	        }).then(function (content) {
-	            return dispatch(receiveContent(content));
+	            return sendContent(dispatch, content);
 	        });
 	    };
 	};

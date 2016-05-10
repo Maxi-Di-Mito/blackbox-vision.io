@@ -1,6 +1,6 @@
 import { CONTENT_RECEIVE } from '../actions/content_actions';
 
-const contentReducer = (state = { "isFetching": true, "content": {} }, action) => {
+const contentReducer = (state = { isFetching: true, content: {} }, action) => {
     switch (action.type) {
         case CONTENT_RECEIVE:
             return {

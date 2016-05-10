@@ -7,7 +7,6 @@ ContentComponent.propTypes = {
     content: PropTypes.object,
     translation: PropTypes.object,
     componentId: PropTypes.string
-
 };
 
 const mapStateToProps = (state) => {
@@ -18,9 +17,6 @@ const mapStateToProps = (state) => {
         translation
     }
 };
-
-
-
 
 export default connect(mapStateToProps)(ContentComponent);
 
