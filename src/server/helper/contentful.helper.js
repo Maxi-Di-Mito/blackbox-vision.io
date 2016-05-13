@@ -2,7 +2,7 @@ const ContentFulConfig = require('../config/contentful.config');
 const contentFul = require('contentful');
 
 module.exports =  {
-    findContent: (entryId = '26cpea0IS06MkMAYMQ2w4Y', depth = 10) => {
+    findContent: (entryId = '26cpea0IS06MkMAYMQ2w4Y', depth = ContentFulConfig.CONTENTFUL_SCAN_DEPTH) => {
         const entryParams = {'sys.id': entryId, 'include': depth };
 
         return contentFul

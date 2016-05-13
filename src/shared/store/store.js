@@ -1,15 +1,14 @@
-import rootReducer from '../../shared/reducers/combined_reducers'
+import rootReducer from '../reducers/combined.reducers'
 import { createStore, applyMiddleware } from 'redux'
 import createLogger from 'redux-logger';
 import thunk from 'redux-thunk'
 
-import fetchTranslations from '../actions/translate_actions'
-import fetchContent from '../actions/content_actions'
+import fetchContent from '../actions/content.actions'
 
 const Logger = createLogger("log");
 const store = createStore(rootReducer, applyMiddleware(thunk, Logger));
 
+//Not recommended way, only done this for poc purpose
 store.dispatch(fetchContent());
-store.dispatch(fetchTranslations());
 
 export default store;

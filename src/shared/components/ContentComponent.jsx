@@ -5,16 +5,13 @@ const ContentComponent = () => (false);
 
 ContentComponent.propTypes = {
     content: PropTypes.object,
-    translation: PropTypes.object,
     componentId: PropTypes.string
 };
 
 const mapStateToProps = (state) => {
     const { content } = state.content.contents[this.props.componentId];
-    const { translation } = state.translation.translations[this.props.componentId];
     return {
-        content,
-        translation
+        content
     }
 };
 

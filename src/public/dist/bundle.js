@@ -67,7 +67,7 @@
 
 	var _store2 = _interopRequireDefault(_store);
 
-	var _Application = __webpack_require__(205);
+	var _Application = __webpack_require__(203);
 
 	var _Application2 = _interopRequireDefault(_Application);
 
@@ -21877,35 +21877,31 @@
 	  value: true
 	});
 
-	var _combined_reducers = __webpack_require__(196);
+	var _combined = __webpack_require__(196);
 
-	var _combined_reducers2 = _interopRequireDefault(_combined_reducers);
+	var _combined2 = _interopRequireDefault(_combined);
 
 	var _redux = __webpack_require__(176);
 
-	var _reduxLogger = __webpack_require__(203);
+	var _reduxLogger = __webpack_require__(201);
 
 	var _reduxLogger2 = _interopRequireDefault(_reduxLogger);
 
-	var _reduxThunk = __webpack_require__(204);
+	var _reduxThunk = __webpack_require__(202);
 
 	var _reduxThunk2 = _interopRequireDefault(_reduxThunk);
 
-	var _translate_actions = __webpack_require__(198);
+	var _content = __webpack_require__(198);
 
-	var _translate_actions2 = _interopRequireDefault(_translate_actions);
-
-	var _content_actions = __webpack_require__(202);
-
-	var _content_actions2 = _interopRequireDefault(_content_actions);
+	var _content2 = _interopRequireDefault(_content);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	var Logger = (0, _reduxLogger2.default)("log");
-	var store = (0, _redux.createStore)(_combined_reducers2.default, (0, _redux.applyMiddleware)(_reduxThunk2.default, Logger));
+	var store = (0, _redux.createStore)(_combined2.default, (0, _redux.applyMiddleware)(_reduxThunk2.default, Logger));
 
-	store.dispatch((0, _content_actions2.default)());
-	store.dispatch((0, _translate_actions2.default)());
+	//Not recommended way, only done this for poc purpose
+	store.dispatch((0, _content2.default)());
 
 	exports.default = store;
 
@@ -21919,20 +21915,16 @@
 	  value: true
 	});
 
-	var _translation_reducer = __webpack_require__(197);
+	var _content = __webpack_require__(197);
 
-	var _translation_reducer2 = _interopRequireDefault(_translation_reducer);
-
-	var _content_reducer = __webpack_require__(201);
-
-	var _content_reducer2 = _interopRequireDefault(_content_reducer);
+	var _content2 = _interopRequireDefault(_content);
 
 	var _redux = __webpack_require__(176);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	//Here we will import and combine all the reducers we define
-	exports.default = (0, _redux.combineReducers)({ translationReducer: _translation_reducer2.default, contentReducer: _content_reducer2.default });
+	exports.default = (0, _redux.combineReducers)({ contentReducer: _content2.default });
 
 /***/ },
 /* 197 */
@@ -21946,22 +21938,32 @@
 
 	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
-	var _translate_actions = __webpack_require__(198);
+	var _content = __webpack_require__(198);
 
-	var translationReducer = function translationReducer() {
-	    var state = arguments.length <= 0 || arguments[0] === undefined ? { isFetching: true, translation: {} } : arguments[0];
+	var initialState = {
+	    isFetching: true,
+	    didInvalidate: false,
+	    selectedLocale: 'en',
+	    content: {}
+	};
+
+	var contentReducer = function contentReducer() {
+	    var state = arguments.length <= 0 || arguments[0] === undefined ? initialState : arguments[0];
 	    var action = arguments[1];
 
 	    switch (action.type) {
-	        case _translate_actions.TRANSLATIONS_RECEIVE:
+	        case _content.CONTENT_RECEIVE:
 	            return _extends({}, state, {
 	                isFetching: false,
-	                translation: action.translation
+	                didInvalidate: true,
+	                selectedLocale: 'en',
+	                content: action.content
 	            });
 
-	        case _translate_actions.CHANGE_LOCALE:
+	        case _content.CHANGE_LOCALE:
 	            return _extends({}, state, {
 	                isFetching: false,
+	                didInvalidate: true,
 	                selectedLocale: action.locale
 	            });
 
@@ -21970,18 +21972,18 @@
 	    }
 	};
 
-	exports.default = translationReducer;
+	exports.default = contentReducer;
 
 /***/ },
 /* 198 */
 /***/ function(module, exports, __webpack_require__) {
 
-	"use strict";
+	'use strict';
 
 	Object.defineProperty(exports, "__esModule", {
 	    value: true
 	});
-	exports.CHANGE_LOCALE = exports.TRANSLATIONS_RECEIVE = undefined;
+	exports.localeChange = exports.CONTENT_RECEIVE = exports.CHANGE_LOCALE = undefined;
 
 	var _isomorphicFetch = __webpack_require__(199);
 
@@ -21989,36 +21991,37 @@
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	var TRANSLATIONS_RECEIVE = exports.TRANSLATIONS_RECEIVE = "TRANSLATIONS_RECEIVE";
 	var CHANGE_LOCALE = exports.CHANGE_LOCALE = "CHANGE_LOCALE";
+	var CONTENT_RECEIVE = exports.CONTENT_RECEIVE = 'CONTENT_RECEIVE';
 
-	var sendLocaleChange = function sendLocaleChange(dispatch, locale) {
-	    dispatch({
+	var sendContent = function sendContent(content) {
+	    return {
+	        type: CONTENT_RECEIVE,
+	        content: content
+	    };
+	};
+
+	var localeChange = exports.localeChange = function localeChange() {
+	    var locale = arguments.length <= 0 || arguments[0] === undefined ? 'en' : arguments[0];
+
+	    return {
 	        type: CHANGE_LOCALE,
 	        locale: locale
-	    });
+	    };
 	};
 
-	var sendTranslations = function sendTranslations(dispatch, translations) {
-	    dispatch({
-	        type: TRANSLATIONS_RECEIVE,
-	        translation: translations
-	    });
-	};
-
-	//async action. with Thunk middleware applied to our store we can dispatch async actions.
-	var fetchTranslations = function fetchTranslations() {
+	//Async action. With Thunk middleware applied to our store we can dispatch async actions.
+	var fetchContent = function fetchContent() {
 	    return function (dispatch) {
-	        return (0, _isomorphicFetch2.default)('http://localhost:9001/translation').then(function (response) {
+	        return (0, _isomorphicFetch2.default)('http://localhost:9001/content').then(function (response) {
 	            return response.json();
-	        }).then(function (translation) {
-	            return sendTranslations(dispatch, translation);
+	        }).then(function (content) {
+	            return dispatch(sendContent(content));
 	        });
 	    };
 	};
 
-	exports.default = sendLocaleChange;
-	exports.default = fetchTranslations;
+	exports.default = fetchContent;
 
 /***/ },
 /* 199 */
@@ -22473,77 +22476,6 @@
 
 /***/ },
 /* 201 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-
-	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-
-	var _content_actions = __webpack_require__(202);
-
-	var contentReducer = function contentReducer() {
-	    var state = arguments.length <= 0 || arguments[0] === undefined ? { isFetching: true, content: {} } : arguments[0];
-	    var action = arguments[1];
-
-	    switch (action.type) {
-	        case _content_actions.CONTENT_RECEIVE:
-	            return _extends({}, state, {
-	                isFetching: false,
-	                content: action.content
-	            });
-
-	        default:
-	            return state;
-	    }
-	};
-
-	exports.default = contentReducer;
-
-/***/ },
-/* 202 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-	exports.CONTENT_RECEIVE = undefined;
-
-	var _isomorphicFetch = __webpack_require__(199);
-
-	var _isomorphicFetch2 = _interopRequireDefault(_isomorphicFetch);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	var CONTENT_RECEIVE = exports.CONTENT_RECEIVE = 'CONTENT_RECEIVE';
-
-	var sendContent = function sendContent(dispatch, content) {
-	    dispatch({
-	        type: CONTENT_RECEIVE,
-	        content: content
-	    });
-	};
-
-	//async action. with Thunk middleware applied to our store we can dispatch async actions.
-	var fetchContent = function fetchContent() {
-	    return function (dispatch) {
-	        return (0, _isomorphicFetch2.default)('http://localhost:9001/content').then(function (response) {
-	            return response.json();
-	        }).then(function (content) {
-	            return sendContent(dispatch, content);
-	        });
-	    };
-	};
-
-	exports.default = fetchContent;
-
-/***/ },
-/* 203 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -22776,7 +22708,7 @@
 	module.exports = createLogger;
 
 /***/ },
-/* 204 */
+/* 202 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -22799,7 +22731,7 @@
 	}
 
 /***/ },
-/* 205 */
+/* 203 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -22814,7 +22746,7 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _LocaleLinks = __webpack_require__(206);
+	var _LocaleLinks = __webpack_require__(204);
 
 	var _LocaleLinks2 = _interopRequireDefault(_LocaleLinks);
 
@@ -22855,7 +22787,7 @@
 	exports.default = Application;
 
 /***/ },
-/* 206 */
+/* 204 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
