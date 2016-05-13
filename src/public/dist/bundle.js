@@ -21983,7 +21983,7 @@
 	Object.defineProperty(exports, "__esModule", {
 	    value: true
 	});
-	exports.localeChange = exports.CONTENT_RECEIVE = exports.CHANGE_LOCALE = undefined;
+	exports.sendLocaleChanged = exports.CONTENT_RECEIVE = exports.CHANGE_LOCALE = undefined;
 
 	var _isomorphicFetch = __webpack_require__(199);
 
@@ -21994,20 +21994,18 @@
 	var CHANGE_LOCALE = exports.CHANGE_LOCALE = "CHANGE_LOCALE";
 	var CONTENT_RECEIVE = exports.CONTENT_RECEIVE = 'CONTENT_RECEIVE';
 
-	var sendContent = function sendContent(content) {
-	    return {
+	var sendContentFetched = function sendContentFetched(dispatch, content) {
+	    dispatch({
 	        type: CONTENT_RECEIVE,
 	        content: content
-	    };
+	    });
 	};
 
-	var localeChange = exports.localeChange = function localeChange() {
-	    var locale = arguments.length <= 0 || arguments[0] === undefined ? 'en' : arguments[0];
-
-	    return {
+	var sendLocaleChanged = exports.sendLocaleChanged = function sendLocaleChanged(dispatch, locale) {
+	    dispatch({
 	        type: CHANGE_LOCALE,
 	        locale: locale
-	    };
+	    });
 	};
 
 	//Async action. With Thunk middleware applied to our store we can dispatch async actions.
@@ -22016,7 +22014,7 @@
 	        return (0, _isomorphicFetch2.default)('http://localhost:9001/content').then(function (response) {
 	            return response.json();
 	        }).then(function (content) {
-	            return dispatch(sendContent(content));
+	            return sendContentFetched(dispatch, content);
 	        });
 	    };
 	};
