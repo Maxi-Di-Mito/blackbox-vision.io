@@ -15,5 +15,4 @@ module.exports.getFile = (path, filename, callback) => {
             callback(new Error("Specified path doesn't exist " + path));
         }
     });
-
 };

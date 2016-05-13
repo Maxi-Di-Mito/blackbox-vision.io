@@ -194,9 +194,6 @@
 	var queueIndex = -1;
 
 	function cleanUpNextTick() {
-	    if (!draining || !currentQueue) {
-	        return;
-	    }
 	    draining = false;
 	    if (currentQueue.length) {
 	        queue = currentQueue.concat(queue);
@@ -21984,7 +21981,7 @@
 	Object.defineProperty(exports, "__esModule", {
 	    value: true
 	});
-	exports.changeLocale = exports.CHANGE_LOCALE = exports.TRANSLATIONS_RECEIVE = undefined;
+	exports.CHANGE_LOCALE = exports.TRANSLATIONS_RECEIVE = undefined;
 
 	var _isomorphicFetch = __webpack_require__(199);
 
@@ -21995,11 +21992,11 @@
 	var TRANSLATIONS_RECEIVE = exports.TRANSLATIONS_RECEIVE = "TRANSLATIONS_RECEIVE";
 	var CHANGE_LOCALE = exports.CHANGE_LOCALE = "CHANGE_LOCALE";
 
-	var changeLocale = exports.changeLocale = function changeLocale(locale) {
-	    return {
+	var sendLocaleChange = function sendLocaleChange(dispatch, locale) {
+	    dispatch({
 	        type: CHANGE_LOCALE,
 	        locale: locale
-	    };
+	    });
 	};
 
 	var sendTranslations = function sendTranslations(dispatch, translations) {
@@ -22020,6 +22017,7 @@
 	    };
 	};
 
+	exports.default = sendLocaleChange;
 	exports.default = fetchTranslations;
 
 /***/ },
@@ -22831,13 +22829,16 @@
 	var Application = function (_Component) {
 	    _inherits(Application, _Component);
 
-	    function Application() {
+	    function Application(props) {
 	        _classCallCheck(this, Application);
 
-	        return _possibleConstructorReturn(this, Object.getPrototypeOf(Application).apply(this, arguments));
+	        return _possibleConstructorReturn(this, Object.getPrototypeOf(Application).call(this, props));
 	    }
 
 	    _createClass(Application, [{
+	        key: 'componentDidMount',
+	        value: function componentDidMount() {}
+	    }, {
 	        key: 'render',
 	        value: function render() {
 	            return _react2.default.createElement(

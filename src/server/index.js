@@ -1,4 +1,4 @@
-var server_config = require('./config/server_config');
+var server_config = require('./config/server.config');
 var mongoose = require('mongoose');
 var Winston = require('winston');
 

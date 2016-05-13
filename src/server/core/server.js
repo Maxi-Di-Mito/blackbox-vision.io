@@ -1,4 +1,4 @@
-var server_config = require('../config/server_config');
+var server_config = require('../config/server.config');
 var services = require('../service/services');
 var bodyParser = require('body-parser');
 var express = require('express');
@@ -16,7 +16,6 @@ router.get("/", (request, response) => {
 });
 
 //Custom routes
-router.get("/translation", Q.async(services.getTranslations));
 router.get("/content", Q.async(services.getContent));
 
 //Set views..
