@@ -21891,17 +21891,10 @@
 
 	var _reduxThunk2 = _interopRequireDefault(_reduxThunk);
 
-	var _content = __webpack_require__(198);
-
-	var _content2 = _interopRequireDefault(_content);
-
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	var Logger = (0, _reduxLogger2.default)("log");
 	var store = (0, _redux.createStore)(_combined2.default, (0, _redux.applyMiddleware)(_reduxThunk2.default, Logger));
-
-	//Not recommended way, only done this for poc purpose
-	store.dispatch((0, _content2.default)());
 
 	exports.default = store;
 
@@ -21924,7 +21917,7 @@
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	//Here we will import and combine all the reducers we define
-	exports.default = (0, _redux.combineReducers)({ contentReducer: _content2.default });
+	exports.default = (0, _redux.combineReducers)({ content: _content2.default });
 
 /***/ },
 /* 197 */
@@ -21942,9 +21935,9 @@
 
 	var initialState = {
 	    isFetching: true,
-	    didInvalidate: false,
 	    selectedLocale: 'en',
-	    content: {}
+	    availableLocales: ['en', 'es'],
+	    cmsContent: {}
 	};
 
 	var contentReducer = function contentReducer() {
@@ -21955,15 +21948,12 @@
 	        case _content.CONTENT_RECEIVE:
 	            return _extends({}, state, {
 	                isFetching: false,
-	                didInvalidate: true,
-	                selectedLocale: 'en',
-	                content: action.content
+	                cmsContent: action.content
 	            });
 
 	        case _content.CHANGE_LOCALE:
 	            return _extends({}, state, {
 	                isFetching: false,
-	                didInvalidate: true,
 	                selectedLocale: action.locale
 	            });
 
@@ -22740,13 +22730,17 @@
 
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
+	var _ContentProvider = __webpack_require__(204);
+
+	var _ContentProvider2 = _interopRequireDefault(_ContentProvider);
+
+	var _LocaleSwitcher = __webpack_require__(205);
+
+	var _LocaleSwitcher2 = _interopRequireDefault(_LocaleSwitcher);
+
 	var _react = __webpack_require__(2);
 
 	var _react2 = _interopRequireDefault(_react);
-
-	var _LocaleLinks = __webpack_require__(204);
-
-	var _LocaleLinks2 = _interopRequireDefault(_LocaleLinks);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -22772,9 +22766,9 @@
 	        key: 'render',
 	        value: function render() {
 	            return _react2.default.createElement(
-	                'div',
+	                _ContentProvider2.default,
 	                null,
-	                _react2.default.createElement(_LocaleLinks2.default, null)
+	                _react2.default.createElement(_LocaleSwitcher2.default, null)
 	            );
 	        }
 	    }]);
@@ -22788,7 +22782,7 @@
 /* 204 */
 /***/ function(module, exports, __webpack_require__) {
 
-	"use strict";
+	'use strict';
 
 	Object.defineProperty(exports, "__esModule", {
 	    value: true
@@ -22796,9 +22790,15 @@
 
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
+	var _content = __webpack_require__(198);
+
+	var _content2 = _interopRequireDefault(_content);
+
 	var _react = __webpack_require__(2);
 
 	var _react2 = _interopRequireDefault(_react);
+
+	var _reactRedux = __webpack_require__(169);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -22808,46 +22808,136 @@
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-	var LocaleLinks = function (_Component) {
-	    _inherits(LocaleLinks, _Component);
+	var ContentProvider = function (_Component) {
+	    _inherits(ContentProvider, _Component);
 
-	    function LocaleLinks(props) {
-	        _classCallCheck(this, LocaleLinks);
+	    function ContentProvider(props) {
+	        _classCallCheck(this, ContentProvider);
 
-	        return _possibleConstructorReturn(this, Object.getPrototypeOf(LocaleLinks).call(this, props));
+	        return _possibleConstructorReturn(this, Object.getPrototypeOf(ContentProvider).call(this, props));
 	    }
 
-	    _createClass(LocaleLinks, [{
-	        key: "render",
+	    _createClass(ContentProvider, [{
+	        key: 'componentDidMount',
+	        value: function componentDidMount() {
+	            this.props.fetchContentData();
+	        }
+	    }, {
+	        key: 'render',
 	        value: function render() {
-	            var divStyle = {
-	                "color": "white",
-	                "backgroundColor": "#009688",
-	                "display": "inline-block",
-	                "padding": "5px"
-	            };
+	            return this.props.children;
+	        }
+	    }]);
+
+	    return ContentProvider;
+	}(_react.Component);
+
+	ContentProvider.propTypes = {
+	    content: _react.PropTypes.object,
+	    componentId: _react.PropTypes.string
+	};
+
+	var mapStateToProps = function mapStateToProps(state) {
+	    var _state$content = state.content;
+	    var isFetching = _state$content.isFetching;
+	    var selectedLocale = _state$content.selectedLocale;
+	    var availableLocales = _state$content.availableLocales;
+	    var cmsContent = _state$content.cmsContent;
+
+
+	    return {
+	        isFetching: isFetching,
+	        selectedLocale: selectedLocale,
+	        availableLocales: availableLocales,
+	        cmsContent: cmsContent
+	    };
+	};
+
+	var mapDispatchToProps = function mapDispatchToProps(dispatch) {
+	    return {
+	        fetchContentData: function fetchContentData() {
+	            dispatch((0, _content2.default)());
+	        }
+	    };
+	};
+
+	exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(ContentProvider);
+
+/***/ },
+/* 205 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _content = __webpack_require__(198);
+
+	var _react = __webpack_require__(2);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _reactRedux = __webpack_require__(169);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var LocaleSwitcher = function (_Component) {
+	    _inherits(LocaleSwitcher, _Component);
+
+	    function LocaleSwitcher(props) {
+	        _classCallCheck(this, LocaleSwitcher);
+
+	        return _possibleConstructorReturn(this, Object.getPrototypeOf(LocaleSwitcher).call(this, props));
+	    }
+
+	    _createClass(LocaleSwitcher, [{
+	        key: 'render',
+	        value: function render() {
+	            var _this2 = this;
 
 	            return _react2.default.createElement(
-	                "div",
+	                'div',
 	                null,
 	                _react2.default.createElement(
-	                    "div",
-	                    { style: divStyle, onclick: "" },
-	                    "English"
+	                    'button',
+	                    { onClick: function onClick() {
+	                            return _this2.props.changeLocale("en");
+	                        } },
+	                    'English'
 	                ),
 	                _react2.default.createElement(
-	                    "div",
-	                    { style: divStyle, onClick: "" },
-	                    "Spanish"
+	                    'button',
+	                    { onClick: function onClick() {
+	                            return _this2.props.changeLocale("es");
+	                        } },
+	                    'Spanish'
 	                )
 	            );
 	        }
 	    }]);
 
-	    return LocaleLinks;
+	    return LocaleSwitcher;
 	}(_react.Component);
 
-	exports.default = LocaleLinks;
+	var mapDispatchToProps = function mapDispatchToProps(dispatch) {
+	    return {
+	        changeLocale: function changeLocale(locale) {
+	            (0, _content.sendLocaleChanged)(dispatch, locale);
+	        }
+	    };
+	};
+
+	exports.default = (0, _reactRedux.connect)(null, mapDispatchToProps)(LocaleSwitcher);
 
 /***/ }
 /******/ ]);

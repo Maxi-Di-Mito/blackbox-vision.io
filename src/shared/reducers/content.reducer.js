@@ -2,9 +2,9 @@ import { CONTENT_RECEIVE, CHANGE_LOCALE } from '../actions/content.actions';
 
 const initialState = {
     isFetching: true,
-    didInvalidate: false,
     selectedLocale: 'en',
-    content: { }
+    availableLocales: ['en', 'es'],
+    cmsContent: { }
 };
 
 const contentReducer = (state = initialState, action) => {
@@ -13,16 +13,13 @@ const contentReducer = (state = initialState, action) => {
             return {
                 ...state,
                 isFetching: false,
-                didInvalidate: true,
-                selectedLocale: 'en',
-                content: action.content
+                cmsContent: action.content
             };
 
         case CHANGE_LOCALE:
             return {
                 ...state,
                 isFetching: false,
-                didInvalidate: true,
                 selectedLocale: action.locale
             };
         

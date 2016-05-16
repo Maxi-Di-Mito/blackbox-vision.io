@@ -1,20 +1,19 @@
+import ContentProvider from '../components/ContentProvider.jsx'
+import LocaleSwitcher from '../components/LocaleSwitcher.jsx'
 import React, { Component ,PropTypes } from 'react'
-import LocaleLinks from '../../shared/components/LocaleLinks.jsx'
 
 class Application extends Component {
     constructor(props) {
         super(props);
     }
 
-    componentDidMount() {
-        
-    }
+    componentDidMount() { }
 
     render() {
         return (
-            <div>
-                <LocaleLinks/>
-            </div>
+            <ContentProvider>
+                <LocaleSwitcher/>
+            </ContentProvider>
         )
     }
 }

@@ -11,11 +11,8 @@ module.exports = {
                 .findContent()
                 .then((data) => {
                     const json = data.items[0].fields;
-                    Winston.log("info", "Data from contentFul: " + JSON.stringify(json));
-
                     const content = ContentFulHelper.sanitizeContent(json);
-                    Winston.log("info", "Data sanitized: " + JSON.stringify(content));
-
+                    
                     //Put data in cache
                     Cache.put('container', content);
 
