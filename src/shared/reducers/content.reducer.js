@@ -4,7 +4,7 @@ const initialState = {
     isFetching: true,
     selectedLocale: 'en',
     availableLocales: ['en', 'es'],
-    cmsContent: { }
+    cmsContent: [ ]
 };
 
 const contentReducer = (state = initialState, action) => {

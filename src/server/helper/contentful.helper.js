@@ -29,8 +29,7 @@ module.exports =  {
             });
 
             const componentInfo = {
-                id: component.fields.id,
-                content: content
+                [component.fields.id]: content
             };
 
             formatted.push(componentInfo);
