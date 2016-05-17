@@ -14,6 +14,8 @@ class Application extends Component {
             <div>
                 <LocaleSwitcher />
                 <Content componentId="header-component" contentId="header1-text" contentType="text"/>
+                <Content componentId="header-component" contentId="header2-text" contentType="text"/>
+                <Content componentId="header-component" contentId="header3-text" contentType="text"/>
                 <Content componentId="header-component" contentId="header-image" contentType="image"/>
             </div>
         )

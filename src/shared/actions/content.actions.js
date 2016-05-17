@@ -38,8 +38,8 @@ export const fetchMockContent = () => {
                     },
                     "es": {
                         "header1-text": "encabezado1",
-                        "header2-text": "Header2 text",
-                        "header3-text": "hey Header3 text "
+                        "header2-text": "encabezado2 text",
+                        "header3-text": "hey encabezado3 text "
                     },
                     "header-image":"//images.contentful.com/yv98ozite9o1/1QSDQJpXBKIc0EqsAIkceI/68d5048c722f4b19c3ad12447446ac96/IMG_0706.JPG"
                 }
