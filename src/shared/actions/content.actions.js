@@ -26,6 +26,7 @@ const fetchContent = () => {
     }
 };
 
+//Mock async action to test the component
 export const fetchMockContent = () => {
     return dispatch => {
         const mockData = [

@@ -63,11 +63,11 @@
 
 	var _reactRedux = __webpack_require__(169);
 
-	var _store = __webpack_require__(195);
+	var _store = __webpack_require__(191);
 
 	var _store2 = _interopRequireDefault(_store);
 
-	var _Application = __webpack_require__(203);
+	var _Application = __webpack_require__(199);
 
 	var _Application2 = _interopRequireDefault(_Application);
 
@@ -194,6 +194,9 @@
 	var queueIndex = -1;
 
 	function cleanUpNextTick() {
+	    if (!draining || !currentQueue) {
+	        return;
+	    }
 	    draining = false;
 	    if (currentQueue.length) {
 	        queue = currentQueue.concat(queue);
@@ -20347,15 +20350,15 @@
 
 	var _warning2 = _interopRequireDefault(_warning);
 
-	var _isPlainObject = __webpack_require__(189);
+	var _isPlainObject = __webpack_require__(178);
 
 	var _isPlainObject2 = _interopRequireDefault(_isPlainObject);
 
-	var _hoistNonReactStatics = __webpack_require__(193);
+	var _hoistNonReactStatics = __webpack_require__(189);
 
 	var _hoistNonReactStatics2 = _interopRequireDefault(_hoistNonReactStatics);
 
-	var _invariant = __webpack_require__(194);
+	var _invariant = __webpack_require__(190);
 
 	var _invariant2 = _interopRequireDefault(_invariant);
 
@@ -21607,164 +21610,6 @@
 
 /***/ },
 /* 189 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var getPrototype = __webpack_require__(190),
-	    isHostObject = __webpack_require__(191),
-	    isObjectLike = __webpack_require__(192);
-
-	/** `Object#toString` result references. */
-	var objectTag = '[object Object]';
-
-	/** Used for built-in method references. */
-	var objectProto = Object.prototype;
-
-	/** Used to resolve the decompiled source of functions. */
-	var funcToString = Function.prototype.toString;
-
-	/** Used to check objects for own properties. */
-	var hasOwnProperty = objectProto.hasOwnProperty;
-
-	/** Used to infer the `Object` constructor. */
-	var objectCtorString = funcToString.call(Object);
-
-	/**
-	 * Used to resolve the
-	 * [`toStringTag`](http://ecma-international.org/ecma-262/6.0/#sec-object.prototype.tostring)
-	 * of values.
-	 */
-	var objectToString = objectProto.toString;
-
-	/**
-	 * Checks if `value` is a plain object, that is, an object created by the
-	 * `Object` constructor or one with a `[[Prototype]]` of `null`.
-	 *
-	 * @static
-	 * @memberOf _
-	 * @since 0.8.0
-	 * @category Lang
-	 * @param {*} value The value to check.
-	 * @returns {boolean} Returns `true` if `value` is a plain object,
-	 *  else `false`.
-	 * @example
-	 *
-	 * function Foo() {
-	 *   this.a = 1;
-	 * }
-	 *
-	 * _.isPlainObject(new Foo);
-	 * // => false
-	 *
-	 * _.isPlainObject([1, 2, 3]);
-	 * // => false
-	 *
-	 * _.isPlainObject({ 'x': 0, 'y': 0 });
-	 * // => true
-	 *
-	 * _.isPlainObject(Object.create(null));
-	 * // => true
-	 */
-	function isPlainObject(value) {
-	  if (!isObjectLike(value) ||
-	      objectToString.call(value) != objectTag || isHostObject(value)) {
-	    return false;
-	  }
-	  var proto = getPrototype(value);
-	  if (proto === null) {
-	    return true;
-	  }
-	  var Ctor = hasOwnProperty.call(proto, 'constructor') && proto.constructor;
-	  return (typeof Ctor == 'function' &&
-	    Ctor instanceof Ctor && funcToString.call(Ctor) == objectCtorString);
-	}
-
-	module.exports = isPlainObject;
-
-
-/***/ },
-/* 190 */
-/***/ function(module, exports) {
-
-	/* Built-in method references for those with the same name as other `lodash` methods. */
-	var nativeGetPrototype = Object.getPrototypeOf;
-
-	/**
-	 * Gets the `[[Prototype]]` of `value`.
-	 *
-	 * @private
-	 * @param {*} value The value to query.
-	 * @returns {null|Object} Returns the `[[Prototype]]`.
-	 */
-	function getPrototype(value) {
-	  return nativeGetPrototype(Object(value));
-	}
-
-	module.exports = getPrototype;
-
-
-/***/ },
-/* 191 */
-/***/ function(module, exports) {
-
-	/**
-	 * Checks if `value` is a host object in IE < 9.
-	 *
-	 * @private
-	 * @param {*} value The value to check.
-	 * @returns {boolean} Returns `true` if `value` is a host object, else `false`.
-	 */
-	function isHostObject(value) {
-	  // Many host objects are `Object` objects that can coerce to strings
-	  // despite having improperly defined `toString` methods.
-	  var result = false;
-	  if (value != null && typeof value.toString != 'function') {
-	    try {
-	      result = !!(value + '');
-	    } catch (e) {}
-	  }
-	  return result;
-	}
-
-	module.exports = isHostObject;
-
-
-/***/ },
-/* 192 */
-/***/ function(module, exports) {
-
-	/**
-	 * Checks if `value` is object-like. A value is object-like if it's not `null`
-	 * and has a `typeof` result of "object".
-	 *
-	 * @static
-	 * @memberOf _
-	 * @since 4.0.0
-	 * @category Lang
-	 * @param {*} value The value to check.
-	 * @returns {boolean} Returns `true` if `value` is object-like, else `false`.
-	 * @example
-	 *
-	 * _.isObjectLike({});
-	 * // => true
-	 *
-	 * _.isObjectLike([1, 2, 3]);
-	 * // => true
-	 *
-	 * _.isObjectLike(_.noop);
-	 * // => false
-	 *
-	 * _.isObjectLike(null);
-	 * // => false
-	 */
-	function isObjectLike(value) {
-	  return !!value && typeof value == 'object';
-	}
-
-	module.exports = isObjectLike;
-
-
-/***/ },
-/* 193 */
 /***/ function(module, exports) {
 
 	/**
@@ -21794,13 +21639,15 @@
 	};
 
 	module.exports = function hoistNonReactStatics(targetComponent, sourceComponent) {
-	    var keys = Object.getOwnPropertyNames(sourceComponent);
-	    for (var i=0; i<keys.length; ++i) {
-	        if (!REACT_STATICS[keys[i]] && !KNOWN_STATICS[keys[i]]) {
-	            try {
-	                targetComponent[keys[i]] = sourceComponent[keys[i]];
-	            } catch (error) {
+	    if (typeof sourceComponent !== 'string') { // don't hoist over string (html) components
+	        var keys = Object.getOwnPropertyNames(sourceComponent);
+	        for (var i=0; i<keys.length; ++i) {
+	            if (!REACT_STATICS[keys[i]] && !KNOWN_STATICS[keys[i]]) {
+	                try {
+	                    targetComponent[keys[i]] = sourceComponent[keys[i]];
+	                } catch (error) {
 
+	                }
 	            }
 	        }
 	    }
@@ -21810,7 +21657,7 @@
 
 
 /***/ },
-/* 194 */
+/* 190 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
@@ -21868,7 +21715,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
 
 /***/ },
-/* 195 */
+/* 191 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -21877,17 +21724,17 @@
 	  value: true
 	});
 
-	var _combined = __webpack_require__(196);
+	var _combined = __webpack_require__(192);
 
 	var _combined2 = _interopRequireDefault(_combined);
 
 	var _redux = __webpack_require__(176);
 
-	var _reduxLogger = __webpack_require__(201);
+	var _reduxLogger = __webpack_require__(197);
 
 	var _reduxLogger2 = _interopRequireDefault(_reduxLogger);
 
-	var _reduxThunk = __webpack_require__(202);
+	var _reduxThunk = __webpack_require__(198);
 
 	var _reduxThunk2 = _interopRequireDefault(_reduxThunk);
 
@@ -21899,7 +21746,7 @@
 	exports.default = store;
 
 /***/ },
-/* 196 */
+/* 192 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -21908,7 +21755,7 @@
 	  value: true
 	});
 
-	var _content = __webpack_require__(197);
+	var _content = __webpack_require__(193);
 
 	var _content2 = _interopRequireDefault(_content);
 
@@ -21920,7 +21767,7 @@
 	exports.default = (0, _redux.combineReducers)({ content: _content2.default });
 
 /***/ },
-/* 197 */
+/* 193 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -21931,13 +21778,13 @@
 
 	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
-	var _content = __webpack_require__(198);
+	var _content = __webpack_require__(194);
 
 	var initialState = {
 	    isFetching: true,
-	    selectedLocale: 'en',
-	    availableLocales: ['en', 'es'],
-	    cmsContent: {}
+	    selectedLocale: 'en-US',
+	    availableLocales: ['en-US', 'es-419'],
+	    cmsContent: []
 	};
 
 	var contentReducer = function contentReducer() {
@@ -21965,7 +21812,7 @@
 	exports.default = contentReducer;
 
 /***/ },
-/* 198 */
+/* 194 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -21973,9 +21820,9 @@
 	Object.defineProperty(exports, "__esModule", {
 	    value: true
 	});
-	exports.sendLocaleChanged = exports.CONTENT_RECEIVE = exports.CHANGE_LOCALE = undefined;
+	exports.fetchMockContent = exports.sendLocaleChanged = exports.CONTENT_RECEIVE = exports.CHANGE_LOCALE = undefined;
 
-	var _isomorphicFetch = __webpack_require__(199);
+	var _isomorphicFetch = __webpack_require__(195);
 
 	var _isomorphicFetch2 = _interopRequireDefault(_isomorphicFetch);
 
@@ -22009,22 +21856,54 @@
 	    };
 	};
 
+	//Mock async action to test the component
+	var fetchMockContent = exports.fetchMockContent = function fetchMockContent() {
+	    return function (dispatch) {
+	        var mockData = [{
+	            "header-component": {
+	                "en": {
+	                    "header1-text": "Header1",
+	                    "header2-text": "Header2 text",
+	                    "header3-text": "hey Header3 text "
+	                },
+	                "es": {
+	                    "header1-text": "encabezado1",
+	                    "header2-text": "encabezado2 text",
+	                    "header3-text": "hey encabezado3 text "
+	                },
+	                "header-image": "//images.contentful.com/yv98ozite9o1/1QSDQJpXBKIc0EqsAIkceI/68d5048c722f4b19c3ad12447446ac96/IMG_0706.JPG"
+	            }
+	        }, {
+	            "footer-component": {
+	                "en": {
+	                    "disclaimer-text": "This is the disclaimer of the site."
+	                },
+	                "es": {
+	                    "disclaimer-text": "This is the disclaimer of the site."
+	                },
+	                "footer-image": "//images.contentful.com/yv98ozite9o1/64kYdYVC0wgUKsMMWUUcWQ/ae25dfbd7fc3f92c25f33320f44baf88/IMG_0701.JPG"
+	            }
+	        }];
+	        sendContentFetched(dispatch, mockData);
+	    };
+	};
+
 	exports.default = fetchContent;
 
 /***/ },
-/* 199 */
+/* 195 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// the whatwg-fetch polyfill installs the fetch() function
 	// on the global object (window or self)
 	//
 	// Return that as the export for use in Webpack, Browserify etc.
-	__webpack_require__(200);
+	__webpack_require__(196);
 	module.exports = self.fetch.bind(self);
 
 
 /***/ },
-/* 200 */
+/* 196 */
 /***/ function(module, exports) {
 
 	(function(self) {
@@ -22463,7 +22342,7 @@
 
 
 /***/ },
-/* 201 */
+/* 197 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -22696,30 +22575,35 @@
 	module.exports = createLogger;
 
 /***/ },
-/* 202 */
+/* 198 */
 /***/ function(module, exports) {
 
 	'use strict';
 
 	exports.__esModule = true;
-	exports['default'] = thunkMiddleware;
-	function thunkMiddleware(_ref) {
-	  var dispatch = _ref.dispatch;
-	  var getState = _ref.getState;
+	function createThunkMiddleware(extraArgument) {
+	  return function (_ref) {
+	    var dispatch = _ref.dispatch;
+	    var getState = _ref.getState;
+	    return function (next) {
+	      return function (action) {
+	        if (typeof action === 'function') {
+	          return action(dispatch, getState, extraArgument);
+	        }
 
-	  return function (next) {
-	    return function (action) {
-	      if (typeof action === 'function') {
-	        return action(dispatch, getState);
-	      }
-
-	      return next(action);
+	        return next(action);
+	      };
 	    };
 	  };
 	}
 
+	var thunk = createThunkMiddleware();
+	thunk.withExtraArgument = createThunkMiddleware;
+
+	exports['default'] = thunk;
+
 /***/ },
-/* 203 */
+/* 199 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -22730,17 +22614,17 @@
 
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-	var _ContentProvider = __webpack_require__(204);
-
-	var _ContentProvider2 = _interopRequireDefault(_ContentProvider);
-
-	var _LocaleSwitcher = __webpack_require__(205);
-
-	var _LocaleSwitcher2 = _interopRequireDefault(_LocaleSwitcher);
-
 	var _react = __webpack_require__(2);
 
 	var _react2 = _interopRequireDefault(_react);
+
+	var _Content = __webpack_require__(200);
+
+	var _Content2 = _interopRequireDefault(_Content);
+
+	var _LocaleSwitcher = __webpack_require__(201);
+
+	var _LocaleSwitcher2 = _interopRequireDefault(_LocaleSwitcher);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -22766,9 +22650,11 @@
 	        key: 'render',
 	        value: function render() {
 	            return _react2.default.createElement(
-	                _ContentProvider2.default,
+	                'div',
 	                null,
-	                _react2.default.createElement(_LocaleSwitcher2.default, null)
+	                _react2.default.createElement(_LocaleSwitcher2.default, null),
+	                _react2.default.createElement(_Content2.default, { componentId: 'header-component', contentId: 'header1-text', contentType: 'text' }),
+	                _react2.default.createElement(_Content2.default, { componentId: 'header-component', contentId: 'header-image', contentType: 'image' })
 	            );
 	        }
 	    }]);
@@ -22779,7 +22665,7 @@
 	exports.default = Application;
 
 /***/ },
-/* 204 */
+/* 200 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -22790,7 +22676,7 @@
 
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-	var _content = __webpack_require__(198);
+	var _content = __webpack_require__(194);
 
 	var _content2 = _interopRequireDefault(_content);
 
@@ -22808,33 +22694,99 @@
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-	var ContentProvider = function (_Component) {
-	    _inherits(ContentProvider, _Component);
+	var Content = function (_Component) {
+	    _inherits(Content, _Component);
 
-	    function ContentProvider(props) {
-	        _classCallCheck(this, ContentProvider);
+	    function Content(props) {
+	        _classCallCheck(this, Content);
 
-	        return _possibleConstructorReturn(this, Object.getPrototypeOf(ContentProvider).call(this, props));
+	        var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(Content).call(this, props));
+
+	        _this.getContentData = _this.getContentData.bind(_this);
+	        _this.contentTypeMap = {
+	            text: function text(_text) {
+	                return _react2.default.createElement(
+	                    'p',
+	                    null,
+	                    _text
+	                );
+	            },
+	            image: function image(_image) {
+	                return _react2.default.createElement('img', { src: _image });
+	            }
+	        };
+	        return _this;
 	    }
 
-	    _createClass(ContentProvider, [{
+	    _createClass(Content, [{
 	        key: 'componentDidMount',
 	        value: function componentDidMount() {
-	            this.props.fetchContentData();
+	            var _props = this.props;
+	            var isFetching = _props.isFetching;
+	            var fetchContentData = _props.fetchContentData;
+
+
+	            if (isFetching) {
+	                fetchContentData();
+	            }
+	        }
+	    }, {
+	        key: 'getContentData',
+	        value: function getContentData() {
+	            var _props2 = this.props;
+	            var selectedLocale = _props2.selectedLocale;
+	            var cmsContent = _props2.cmsContent;
+	            var _props3 = this.props;
+	            var componentId = _props3.componentId;
+	            var contentId = _props3.contentId;
+	            var contentType = _props3.contentType;
+
+	            var data = {};
+
+	            var component = cmsContent.find(function (component) {
+	                return component[componentId];
+	            });
+
+	            switch (contentType) {
+	                case 'text':
+	                    data = component[componentId][contentId][selectedLocale];
+	                    break;
+	                case 'image':
+	                    data = component[componentId][contentId];
+	                    break;
+	                default:
+	                    data = contentId;
+	                    break;
+	            }
+
+	            return data;
 	        }
 	    }, {
 	        key: 'render',
 	        value: function render() {
-	            return this.props.children;
+	            var _props4 = this.props;
+	            var isFetching = _props4.isFetching;
+	            var contentType = _props4.contentType;
+
+	            var isContentInMap = contentType in this.contentTypeMap;
+
+	            if (!isFetching && isContentInMap) {
+	                var data = this.getContentData();
+
+	                return this.contentTypeMap[contentType](data);
+	            } else {
+	                return false;
+	            }
 	        }
 	    }]);
 
-	    return ContentProvider;
+	    return Content;
 	}(_react.Component);
 
-	ContentProvider.propTypes = {
-	    content: _react.PropTypes.object,
-	    componentId: _react.PropTypes.string
+	Content.propTypes = {
+	    componentId: _react.PropTypes.string.isRequired,
+	    contentId: _react.PropTypes.string.isRequired,
+	    contentType: _react.PropTypes.string.isRequired
 	};
 
 	var mapStateToProps = function mapStateToProps(state) {
@@ -22861,10 +22813,10 @@
 	    };
 	};
 
-	exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(ContentProvider);
+	exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(Content);
 
 /***/ },
-/* 205 */
+/* 201 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -22875,7 +22827,7 @@
 
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-	var _content = __webpack_require__(198);
+	var _content = __webpack_require__(194);
 
 	var _react = __webpack_require__(2);
 
@@ -22903,7 +22855,8 @@
 	    _createClass(LocaleSwitcher, [{
 	        key: 'render',
 	        value: function render() {
-	            var _this2 = this;
+	            var changeLocale = this.props.changeLocale;
+
 
 	            return _react2.default.createElement(
 	                'div',
@@ -22911,14 +22864,14 @@
 	                _react2.default.createElement(
 	                    'button',
 	                    { onClick: function onClick() {
-	                            return _this2.props.changeLocale("en");
+	                            return changeLocale("en-US");
 	                        } },
 	                    'English'
 	                ),
 	                _react2.default.createElement(
 	                    'button',
 	                    { onClick: function onClick() {
-	                            return _this2.props.changeLocale("es");
+	                            return changeLocale("es-419");
 	                        } },
 	                    'Spanish'
 	                )

@@ -1,5 +1,4 @@
-// import fetchContent from '../actions/content.actions'
-import { fetchMockContent } from '../actions/content.actions'
+ import fetchContent from '../actions/content.actions'
 import React, { Component ,PropTypes } from 'react'
 import { connect } from 'react-redux'
 
@@ -32,7 +31,7 @@ class Content extends Component {
         
         switch (contentType) {
             case 'text':
-                data = component[componentId][selectedLocale][contentId];
+                data = component[componentId][contentId][selectedLocale];
                 break;
             case 'image':
                 data = component[componentId][contentId];
@@ -79,8 +78,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
     return {
         fetchContentData: () => {
-            dispatch(fetchMockContent());
-            // dispatch(fetchContent());
+            dispatch(fetchContent());
         }
     }
 };

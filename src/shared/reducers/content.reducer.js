@@ -2,8 +2,8 @@ import { CONTENT_RECEIVE, CHANGE_LOCALE } from '../actions/content.actions';
 
 const initialState = {
     isFetching: true,
-    selectedLocale: 'en',
-    availableLocales: ['en', 'es'],
+    selectedLocale: 'en-US',
+    availableLocales: ['en-US', 'es-419'],
     cmsContent: [ ]
 };
 

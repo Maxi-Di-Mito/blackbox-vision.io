@@ -8,10 +8,12 @@ class LocaleSwitcher extends Component {
     }
 
     render() {
+        const { changeLocale } = this.props;
+
         return (
             <div>
-                <button onClick={ () => this.props.changeLocale("en") }>English</button>
-                <button onClick={ () => this.props.changeLocale("es") }>Spanish</button>
+                <button onClick={ () => changeLocale("en-US") }>English</button>
+                <button onClick={ () => changeLocale("es-419") }>Spanish</button>
             </div>
         )
     }
