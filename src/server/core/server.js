@@ -1,10 +1,8 @@
 var server_config = require('../config/server.config');
-var services = require('../service/services');
 var bodyParser = require('body-parser');
 var express = require('express');
 var Winston = require('winston');
 var morgan = require('morgan');
-var Q = require('q');
 
 //Get express and router instances.. 
 var router = express.Router();
@@ -14,8 +12,6 @@ var app = express();
 router.get("/", (request, response) => {
     response.sendFile("index.html", {root: server_config.PUBLIC_STATIC_CONTENT_DIR});
 });
-
-router.get("/content", Q.async(services.getContent));
 
 //Set views..
 app.set('views', './src/public/views');
