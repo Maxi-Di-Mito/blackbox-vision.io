@@ -1,5 +1,6 @@
 import React, { Component ,PropTypes } from 'react';
 import Content from '../components/Content.jsx';
+import LocaleSwitcher from '../components/LocaleSwitcher.jsx';
 
 class Application extends Component {
     constructor(props) {
@@ -12,8 +13,6 @@ class Application extends Component {
         return (
             <div>
                 <LocaleSwitcher />
-                <Content componentId="header-component" contentId="header1-text" contentType="text"/>
-                <Content componentId="header-component" contentId="header-image" contentType="image"/>
             </div>
         )
     }

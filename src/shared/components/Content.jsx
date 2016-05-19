@@ -77,7 +77,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
     return {
         fetchContentData: () => {
-            dispatch(fetchContent());
+        //    dispatch(fetchContent());
         }
     }
 };
