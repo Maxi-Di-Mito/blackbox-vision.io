@@ -15,7 +15,6 @@ router.get("/", (request, response) => {
     response.sendFile("index.html", {root: server_config.PUBLIC_STATIC_CONTENT_DIR});
 });
 
-//Custom routes
 router.get("/content", Q.async(services.getContent));
 
 //Set views..

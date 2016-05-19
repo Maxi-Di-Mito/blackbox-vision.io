@@ -16,6 +16,7 @@ module.exports = {
         request(data, (err, res, body) => {
             if (!err && res.statusCode == 200) {
                 console.log(JSON.stringify(body));
+                body = "data:image/jpg;base64," + body;
                 callback(body);
             } else {
                 throw new Error('Can not download image');
