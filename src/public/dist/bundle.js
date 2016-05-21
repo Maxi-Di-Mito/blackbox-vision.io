@@ -21820,7 +21820,7 @@
 	Object.defineProperty(exports, "__esModule", {
 	    value: true
 	});
-	exports.fetchMockContent = exports.sendLocaleChanged = exports.CONTENT_RECEIVE = exports.CHANGE_LOCALE = undefined;
+	exports.sendLocaleChanged = exports.CONTENT_RECEIVE = exports.CHANGE_LOCALE = undefined;
 
 	var _isomorphicFetch = __webpack_require__(195);
 
@@ -21853,38 +21853,6 @@
 	        }).then(function (content) {
 	            return sendContentFetched(dispatch, content);
 	        });
-	    };
-	};
-
-	//Mock async action to test the component
-	var fetchMockContent = exports.fetchMockContent = function fetchMockContent() {
-	    return function (dispatch) {
-	        var mockData = [{
-	            "header-component": {
-	                "en": {
-	                    "header1-text": "Header1",
-	                    "header2-text": "Header2 text",
-	                    "header3-text": "hey Header3 text "
-	                },
-	                "es": {
-	                    "header1-text": "encabezado1",
-	                    "header2-text": "encabezado2 text",
-	                    "header3-text": "hey encabezado3 text "
-	                },
-	                "header-image": "//images.contentful.com/yv98ozite9o1/1QSDQJpXBKIc0EqsAIkceI/68d5048c722f4b19c3ad12447446ac96/IMG_0706.JPG"
-	            }
-	        }, {
-	            "footer-component": {
-	                "en": {
-	                    "disclaimer-text": "This is the disclaimer of the site."
-	                },
-	                "es": {
-	                    "disclaimer-text": "This is the disclaimer of the site."
-	                },
-	                "footer-image": "//images.contentful.com/yv98ozite9o1/64kYdYVC0wgUKsMMWUUcWQ/ae25dfbd7fc3f92c25f33320f44baf88/IMG_0701.JPG"
-	            }
-	        }];
-	        sendContentFetched(dispatch, mockData);
 	    };
 	};
 
@@ -22628,17 +22596,17 @@
 
 	var _Grid2 = _interopRequireDefault(_Grid);
 
-	var _Body = __webpack_require__(208);
+	var _Website = __webpack_require__(208);
 
-	var _Body2 = _interopRequireDefault(_Body);
+	var _Website2 = _interopRequireDefault(_Website);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	var Application = function Application() {
 	    return _react2.default.createElement(
 	        'div',
-	        { height: '600px' },
-	        _react2.default.createElement(_Body2.default, { title: 'BlackBox Vision', style: { backgroundColor: 'white', color: "black" } })
+	        null,
+	        _react2.default.createElement(_Website2.default, { title: 'BlackBox Vision' })
 	    );
 	};
 
@@ -23072,10 +23040,6 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _Navigation = __webpack_require__(209);
-
-	var _Navigation2 = _interopRequireDefault(_Navigation);
-
 	var _Content = __webpack_require__(200);
 
 	var _Content2 = _interopRequireDefault(_Content);
@@ -23084,17 +23048,13 @@
 
 	var _Layout2 = _interopRequireDefault(_Layout);
 
-	var _Header = __webpack_require__(213);
-
-	var _Header2 = _interopRequireDefault(_Header);
-
-	var _Drawer = __webpack_require__(217);
-
-	var _Drawer2 = _interopRequireDefault(_Drawer);
-
-	var _Link = __webpack_require__(218);
+	var _Link = __webpack_require__(209);
 
 	var _Link2 = _interopRequireDefault(_Link);
+
+	var _Footer = __webpack_require__(210);
+
+	var _Footer2 = _interopRequireDefault(_Footer);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -23104,621 +23064,99 @@
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-	var linkClasses = "mdl-navigation__link black-box__link mdl-js-button mdl-js-ripple-effect mdl-typography--text-uppercase mdl-color-text--black";
-	var linkMobileClasses = "mdl-navigation__link mdl-typography--text-uppercase mdl-color-text--black";
+	var Website = function (_Component) {
+	    _inherits(Website, _Component);
 
-	var Body = function (_Component) {
-	    _inherits(Body, _Component);
+	    function Website(props) {
+	        _classCallCheck(this, Website);
 
-	    function Body(props) {
-	        _classCallCheck(this, Body);
-
-	        return _possibleConstructorReturn(this, Object.getPrototypeOf(Body).call(this, props));
+	        return _possibleConstructorReturn(this, Object.getPrototypeOf(Website).call(this, props));
 	    }
 
-	    _createClass(Body, [{
+	    _createClass(Website, [{
 	        key: 'render',
 	        value: function render() {
 	            return _react2.default.createElement(
-	                'div',
-	                null,
+	                _Layout2.default,
+	                { fixedHeader: true },
 	                _react2.default.createElement(
-	                    _Layout2.default,
-	                    null,
+	                    'header',
+	                    { className: 'mdl-layout__header mdl-color--white mdl-shadow--3dp' },
 	                    _react2.default.createElement(
-	                        _Header2.default,
-	                        { title: this.props.title, style: this.props.style },
+	                        'div',
+	                        { className: 'mdl-layout__header-row' },
+	                        _react2.default.createElement('img', { height: '35px', width: '35px', className: 'mdl-logo mdl-layout--large-screen-only', src: '/assets/images/blackbox-vision.svg' }),
 	                        _react2.default.createElement(
-	                            _Navigation2.default,
-	                            null,
-	                            _react2.default.createElement(
-	                                'a',
-	                                { className: linkClasses, href: '' },
-	                                'who we are'
-	                            ),
-	                            _react2.default.createElement(
-	                                'a',
-	                                { className: linkClasses, href: '' },
-	                                'what we do'
-	                            ),
-	                            _react2.default.createElement(
-	                                'a',
-	                                { className: linkClasses, href: '' },
-	                                'meet the team'
-	                            ),
-	                            _react2.default.createElement(
-	                                'a',
-	                                { className: linkClasses, href: '' },
-	                                'portfolio'
-	                            ),
-	                            _react2.default.createElement(
-	                                'a',
-	                                { className: linkClasses, href: '' },
-	                                'contact'
-	                            ),
-	                            _react2.default.createElement(
-	                                'a',
-	                                { className: linkClasses, href: '' },
-	                                'blog'
-	                            )
+	                            'span',
+	                            { className: 'mdl-layout-title mdl-color-text--black' },
+	                            this.props.title
+	                        ),
+	                        _react2.default.createElement('div', { className: 'mdl-layout-spacer' }),
+	                        _react2.default.createElement(
+	                            'nav',
+	                            { className: 'mdl-navigation mdl-layout--large-screen-only' },
+	                            _react2.default.createElement(_Link2.default, { linkHref: '#WhoWeAre', linkMessage: 'who we are', linkType: 'web' }),
+	                            _react2.default.createElement(_Link2.default, { linkHref: '#WhatWeDo', linkMessage: 'what we do', linkType: 'web' }),
+	                            _react2.default.createElement(_Link2.default, { linkHref: '#MeetTheTeam', linkMessage: 'meet the team', linkType: 'web' }),
+	                            _react2.default.createElement(_Link2.default, { linkHref: '#Portfolio', linkMessage: 'portfolio', linkType: 'web' }),
+	                            _react2.default.createElement(_Link2.default, { linkHref: '#Contact', linkMessage: 'contact', linkType: 'web' }),
+	                            _react2.default.createElement(_Link2.default, { linkHref: '#Blog', linkMessage: 'blog', linkType: 'web' })
 	                        )
+	                    )
+	                ),
+	                _react2.default.createElement(
+	                    'div',
+	                    { className: 'mdl-layout__drawer mdl-layout--small-screen-only' },
+	                    _react2.default.createElement(
+	                        'span',
+	                        { className: 'mdl-layout-title' },
+	                        this.props.title
 	                    ),
 	                    _react2.default.createElement(
-	                        _Drawer2.default,
-	                        { title: this.props.title },
-	                        _react2.default.createElement(
-	                            _Header2.default,
-	                            null,
-	                            _react2.default.createElement(
-	                                _Navigation2.default,
-	                                null,
-	                                _react2.default.createElement(
-	                                    'a',
-	                                    { className: linkMobileClasses, href: '' },
-	                                    'who we are'
-	                                ),
-	                                _react2.default.createElement(
-	                                    'a',
-	                                    { className: linkMobileClasses, href: '' },
-	                                    'what we do'
-	                                ),
-	                                _react2.default.createElement(
-	                                    'a',
-	                                    { className: linkMobileClasses, href: '' },
-	                                    'meet the team'
-	                                ),
-	                                _react2.default.createElement(
-	                                    'a',
-	                                    { className: linkMobileClasses, href: '' },
-	                                    'portfolio'
-	                                ),
-	                                _react2.default.createElement(
-	                                    'a',
-	                                    { className: linkMobileClasses, href: '' },
-	                                    'contact'
-	                                ),
-	                                _react2.default.createElement(
-	                                    'a',
-	                                    { className: linkMobileClasses, href: '' },
-	                                    'blog'
-	                                )
-	                            )
-	                        )
-	                    ),
-	                    _react2.default.createElement(_Content2.default, { className: 'mdl-layout__content black-box__background' })
+	                        'nav',
+	                        { className: 'mdl-navigation' },
+	                        _react2.default.createElement(_Link2.default, { linkHref: '#WhoWeAre', linkMessage: 'who we are', linkType: 'mobile' }),
+	                        _react2.default.createElement(_Link2.default, { linkHref: '#WhatWeDo', linkMessage: 'what we do', linkType: 'mobile' }),
+	                        _react2.default.createElement(_Link2.default, { linkHref: '#MeetTheTeam', linkMessage: 'meet the team', linkType: 'mobile' }),
+	                        _react2.default.createElement(_Link2.default, { linkHref: '#Portfolio', linkMessage: 'portfolio', linkType: 'mobile' }),
+	                        _react2.default.createElement(_Link2.default, { linkHref: '#Contact', linkMessage: 'contact', linkType: 'mobile' }),
+	                        _react2.default.createElement(_Link2.default, { linkHref: '#Blog', linkMessage: 'blog', linkType: 'mobile' })
+	                    )
+	                ),
+	                _react2.default.createElement(
+	                    _Content2.default,
+	                    { className: 'mdl-layout__content black-box__background' },
+	                    _react2.default.createElement('section', { id: '#WhoWeAre', style: { height: "600px" } }),
+	                    _react2.default.createElement('section', { id: '#WhatWeDo', style: { height: "600px", backgroundColor: "#e0e0e0" } }),
+	                    _react2.default.createElement('section', { id: '#MeetTheTeam', style: { height: "600px", backgroundColor: "#e0e0e0" } }),
+	                    _react2.default.createElement('section', { id: '#Portfolio', style: { height: "600px", backgroundColor: "#e0e0e0" } }),
+	                    _react2.default.createElement('section', { id: '#Contact', style: { height: "600px" } }),
+	                    _react2.default.createElement('section', { id: '#Blog', style: { height: "600px", backgroundColor: "#e0e0e0" } }),
+	                    _react2.default.createElement(_Footer2.default, { copyright: 'BlackBox Vision @ 2016' })
 	                )
 	            );
 	        }
 	    }]);
 
-	    return Body;
+	    return Website;
 	}(_react.Component);
 
-	Body.propTypes = {
-	    title: _react.PropTypes.string.isRequired,
-	    style: _react.PropTypes.object
+	Website.propTypes = {
+	    title: _react.PropTypes.string.isRequired
 	};
 
-	exports.default = Body;
+	exports.default = Website;
 
 /***/ },
 /* 209 */
 /***/ function(module, exports, __webpack_require__) {
 
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-
-	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-
-	var _react = __webpack_require__(2);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _classnames = __webpack_require__(201);
-
-	var _classnames2 = _interopRequireDefault(_classnames);
-
-	var _cloneChildren = __webpack_require__(210);
-
-	var _cloneChildren2 = _interopRequireDefault(_cloneChildren);
-
-	var _Spacer = __webpack_require__(211);
-
-	var _Spacer2 = _interopRequireDefault(_Spacer);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
-
-	var Navigation = function Navigation(props) {
-	    var className = props.className;
-	    var children = props.children;
-
-	    var otherProps = _objectWithoutProperties(props, ['className', 'children']);
-
-	    var classes = (0, _classnames2.default)('mdl-navigation', className);
-
-	    return _react2.default.createElement(
-	        'nav',
-	        _extends({ className: classes }, otherProps),
-	        (0, _cloneChildren2.default)(children, function (child) {
-	            return {
-	                className: (0, _classnames2.default)({ 'mdl-navigation__link': child.type !== _Spacer2.default }, child.props.className)
-	            };
-	        })
-	    );
-	};
-	Navigation.propTypes = {
-	    className: _react.PropTypes.string
-	};
-
-	exports.default = Navigation;
-
-/***/ },
-/* 210 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-
-	var _react = __webpack_require__(2);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	exports.default = function (children, props) {
-	    return _react2.default.Children.map(children, function (child) {
-	        if (!child) return child;
-	        var newProps = typeof props === 'function' ? props(child) : props;
-	        return _react2.default.cloneElement(child, newProps);
-	    });
-	};
-
-/***/ },
-/* 211 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-
-	var _basicClassCreator = __webpack_require__(212);
-
-	var _basicClassCreator2 = _interopRequireDefault(_basicClassCreator);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	exports.default = (0, _basicClassCreator2.default)('Spacer', 'mdl-layout-spacer');
-
-/***/ },
-/* 212 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-
-	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-
-	var _react = __webpack_require__(2);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _classnames = __webpack_require__(201);
-
-	var _classnames2 = _interopRequireDefault(_classnames);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
-
-	exports.default = function (displayName, defaultClassName) {
-	    var element = arguments.length <= 2 || arguments[2] === undefined ? 'div' : arguments[2];
-
-	    var fn = function fn(props) {
-	        var className = props.className;
-	        var children = props.children;
-
-	        var otherProps = _objectWithoutProperties(props, ['className', 'children']);
-
-	        return _react2.default.createElement(element, _extends({
-	            className: (0, _classnames2.default)(defaultClassName, className)
-	        }, otherProps), children);
-	    };
-
-	    fn.displayName = displayName;
-	    fn.propTypes = {
-	        className: _react.PropTypes.string
-	    };
-
-	    return fn;
-	};
-
-/***/ },
-/* 213 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-
-	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-
-	var _react = __webpack_require__(2);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _classnames = __webpack_require__(201);
-
-	var _classnames2 = _interopRequireDefault(_classnames);
-
-	var _HeaderRow = __webpack_require__(214);
-
-	var _HeaderRow2 = _interopRequireDefault(_HeaderRow);
-
-	var _HeaderTabs = __webpack_require__(215);
-
-	var _HeaderTabs2 = _interopRequireDefault(_HeaderTabs);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
-
-	var Header = function Header(props) {
-	    var className = props.className;
-	    var scroll = props.scroll;
-	    var seamed = props.seamed;
-	    var title = props.title;
-	    var transparent = props.transparent;
-	    var waterfall = props.waterfall;
-	    var hideTop = props.hideTop;
-	    var hideSpacer = props.hideSpacer;
-	    var children = props.children;
-
-	    var otherProps = _objectWithoutProperties(props, ['className', 'scroll', 'seamed', 'title', 'transparent', 'waterfall', 'hideTop', 'hideSpacer', 'children']);
-
-	    var classes = (0, _classnames2.default)('mdl-layout__header', {
-	        'mdl-layout__header--scroll': scroll,
-	        'mdl-layout__header--seamed': seamed,
-	        'mdl-layout__header--transparent': transparent,
-	        'mdl-layout__header--waterfall': waterfall,
-	        'mdl-layout__header--waterfall-hide-top': waterfall && hideTop
-	    }, className);
-
-	    var isRowOrTab = false;
-	    _react2.default.Children.forEach(children, function (child) {
-	        if (child && (child.type === _HeaderRow2.default || child.type === _HeaderTabs2.default)) {
-	            isRowOrTab = true;
-	        }
-	    });
-
-	    return _react2.default.createElement(
-	        'header',
-	        _extends({ className: classes }, otherProps),
-	        isRowOrTab ? children : _react2.default.createElement(
-	            _HeaderRow2.default,
-	            { title: title, hideSpacer: hideSpacer },
-	            children
-	        )
-	    );
-	};
-	Header.propTypes = {
-	    className: _react.PropTypes.string,
-	    scroll: _react.PropTypes.bool,
-	    seamed: _react.PropTypes.bool,
-	    title: _react.PropTypes.node,
-	    transparent: _react.PropTypes.bool,
-	    waterfall: _react.PropTypes.bool,
-	    hideTop: _react.PropTypes.bool,
-	    hideSpacer: _react.PropTypes.bool
-	};
-
-	exports.default = Header;
-
-/***/ },
-/* 214 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-
-	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-
-	var _react = __webpack_require__(2);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _classnames = __webpack_require__(201);
-
-	var _classnames2 = _interopRequireDefault(_classnames);
-
-	var _Spacer = __webpack_require__(211);
-
-	var _Spacer2 = _interopRequireDefault(_Spacer);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
-
-	var HeaderRow = function HeaderRow(props) {
-	    var className = props.className;
-	    var title = props.title;
-	    var children = props.children;
-	    var hideSpacer = props.hideSpacer;
-
-	    var otherProps = _objectWithoutProperties(props, ['className', 'title', 'children', 'hideSpacer']);
-
-	    var classes = (0, _classnames2.default)('mdl-layout__header-row', className);
-
-	    return _react2.default.createElement(
-	        'div',
-	        _extends({ className: classes }, otherProps),
-	        title && _react2.default.createElement(
-	            'span',
-	            { className: 'mdl-layout-title' },
-	            title
-	        ),
-	        title && !hideSpacer && _react2.default.createElement(_Spacer2.default, null),
-	        children
-	    );
-	};
-	HeaderRow.propTypes = {
-	    className: _react.PropTypes.string,
-	    title: _react.PropTypes.node,
-	    hideSpacer: _react.PropTypes.bool
-	};
-
-	exports.default = HeaderRow;
-
-/***/ },
-/* 215 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-
-	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-
-	var _react = __webpack_require__(2);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _classnames = __webpack_require__(201);
-
-	var _classnames2 = _interopRequireDefault(_classnames);
-
-	var _TabBar = __webpack_require__(216);
-
-	var _TabBar2 = _interopRequireDefault(_TabBar);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
-
-	var HeaderTabs = function HeaderTabs(props) {
-	    var className = props.className;
-	    var ripple = props.ripple;
-	    var children = props.children;
-
-	    var otherProps = _objectWithoutProperties(props, ['className', 'ripple', 'children']);
-
-	    var classes = (0, _classnames2.default)({
-	        'mdl-js-ripple-effect': ripple
-	    }, className);
-
-	    return _react2.default.createElement(
-	        _TabBar2.default,
-	        _extends({ cssPrefix: 'mdl-layout', className: classes }, otherProps),
-	        children
-	    );
-	};
-	HeaderTabs.propTypes = {
-	    activeTab: _react.PropTypes.number,
-	    className: _react.PropTypes.string,
-	    onChange: _react.PropTypes.func,
-	    ripple: _react.PropTypes.bool
-	};
-
-	exports.default = HeaderTabs;
-
-/***/ },
-/* 216 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-
-	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-	var _react = __webpack_require__(2);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _classnames = __webpack_require__(201);
-
-	var _classnames2 = _interopRequireDefault(_classnames);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
-	function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-	var propTypes = {
-	    activeTab: _react.PropTypes.number,
-	    className: _react.PropTypes.string,
-	    cssPrefix: _react.PropTypes.string.isRequired,
-	    onChange: _react.PropTypes.func
-	};
-
-	var defaultProps = {
-	    activeTab: 0
-	};
-
-	var TabBar = function (_React$Component) {
-	    _inherits(TabBar, _React$Component);
-
-	    function TabBar(props) {
-	        _classCallCheck(this, TabBar);
-
-	        var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(TabBar).call(this, props));
-
-	        _this._handleClickTab = _this._handleClickTab.bind(_this);
-	        return _this;
-	    }
-
-	    _createClass(TabBar, [{
-	        key: '_handleClickTab',
-	        value: function _handleClickTab(tabId) {
-	            if (this.props.onChange) {
-	                this.props.onChange(tabId);
-	            }
-	        }
-	    }, {
-	        key: 'render',
-	        value: function render() {
-	            var _this2 = this;
-
-	            var _props = this.props;
-	            var activeTab = _props.activeTab;
-	            var className = _props.className;
-	            var cssPrefix = _props.cssPrefix;
-	            var children = _props.children;
-
-	            var otherProps = _objectWithoutProperties(_props, ['activeTab', 'className', 'cssPrefix', 'children']);
-
-	            var classes = (0, _classnames2.default)(_defineProperty({}, cssPrefix + '__tab-bar', true), className);
-
-	            return _react2.default.createElement(
-	                'div',
-	                _extends({ className: classes }, otherProps),
-	                _react2.default.Children.map(children, function (child, tabId) {
-	                    return _react2.default.cloneElement(child, {
-	                        cssPrefix: cssPrefix,
-	                        tabId: tabId,
-	                        active: tabId === activeTab,
-	                        onTabClick: _this2._handleClickTab
-	                    });
-	                })
-	            );
-	        }
-	    }]);
-
-	    return TabBar;
-	}(_react2.default.Component);
-
-	TabBar.propTypes = propTypes;
-	TabBar.defaultProps = defaultProps;
-
-	exports.default = TabBar;
-
-/***/ },
-/* 217 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-
-	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-
-	var _react = __webpack_require__(2);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _classnames = __webpack_require__(201);
-
-	var _classnames2 = _interopRequireDefault(_classnames);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
-
-	var Drawer = function Drawer(props) {
-	    var className = props.className;
-	    var title = props.title;
-	    var children = props.children;
-
-	    var otherProps = _objectWithoutProperties(props, ['className', 'title', 'children']);
-
-	    var classes = (0, _classnames2.default)('mdl-layout__drawer', className);
-
-	    return _react2.default.createElement(
-	        'div',
-	        _extends({ className: classes }, otherProps),
-	        title ? _react2.default.createElement(
-	            'span',
-	            { className: 'mdl-layout-title' },
-	            title
-	        ) : null,
-	        children
-	    );
-	};
-	Drawer.propTypes = {
-	    className: _react.PropTypes.string,
-	    title: _react.PropTypes.node
-	};
-
-	exports.default = Drawer;
-
-/***/ },
-/* 218 */
-/***/ function(module, exports, __webpack_require__) {
-
 	"use strict";
 
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(2);
@@ -23732,9 +23170,6 @@
 	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-	var linkClasses = "mdl-navigation__link black-box__link mdl-js-button mdl-js-ripple-effect mdl-typography--text-uppercase mdl-color-text--black";
-	var linkMobileClasses = "mdl-navigation__link mdl-typography--text-uppercase mdl-color-text--black";
 
 	var Link = function (_Component) {
 	    _inherits(Link, _Component);
@@ -23749,23 +23184,23 @@
 	        key: "render",
 	        value: function render() {
 	            var _props = this.props;
-	            var linkType = _props.linkType;
-	            var linkMessage = _props.linkMessage;
 	            var linkHref = _props.linkHref;
+	            var linkMessage = _props.linkMessage;
+	            var linkType = _props.linkType;
 
 
 	            switch (linkType) {
 	                case "mobile":
 	                    return _react2.default.createElement(
 	                        "a",
-	                        { className: linkMobileClasses, href: linkHref },
+	                        { className: "mdl-navigation__link mdl-typography--text-uppercase mdl-color-text--black", href: linkHref },
 	                        linkMessage
 	                    );
 	                case "web":
 	                default:
 	                    return _react2.default.createElement(
 	                        "a",
-	                        { className: linkClasses, href: linkHref },
+	                        { className: "mdl-navigation__link black-box__link mdl-js-button mdl-js-ripple-effect mdl-typography--text-uppercase mdl-color-text--black mdl-layout--large-screen-only", href: linkHref },
 	                        linkMessage
 	                    );
 	            }
@@ -23776,10 +23211,101 @@
 	}(_react.Component);
 
 	Link.propTypes = {
-	    linkMessage: _react.PropTypes.string.isRequired,
 	    linkHref: _react.PropTypes.string.isRequired,
+	    linkMessage: _react.PropTypes.string.isRequired,
 	    linkType: _react.PropTypes.string.isRequired
 	};
+
+	exports.default = Link;
+
+/***/ },
+/* 210 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(2);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var Footer = function (_Component) {
+	    _inherits(Footer, _Component);
+
+	    function Footer(props) {
+	        _classCallCheck(this, Footer);
+
+	        return _possibleConstructorReturn(this, Object.getPrototypeOf(Footer).call(this, props));
+	    }
+
+	    _createClass(Footer, [{
+	        key: "render",
+	        value: function render() {
+	            return _react2.default.createElement(
+	                "footer",
+	                { className: "mdl-mini-footer" },
+	                _react2.default.createElement(
+	                    "div",
+	                    { className: "footer__container" },
+	                    _react2.default.createElement(
+	                        "ul",
+	                        { className: "footer-list" },
+	                        _react2.default.createElement(
+	                            "li",
+	                            { className: "footer-item" },
+	                            _react2.default.createElement(
+	                                "button",
+	                                { className: "mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored mdl-color-text--white mdl-color--indigo" },
+	                                _react2.default.createElement("i", { className: "fa fa-facebook", "aria-hidden": "true" })
+	                            ),
+	                            _react2.default.createElement(
+	                                "button",
+	                                { className: "mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored mdl-color-text--white mdl-color--indigo" },
+	                                _react2.default.createElement("i", { className: "fa fa-facebook", "aria-hidden": "true" })
+	                            ),
+	                            _react2.default.createElement(
+	                                "button",
+	                                { className: "mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored mdl-color-text--white mdl-color--indigo" },
+	                                _react2.default.createElement("i", { className: "fa fa-facebook", "aria-hidden": "true" })
+	                            ),
+	                            _react2.default.createElement(
+	                                "button",
+	                                { className: "mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored mdl-color-text--white mdl-color--indigo" },
+	                                _react2.default.createElement("i", { className: "fa fa-facebook", "aria-hidden": "true" })
+	                            )
+	                        )
+	                    ),
+	                    _react2.default.createElement(
+	                        "h6",
+	                        { "class": "mdl-typography--text-center mdl-typography--font-regular" },
+	                        this.props.copyright
+	                    )
+	                )
+	            );
+	        }
+	    }]);
+
+	    return Footer;
+	}(_react.Component);
+
+	Footer.propTypes = {
+	    copyright: _react.PropTypes.string.isRequired
+	};
+
+	exports.default = Footer;
 
 /***/ }
 /******/ ]);

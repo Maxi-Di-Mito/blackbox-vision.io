@@ -1,28 +1,31 @@
 import React, { Component ,PropTypes } from 'react';
 
-const linkClasses = "mdl-navigation__link black-box__link mdl-js-button mdl-js-ripple-effect mdl-typography--text-uppercase mdl-color-text--black";
-const linkMobileClasses = "mdl-navigation__link mdl-typography--text-uppercase mdl-color-text--black";
-
 class Link extends Component {
     constructor(props) {
         super(props);
     }
 
     render() {
-        const { linkType, linkMessage, linkHref } = this.props;
+        const { linkHref, linkMessage, linkType } = this.props;
 
         switch (linkType) {
             case "mobile":
-                return ( <a className={ linkMobileClasses } href={ linkHref }>{ linkMessage }</a> );
+                return (
+                    <a className="mdl-navigation__link mdl-typography--text-uppercase mdl-color-text--black" href={linkHref}>{linkMessage}</a>
+                );
             case "web":
             default:
-                return ( <a className={ linkClasses } href={ linkHref }>{ linkMessage }</a> );
+                return (
+                    <a className="mdl-navigation__link black-box__link mdl-js-button mdl-js-ripple-effect mdl-typography--text-uppercase mdl-color-text--black mdl-layout--large-screen-only" href={linkHref}>{linkMessage}</a>
+                );
         }
     }
 }
 
 Link.propTypes = {
-    linkMessage: PropTypes.string.isRequired,
     linkHref: PropTypes.string.isRequired,
+    linkMessage: PropTypes.string.isRequired,
     linkType: PropTypes.string.isRequired
 };
+
+export default Link;
