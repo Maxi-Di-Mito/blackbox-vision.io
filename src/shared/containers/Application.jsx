@@ -1,12 +1,12 @@
 import React, { Component ,PropTypes } from 'react';
-import Content from '../components/Content.jsx';
-import LocaleSwitcher from '../components/LocaleSwitcher.jsx';
+import Content from 'react-mdl/lib/Layout/Content';
+import Layout from 'react-mdl/lib/Layout/Layout';
+import Grid from 'react-mdl/lib/Grid';
+import Body from '../components/Body.jsx';
 
 const Application = () => (
-    <div>
-        <header />
-        <main />
-        <footer />
+    <div height="600px">
+        <Body title="BlackBox Vision" style={{backgroundColor: 'white', color: "black"}}/>
     </div>
 );
 
