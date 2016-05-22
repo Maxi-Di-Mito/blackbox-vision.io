@@ -9,6 +9,14 @@ class Website extends Component {
         super(props);
     }
 
+    componentDidMount() {
+        componentHandler.upgradeAllRegistered();
+    }
+
+    componentDidUpdate() {
+        componentHandler.upgradeDom();
+    }
+
     render() {
         return (
             <Layout fixedHeader>

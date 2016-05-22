@@ -23074,6 +23074,16 @@
 	    }
 
 	    _createClass(Website, [{
+	        key: 'componentDidMount',
+	        value: function componentDidMount() {
+	            componentHandler.upgradeAllRegistered();
+	        }
+	    }, {
+	        key: 'componentDidUpdate',
+	        value: function componentDidUpdate() {
+	            componentHandler.upgradeDom();
+	        }
+	    }, {
 	        key: 'render',
 	        value: function render() {
 	            return _react2.default.createElement(
@@ -23270,21 +23280,33 @@
 	                                "button",
 	                                { className: "mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored mdl-color-text--white mdl-color--indigo" },
 	                                _react2.default.createElement("i", { className: "fa fa-facebook", "aria-hidden": "true" })
-	                            ),
+	                            )
+	                        ),
+	                        _react2.default.createElement(
+	                            "li",
+	                            { className: "footer-item" },
 	                            _react2.default.createElement(
 	                                "button",
-	                                { className: "mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored mdl-color-text--white mdl-color--indigo" },
-	                                _react2.default.createElement("i", { className: "fa fa-facebook", "aria-hidden": "true" })
-	                            ),
+	                                { className: "mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored mdl-color-text--white mdl-color--blue" },
+	                                _react2.default.createElement("i", { className: "fa fa-twitter", "aria-hidden": "true" })
+	                            )
+	                        ),
+	                        _react2.default.createElement(
+	                            "li",
+	                            { className: "footer-item" },
 	                            _react2.default.createElement(
 	                                "button",
-	                                { className: "mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored mdl-color-text--white mdl-color--indigo" },
-	                                _react2.default.createElement("i", { className: "fa fa-facebook", "aria-hidden": "true" })
-	                            ),
+	                                { className: "mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored mdl-color-text--white mdl-color--red" },
+	                                _react2.default.createElement("i", { className: "fa fa-google-plus", "aria-hidden": "true" })
+	                            )
+	                        ),
+	                        _react2.default.createElement(
+	                            "li",
+	                            { className: "footer-item" },
 	                            _react2.default.createElement(
 	                                "button",
-	                                { className: "mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored mdl-color-text--white mdl-color--indigo" },
-	                                _react2.default.createElement("i", { className: "fa fa-facebook", "aria-hidden": "true" })
+	                                { className: "mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored mdl-color-text--white mdl-color--black" },
+	                                _react2.default.createElement("i", { className: "fa fa-github", "aria-hidden": "true" })
 	                            )
 	                        )
 	                    ),
