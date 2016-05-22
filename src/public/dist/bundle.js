@@ -23414,7 +23414,7 @@
 	                _react2.default.createElement(
 	                    'div',
 	                    { className: 'mdl-layout__header-row' },
-	                    _react2.default.createElement('img', { height: '30px', className: 'mdl-logo mdl-layout-large-screen-only', src: '/assets/images/logo.png' }),
+	                    _react2.default.createElement('img', { height: '25px', className: 'mdl-logo', src: '/assets/images/logo.png', style: { margin: "auto" } }),
 	                    _react2.default.createElement('div', { className: 'mdl-layout-spacer' }),
 	                    _react2.default.createElement(
 	                        'nav',

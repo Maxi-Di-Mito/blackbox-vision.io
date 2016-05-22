@@ -2,9 +2,8 @@ body {
     background-color: #757575;
 }
 
-.black-box__layout .mdl-layout__header,
-.black-box__layout .mdl-layout__drawer-button {
-    color: black;
+.mdl-layout__header .mdl-layout__drawer-button {
+    color: #424242;
 }
 
 .mdl-layout__drawer-button.mdl-js-ripple-effect {
@@ -108,44 +107,39 @@ a.mdl-js-ripple-effect {
     height: 500px;
 }
 
-@font-face {
-    font-family: 'Material Icons';
-    font-style: normal;
-    font-weight: 400;
-    src: url('../fonts/MaterialIcons-Regular.eot'); /* For IE6-8 */
-    src: local('Material Icons'),
-    local('MaterialIcons-Regular'),
-    url('../fonts/MaterialIcons-Regular.woff2') format('woff2'),
-    url('../fonts/MaterialIcons-Regular.woff') format('woff'),
-    url('../fonts/MaterialIcons-Regular.ttf') format('truetype');
-}
+/*@font-face {*/
+    /*font-family: 'Material Icons';*/
+    /*font-style: normal;*/
+    /*font-weight: 400;*/
+    /*src: url('../fonts/MaterialIcons-Regular.eot'); !* For IE6-8 *!*/
+    /*src: local('Material Icons'),*/
+    /*local('MaterialIcons-Regular'),*/
+    /*url('../fonts/MaterialIcons-Regular.woff2') format('woff2'),*/
+    /*url('../fonts/MaterialIcons-Regular.woff') format('woff'),*/
+    /*url('../fonts/MaterialIcons-Regular.ttf') format('truetype');*/
+/*}*/
 
-.material-icons {
-    font-family: 'Material Icons';
-    font-weight: normal;
-    font-style: normal;
-    font-size: 24px;  /* Preferred icon size */
-    display: inline-block;
-    line-height: 1;
-    text-transform: none;
-    letter-spacing: normal;
-    word-wrap: normal;
-    white-space: nowrap;
-    direction: ltr;
+/*.material-icons {*/
+    /*font-family: 'Material Icons';*/
+    /*font-weight: normal;*/
+    /*font-style: normal;*/
+    /*font-size: 24px;  !* Preferred icon size *!*/
+    /*display: inline-block;*/
+    /*line-height: 1;*/
+    /*text-transform: none;*/
+    /*letter-spacing: normal;*/
+    /*word-wrap: normal;*/
+    /*white-space: nowrap;*/
+    /*direction: ltr;*/
 
-    /* Support for all WebKit browsers. */
-    -webkit-font-smoothing: antialiased;
-    /* Support for Safari and Chrome. */
-    text-rendering: optimizeLegibility;
+    /*!* Support for all WebKit browsers. *!*/
+    /*-webkit-font-smoothing: antialiased;*/
+    /*!* Support for Safari and Chrome. *!*/
+    /*text-rendering: optimizeLegibility;*/
 
-    /* Support for Firefox. */
-    -moz-osx-font-smoothing: grayscale;
+    /*!* Support for Firefox. *!*/
+    /*-moz-osx-font-smoothing: grayscale;*/
 
-    /* Support for IE. */
-    font-feature-settings: 'liga';
-}
-
-.blackbox-logo {
-    display:inline-block;
-    margin: 0 auto;
-}
+    /*!* Support for IE. *!*/
+    /*font-feature-settings: 'liga';*/
+/*}*/

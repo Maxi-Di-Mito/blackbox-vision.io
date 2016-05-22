@@ -10,7 +10,7 @@ class Header extends Component {
         return (
             <header className="mdl-layout__header mdl-color--white mdl-shadow--3dp">
                 <div className="mdl-layout__header-row">
-                    <img height="30px" className="mdl-logo mdl-layout-large-screen-only" src="/assets/images/logo.png"/>
+                    <img height="25px" className="mdl-logo" src="/assets/images/logo.png" style={{ margin: "auto"}}/>
                     <div className="mdl-layout-spacer"></div>
                     <nav className="mdl-navigation mdl-layout--large-screen-only">
                         <Link linkHref="#WhoWeAre" linkMessage="who we are" linkType="web"/>
