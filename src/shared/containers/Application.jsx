@@ -5,6 +5,7 @@ import Sidenav from '../components/SideNav.jsx';
 import Footer from '../components/Footer.jsx';
 import Header from '../components/Header.jsx';
 import Body from '../components/Body.jsx';
+import injectTapEventPlugin from 'react-tap-event-plugin';
 
 class Application extends Component {
     constructor(props) {
@@ -12,6 +13,7 @@ class Application extends Component {
     }
 
     componentDidMount() {
+        injectTapEventPlugin();
         componentHandler.upgradeAllRegistered();
     }
 
@@ -22,7 +24,7 @@ class Application extends Component {
     render() {
         return (
             <Layout fixedHeader>
-                <Header title="BlackBox Vision"/>
+                <Header/>
                 <Sidenav title="BlackBox Vision"/>
                 <Content className="mdl-layout__content black-box__background">
                     <Body />

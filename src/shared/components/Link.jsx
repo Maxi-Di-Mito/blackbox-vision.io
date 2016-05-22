@@ -11,12 +11,12 @@ class Link extends Component {
         switch (linkType) {
             case "mobile":
                 return (
-                    <a className="mdl-navigation__link mdl-typography--text-uppercase mdl-color-text--black" href={linkHref}>{linkMessage}</a>
+                    <a className="mdl-navigation__link mdl-typography--text-uppercase" href={linkHref}>{linkMessage}</a>
                 );
             case "web":
             default:
                 return (
-                    <a className="mdl-navigation__link black-box__link mdl-js-button mdl-js-ripple-effect mdl-typography--text-uppercase mdl-color-text--black mdl-layout--large-screen-only" href={linkHref}>{linkMessage}</a>
+                    <a className="mdl-navigation__link black-box__link mdl-js-button mdl-js-ripple-effect mdl-typography--text-uppercase mdl-layout--large-screen-only" href={linkHref}>{linkMessage}</a>
                 );
         }
     }

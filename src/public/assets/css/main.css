@@ -70,6 +70,9 @@ body {
     position: relative;
     overflow: hidden;
     outline: none !important;
+    color: #616161;
+    font-weight: 700;
+    font-size: 14px;
 }
 
 .black-box__link.mdl-navigation__link:hover {
@@ -142,3 +145,7 @@ a.mdl-js-ripple-effect {
     font-feature-settings: 'liga';
 }
 
+.blackbox-logo {
+    display:inline-block;
+    margin: 0 auto;
+}

@@ -10,8 +10,7 @@ class Header extends Component {
         return (
             <header className="mdl-layout__header mdl-color--white mdl-shadow--3dp">
                 <div className="mdl-layout__header-row">
-                    <img height="35px" width="35px" className="mdl-logo mdl-layout--large-screen-only" src="/assets/images/blackbox-vision.svg"/>
-                    <span className="mdl-layout-title mdl-color-text--black">{this.props.title}</span>
+                    <img height="30px" className="mdl-logo mdl-layout-large-screen-only" src="/assets/images/logo.png"/>
                     <div className="mdl-layout-spacer"></div>
                     <nav className="mdl-navigation mdl-layout--large-screen-only">
                         <Link linkHref="#WhoWeAre" linkMessage="who we are" linkType="web"/>
@@ -26,9 +25,5 @@ class Header extends Component {
         )
     }
 }
-
-Header.propTypes = {
-    title: PropTypes.string.isRequired
-};
 
 export default Header;
