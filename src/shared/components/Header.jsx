@@ -13,12 +13,12 @@ class Header extends Component {
                     <img height="25px" className="mdl-logo" src="/assets/images/logo.png" style={{ margin: "auto"}}/>
                     <div className="mdl-layout-spacer"></div>
                     <nav className="mdl-navigation mdl-layout--large-screen-only">
-                        <Link linkHref="#WhoWeAre" linkMessage="who we are" linkType="web"/>
-                        <Link linkHref="#WhatWeDo" linkMessage="what we do" linkType="web"/>
-                        <Link linkHref="#MeetTheTeam" linkMessage="meet the team" linkType="web"/>
-                        <Link linkHref="#Portfolio" linkMessage="portfolio" linkType="web"/>
-                        <Link linkHref="#Contact" linkMessage="contact" linkType="web"/>
-                        <Link linkHref="#Blog" linkMessage="blog" linkType="web"/>
+                        <Link href="#WhoWeAre" message="who we are" type="web"/>
+                        <Link href="#WhatWeDo" message="what we do" type="web"/>
+                        <Link href="#MeetTheTeam" message="meet the team" type="web"/>
+                        <Link href="#Portfolio" message="portfolio" type="web"/>
+                        <Link href="#Contact" message="contact" type="web"/>
+                        <Link href="#Blog" message="blog" type="web"/>
                     </nav>
                 </div>
             </header>

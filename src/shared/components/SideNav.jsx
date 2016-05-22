@@ -11,12 +11,12 @@ class SideNav extends Component {
             <div className="mdl-layout__drawer mdl-layout--small-screen-only">
                 <span className="mdl-layout-title">{this.props.title}</span>
                 <nav className="mdl-navigation">
-                    <Link linkHref="#WhoWeAre" linkMessage="who we are" linkType="mobile"/>
-                    <Link linkHref="#WhatWeDo" linkMessage="what we do" linkType="mobile"/>
-                    <Link linkHref="#MeetTheTeam" linkMessage="meet the team" linkType="mobile"/>
-                    <Link linkHref="#Portfolio" linkMessage="portfolio" linkType="mobile"/>
-                    <Link linkHref="#Contact" linkMessage="contact" linkType="mobile"/>
-                    <Link linkHref="#Blog" linkMessage="blog" linkType="mobile"/>
+                    <Link href="#WhoWeAre" message="who we are" type="mobile"/>
+                    <Link href="#WhatWeDo" message="what we do" type="mobile"/>
+                    <Link href="#MeetTheTeam" message="meet the team" type="mobile"/>
+                   } <Link href="#Portfolio" message="portfolio" type="mobile"/>
+                    <Link href="#Contact" message="contact" type="mobile"/>
+                    <Link href="#Blog" message="blog" type="mobile"/>
                 </nav>
             </div>
         )

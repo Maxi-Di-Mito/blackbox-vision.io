@@ -6,26 +6,26 @@ class Link extends Component {
     }
 
     render() {
-        const { linkHref, linkMessage, linkType } = this.props;
+        const { href, message, type } = this.props;
 
-        switch (linkType) {
+        switch (type) {
             case "mobile":
                 return (
-                    <a className="mdl-navigation__link mdl-typography--text-uppercase" href={linkHref}>{linkMessage}</a>
+                    <a className="mdl-navigation__link mdl-typography--text-uppercase" href={href}>{message}</a>
                 );
             case "web":
             default:
                 return (
-                    <a className="mdl-navigation__link black-box__link mdl-js-button mdl-js-ripple-effect mdl-typography--text-uppercase mdl-layout--large-screen-only" href={linkHref}>{linkMessage}</a>
+                    <a className="mdl-navigation__link black-box__link mdl-js-button mdl-js-ripple-effect mdl-typography--text-uppercase mdl-layout--large-screen-only" href={href}>{message}</a>
                 );
         }
     }
 }
 
 Link.propTypes = {
-    linkHref: PropTypes.string.isRequired,
-    linkMessage: PropTypes.string.isRequired,
-    linkType: PropTypes.string.isRequired
+    href: PropTypes.string.isRequired,
+    message: PropTypes.string.isRequired,
+    type: PropTypes.string.isRequired
 };
 
 export default Link;
