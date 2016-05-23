@@ -1,10 +1,15 @@
 import React, { Component ,PropTypes } from 'react';
 import Content from 'react-mdl/lib/Layout/Content';
 import Layout from 'react-mdl/lib/Layout/Layout';
-import Sidenav from '../components/SideNav.jsx';
-import Footer from '../components/Footer.jsx';
-import Header from '../components/Header.jsx';
-import Body from '../components/Body.jsx';
+import Sidenav from '../components/common/SideNav.jsx';
+import Footer from '../components/common/Footer.jsx';
+import Header from '../components/common/Header.jsx';
+import WhoWeAreSection from '../components/section/WhoWeAreSection.jsx';
+import WhatWeDoSection from '../components/section/WhatWeDoSection.jsx';
+import MeetTheTeamSection from '../components/section/MeetTheTeamSection.jsx';
+import PortfolioSection from '../components/section/PortfolioSection.jsx';
+import ContactSection from '../components/section/ContactSection.jsx';
+import BlogSection from '../components/section/BlogSection.jsx';
 import injectTapEventPlugin from 'react-tap-event-plugin';
 
 class Application extends Component {
@@ -25,10 +30,15 @@ class Application extends Component {
         return (
             <Layout fixedHeader>
                 <Header/>
-                <Sidenav title="BlackBox Vision"/>
-                <Content className="mdl-layout__content black-box__background">
-                    <Body />
-                    <Footer copyright="BlackBox Vision @ 2016"/>
+                <Sidenav/>
+                <Content>
+                    <WhoWeAreSection/>
+                    <WhatWeDoSection/>
+                    <MeetTheTeamSection/>
+                    <PortfolioSection/>
+                    <ContactSection/>
+                    <BlogSection/>
+                    <Footer/>
                 </Content>
             </Layout>
         )

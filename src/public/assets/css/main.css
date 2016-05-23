@@ -50,10 +50,6 @@ body {
     padding-right: 75px;
 }
 
-.mdl-layout__content.black-box__background {
-    background: url("../images/background.svg") center/cover #757575;
-}
-
 @media screen and (min-width: 480px) {
     .padding-meet_the_team_desc {
         padding-left: 5px;
@@ -75,7 +71,7 @@ body {
 }
 
 .black-box__link.mdl-navigation__link:hover {
-    border-bottom: 3px solid #757575;
+    border-bottom: 3px solid #e65100;
 }
 
 a.mdl-js-ripple-effect {
@@ -143,3 +139,12 @@ a.mdl-js-ripple-effect {
     /*!* Support for IE. *!*/
     /*font-feature-settings: 'liga';*/
 /*}*/
+
+.slider-img {
+    position: absolute;
+    margin: auto;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
