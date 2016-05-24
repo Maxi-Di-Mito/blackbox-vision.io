@@ -7,7 +7,7 @@ class BlogSection extends Component {
 
     render() {
         return (
-            <section id="Blog" style={{ height: "650px", backgroundColor: "#ffa000"}}/>
+            <section id="Blog" style={{ height: "650px", backgroundColor: "#e0e0e0"}}/>
         )
     }
 }

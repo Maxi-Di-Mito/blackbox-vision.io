@@ -7,7 +7,7 @@ class PortfolioSection extends Component {
 
     render() {
         return (
-            <section id="Portfolio" style={{ height: "650px", backgroundColor: "#ffa000"}}/>
+            <section id="Portfolio" style={{ height: "650px", backgroundColor: "#e0e0e0"}}/>
         )
     }
 }
