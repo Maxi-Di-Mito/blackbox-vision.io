@@ -1,16 +1,16 @@
-var server_config = require('../config/server.config');
-var bodyParser = require('body-parser');
-var express = require('express');
-var Winston = require('winston');
-var morgan = require('morgan');
+import ServerConfig from '../config/server.config';
+import bodyParser from 'body-parser';
+import express, { Router } from 'express';
+import Winston from 'winston';
+import morgan from 'morgan';
 
 //Get express and router instances.. 
-var router = express.Router();
-var app = express();
+const router = Router();
+const app = express();
 
 //Default route
 router.get("/", (request, response) => {
-    response.sendFile("index.html", {root: server_config.PUBLIC_STATIC_CONTENT_DIR});
+    response.sendFile("index.html", {root: ServerConfig.PUBLIC_STATIC_CONTENT_DIR});
 });
 
 //Set views..
@@ -21,10 +21,10 @@ app.set('view engine', 'jade');
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(morgan('dev'));
-app.use(express.static(server_config.PUBLIC_STATIC_CONTENT_DIR));
+app.use(express.static(ServerConfig.PUBLIC_STATIC_CONTENT_DIR));
 app.use(router);
-app.listen(server_config.PORT, () => {
-    Winston.log("info", "Node server listening @ " + server_config.PORT);
+app.listen(ServerConfig.PORT, () => {
+    Winston.log("info", "Node server listening @ " + ServerConfig.PORT);
 });
 
-module.exports = app;		
+export default app;
