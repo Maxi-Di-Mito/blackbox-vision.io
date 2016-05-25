@@ -9,7 +9,7 @@ class ContactSection extends Component {
     render() {
         return (
             <section id="Contact" style={{ height: "650px", backgroundColor: "#ffa000"}}>
-                <Grid className="demo-grid-1">
+                <Grid>
                     <Cell col={4}/>
                     <Cell col={4}>
                         <Card shadow={0} style={{ width: "100%", height: "100%" }}>

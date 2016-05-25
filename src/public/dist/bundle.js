@@ -30250,7 +30250,7 @@
 	                { id: 'Contact', style: { height: "650px", backgroundColor: "#ffa000" } },
 	                _react2.default.createElement(
 	                    _reactMdl.Grid,
-	                    { className: 'demo-grid-1' },
+	                    null,
 	                    _react2.default.createElement(_reactMdl.Cell, { col: 4 }),
 	                    _react2.default.createElement(
 	                        _reactMdl.Cell,
