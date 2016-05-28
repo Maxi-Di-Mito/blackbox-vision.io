@@ -22847,11 +22847,31 @@
 	    }, {
 	        key: 'render',
 	        value: function render() {
+	            var list = [{
+	                link: "#WhoWeAre",
+	                message: "who we are"
+	            }, {
+	                link: "#WhatWeDo",
+	                message: "what we do"
+	            }, {
+	                link: "#MeetTheTeam",
+	                message: "meet the team"
+	            }, {
+	                link: "#Portfolio",
+	                message: "portfolio"
+	            }, {
+	                link: "#Contact",
+	                message: "contact"
+	            }, {
+	                link: "#Blog",
+	                message: "blog"
+	            }];
+
 	            return _react2.default.createElement(
 	                _Layout2.default,
 	                { fixedHeader: true },
-	                _react2.default.createElement(_Header2.default, null),
-	                _react2.default.createElement(_SideNav2.default, null),
+	                _react2.default.createElement(_Header2.default, { linkList: list }),
+	                _react2.default.createElement(_SideNav2.default, { linkList: list }),
 	                _react2.default.createElement(
 	                    _Content2.default,
 	                    null,
@@ -23170,7 +23190,7 @@
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	var SideNav = function SideNav() {
+	var SideNav = function SideNav(props) {
 	    return _react2.default.createElement(
 	        'div',
 	        { className: 'mdl-layout__drawer mdl-layout--small-screen-only' },
@@ -23182,14 +23202,16 @@
 	        _react2.default.createElement(
 	            'nav',
 	            { className: 'mdl-navigation' },
-	            _react2.default.createElement(_Link2.default, { href: '#WhoWeAre', message: 'who we are', type: 'mobile' }),
-	            _react2.default.createElement(_Link2.default, { href: '#WhatWeDo', message: 'what we do', type: 'mobile' }),
-	            _react2.default.createElement(_Link2.default, { href: '#MeetTheTeam', message: 'meet the team', type: 'mobile' }),
-	            _react2.default.createElement(_Link2.default, { href: '#Portfolio', message: 'portfolio', type: 'mobile' }),
-	            _react2.default.createElement(_Link2.default, { href: '#Contact', message: 'contact', type: 'mobile' }),
-	            _react2.default.createElement(_Link2.default, { href: '#Blog', message: 'blog', type: 'mobile' })
+	            ' ',
+	            props.linkList.map(function (item, index) {
+	                return _react2.default.createElement(_Link2.default, { key: index, href: item.link, message: item.message, type: 'mobile' });
+	            })
 	        )
 	    );
+	};
+
+	SideNav.propTypes = {
+	    linkList: _react.PropTypes.array.isRequired
 	};
 
 	exports.default = SideNav;
@@ -23359,7 +23381,7 @@
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	var Header = function Header() {
+	var Header = function Header(props) {
 	    return _react2.default.createElement(
 	        'header',
 	        { className: 'mdl-layout__header mdl-color--white mdl-shadow--3dp' },
@@ -23371,15 +23393,17 @@
 	            _react2.default.createElement(
 	                'nav',
 	                { className: 'mdl-navigation mdl-layout--large-screen-only' },
-	                _react2.default.createElement(_Link2.default, { href: '#WhoWeAre', message: 'who we are', type: 'web' }),
-	                _react2.default.createElement(_Link2.default, { href: '#WhatWeDo', message: 'what we do', type: 'web' }),
-	                _react2.default.createElement(_Link2.default, { href: '#MeetTheTeam', message: 'meet the team', type: 'web' }),
-	                _react2.default.createElement(_Link2.default, { href: '#Portfolio', message: 'portfolio', type: 'web' }),
-	                _react2.default.createElement(_Link2.default, { href: '#Contact', message: 'contact', type: 'web' }),
-	                _react2.default.createElement(_Link2.default, { href: '#Blog', message: 'blog', type: 'web' })
+	                ' ',
+	                props.linkList.map(function (item, index) {
+	                    return _react2.default.createElement(_Link2.default, { key: index, href: item.link, message: item.message, type: 'web' });
+	                })
 	            )
 	        )
 	    );
+	};
+
+	Header.propTypes = {
+	    linkList: _react.PropTypes.array.isRequired
 	};
 
 	exports.default = Header;

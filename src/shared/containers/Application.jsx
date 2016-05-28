@@ -27,10 +27,32 @@ class Application extends Component {
     }
 
     render() {
+        const list = [
+            {
+                link: "#WhoWeAre",
+                message: "who we are"
+            }, {
+                link: "#WhatWeDo",
+                message: "what we do"
+            }, {
+                link: "#MeetTheTeam",
+                message: "meet the team"
+            }, {
+                link: "#Portfolio",
+                message: "portfolio"
+            }, {
+                link: "#Contact",
+                message: "contact"
+            }, {
+                link: "#Blog",
+                message: "blog"
+            }
+        ];
+
         return (
             <Layout fixedHeader>
-                <Header/>
-                <Sidenav/>
+                <Header linkList={list}/>
+                <Sidenav linkList={list}/>
                 <Content>
                     <WhoWeAreSection/>
                     <WhatWeDoSection/>
