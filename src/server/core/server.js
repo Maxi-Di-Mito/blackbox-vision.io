@@ -9,7 +9,6 @@ import morgan from 'morgan';
 import React from 'react';
 
 const App = React.createFactory(ReactApp);
-
 //Install jsx transpiler in server
 install({extension: '.jsx', harmony: true});
 
@@ -19,8 +18,10 @@ const app = Express();
 
 //Default route
 router.get("/", (request, response) => {
-    const stringHTML = ReactDOMServer.renderToString(App({}));
-    response.render(ServerConfig.PUBLIC_STATIC_CONTENT_DIR + "/index.ejs", { reactApp: stringHTML });
+    response.render(
+        ServerConfig.PUBLIC_STATIC_CONTENT_DIR + "/index.ejs",
+        { reactApp: ReactDOMServer.renderToString(App({})) }
+    );
 });
 
 //Set views..

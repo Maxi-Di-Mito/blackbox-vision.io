@@ -43,6 +43,12 @@
     "util": "^0.10.3"
   },
   "devDependencies": {
+    "del": "^2.2.0",
+    "gulp": "^3.9.1",
+    "gulp-clean-css": "^2.0.7",
+    "gulp-cli": "^1.2.1",
+    "gulp-concat-css": "^2.2.0",
+    "gulp-livereload": "^3.8.1",
     "babel-cli": "^6.9.0",
     "babel-core": "^6.8.0",
     "babel-loader": "^6.2.4",
