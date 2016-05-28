@@ -1,27 +1,42 @@
-import gulp from 'gulp';
-import cleanCSS from 'gulp-clean-css';
-import concatCss from 'gulp-concat-css';
-import liveReload from 'gulp-livereload';
-import del from 'del';
+'use strict';
 
-gulp.task('minify-css', () => {
-    return gulp.src('src/public/assets/css/*.css')
-        .pipe(concatCss("bundle.css"))
-        .pipe(cleanCSS('bundle.css'))
-        .pipe(gulp.dest('src/public/dist'));
+var _gulp = require('gulp');
+
+var _gulp2 = _interopRequireDefault(_gulp);
+
+var _gulpCleanCss = require('gulp-clean-css');
+
+var _gulpCleanCss2 = _interopRequireDefault(_gulpCleanCss);
+
+var _gulpConcatCss = require('gulp-concat-css');
+
+var _gulpConcatCss2 = _interopRequireDefault(_gulpConcatCss);
+
+var _gulpLivereload = require('gulp-livereload');
+
+var _gulpLivereload2 = _interopRequireDefault(_gulpLivereload);
+
+var _del = require('del');
+
+var _del2 = _interopRequireDefault(_del);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+_gulp2.default.task('minify-css', function () {
+    return _gulp2.default.src('src/public/assets/css/*.css').pipe((0, _gulpConcatCss2.default)("bundle.css")).pipe((0, _gulpCleanCss2.default)('bundle.css')).pipe(_gulp2.default.dest('src/public/dist'));
 });
 
-gulp.task('clean', () => {
-    return del(['src/public/dist/bundle.css']);
+_gulp2.default.task('clean', function () {
+    return (0, _del2.default)(['src/public/dist/bundle.css']);
 });
 
-gulp.task('default', ['clean'], () => {
-    gulp.start('minify-css');
+_gulp2.default.task('default', ['clean'], function () {
+    _gulp2.default.start('minify-css');
 });
 
-gulp.task('watch', () => {
+_gulp2.default.task('watch', function () {
     // Watch .css files
-    gulp.watch('src/public/assets/css/*.css', ['minify-css']);
+    _gulp2.default.watch('src/public/assets/css/*.css', ['minify-css']);
 
     //// Watch .js files
     //gulp.watch('src/scripts/**/*.js', ['scripts']);
@@ -30,8 +45,8 @@ gulp.task('watch', () => {
     //gulp.watch('src/images/**/*', ['images']);
 
     // Create LiveReload server
-    liveReload.listen();
+    _gulpLivereload2.default.listen();
 
     // Watch any files in dist/, reload on change
-    gulp.watch(['src/public/dist/**']).on('change', liveReload.changed);
+    _gulp2.default.watch(['src/public/dist/**']).on('change', _gulpLivereload2.default.changed);
 });

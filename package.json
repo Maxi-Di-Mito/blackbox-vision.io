@@ -5,6 +5,8 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
+    "gulp": "npm run babelify-gulpfile && gulp",
+    "babelify-gulpfile": "babel gulpfile-es6.js --out-file gulpfile.js",
     "installDependencies": "npm install",
     "webpack": "webpack --progress --profile --colors",
     "webpack-watch": "webpack --progress --profile --colors --watch",
