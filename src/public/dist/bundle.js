@@ -22800,19 +22800,15 @@
 
 	var _MeetTheTeamSection2 = _interopRequireDefault(_MeetTheTeamSection);
 
-	var _PortfolioSection = __webpack_require__(288);
+	var _PortfolioSection = __webpack_require__(290);
 
 	var _PortfolioSection2 = _interopRequireDefault(_PortfolioSection);
 
-	var _ContactSection = __webpack_require__(289);
+	var _ContactSection = __webpack_require__(291);
 
 	var _ContactSection2 = _interopRequireDefault(_ContactSection);
 
-	var _BlogSection = __webpack_require__(290);
-
-	var _BlogSection2 = _interopRequireDefault(_BlogSection);
-
-	var _reactTapEventPlugin = __webpack_require__(291);
+	var _reactTapEventPlugin = __webpack_require__(292);
 
 	var _reactTapEventPlugin2 = _interopRequireDefault(_reactTapEventPlugin);
 
@@ -22885,6 +22881,82 @@
 	                link: "https://github.com/BlackBoxVision"
 	            }];
 
+	            var team = {
+	                title: "Meet the Team",
+	                description: "We are enthusiastic developers with remarkable skills on different modern growing technologies. Our vision is to interact with the client and make solutions according to their needs.",
+	                cardList: [{
+	                    imageUrl: "https://cosmicjs.com/uploads/904a8700-185c-11e6-ab5c-2dbce63d2a02-e21cf730-17d9-11e6-b4ed-9d2206eb621f-alan-backgrou.png",
+	                    name: "Alan Vaudagna",
+	                    description: "Mobile in the day, backend in the night, developer lifestyle. Passionate, hard worker, and self motivated. Great drummer by the way.",
+	                    socialList: [{
+	                        social: "github",
+	                        color: "black",
+	                        url: "https://github.com/avaudagna"
+	                    }, {
+	                        social: "linkedin",
+	                        color: "indigo",
+	                        url: "https://ar.linkedin.com/in/alan-vaudagna-5101647b"
+	                    }, {
+	                        social: "google-plus",
+	                        color: "red",
+	                        url: "https://plus.google.com/+AlanVaudagna"
+	                    }]
+	                }, {
+	                    imageUrl: "https://cosmicjs.com/uploads/90461a30-185c-11e6-ab5c-2dbce63d2a02-e226bb30-17d9-11e6-b4ed-9d2206eb621f-federico-back.png",
+	                    name: "Federico Catinello",
+	                    description: "FullStack Developer. Proactive Researcher. High commitment with new deals. Crazy about networking.",
+	                    socialList: [{
+	                        social: "github",
+	                        color: "black",
+	                        url: "https://github.com/fedecatinello"
+	                    }, {
+	                        social: "linkedin",
+	                        color: "indigo",
+	                        url: "https://ar.linkedin.com/in/fcatinello"
+	                    }, {
+	                        social: "google-plus",
+	                        color: "red",
+	                        url: "https://plus.google.com/115178305356749953986"
+	                    }]
+	                }, {
+	                    imageUrl: "https://cosmicjs.com/uploads/9053d5d0-185c-11e6-ab5c-2dbce63d2a02-e23a1c20-17d9-11e6-b4ed-9d2206eb621f-jonatan-backg.png",
+	                    name: "Jonatan Salas",
+	                    description: "FullStack Developer. Open source projects contributor. Tenacious and self-motivated. Interested in new growing technologies.",
+	                    socialList: [{
+	                        social: "github",
+	                        color: "black",
+	                        url: "https://github.com/JonatanSalas"
+	                    }, {
+	                        social: "linkedin",
+	                        color: "indigo",
+	                        url: "https://ar.linkedin.com/in/jonatanezequielsalas"
+	                    }, {
+	                        social: "google-plus",
+	                        color: "red",
+	                        url: "https://plus.google.com/+JonatanSalasJS"
+	                    }]
+	                }]
+	            };
+
+	            var settings = {
+	                autoplay: true,
+	                infinite: true,
+	                autoplaySpeed: 10000,
+	                centerMode: true,
+	                dots: false,
+	                arrows: false
+	            };
+
+	            var slides = [{
+	                imageUrl: "/assets/images/background.svg"
+	            }, {
+	                imageUrl: "/assets/images/background.svg"
+	            }, {
+	                imageUrl: "/assets/images/background.svg"
+	            }, {
+	                imageUrl: "/assets/images/background.svg"
+	            }];
+
 	            return _react2.default.createElement(
 	                _Layout2.default,
 	                { fixedHeader: true },
@@ -22893,12 +22965,11 @@
 	                _react2.default.createElement(
 	                    _Content2.default,
 	                    null,
-	                    _react2.default.createElement(_WhoWeAreSection2.default, null),
+	                    _react2.default.createElement(_WhoWeAreSection2.default, { settings: settings, slideList: slides }),
 	                    _react2.default.createElement(_WhatWeDoSection2.default, null),
-	                    _react2.default.createElement(_MeetTheTeamSection2.default, null),
+	                    _react2.default.createElement(_MeetTheTeamSection2.default, { title: team.title, description: team.description, cardList: team.cardList }),
 	                    _react2.default.createElement(_PortfolioSection2.default, null),
 	                    _react2.default.createElement(_ContactSection2.default, null),
-	                    _react2.default.createElement(_BlogSection2.default, null),
 	                    _react2.default.createElement(_Footer2.default, { socialList: social, copyright: 'BlackBox Vision @ 2016' })
 	                )
 	            );
@@ -23456,8 +23527,6 @@
 	    value: true
 	});
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	var _react = __webpack_require__(2);
 
 	var _react2 = _interopRequireDefault(_react);
@@ -23468,50 +23537,24 @@
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	var WhoWeAreSection = function WhoWeAreSection(props) {
+	    return _react2.default.createElement(
+	        'section',
+	        { id: 'WhoWeAre' },
+	        _react2.default.createElement(
+	            _reactSlick2.default,
+	            props.settings,
+	            _react2.default.createElement('img', { src: '../assets/images/background.svg' }),
+	            _react2.default.createElement('img', { src: '../assets/images/background.svg' }),
+	            _react2.default.createElement('img', { src: '../assets/images/background.svg' }),
+	            _react2.default.createElement('img', { src: '../assets/images/background.svg' })
+	        )
+	    );
+	};
 
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-	var WhoWeAreSection = function (_Component) {
-	    _inherits(WhoWeAreSection, _Component);
-
-	    function WhoWeAreSection(props) {
-	        _classCallCheck(this, WhoWeAreSection);
-
-	        return _possibleConstructorReturn(this, Object.getPrototypeOf(WhoWeAreSection).call(this, props));
-	    }
-
-	    _createClass(WhoWeAreSection, [{
-	        key: 'render',
-	        value: function render() {
-	            var settings = {
-	                autoplay: true,
-	                infinite: true,
-	                autoplaySpeed: 10000,
-	                centerMode: true,
-	                dots: false,
-	                arrows: false
-	            };
-
-	            return _react2.default.createElement(
-	                'section',
-	                { id: 'WhoWeAre' },
-	                _react2.default.createElement(
-	                    _reactSlick2.default,
-	                    settings,
-	                    _react2.default.createElement('img', { src: '../assets/images/background.svg' }),
-	                    _react2.default.createElement('img', { src: '../assets/images/background.svg' }),
-	                    _react2.default.createElement('img', { src: '../assets/images/background.svg' }),
-	                    _react2.default.createElement('img', { src: '../assets/images/background.svg' })
-	                )
-	            );
-	        }
-	    }]);
-
-	    return WhoWeAreSection;
-	}(_react.Component);
+	WhoWeAreSection.propTypes = {
+	    settings: _react.PropTypes.object.isRequired
+	};
 
 	exports.default = WhoWeAreSection;
 
@@ -25490,7 +25533,7 @@
 	    value: true
 	});
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
 	var _react = __webpack_require__(2);
 
@@ -25498,120 +25541,42 @@
 
 	var _reactMdl = __webpack_require__(232);
 
+	var _TeamCard = __webpack_require__(288);
+
+	var _TeamCard2 = _interopRequireDefault(_TeamCard);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	var MeetTheTeamSection = function MeetTheTeamSection(props) {
+	    return _react2.default.createElement(
+	        'section',
+	        { id: 'MeetTheTeam', className: 'mdl-color--grey-300' },
+	        _react2.default.createElement(
+	            'h3',
+	            { className: 'blackbox-title__padding mdl-typography--text-center mdl-typography--font-light mdl-typography--display-2-color-contrast' },
+	            props.title
+	        ),
+	        _react2.default.createElement(
+	            'p',
+	            { className: 'mdl-typography--text-center mdl-typography--font-light mdl-typography--subhead' },
+	            props.description
+	        ),
+	        _react2.default.createElement(
+	            'div',
+	            { className: 'mdl-grid' },
+	            ' ',
+	            props.cardList.map(function (item, index) {
+	                return _react2.default.createElement(_TeamCard2.default, _extends({ key: index }, item));
+	            })
+	        )
+	    );
+	};
 
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-	var MeetTheTeamSection = function (_Component) {
-	    _inherits(MeetTheTeamSection, _Component);
-
-	    function MeetTheTeamSection(props) {
-	        _classCallCheck(this, MeetTheTeamSection);
-
-	        return _possibleConstructorReturn(this, Object.getPrototypeOf(MeetTheTeamSection).call(this, props));
-	    }
-
-	    _createClass(MeetTheTeamSection, [{
-	        key: 'render',
-	        value: function render() {
-	            return _react2.default.createElement(
-	                'section',
-	                { id: 'MeetTheTeam', style: { height: "650px", backgroundColor: "#ffa000" } },
-	                _react2.default.createElement(
-	                    _reactMdl.Grid,
-	                    null,
-	                    _react2.default.createElement(
-	                        _reactMdl.Cell,
-	                        { col: 4 },
-	                        _react2.default.createElement(
-	                            _reactMdl.Card,
-	                            { shadow: 0, style: { width: "100%", height: "100%" } },
-	                            _react2.default.createElement(
-	                                _reactMdl.CardTitle,
-	                                null,
-	                                'Contact'
-	                            ),
-	                            _react2.default.createElement(
-	                                _reactMdl.CardText,
-	                                null,
-	                                'sagittis pellentesque lacus eleifend lacinia...'
-	                            ),
-	                            _react2.default.createElement(
-	                                _reactMdl.CardActions,
-	                                { border: true },
-	                                _react2.default.createElement(
-	                                    _reactMdl.Button,
-	                                    { colored: true, ripple: true },
-	                                    'Send'
-	                                )
-	                            )
-	                        )
-	                    ),
-	                    _react2.default.createElement(
-	                        _reactMdl.Cell,
-	                        { col: 4 },
-	                        _react2.default.createElement(
-	                            _reactMdl.Card,
-	                            { shadow: 0, style: { width: "100%", height: "100%" } },
-	                            _react2.default.createElement(
-	                                _reactMdl.CardTitle,
-	                                null,
-	                                'Contact'
-	                            ),
-	                            _react2.default.createElement(
-	                                _reactMdl.CardText,
-	                                null,
-	                                'sagittis pellentesque lacus eleifend lacinia...'
-	                            ),
-	                            _react2.default.createElement(
-	                                _reactMdl.CardActions,
-	                                { border: true },
-	                                _react2.default.createElement(
-	                                    _reactMdl.Button,
-	                                    { colored: true, ripple: true },
-	                                    'Send'
-	                                )
-	                            )
-	                        )
-	                    ),
-	                    _react2.default.createElement(
-	                        _reactMdl.Cell,
-	                        { col: 4 },
-	                        _react2.default.createElement(
-	                            _reactMdl.Card,
-	                            { shadow: 0, style: { width: "100%", height: "100%" } },
-	                            _react2.default.createElement(
-	                                _reactMdl.CardTitle,
-	                                null,
-	                                'Contact'
-	                            ),
-	                            _react2.default.createElement(
-	                                _reactMdl.CardText,
-	                                null,
-	                                'sagittis pellentesque lacus eleifend lacinia...'
-	                            ),
-	                            _react2.default.createElement(
-	                                _reactMdl.CardActions,
-	                                { border: true },
-	                                _react2.default.createElement(
-	                                    _reactMdl.Button,
-	                                    { colored: true, ripple: true },
-	                                    'Send'
-	                                )
-	                            )
-	                        )
-	                    )
-	                )
-	            );
-	        }
-	    }]);
-
-	    return MeetTheTeamSection;
-	}(_react.Component);
+	MeetTheTeamSection.propTypes = {
+	    title: _react.PropTypes.string.isRequired,
+	    description: _react.PropTypes.string.isRequired,
+	    cardList: _react.PropTypes.array.isRequired
+	};
 
 	exports.default = MeetTheTeamSection;
 
@@ -30228,6 +30193,107 @@
 /* 288 */
 /***/ function(module, exports, __webpack_require__) {
 
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+	var _react = __webpack_require__(2);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _SocialFlatButton = __webpack_require__(289);
+
+	var _SocialFlatButton2 = _interopRequireDefault(_SocialFlatButton);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var TeamCard = function TeamCard(props) {
+	    return _react2.default.createElement(
+	        'div',
+	        { className: 'mdl-cell mdl-cell--4-col mdl-cell--8-col-tablet mdl-cell--4-col-phone mdl-card mdl-shadow--2dp' },
+	        _react2.default.createElement(
+	            'div',
+	            { className: 'mdl-card__media img-container' },
+	            _react2.default.createElement('img', { className: 'img-responsive', width: '100%', src: props.imageUrl })
+	        ),
+	        _react2.default.createElement(
+	            'div',
+	            { className: 'mdl-card__title' },
+	            _react2.default.createElement(
+	                'h4',
+	                { className: 'mdl-card__title-text' },
+	                props.name
+	            )
+	        ),
+	        _react2.default.createElement(
+	            'div',
+	            { className: 'mdl-card__supporting-text' },
+	            _react2.default.createElement(
+	                'span',
+	                { className: 'mdl-typography--font-light mdl-typography--subhead' },
+	                props.description
+	            )
+	        ),
+	        _react2.default.createElement(
+	            'div',
+	            { className: 'mdl-card__actions' },
+	            ' ',
+	            props.socialList.map(function (item, index) {
+	                return _react2.default.createElement(_SocialFlatButton2.default, _extends({ key: index }, item));
+	            })
+	        )
+	    );
+	};
+
+	TeamCard.propTypes = {
+	    imageUrl: _react.PropTypes.string.isRequired,
+	    name: _react.PropTypes.string.isRequired,
+	    description: _react.PropTypes.string.isRequired,
+	    socialList: _react.PropTypes.array.isRequired
+	};
+
+	exports.default = TeamCard;
+
+/***/ },
+/* 289 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _react = __webpack_require__(2);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var SocialFlatButton = function SocialFlatButton(props) {
+	    return _react2.default.createElement(
+	        "a",
+	        { className: "mdl-button mdl-js-button mdl-js-ripple-effect mdl-typography--text-uppercase mdl-color-text--" + props.color, href: props.url, target: "_blank" },
+	        _react2.default.createElement("i", { className: "fa fa-" + props.social + " fa-lg", "aria-hidden": "true" })
+	    );
+	};
+
+	SocialFlatButton.propTypes = {
+	    social: _react.PropTypes.string.isRequired,
+	    color: _react.PropTypes.string.isRequired,
+	    url: _react.PropTypes.string.isRequired
+	};
+
+	exports.default = SocialFlatButton;
+
+/***/ },
+/* 290 */
+/***/ function(module, exports, __webpack_require__) {
+
 	"use strict";
 
 	Object.defineProperty(exports, "__esModule", {
@@ -30270,7 +30336,7 @@
 	exports.default = PortfolioSection;
 
 /***/ },
-/* 289 */
+/* 291 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -30353,56 +30419,11 @@
 	exports.default = ContactSection;
 
 /***/ },
-/* 290 */
+/* 292 */
 /***/ function(module, exports, __webpack_require__) {
 
-	"use strict";
-
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-	var _react = __webpack_require__(2);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-	var BlogSection = function (_Component) {
-	    _inherits(BlogSection, _Component);
-
-	    function BlogSection(props) {
-	        _classCallCheck(this, BlogSection);
-
-	        return _possibleConstructorReturn(this, Object.getPrototypeOf(BlogSection).call(this, props));
-	    }
-
-	    _createClass(BlogSection, [{
-	        key: "render",
-	        value: function render() {
-	            return _react2.default.createElement("section", { id: "Blog", style: { height: "650px", backgroundColor: "#e0e0e0" } });
-	        }
-	    }]);
-
-	    return BlogSection;
-	}(_react.Component);
-
-	exports.default = BlogSection;
-
-/***/ },
-/* 291 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/* WEBPACK VAR INJECTION */(function(process) {var invariant = __webpack_require__(292);
-	var defaultClickRejectionStrategy = __webpack_require__(293);
+	/* WEBPACK VAR INJECTION */(function(process) {var invariant = __webpack_require__(293);
+	var defaultClickRejectionStrategy = __webpack_require__(294);
 
 	var alreadyInjected = false;
 
@@ -30424,14 +30445,14 @@
 	  alreadyInjected = true;
 
 	  __webpack_require__(48).injection.injectEventPluginsByName({
-	    'TapEventPlugin':       __webpack_require__(294)(shouldRejectClick)
+	    'TapEventPlugin':       __webpack_require__(295)(shouldRejectClick)
 	  });
 	};
 
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
 
 /***/ },
-/* 292 */
+/* 293 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
@@ -30486,7 +30507,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
 
 /***/ },
-/* 293 */
+/* 294 */
 /***/ function(module, exports) {
 
 	module.exports = function(lastTouchEvent, clickTimestamp) {
@@ -30497,7 +30518,7 @@
 
 
 /***/ },
-/* 294 */
+/* 295 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -30525,10 +30546,10 @@
 	var EventPluginUtils = __webpack_require__(50);
 	var EventPropagators = __webpack_require__(47);
 	var SyntheticUIEvent = __webpack_require__(73);
-	var TouchEventUtils = __webpack_require__(295);
+	var TouchEventUtils = __webpack_require__(296);
 	var ViewportMetrics = __webpack_require__(74);
 
-	var keyOf = __webpack_require__(296);
+	var keyOf = __webpack_require__(297);
 	var topLevelTypes = EventConstants.topLevelTypes;
 
 	var isStartish = EventPluginUtils.isStartish;
@@ -30673,7 +30694,7 @@
 
 
 /***/ },
-/* 295 */
+/* 296 */
 /***/ function(module, exports) {
 
 	/**
@@ -30721,7 +30742,7 @@
 
 
 /***/ },
-/* 296 */
+/* 297 */
 /***/ function(module, exports) {
 
 	/**
