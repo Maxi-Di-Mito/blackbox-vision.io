@@ -27,7 +27,7 @@ class Application extends Component {
     }
 
     render() {
-        const list = [
+        const links = [
             {
                 link: "#WhoWeAre",
                 message: "who we are"
@@ -49,10 +49,30 @@ class Application extends Component {
             }
         ];
 
+        const social = [
+            {
+                color: "indigo",
+                social: "facebook",
+                link: ""
+            }, {
+                color: "blue",
+                social: "twitter",
+                link: ""
+            }, {
+                color: "red",
+                social: "google-plus",
+                link: ""
+            }, {
+                color: "black",
+                social: "github",
+                link: ""
+            }
+        ];
+
         return (
             <Layout fixedHeader>
-                <Header linkList={list}/>
-                <Sidenav linkList={list}/>
+                <Header linkList={links}/>
+                <Sidenav title="BlackBox Vision" linkList={links}/>
                 <Content>
                     <WhoWeAreSection/>
                     <WhatWeDoSection/>
@@ -60,7 +80,7 @@ class Application extends Component {
                     <PortfolioSection/>
                     <ContactSection/>
                     <BlogSection/>
-                    <Footer/>
+                    <Footer socialList={social} copyright="BlackBox Vision @ 2016"/>
                 </Content>
             </Layout>
         )
