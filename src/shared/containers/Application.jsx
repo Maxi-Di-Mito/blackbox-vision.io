@@ -141,36 +141,12 @@ class Application extends Component {
             ]
         };
 
-        const settings = {
-            autoplay: true,
-            infinite: true,
-            autoplaySpeed: 10000,
-            centerMode: true,
-            dots: false,
-            arrows: false
-        };
-
-        const slides = [
-            {
-                imageUrl: "/assets/images/background.svg"
-            },
-            {
-                imageUrl: "/assets/images/background.svg"
-            },
-            {
-                imageUrl: "/assets/images/background.svg"
-            },
-            {
-                imageUrl: "/assets/images/background.svg"
-            }
-        ];
-
         return (
             <Layout fixedHeader>
                 <Header logo="/assets/images/logo.png" logoSize="25px" linkList={links}/>
                 <Sidenav title="BlackBox Vision" linkList={links}/>
                 <Content>
-                    <WhoWeAreSection settings={settings} slideList={slides}/>
+                    <WhoWeAreSection/>
                     <WhatWeDoSection/>
                     <MeetTheTeamSection title={team.title} description={team.description} cardList={team.cardList}/>
                     <PortfolioSection/>

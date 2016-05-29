@@ -1,19 +1,14 @@
 import React, { Component ,PropTypes } from 'react';
-import Slider from 'react-slick';
+import MaterialCarousel from '../common/MaterialCarousel.jsx';
 
 const WhoWeAreSection = (props) => (
     <section id="WhoWeAre">
-        <Slider {...props.settings}>
-            <img src='../assets/images/background.svg'/>
-            <img src='../assets/images/background.svg'/>
-            <img src='../assets/images/background.svg'/>
-            <img src='../assets/images/background.svg'/>
-        </Slider>
+        <MaterialCarousel slidesToShow={1} dragging={true} autoTime={10000} >
+            <img src="/assets/images/background.svg"/>
+            <img src="/assets/images/background.svg"/>
+            <img src="/assets/images/background.svg"/>
+        </MaterialCarousel>
     </section>
 );
-
-WhoWeAreSection.propTypes = {
-    settings: PropTypes.object.isRequired
-};
 
 export default WhoWeAreSection;
