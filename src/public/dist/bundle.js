@@ -22882,7 +22882,7 @@
 	            }, {
 	                color: "black",
 	                social: "github",
-	                link: ""
+	                link: "https://github.com/BlackBoxVision"
 	            }];
 
 	            return _react2.default.createElement(
@@ -23379,11 +23379,11 @@
 
 	var SocialButton = function SocialButton(props) {
 	    return _react2.default.createElement(
-	        "button",
-	        { className: "mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored mdl-color--" + props.color },
+	        "a",
+	        { className: "mdl-color-text--white", href: props.link, target: "_blank" },
 	        _react2.default.createElement(
-	            "a",
-	            { className: "mdl-color-text--white", href: props.link },
+	            "button",
+	            { className: "mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored mdl-color--" + props.color },
 	            _react2.default.createElement("i", { className: "fa fa-" + props.social, "aria-hidden": "true" })
 	        )
 	    );

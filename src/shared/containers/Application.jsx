@@ -65,7 +65,7 @@ class Application extends Component {
             }, {
                 color: "black",
                 social: "github",
-                link: ""
+                link: "https://github.com/BlackBoxVision"
             }
         ];
 
