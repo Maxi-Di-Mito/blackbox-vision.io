@@ -22888,7 +22888,7 @@
 	            return _react2.default.createElement(
 	                _Layout2.default,
 	                { fixedHeader: true },
-	                _react2.default.createElement(_Header2.default, { linkList: links }),
+	                _react2.default.createElement(_Header2.default, { logo: '/assets/images/logo.png', logoSize: '25px', linkList: links }),
 	                _react2.default.createElement(_SideNav2.default, { title: 'BlackBox Vision', linkList: links }),
 	                _react2.default.createElement(
 	                    _Content2.default,
@@ -23424,7 +23424,7 @@
 	        _react2.default.createElement(
 	            'div',
 	            { className: 'mdl-layout__header-row' },
-	            _react2.default.createElement('img', { height: '25px', className: 'mdl-logo', src: '/assets/images/logo.png', style: { margin: "auto" } }),
+	            _react2.default.createElement('img', { height: props.logoSize, className: 'mdl-logo', src: props.logo, style: { margin: "auto" } }),
 	            _react2.default.createElement('div', { className: 'mdl-layout-spacer' }),
 	            _react2.default.createElement(
 	                'nav',
@@ -23439,6 +23439,8 @@
 	};
 
 	Header.propTypes = {
+	    logo: _react.PropTypes.string.isRequired,
+	    logoSize: _react.PropTypes.string.isRequired,
 	    linkList: _react.PropTypes.array.isRequired
 	};
 

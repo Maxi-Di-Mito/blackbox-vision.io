@@ -71,7 +71,7 @@ class Application extends Component {
 
         return (
             <Layout fixedHeader>
-                <Header linkList={links}/>
+                <Header logo="/assets/images/logo.png" logoSize="25px" linkList={links}/>
                 <Sidenav title="BlackBox Vision" linkList={links}/>
                 <Content>
                     <WhoWeAreSection/>
