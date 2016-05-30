@@ -77,7 +77,7 @@ class MaterialCarousel extends Component {
 
     render() {
         return (
-            <Carousel ref={(c)=>this.carousel = c} {...this.props} decorators={decorators} afterSlide={this.afterSlide.bind(this)} >
+            <Carousel ref={(c) => this.carousel = c} {...this.props} decorators={decorators} afterSlide={this.afterSlide.bind(this)} >
                 {this.props.children}
             </Carousel>
         );

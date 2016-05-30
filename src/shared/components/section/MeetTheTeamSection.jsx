@@ -1,5 +1,4 @@
 import React, { Component ,PropTypes } from 'react';
-import { Grid, Cell } from 'react-mdl';
 import TeamCard from '../common/TeamCard.jsx';
 
 const MeetTheTeamSection = (props) => (

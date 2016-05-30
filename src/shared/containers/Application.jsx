@@ -1,9 +1,10 @@
 import React, { Component ,PropTypes } from 'react';
 import Content from 'react-mdl/lib/Layout/Content';
 import Layout from 'react-mdl/lib/Layout/Layout';
-import Sidenav from '../components/common/SideNav.jsx';
+import SideNav from '../components/common/SideNav.jsx';
 import Footer from '../components/common/Footer.jsx';
 import Header from '../components/common/Header.jsx';
+import SlidesSection from '../components/section/SlidesSection.jsx';
 import WhoWeAreSection from '../components/section/WhoWeAreSection.jsx';
 import WhatWeDoSection from '../components/section/WhatWeDoSection.jsx';
 import MeetTheTeamSection from '../components/section/MeetTheTeamSection.jsx';
@@ -141,11 +142,30 @@ class Application extends Component {
             ]
         };
 
+        const imageList = [
+            {
+                imageUrl: "/assets/images/background.svg",
+                title: "hola",
+                description: "hola"
+            },
+            {
+                imageUrl: "/assets/images/background.svg",
+                title: "hola",
+                description: "hola"
+            },
+            {
+                imageUrl: "/assets/images/background.svg",
+                title: "hola",
+                description: "hola"
+            }
+        ];
+
         return (
             <Layout fixedHeader>
                 <Header logo="/assets/images/logo.png" logoSize="25px" linkList={links}/>
-                <Sidenav title="BlackBox Vision" linkList={links}/>
+                <SideNav title="BlackBox Vision" linkList={links}/>
                 <Content>
+                    <SlidesSection imageList={imageList}/>
                     <WhoWeAreSection/>
                     <WhatWeDoSection/>
                     <MeetTheTeamSection title={team.title} description={team.description} cardList={team.cardList}/>
