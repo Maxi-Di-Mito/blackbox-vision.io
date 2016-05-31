@@ -1,5 +1,5 @@
 import React, { Component ,PropTypes } from 'react';
-import SocialFlatButton from '../common/SocialFlatButton.jsx';
+import SocialButton from '../common/SocialButton.jsx';
 
 const TeamCard = (props) => (
     <div className="mdl-cell mdl-cell--4-col mdl-cell--8-col-tablet mdl-cell--4-col-phone mdl-card mdl-shadow--2dp">
@@ -18,7 +18,7 @@ const TeamCard = (props) => (
         </div>
         <div className="mdl-card__actions"> {
             props.socialList.map((item, index) => {
-                return <SocialFlatButton key={index} {...item}/>
+                return <SocialButton key={index} isFlat={true} {...item}/>
             })
         }
         </div>
