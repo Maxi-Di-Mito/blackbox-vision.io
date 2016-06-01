@@ -3,7 +3,7 @@ import React, { Component ,PropTypes } from 'react';
 const SocialButton = (props) => {
     if (props.isFlat) {
         return (
-            <a className={"mdl-button mdl-js-button mdl-js-ripple-effect mdl-typography--text-uppercase mdl-color-text--" + props.color} href={props.url} target="_blank">
+            <a className={"mdl-button mdl-js-button mdl-js-ripple-effect mdl-typography--text-uppercase mdl-color-text--" + props.color} href={props.link} target="_blank">
                 <i className={"fa fa-" + props.social + " fa-lg"} aria-hidden="true"/>
             </a>
         )

@@ -81,17 +81,17 @@ class Application extends Component {
                         {
                             social: "github",
                             color: "black",
-                            url: "https://github.com/avaudagna"
+                            link: "https://github.com/avaudagna"
                         },
                         {
                             social: "linkedin",
                             color: "indigo",
-                            url: "https://ar.linkedin.com/in/alan-vaudagna-5101647b"
+                            link: "https://ar.linkedin.com/in/alan-vaudagna-5101647b"
                         },
                         {
                             social: "google-plus",
                             color: "red",
-                            url: "https://plus.google.com/+AlanVaudagna"
+                            link: "https://plus.google.com/+AlanVaudagna"
                         }
                     ]
                 },
@@ -103,17 +103,17 @@ class Application extends Component {
                         {
                             social: "github",
                             color: "black",
-                            url: "https://github.com/fedecatinello"
+                            link: "https://github.com/fedecatinello"
                         },
                         {
                             social: "linkedin",
                             color: "indigo",
-                            url: "https://ar.linkedin.com/in/fcatinello"
+                            link: "https://ar.linkedin.com/in/fcatinello"
                         },
                         {
                             social: "google-plus",
                             color: "red",
-                            url: "https://plus.google.com/115178305356749953986"
+                            link: "https://plus.google.com/115178305356749953986"
                         }
                     ]
                 },
@@ -125,17 +125,17 @@ class Application extends Component {
                         {
                             social: "github",
                             color: "black",
-                            url: "https://github.com/JonatanSalas"
+                            link: "https://github.com/JonatanSalas"
                         },
                         {
                             social: "linkedin",
                             color: "indigo",
-                            url: "https://ar.linkedin.com/in/jonatanezequielsalas"
+                            link: "https://ar.linkedin.com/in/jonatanezequielsalas"
                         },
                         {
                             social: "google-plus",
                             color: "red",
-                            url: "https://plus.google.com/+JonatanSalasJS"
+                            link: "https://plus.google.com/+JonatanSalasJS"
                         }
                     ]
                 }
