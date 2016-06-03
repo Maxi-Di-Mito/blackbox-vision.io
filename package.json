@@ -16,7 +16,7 @@
     "build-hot": "npm run gulp && npm run installDependencies && npm run webpack-hot && npm run start-hot",
     "foreman": "nf start",
     "compile": "babel ./src/server -d ./src/dist",
-    "start": "node ./src/dist/index.js",
+    "start": "node  ./src/dist/index.js",
     "start-hot": "node ./src/server/core/hot-reload-server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
