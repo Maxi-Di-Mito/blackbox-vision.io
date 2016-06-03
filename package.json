@@ -12,10 +12,11 @@
     "webpack-watch": "webpack --progress --profile --colors --watch",
     "webpack-hot": "webpack --config webpack.config.hot-reload --progress --profile --colors",
     "prebuild": "npm prune",
-    "build": "npm run installDependencies && npm run gulp && npm run webpack",
+    "build": "npm run installDependencies && npm run gulp && npm run webpack && npm run compile",
     "build-hot": "npm run gulp && npm run installDependencies && npm run webpack-hot && npm run start-hot",
     "foreman": "nf start",
-    "start": "npm run build && babel-node index.js --presets es2015,stage-2",
+    "compile": "babel ./src/server -d ./src/dist",
+    "start": "npm run build && babel-node ./src/server/index.js --presets es2015,stage-2",
     "start-hot": "node ./src/server/core/hot-reload-server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
