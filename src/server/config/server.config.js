@@ -4,7 +4,8 @@ import path from 'path';
 const ROOT_DIR = path.resolve(__dirname, "../..");
 
 const ServerConfig = {
-	PORT: process.env.SERVER_PORT || 9001,
+	IP_ADDRESS: process.env.OPENSHIFT_NODEJS_IP || "127.0.0.1",
+	PORT: process.env.OPENSHIFT_NODEJS_PORT || 8080,
 	PUBLIC_STATIC_CONTENT_DIR: ROOT_DIR + "/public",
 	ROOT_DIR: ROOT_DIR,
 	MONGO_URI: process.env.MONGO_URI || "mongodb://localhost:27017",

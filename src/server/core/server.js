@@ -34,7 +34,7 @@ app.use(bodyParser.urlencoded({extended: false}));
 app.use(morgan('dev'));
 app.use(Express.static(ServerConfig.PUBLIC_STATIC_CONTENT_DIR));
 app.use(router);
-app.listen(ServerConfig.PORT, () => {
+app.listen(ServerConfig.PORT, ServerConfig.IP_ADDRESS, () => {
     Winston.log("info", "Node server listening @ " + ServerConfig.PORT);
 });
 
