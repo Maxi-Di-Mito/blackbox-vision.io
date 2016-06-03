@@ -12,7 +12,7 @@
     "webpack-watch": "webpack --progress --profile --colors --watch",
     "webpack-hot": "webpack --config webpack.config.hot-reload --progress --profile --colors",
     "prebuild": "npm prune",
-    "build": "npm run installDependencies && npm run gulp && npm run webpack && npm start",
+    "build": "npm run installDependencies && npm run gulp && npm run webpack",
     "build-hot": "npm run gulp && npm run installDependencies && npm run webpack-hot && npm run start-hot",
     "foreman": "nf start",
     "start": "npm run build && nodemon ./src/server/index.js --exec babel-node --presets es2015,stage-2",
