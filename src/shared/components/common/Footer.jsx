@@ -1,11 +1,11 @@
 import React, { Component ,PropTypes } from 'react';
 import SocialButton from '../common/SocialButton.jsx';
 
-const Footer = (props) => (
+const Footer = ({ socialList, copyright }) => (
     <footer className="mdl-mini-footer">
         <div className="footer__container">
             <ul className="footer-list"> {
-                props.socialList.map((item, index) => {
+                socialList.map((item, index) => {
                     return (
                         <li  key={index} className="footer-item">
                             <SocialButton {...item}/>
@@ -14,7 +14,7 @@ const Footer = (props) => (
                 })
             }
             </ul>
-            <h6 class="mdl-typography--text-center mdl-typography--font-regular">{props.copyright}</h6>
+            <h6 class="mdl-typography--text-center mdl-typography--font-regular">{copyright}</h6>
         </div>
     </footer>
 );

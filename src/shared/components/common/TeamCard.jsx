@@ -1,23 +1,23 @@
 import React, { Component ,PropTypes } from 'react';
 import SocialButton from '../common/SocialButton.jsx';
 
-const TeamCard = (props) => (
+const TeamCard = ({ imageUrl, name, description, socialList }) => (
     <div className="mdl-cell mdl-cell--4-col mdl-cell--8-col-tablet mdl-cell--4-col-phone mdl-card mdl-shadow--2dp">
         <div className="mdl-card__media img-container">
-            <img className="img-responsive" width="100%" src={props.imageUrl} />
+            <img className="img-responsive" width="100%" src={imageUrl} />
         </div>
         <div className="mdl-card__title">
             <h4 className="mdl-card__title-text">
-                {props.name}
+                {name}
             </h4>
         </div>
         <div className="mdl-card__supporting-text">
             <span className="mdl-typography--font-light mdl-typography--subhead">
-                {props.description}
+                {description}
             </span>
         </div>
         <div className="mdl-card__actions"> {
-            props.socialList.map((item, index) => {
+            socialList.map((item, index) => {
                 return <SocialButton key={index} isFlat={true} {...item}/>
             })
         }
