@@ -1,4 +1,4 @@
-import ServerConfig from './config/server.config';
+import ServerConfig from './config/ServerConfig.js';
 import mongoose from 'mongoose';
 import Winston from 'winston';
 

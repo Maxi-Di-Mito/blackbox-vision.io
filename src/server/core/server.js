@@ -1,5 +1,5 @@
 import ReactApp from '../../shared/containers/Application.jsx';
-import ServerConfig from '../config/server.config';
+import ServerConfig from '../config/ServerConfig.js';
 import ReactDOMServer from 'react-dom/server';
 import Express, { Router } from 'express';
 import bodyParser from 'body-parser';
@@ -16,24 +16,43 @@ install({extension: '.jsx', harmony: true});
 const router = Router();
 const app = Express();
 
-//Default route
-router.get("/", (request, response) => {
-    response.render(
-        ServerConfig.PUBLIC_STATIC_CONTENT_DIR + "/index.ejs",
-        { reactApp: ReactDOMServer.renderToString(App({})) }
-    );
-});
-
-//Set views..
-app.set('views', './src/public/views');
-app.set('view engine', 'ejs');
-
 //Define what the app will use..
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(morgan('dev'));
 app.use(Express.static(ServerConfig.PUBLIC_STATIC_CONTENT_DIR));
 app.use(router);
+
+router.get("/", (request, response) => {
+    let html = ReactDOMServer.renderToString(App({}));
+    response.status(200).end(`
+    <!DOCTYPE html>
+    <html lang="en">
+        <head>
+            <meta charset="utf-8">
+            <meta http-equiv="X-UA-Compatible" content="IE=edge">
+            <meta name="keywords" content="blackbox, vision, blackboxvision, blackbox-vision, material design, web, mobile, design and development">
+            <meta name="author" content="Alan Vaudagna, Federico Catinello, Jonatan Salas">
+            <meta name="description" content="Blackbox Vision is a group of enthusiastic designers and developers with remarkable skills on different modern growing technologies. Our main focus is the interaction with the client and making solutions according to their needs.">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <link rel="shortcut icon" type="image/png" href="assets/images/blackbox-vision.ico"/>
+    
+            <title>BlackBox Vision | Mobile and Web Software Factory</title>
+    
+            <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
+            <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+            <link rel="stylesheet" href="dist/bundle.css">
+        </head>
+        <body>
+            <div id="app">${html}</div>
+            <script rel="script" type="text/javascript" src="https://use.fontawesome.com/798d3a2434.js"></script>
+            <script rel="script" type="text/javascript" src="vendor/material.min.js"></script>
+            <script rel="script" type="text/javascript" src="dist/bundle.js"></script>
+        </body>
+    </html>
+  `);
+});
+
 app.listen(ServerConfig.PORT, ServerConfig.IP_ADDRESS, () => {
     Winston.log("info", "Node server listening @ " + ServerConfig.PORT);
 });
