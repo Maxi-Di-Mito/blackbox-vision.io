@@ -23,6 +23,7 @@ app.use(morgan('dev'));
 app.use(Express.static(ServerConfig.PUBLIC_STATIC_CONTENT_DIR));
 app.use(router);
 
+
 router.get("/", (request, response) => {
     let html = renderToString(App({}));
     response
