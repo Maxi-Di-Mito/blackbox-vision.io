@@ -26,8 +26,8 @@ app.use(router);
 router.get("/", (request, response) => {
     let html = ReactDOMServer.renderToString(App({}));
     response.status(200).end(`
-    <!DOCTYPE html>
-    <html lang="en">
+    <!doctype html>
+    <html>
         <head>
             <meta charset="utf-8">
             <meta http-equiv="X-UA-Compatible" content="IE=edge">
