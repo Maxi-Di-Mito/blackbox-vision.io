@@ -11,11 +11,15 @@ gulp.task('minify-css', () => {
         .pipe(gulp.dest('src/public/dist'));
 });
 
-gulp.task('clean', () => {
+gulp.task('cleanDist', () => {
+    return del(['src/dist/*.js']);
+});
+
+gulp.task('cleanCSS', () => {
     return del(['src/public/dist/bundle.css']);
 });
 
-gulp.task('default', ['clean'], () => {
+gulp.task('default', ['cleanCSS', 'cleanDist'], () => {
     gulp.start('minify-css');
 });
 

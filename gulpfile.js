@@ -26,11 +26,15 @@ _gulp2.default.task('minify-css', function () {
     return _gulp2.default.src('src/public/assets/css/*.css').pipe((0, _gulpConcatCss2.default)("bundle.css")).pipe((0, _gulpCleanCss2.default)('bundle.css')).pipe(_gulp2.default.dest('src/public/dist'));
 });
 
-_gulp2.default.task('clean', function () {
+_gulp2.default.task('cleanDist', function () {
+    return (0, _del2.default)(['src/dist/*.js']);
+});
+
+_gulp2.default.task('cleanCSS', function () {
     return (0, _del2.default)(['src/public/dist/bundle.css']);
 });
 
-_gulp2.default.task('default', ['clean'], function () {
+_gulp2.default.task('default', ['cleanCSS', 'cleanDist'], function () {
     _gulp2.default.start('minify-css');
 });
 
