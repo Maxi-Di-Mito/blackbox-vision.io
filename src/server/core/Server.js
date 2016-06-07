@@ -8,6 +8,8 @@ import Winston from 'winston';
 import morgan from 'morgan';
 import React from 'react';
 
+import compression from 'compression';
+
 const App = React.createFactory(ReactApp);
 //Install jsx transpiler in server
 install({extension: '.jsx', harmony: true});
@@ -17,12 +19,12 @@ const router = Router();
 const app = Express();
 
 //Define what the app will use..
+app.use(compression());
 app.use(bodyParser.json({ limit: '20mb' }));
 app.use(bodyParser.urlencoded({ limit: '20mb', extended: false }));
 app.use(morgan('dev'));
 app.use(Express.static(ServerConfig.PUBLIC_STATIC_CONTENT_DIR));
 app.use(router);
-
 
 router.get("/", (request, response) => {
     let html = renderToString(App({}));
