@@ -28,7 +28,7 @@ app.use(router);
 
 //Setting up caching with express
 app.use((request, response, next) => {
-    if (request.url.match(/^\/(css|js|img|font)\/.+/)) {
+    if (request.url.match(/^\/(css|img|font)\/.+/)) {
         response.header('Cache-Control', 'public, max-age=3600');
     }
 
