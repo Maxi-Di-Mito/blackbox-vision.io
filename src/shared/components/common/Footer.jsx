@@ -14,7 +14,7 @@ const Footer = ({ socialList, copyright }) => (
                 })
             }
             </ul>
-            <h6 class="mdl-typography--text-center mdl-typography--font-regular">{copyright}</h6>
+            <h6 className="mdl-typography--text-center mdl-typography--font-regular">{copyright}</h6>
         </div>
     </footer>
 );
