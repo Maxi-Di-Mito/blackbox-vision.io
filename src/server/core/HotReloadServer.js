@@ -1,7 +1,7 @@
 var config = require('../../../webpack.config.hot-reload');
 var WebpackDevServer = require('webpack-dev-server');
 var webpack = require('webpack');
-var server = require('./server');
+var server = require('./Server');
 var Winston = require('winston');
 
 new WebpackDevServer(webpack(config), {
