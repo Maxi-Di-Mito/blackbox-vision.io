@@ -26,6 +26,15 @@ app.use(morgan('dev'));
 app.use(Express.static(ServerConfig.PUBLIC_STATIC_CONTENT_DIR));
 app.use(router);
 
+//Setting up caching with express
+app.use((request, response, next) => {
+    if (request.url.match(/^\/(css|js|img|font)\/.+/)) {
+        response.header('Cache-Control', 'public, max-age=3600');
+    }
+
+    next();
+});
+
 router.get("/", (request, response) => {
     let html = renderToString(App({}));
     response
