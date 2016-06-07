@@ -29,7 +29,7 @@ router.get("/", (request, response) => {
     <!doctype html>
     <html>
         <head>
-            <meta charset="utf-8">
+            <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
             <meta http-equiv="X-UA-Compatible" content="IE=edge">
             <meta name="keywords" content="blackbox, vision, blackboxvision, blackbox-vision, material design, web, mobile, design and development">
             <meta name="author" content="Alan Vaudagna, Federico Catinello, Jonatan Salas">
