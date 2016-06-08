@@ -30,5 +30,11 @@ module.exports = {
                 exclude: /node_modules/
             }
         ]
-    }
+    },
+    plugins: [
+        new webpack.optimize.UglifyJsPlugin({
+            sourceMap: false,
+            mangle: false
+        })
+    ]
 };
