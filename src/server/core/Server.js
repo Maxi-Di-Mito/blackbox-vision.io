@@ -54,13 +54,14 @@ router.get("/", (request, response) => {
         
                 <title>BlackBox Vision | Mobile and Web Software Factory</title>
         
+                <link rel="stylesheet" href="dist/bundle.css">
+                <link rel="stylesheet" href="https://use.fontawesome.com/798d3a2434.css">
                 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
                 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-                <link rel="stylesheet" href="dist/bundle.css">
+
             </head>
             <body>
                 <div id="app">${html}</div>
-                <script rel="script" type="text/javascript" src="https://use.fontawesome.com/798d3a2434.js"></script>
                 <script rel="script" type="text/javascript" src="vendor/material.min.js"></script>
                 <script rel="script" type="text/javascript" src="dist/bundle.js"></script>
             </body>
