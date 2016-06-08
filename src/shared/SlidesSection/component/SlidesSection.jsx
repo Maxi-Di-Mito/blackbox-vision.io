@@ -1,13 +1,13 @@
 import React, { Component ,PropTypes } from 'react';
 
-const SlideSection = ({ imageUrl }) => (
+const SlidesSection = ({ imageUrl }) => (
     <section id="Slides" className="img-container">
         <img className="img-responsive" src={imageUrl}/>
     </section>
 );
 
-SlideSection.propTypes = {
+SlidesSection.propTypes = {
     imageUrl: PropTypes.string.isRequired
 };
 
-export default SlideSection;
+export default SlidesSection;

@@ -1,5 +1,5 @@
 import React, { Component ,PropTypes } from 'react';
-import TeamCard from '../../../Common/components/TeamCard.jsx';
+import TeamCard from '../../Common/components/TeamCard.jsx';
 
 const MeetTheTeamSection = (props) => (
     <section id="MeetTheTeam" className="mdl-color--grey-300">

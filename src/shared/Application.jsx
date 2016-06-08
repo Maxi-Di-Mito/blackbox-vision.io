@@ -1,22 +1,20 @@
 import React, { Component ,PropTypes } from 'react';
-import Content from '../../../../node_modules/react-mdl/lib/Layout/Content';
-import Layout from '../../../../node_modules/react-mdl/lib/Layout/Layout';
-import SideNav from '../../Common/components/SideNav.jsx';
-import Footer from '../../Common/components/Footer.jsx';
-import Header from '../../Common/components/Header.jsx';
-import SlideSection from '../components/section/SlideSection.jsx';
-import WhoWeAreSection from '../components/section/WhoWeAreSection.jsx';
-import WhatWeDoSection from '../components/section/WhatWeDoSection.jsx';
-import MeetTheTeamSection from '../components/section/MeetTheTeamSection.jsx';
-import PortfolioSection from '../components/section/PortfolioSection.jsx';
-import ContactSection from '../components/section/ContactSection.jsx';
+import Layout from 'react-mdl/lib/Layout/Layout';
+import Content from 'react-mdl/lib/Layout/Content';
+import SideNav from './Common/components/SideNav.jsx';
+import Footer from './Common/components/Footer.jsx';
+import Header from './Common/components/Header.jsx';
+
+import SlidesSection from './SlidesSection/container/SlidesSectionContainer.jsx';
+import WhoWeAreSection from './WhoWeAreSection/container/WhoWeAreSectionContainer.jsx';
+import WhatWeDoSection from './WhatWeDoSection/container/WhatWeDoSectionContainer.jsx';
+import MeetTheTeamSection from './MeetTheTeam/container/MeetTheTeamSectionContainer.jsx';
+import PortfolioSection from './PortfolioSection/container/PortfolioSectionContainer.jsx';
+import ContactSection from './ContactSection/container/ContactSectionContainer.jsx';
+
 import injectTapEventPlugin from 'react-tap-event-plugin';
 
 class Application extends Component {
-    constructor(props) {
-        super(props);
-    }
-
     componentDidMount() {
         injectTapEventPlugin();
         componentHandler.upgradeAllRegistered();
@@ -147,7 +145,7 @@ class Application extends Component {
                 <Header logo="/assets/images/logo.png" logoSize="25px" linkList={links}/>
                 <SideNav title="BlackBox Vision" linkList={links}/>
                 <Content>
-                    <SlideSection imageUrl="/assets/images/background.svg"/>
+                    <SlidesSection imageUrl="/assets/images/background.svg"/>
                     <WhoWeAreSection/>
                     <WhatWeDoSection/>
                     <MeetTheTeamSection title={team.title} description={team.description} cardList={team.cardList}/>

@@ -1,18 +1,15 @@
-import ReactApp from '../../shared/MainApp/containers/Application.jsx';
+import App from '../../shared/Application.jsx';
+import { configureStore } from '../../shared/Redux/store/configureStore';
 import ServerConfig from '../config/ServerConfig.js';
+import { Provider } from 'react-redux';
 import { renderToString } from 'react-dom/server';
 import Express, { Router } from 'express';
 import bodyParser from 'body-parser';
-import { install } from 'node-jsx';
 import Winston from 'winston';
 import morgan from 'morgan';
 import React from 'react';
 
 import compression from 'compression';
-
-const App = React.createFactory(ReactApp);
-//Install jsx transpiler in server
-install({extension: '.jsx', harmony: true});
 
 //Get express and router instances.. 
 const router = Router();
@@ -36,7 +33,14 @@ app.use((request, response, next) => {
 });
 
 router.get("/", (request, response) => {
-    let html = renderToString(App({}));
+    const store = configureStore({});
+
+    let html = renderToString(
+        <Provider store={store}>
+            <App/>
+        </Provider>
+    );
+
     response
         .status(200)
         .header("Content-Type", "text/html; charset=utf-8")
@@ -56,6 +60,9 @@ router.get("/", (request, response) => {
             </head>
             <body>
                 <div id="app">${html}</div>
+                <script>
+                    window.__INITIAL_STATE__ = ${JSON.stringify(store.getState())};
+                </script>
                 <script rel="script" type="text/javascript">
                     var cb = function() {
                         var l = document.createElement('link'); l.rel = 'stylesheet';

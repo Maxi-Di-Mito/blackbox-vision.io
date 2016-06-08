@@ -1,4 +1,4 @@
-import { CONTENT_RECEIVE, CHANGE_LOCALE } from '../actions/content.actions';
+import { CONTENT_RECEIVE, CHANGE_LOCALE } from '../actions/content.actions.js';
 
 const initialState = {
     isFetching: true,
