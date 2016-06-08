@@ -74,7 +74,7 @@ class Application extends Component {
             description: "We are enthusiastic developers with remarkable skills on different modern growing technologies. Our vision is to interact with the client and make solutions according to their needs.",
             cardList: [
                 {
-                    imageUrl: "https://cosmicjs.com/uploads/904a8700-185c-11e6-ab5c-2dbce63d2a02-e21cf730-17d9-11e6-b4ed-9d2206eb621f-alan-backgrou.png",
+                    imageUrl: "/assets/images/alan-background.png",
                     name: "Alan Vaudagna",
                     description: "Mobile in the day, backend in the night, developer lifestyle. Passionate, hard worker, and self motivated. Great drummer by the way.",
                     socialList: [
@@ -96,7 +96,7 @@ class Application extends Component {
                     ]
                 },
                 {
-                    imageUrl: "https://cosmicjs.com/uploads/90461a30-185c-11e6-ab5c-2dbce63d2a02-e226bb30-17d9-11e6-b4ed-9d2206eb621f-federico-back.png",
+                    imageUrl: "/assets/images/federico-background.png",
                     name: "Federico Catinello",
                     description: "FullStack Developer. Proactive Researcher. High commitment with new deals. Crazy about networking.",
                     socialList: [
@@ -118,7 +118,7 @@ class Application extends Component {
                     ]
                 },
                 {
-                    imageUrl: "https://cosmicjs.com/uploads/9053d5d0-185c-11e6-ab5c-2dbce63d2a02-e23a1c20-17d9-11e6-b4ed-9d2206eb621f-jonatan-backg.png",
+                    imageUrl: "/assets/images/jonatan-background.png",
                     name: "Jonatan Salas",
                     description: "FullStack Developer. Open source projects contributor. Tenacious and self-motivated. Interested in new growing technologies.",
                     socialList: [
