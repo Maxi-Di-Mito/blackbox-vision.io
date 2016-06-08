@@ -7,13 +7,12 @@
   "scripts": {
     "babelify-gulpfile": "babel gulpfile-es6.js --out-file gulpfile.js",
     "gulp": "npm run babelify-gulpfile && gulp",
-    "prebuild": "npm prune && npm install && npm run gulp",
     "compile": "babel ./src/server -d ./src/dist",
     "webpack:prod": "node_modules/.bin/cross-env NODE_ENV=production webpack --config webpack.config.prod.js",
-    "build:prod": "npm run webpack:prod && npm run compile && node start.js",
+    "build:prod": "npm prune && npm install && npm run gulp && npm run webpack:prod && npm run compile && node start.js",
     "start": "npm run build:prod",
     "webpack:dev": "webpack --progress --profile --colors",
-    "build:dev": "npm run webpack:dev && npm run compile && node start.js",
+    "build:dev": "npm prune && npm install && npm run gulp && npm run webpack:dev && npm run compile && node start.js",
     "start:dev": "npm run build:dev",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
