@@ -1,5 +1,5 @@
 import React, { Component ,PropTypes } from 'react';
-import Link from '../common/Link.jsx';
+import Link from './Link.jsx';
 
 const SideNav = ({ title, linkList}) => (
     <div className="mdl-layout__drawer mdl-layout--small-screen-only">

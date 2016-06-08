@@ -1,4 +1,4 @@
-import ReactApp from '../../shared/containers/Application.jsx';
+import ReactApp from '../../shared/MainApp/containers/Application.jsx';
 import ServerConfig from '../config/ServerConfig.js';
 import { renderToString } from 'react-dom/server';
 import Express, { Router } from 'express';

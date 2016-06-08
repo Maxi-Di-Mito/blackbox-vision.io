@@ -1,9 +1,9 @@
 import React, { Component ,PropTypes } from 'react';
-import Content from 'react-mdl/lib/Layout/Content';
-import Layout from 'react-mdl/lib/Layout/Layout';
-import SideNav from '../components/common/SideNav.jsx';
-import Footer from '../components/common/Footer.jsx';
-import Header from '../components/common/Header.jsx';
+import Content from '../../../../node_modules/react-mdl/lib/Layout/Content';
+import Layout from '../../../../node_modules/react-mdl/lib/Layout/Layout';
+import SideNav from '../../Common/components/SideNav.jsx';
+import Footer from '../../Common/components/Footer.jsx';
+import Header from '../../Common/components/Header.jsx';
 import SlideSection from '../components/section/SlideSection.jsx';
 import WhoWeAreSection from '../components/section/WhoWeAreSection.jsx';
 import WhatWeDoSection from '../components/section/WhatWeDoSection.jsx';

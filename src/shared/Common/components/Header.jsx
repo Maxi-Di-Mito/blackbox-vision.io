@@ -1,5 +1,5 @@
 import React, { Component ,PropTypes } from 'react';
-import Link from '../common/Link.jsx';
+import Link from './Link.jsx';
 
 const Header = ({ logoSize, logo, linkList}) => (
     <header className="mdl-layout__header mdl-color--white mdl-shadow--3dp">

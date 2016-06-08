@@ -1,5 +1,5 @@
 import React, { Component ,PropTypes } from 'react';
-import SocialButton from '../common/SocialButton.jsx';
+import SocialButton from './SocialButton.jsx';
 
 const Footer = ({ socialList, copyright }) => (
     <footer className="mdl-mini-footer">
