@@ -53,11 +53,19 @@ router.get("/", (request, response) => {
                 <link rel="shortcut icon" type="image/png" href="assets/images/blackbox-vision.ico"/>
         
                 <title>BlackBox Vision | Mobile and Web Software Factory</title>
-        
-                <link rel="stylesheet" href="dist/bundle.css">
             </head>
             <body>
                 <div id="app">${html}</div>
+                <script>
+                    var cb = function() {
+                    var l = document.createElement('link'); l.rel = 'stylesheet';
+                    l.href = 'dist/bundle.css';
+                    var h = document.getElementsByTagName('head')[0]; h.parentNode.insertBefore(l, h); };
+                    var raf = requestAnimationFrame || mozRequestAnimationFrame ||
+                              webkitRequestAnimationFrame || msRequestAnimationFrame;
+                    if (raf) raf(cb);
+                    else window.addEventListener('load', cb);
+                </script>
                 <script rel="script" type="text/javascript" src="vendor/material.min.js"></script>
                 <script rel="script" type="text/javascript" src="dist/bundle.js"></script>
             </body>
