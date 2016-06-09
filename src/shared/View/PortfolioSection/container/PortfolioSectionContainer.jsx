@@ -7,4 +7,4 @@ const PortfolioSectionContainer = (props) => (
     <PortfolioSection {...props}/>
 );
 
-export default connect((state) => {})(PortfolioSectionContainer);
+export default connect((state) => ({}))(PortfolioSectionContainer);

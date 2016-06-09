@@ -2,8 +2,8 @@ import React, { Component ,PropTypes } from 'react';
 import WhatWeDoSection from '../component/WhatWeDoSection.jsx';
 import { connect } from 'react-redux';
 
-const WhatWeDoSectionContainer = (props) =>(
+const WhatWeDoSectionContainer = (props) => (
     <WhatWeDoSection {...props}/>
 );
 
-export default connect((state) => {})(WhatWeDoSectionContainer);
+export default connect((state) => ({}))(WhatWeDoSectionContainer);

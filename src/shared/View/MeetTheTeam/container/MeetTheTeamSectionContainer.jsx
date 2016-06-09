@@ -7,4 +7,4 @@ const MeetTheTeamSectionContainer = (props) => (
     <MeetTheTeamSection {...props}/>
 );
 
-export default connect((state) => {})(MeetTheTeamSectionContainer);
+export default connect((state) => ({}))(MeetTheTeamSectionContainer);

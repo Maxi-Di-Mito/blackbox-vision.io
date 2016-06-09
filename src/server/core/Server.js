@@ -1,15 +1,10 @@
-import App from '../../shared/Application.jsx';
-import { configureStore } from '../../shared/Redux/store/configureStore.prod';
 import ServerConfig from '../config/ServerConfig.js';
-import { Provider } from 'react-redux';
-import { renderToString } from 'react-dom/server';
 import Express, { Router } from 'express';
+import compression from 'compression';
 import bodyParser from 'body-parser';
 import Winston from 'winston';
 import morgan from 'morgan';
-import React from 'react';
-
-import compression from 'compression';
+import renderApp from '../utils/RenderUtils';
 
 //Get express and router instances.. 
 const router = Router();
@@ -33,56 +28,7 @@ app.use((request, response, next) => {
 });
 
 router.get("/", (request, response) => {
-    const store = configureStore({});
-
-    let html = renderToString(
-        <Provider store={store}>
-            <App/>
-        </Provider>
-    );
-
-    response
-        .status(200)
-        .header("Content-Type", "text/html; charset=utf-8")
-        .end(
-        `<!doctype html>
-        <html>
-            <head>
-                <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-                <meta http-equiv="X-UA-Compatible" content="IE=edge">
-                <meta name="keywords" content="blackbox, vision, blackboxvision, blackbox-vision, material design, web, mobile, design and development">
-                <meta name="author" content="Alan Vaudagna, Federico Catinello, Jonatan Salas">
-                <meta name="description" content="Blackbox Vision is a group of enthusiastic designers and developers with remarkable skills on different modern growing technologies. Our main focus is the interaction with the client and making solutions according to their needs.">
-                <meta name="viewport" content="width=device-width, initial-scale=1.0">
-                <link rel="shortcut icon" type="image/png" href="assets/images/blackbox-vision.ico"/>
-        
-                <title>BlackBox Vision | Mobile and Web Software Factory</title>
-            </head>
-            <body>
-                <div id="app">${html}</div>
-                <script>
-                    window.__INITIAL_STATE__ = ${JSON.stringify(store.getState())};
-                </script>
-                <script rel="script" type="text/javascript">
-                    var cb = function() {
-                        var l = document.createElement('link'); l.rel = 'stylesheet';
-                        l.href = 'dist/bundle.css';
-                        var h = document.getElementsByTagName('head')[0]; h.parentNode.insertBefore(l, h);
-                    };
-
-                    var raf = requestAnimationFrame || mozRequestAnimationFrame || webkitRequestAnimationFrame || msRequestAnimationFrame;
-
-                    if (raf) {
-                        raf(cb);
-                    } else {
-                        window.addEventListener('load', cb);
-                    }
-                </script>
-                <script rel="script" type="text/javascript" src="vendor/material.min.js"></script>
-                <script rel="script" type="text/javascript" src="dist/bundle.js"></script>
-            </body>
-        </html>`
-    );
+    response.status(200).header("Content-Type", "text/html; charset=utf-8").end(renderApp());
 });
 
 app.listen(ServerConfig.PORT, ServerConfig.IP_ADDRESS, () => {

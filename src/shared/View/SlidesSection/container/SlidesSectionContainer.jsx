@@ -7,4 +7,4 @@ const SlidesSectionContainer = (props) => (
     <SlidesSection {...props}/>
 );
 
-export default connect((state) => {})(SlidesSectionContainer);
+export default connect((state) => ({}))(SlidesSectionContainer);

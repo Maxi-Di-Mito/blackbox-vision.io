@@ -7,4 +7,4 @@ const ContactSectionContainer = (props) => (
     <ContactSection {...props}/>
 );
 
-export default connect((state) => {})(ContactSectionContainer);
+export default connect((state) => ({}))(ContactSectionContainer);
