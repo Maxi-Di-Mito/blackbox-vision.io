@@ -1,5 +1,5 @@
 import App from '../../shared/Application.jsx';
-import { configureStore } from '../../shared/Redux/store/configureStore';
+import { configureStore } from '../../shared/Redux/store/configureStore.prod';
 import ServerConfig from '../config/ServerConfig.js';
 import { Provider } from 'react-redux';
 import { renderToString } from 'react-dom/server';

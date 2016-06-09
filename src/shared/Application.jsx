@@ -1,16 +1,15 @@
 import React, { Component ,PropTypes } from 'react';
 import Layout from 'react-mdl/lib/Layout/Layout';
 import Content from 'react-mdl/lib/Layout/Content';
-import SideNav from './Common/components/SideNav.jsx';
-import Footer from './Common/components/Footer.jsx';
-import Header from './Common/components/Header.jsx';
-
-import SlidesSection from './SlidesSection/container/SlidesSectionContainer.jsx';
-import WhoWeAreSection from './WhoWeAreSection/container/WhoWeAreSectionContainer.jsx';
-import WhatWeDoSection from './WhatWeDoSection/container/WhatWeDoSectionContainer.jsx';
-import MeetTheTeamSection from './MeetTheTeam/container/MeetTheTeamSectionContainer.jsx';
-import PortfolioSection from './PortfolioSection/container/PortfolioSectionContainer.jsx';
-import ContactSection from './ContactSection/container/ContactSectionContainer.jsx';
+import SideNav from './View/Common/components/SideNav.jsx';
+import Footer from './View/Common/components/Footer.jsx';
+import Header from './View/Common/components/Header.jsx';
+import SlidesSection from './View/SlidesSection/container/SlidesSectionContainer.jsx';
+import WhoWeAreSection from './View/WhoWeAreSection/container/WhoWeAreSectionContainer.jsx';
+import WhatWeDoSection from './View/WhatWeDoSection/container/WhatWeDoSectionContainer.jsx';
+import MeetTheTeamSection from './View/MeetTheTeam/container/MeetTheTeamSectionContainer.jsx';
+import PortfolioSection from './View/PortfolioSection/container/PortfolioSectionContainer.jsx';
+import ContactSection from './View/ContactSection/container/ContactSectionContainer.jsx';
 
 import injectTapEventPlugin from 'react-tap-event-plugin';
 
@@ -148,7 +147,7 @@ class Application extends Component {
                     <SlidesSection imageUrl="/assets/images/background.svg"/>
                     <WhoWeAreSection/>
                     <WhatWeDoSection/>
-                    <MeetTheTeamSection title={team.title} description={team.description} cardList={team.cardList}/>
+                    <MeetTheTeamSection {...team}/>
                     <PortfolioSection/>
                     <ContactSection/>
                     <Footer socialList={social} copyright="BlackBox Vision @ 2016"/>
