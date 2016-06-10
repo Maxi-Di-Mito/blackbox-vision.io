@@ -25,7 +25,7 @@ const renderApp = () => {
                 <meta name="author" content="Alan Vaudagna, Federico Catinello, Jonatan Salas">
                 <meta name="description" content="Blackbox Vision is a group of enthusiastic designers and developers with remarkable skills on different modern growing technologies. Our main focus is the interaction with the client and making solutions according to their needs.">
                 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-                <link rel="shortcut icon" type="image/png" href="assets/images/blackbox-vision.ico"/>
+                <link rel="shortcut icon" type="image/png" href="assets/images/blackbox-vision.png"/>
         
                 <title>BlackBox Vision | Mobile and Web Software Factory</title>
             </head>
