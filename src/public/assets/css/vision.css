@@ -103,43 +103,6 @@ a.mdl-js-ripple-effect {
     height: 500px;
 }
 
-/*@font-face {*/
-    /*font-family: 'Material Icons';*/
-    /*font-style: normal;*/
-    /*font-weight: 400;*/
-    /*src: url('../fonts/MaterialIcons-Regular.eot'); !* For IE6-8 *!*/
-    /*src: local('Material Icons'),*/
-    /*local('MaterialIcons-Regular'),*/
-    /*url('../fonts/MaterialIcons-Regular.woff2') format('woff2'),*/
-    /*url('../fonts/MaterialIcons-Regular.woff') format('woff'),*/
-    /*url('../fonts/MaterialIcons-Regular.ttf') format('truetype');*/
-/*}*/
-
-/*.material-icons {*/
-    /*font-family: 'Material Icons';*/
-    /*font-weight: normal;*/
-    /*font-style: normal;*/
-    /*font-size: 24px;  !* Preferred icon size *!*/
-    /*display: inline-block;*/
-    /*line-height: 1;*/
-    /*text-transform: none;*/
-    /*letter-spacing: normal;*/
-    /*word-wrap: normal;*/
-    /*white-space: nowrap;*/
-    /*direction: ltr;*/
-
-    /*!* Support for all WebKit browsers. *!*/
-    /*-webkit-font-smoothing: antialiased;*/
-    /*!* Support for Safari and Chrome. *!*/
-    /*text-rendering: optimizeLegibility;*/
-
-    /*!* Support for Firefox. *!*/
-    /*-moz-osx-font-smoothing: grayscale;*/
-
-    /*!* Support for IE. *!*/
-    /*font-feature-settings: 'liga';*/
-/*}*/
-
 .slider-img {
     position: absolute;
     margin: auto;
@@ -147,4 +110,16 @@ a.mdl-js-ripple-effect {
     left: 0;
     right: 0;
     bottom: 0;
+}
+
+.icon-right {
+    margin-left: 15px;
+    font-size: 16px;
+    text-align: center;
+}
+
+.icon-left {
+    margin-right: 15px;
+    font-size: 16px;
+    text-align: center;
 }

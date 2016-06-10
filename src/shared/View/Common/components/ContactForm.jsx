@@ -7,11 +7,11 @@ const ContactForm = (props) => (
     <div className="mdl-card__supporting-text mdl-color-text--grey-800">
         <form onSubmit={props.onSubmit}>
             <div className="mdl-textfield mdl-textfield--full-width mdl-js-textfield mdl-textfield--floating-label">
-                <input className="mdl-textfield__input" type="text" id="firstName" {...props.name}/>
-                <label className="mdl-textfield__label" for="firstName">Name</label>
+                <input className="mdl-textfield__input" type="text" id="fullName" {...props.name}/>
+                <label className="mdl-textfield__label" for="fullName">Name</label>
             </div>
             <div className="mdl-textfield mdl-textfield--full-width mdl-js-textfield mdl-textfield--floating-label">
-                <input className="mdl-textfield__input" type="text" id="email" {...props.email}/>
+                <input className="mdl-textfield__input" type="email" id="email" {...props.email}/>
                 <label className="mdl-textfield__label" for="email">Email</label>
             </div>
             <div className="mdl-textfield mdl-textfield--full-width mdl-js-textfield mdl-textfield--floating-label">
@@ -22,13 +22,16 @@ const ContactForm = (props) => (
                 <textarea className="mdl-textfield__input" type="text" rows="3" id="message" {...props.message}/>
                 <label className="mdl-textfield__label" for="message">Message</label>
             </div>
-            <a className="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">Send</a>
+            <button className="mdl-button mdl-js-button mdl-button--raised mdl-button--colored mdl-js-ripple-effect" type="submit">
+                Send
+                <i className="material-icons icon-right">send</i>
+            </button>
         </form>
     </div>
 );
 
 ContactForm.propTypes = {
-  onSubmit: PropTypes.func.isRequired
+    onSubmit: PropTypes.func.isRequired
 };
 
-export default reduxForm({ form: 'contact', fields})(ContactForm);
+export default reduxForm({ form: 'contact', fields })(ContactForm);
