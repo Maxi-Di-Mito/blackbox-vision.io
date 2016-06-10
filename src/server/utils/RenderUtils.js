@@ -5,7 +5,7 @@ import { Provider } from 'react-redux';
 import React from 'react';
 
 const renderApp = () => {
-    const store = configureStore({});
+    const store = configureStore();
 
     let html = renderToString(
         <Provider store={store}>
