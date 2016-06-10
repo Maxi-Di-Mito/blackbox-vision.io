@@ -27,7 +27,7 @@ class Application extends Component {
     render() {
         return (
             <Layout fixedHeader>
-                <Header logo="/assets/images/logo.png" logoSize="25px" linkList={links}/>
+                <Header logo="/assets/images/logo_white.png" logoSize="25px" linkList={links}/>
                 <SideNav title="BlackBox Vision" linkList={links}/>
                 <Content>
                     <SlidesSection imageUrl="/assets/images/background.svg"/>

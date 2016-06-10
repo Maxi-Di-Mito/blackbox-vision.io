@@ -2,11 +2,11 @@ body {
     background-color: #e0e0e0;
 }
 
-.mdl-layout__header .mdl-layout__drawer-button {
-    color: #424242;
-}
+/*.mdl-layout__header .mdl-layout__drawer-button {*/
+    /*color: #424242;*/
+/*}*/
 
-.mdl-layout__drawer-button.mdl-js-ripple-effect {
+.i.mdl-layout__drawer-button.mdl-js-ripple-effect {
     display: inline-block;
     position: relative;
     width: auto;
@@ -71,7 +71,8 @@ body {
 }
 
 .black-box__link.mdl-navigation__link:hover {
-    border-bottom: 3px solid #e65100;
+    color: #FFC107;
+    border-bottom: 3px solid #FFC107;
 }
 
 a.mdl-js-ripple-effect {

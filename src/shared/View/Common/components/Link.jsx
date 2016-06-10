@@ -6,7 +6,7 @@ const Link = ({ href, message, type }) => {
             return <a className="mdl-navigation__link mdl-typography--text-uppercase" href={href}>{message}</a>;
         case "web":
         default:
-            return <a className="mdl-navigation__link black-box__link mdl-js-button mdl-js-ripple-effect mdl-typography--text-uppercase mdl-layout--large-screen-only" href={href}>{message}</a>;
+            return <a className="mdl-layout--large-screen-only mdl-navigation__link black-box__link mdl-js-button mdl-color-text--white mdl-js-ripple-effect mdl-typography--text-uppercase" href={href}>{message}</a>;
     }
 };
 
