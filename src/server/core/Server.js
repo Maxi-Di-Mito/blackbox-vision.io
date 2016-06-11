@@ -2,6 +2,7 @@ import ServerConfig from '../config/ServerConfig.js';
 import Express, { Router } from 'express';
 import compression from 'compression';
 import bodyParser from 'body-parser';
+import nodemailer from 'nodemailer';
 import Winston from 'winston';
 import morgan from 'morgan';
 import renderApp from '../utils/RenderUtils';
@@ -34,5 +35,45 @@ router.get("/", (request, response) => {
 app.listen(ServerConfig.PORT, ServerConfig.IP_ADDRESS, () => {
     Winston.log("info", "Node server listening @ " + ServerConfig.PORT);
 });
+
+//TODO JS: Fix contact data send with NodeMailer
+//router.get("/contact", (request, response) => {
+//    var mailOptions = {
+//        from: '"Contact" <contact@blackbox-vision.io>', // sender address
+//        to: 'contact@blackbox-vision.io', // list of receivers
+//        subject: 'Pruebita', // Subject line
+//        text: 'Esto es una prueba' // plaintext body
+//    };
+//
+//    var smtpConfig = {
+//        host: 'mail.privateemail.com',
+//        port: 25,
+//        secure: false, // use SSL
+//        auth: {
+//            user: 'contact@blackbox-vision.io',
+//            pass: 'blackbox123.0'
+//        }
+//    };
+//
+//    //Create transporter with SMTPS current data taken from ServerConfig.
+//    let transporter = nodemailer.createTransport(smtpConfig);
+//
+//    transporter.verify((error, success) => {
+//        if (error) {
+//            response.status(500).json({ message: "cannot send email " + error });
+//            console.log(error);
+//        }
+//
+//        if (success) {
+//            transporter.sendMail(mailOptions, (error, info) => {
+//                if(error) {
+//                    response.status(550).send(error);
+//                }
+//
+//                response.status(200).end(info.response);
+//            });
+//        }
+//    });
+//});
 
 export default app;

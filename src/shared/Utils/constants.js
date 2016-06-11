@@ -14,10 +14,11 @@ export const links = [
     }, {
         link: "#Contact",
         message: "contact"
-    }, {
-        link: "#Blog",
-        message: "blog"
     }
+    //, {
+    //    link: "#Blog",
+    //    message: "blog"
+    //}
 ];
 
 export const social = [

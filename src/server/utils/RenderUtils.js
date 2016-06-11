@@ -2,18 +2,26 @@ import configureStore from '../../shared/Redux/store/configureStore';
 import { renderToString } from 'react-dom/server';
 import App from '../../shared/Application.jsx';
 import { Provider } from 'react-redux';
+import cache from 'memory-cache';
 import React from 'react';
 
 const renderApp = () => {
-    const store = configureStore();
+    let store = configureStore();
+    let html = cache.get('html');
+    let initialState = cache.get('initialState');
 
-    let html = renderToString(
-        <Provider store={store}>
-            <App/>
-        </Provider>
-    );
+    if (!html && !initialState) {
+        html = renderToString(
+            <Provider store={store}>
+                <App/>
+            </Provider>
+        );
 
-    let initialState = store.getState();
+        initialState = store.getState();
+
+        cache.put('html', html);
+        cache.put('initialState', initialState);
+    }
     
     return (`
     <!doctype html>
@@ -30,7 +38,9 @@ const renderApp = () => {
                 <title>BlackBox Vision | Mobile and Web Software Factory</title>
             </head>
             <body>
-                <div id="app">${html}</div>
+                <div id="app">
+                    ${html}
+                </div>
                 <script rel="script" type="text/javascript">
                     var cb = function() {
                         var l = document.createElement('link'); l.rel = 'stylesheet';
