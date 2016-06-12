@@ -6,6 +6,9 @@ const WhatWeDoSection = (props) =>(
         <h3 className="blackbox-title__padding mdl-typography--text-center mdl-typography--font-light mdl-typography--display-2-color-contrast">
             {props.title}
         </h3>
+        <p className="mdl-typography--text-center mdl-typography--font-light mdl-typography--subhead">
+            {props.description}
+        </p>
         <div className="mdl-grid"> {
             props.cardList.map((item, index) => {
                 return <ServiceCard key={index} {...item}/>
