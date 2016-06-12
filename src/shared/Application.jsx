@@ -10,7 +10,7 @@ import WhatWeDoSection from './View/WhatWeDoSection/container/WhatWeDoSectionCon
 import MeetTheTeamSection from './View/MeetTheTeam/container/MeetTheTeamSectionContainer.jsx';
 import PortfolioSection from './View/PortfolioSection/container/PortfolioSectionContainer.jsx';
 import ContactSection from './View/ContactSection/container/ContactSectionContainer.jsx';
-import { links, team, social } from './Utils/constants'
+import { links, team, social, whatWeDo } from './Utils/constants'
 
 import injectTapEventPlugin from 'react-tap-event-plugin';
 
@@ -32,7 +32,7 @@ class Application extends Component {
                 <Content>
                     <SlidesSection imageUrl="/assets/images/programming.png"/>
                     <WhoWeAreSection/>
-                    <WhatWeDoSection/>
+                    <WhatWeDoSection {...whatWeDo}/>
                     <MeetTheTeamSection {...team}/>
                     <PortfolioSection/>
                     <ContactSection/>

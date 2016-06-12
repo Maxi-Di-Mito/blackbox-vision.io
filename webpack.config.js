@@ -2,6 +2,7 @@ var path = require('path');
 var webpack = require('webpack');
 
 module.exports = {
+    devtool: 'eval',
     entry: [path.join(__dirname, './src/client/index.jsx')],
     output: {
         path: path.join(__dirname, './src/public/dist'),

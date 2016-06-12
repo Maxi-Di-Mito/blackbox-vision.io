@@ -1,9 +1,9 @@
 import configureStore from '../../shared/Redux/store/configureStore';
 import { renderToString } from 'react-dom/server';
 import App from '../../shared/Application.jsx';
-import { Provider } from 'react-redux';
+import { Provider } from 'react-redux/dist/react-redux.min';
 import cache from 'memory-cache';
-import React from 'react';
+import React from 'react/dist/react-with-addons.min';
 
 const renderApp = () => {
     let store = configureStore();

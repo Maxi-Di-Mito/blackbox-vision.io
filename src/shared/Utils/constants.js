@@ -118,3 +118,39 @@ export const team = {
         }
     ]
 };
+
+export const whatWeDo = {
+    title: "Our Services",
+    cardList: [
+        {
+            imageUrl: "/assets/images/search.svg",
+            name: "Research & Development",
+            description: "Mobile in the day, backend in the night, developer lifestyle. Passionate, hard worker, and self motivated. Great drummer by the way."
+        },
+        {
+            imageUrl: "/assets/images/work.svg",
+            name: "Design & Development",
+            description: "FullStack Developer. Proactive Researcher. High commitment with new deals. Crazy about networking."
+        },
+        {
+            imageUrl: "/assets/images/bug_report.svg",
+            name: "Testing & Improvement",
+            description: "FullStack Developer. Open source projects contributor. Tenacious and self-motivated. Interested in new growing technologies."
+        },
+        {
+            imageUrl: "/assets/images/timeline.svg",
+            name: "Analytics & Marketing",
+            description: "FullStack Developer. Open source projects contributor. Tenacious and self-motivated. Interested in new growing technologies."
+        },
+        {
+            imageUrl: "/assets/images/shopping_cart.svg",
+            name: "Deployment & Market Launch",
+            description: "FullStack Developer. Open source projects contributor. Tenacious and self-motivated. Interested in new growing technologies."
+        },
+        {
+            imageUrl: "/assets/images/build.svg",
+            name: "Open Source",
+            description: "FullStack Developer. Open source projects contributor. Tenacious and self-motivated. Interested in new growing technologies."
+        }
+    ]
+};

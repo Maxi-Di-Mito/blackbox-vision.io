@@ -2,6 +2,7 @@ var path = require('path');
 var webpack = require('webpack');
 
 module.exports = {
+    devtool: 'cheap-module-source-map',
     entry: [path.join(__dirname, './src/client/index.jsx')],
     output: {
         path: path.join(__dirname, './src/public/dist'),
@@ -39,6 +40,7 @@ module.exports = {
             }
         }),
         new webpack.optimize.UglifyJsPlugin({
+            minimize: true,
             sourceMap: false,
             mangle: false
         })
