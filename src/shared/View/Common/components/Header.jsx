@@ -8,7 +8,7 @@ const Header = ({ logoSize, logo, linkList}) => (
             <div className="mdl-layout-spacer"></div>
             <nav className="mdl-navigation mdl-layout--large-screen-only"> {
                 linkList.map((item, index) => {
-                    return <Link key={index} href={item.link} message={item.message} type="web" />
+                    return <Link key={index} href={item.link} message={item.message} iconName={item.iconName} type="web" />
                 })
             }
             </nav>

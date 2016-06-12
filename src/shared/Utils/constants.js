@@ -1,19 +1,24 @@
 export const links = [
     {
         link: "#WhoWeAre",
-        message: "who we are"
+        message: "who we are",
+        iconName: "perm_identity"
     }, {
         link: "#WhatWeDo",
-        message: "what we do"
+        message: "what we do",
+        iconName: "build"
     }, {
         link: "#MeetTheTeam",
-        message: "meet the team"
+        message: "meet the team",
+        iconName: "group"
     }, {
         link: "#Portfolio",
-        message: "portfolio"
+        message: "portfolio",
+        iconName: "work"
     }, {
         link: "#Contact",
-        message: "contact"
+        message: "contact",
+        iconName: "person_add"
     }
     //, {
     //    link: "#Blog",

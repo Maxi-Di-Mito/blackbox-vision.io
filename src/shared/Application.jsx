@@ -30,7 +30,7 @@ class Application extends Component {
                 <Header logo="/assets/images/logo_white.png" logoSize="25px" linkList={links}/>
                 <SideNav title="BlackBox Vision" linkList={links}/>
                 <Content>
-                    <SlidesSection imageUrl="/assets/images/background.svg"/>
+                    <SlidesSection imageUrl="/assets/images/programming.png"/>
                     <WhoWeAreSection/>
                     <WhatWeDoSection/>
                     <MeetTheTeamSection {...team}/>

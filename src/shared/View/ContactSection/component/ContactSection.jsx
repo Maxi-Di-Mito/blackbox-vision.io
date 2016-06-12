@@ -2,7 +2,7 @@ import React, { Component ,PropTypes } from 'react';
 import ContactForm from '../../Common/components/ContactForm.jsx';
 
 const ContactSection = (props) => (
-    <section id="Contact">
+    <section id="Contact" style={{ background: 'url("/assets/images/background.png") center/cover' }}>
         <h3 className="blackbox-title__padding mdl-typography--text-center mdl-typography--font-light mdl-typography--display-2-color-contrast">
             {props.title}
         </h3>

@@ -1,8 +1,7 @@
 import React, { Component ,PropTypes } from 'react';
 
 const SlidesSection = ({ imageUrl }) => (
-    <section id="Slides" className="img-container">
-        <img className="img-responsive" src={imageUrl}/>
+    <section id="Slides" style={{ height: "650px", background: 'url("assets/images/programming.png") center/cover' }}>
     </section>
 );
 
