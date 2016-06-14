@@ -51,7 +51,7 @@ export const team = {
     description: "We are enthusiastic developers with remarkable skills on different modern growing technologies. Our vision is to interact with the client and make solutions according to their needs.",
     cardList: [
         {
-            imageUrl: "/assets/images/alan-background.png",
+            imageUrl: "/assets/images/alan-background.jpeg",
             name: "Alan Vaudagna",
             description: "Mobile in the day, backend in the night, developer lifestyle. Passionate, hard worker, and self motivated. Great drummer by the way.",
             socialList: [
@@ -73,7 +73,7 @@ export const team = {
             ]
         },
         {
-            imageUrl: "/assets/images/federico-background.png",
+            imageUrl: "/assets/images/federico-background.jpeg",
             name: "Federico Catinello",
             description: "FullStack Developer. Proactive Researcher. High commitment with new deals. Crazy about networking.",
             socialList: [
@@ -95,7 +95,7 @@ export const team = {
             ]
         },
         {
-            imageUrl: "/assets/images/jonatan-background.png",
+            imageUrl: "/assets/images/jonatan-background.jpeg",
             name: "Jonatan Salas",
             description: "FullStack Developer. Open source projects contributor. Tenacious and self-motivated. Interested in new growing technologies.",
             socialList: [
