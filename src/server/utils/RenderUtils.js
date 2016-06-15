@@ -33,31 +33,14 @@ const renderApp = () => {
                 <meta name="author" content="Alan Vaudagna, Federico Catinello, Jonatan Salas">
                 <meta name="description" content="Blackbox Vision is a group of enthusiastic designers and developers with remarkable skills on different modern growing technologies. Our main focus is the interaction with the client and making solutions according to their needs.">
                 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-                <link rel="shortcut icon" type="image/png" href="assets/images/blackbox_vision.ico"/>
-        
                 <title>BlackBox Vision | Mobile and Web Software Factory</title>
+
+                <link rel="shortcut icon" type="image/png" href="assets/images/blackbox_vision.ico"/>
+                <link rel="stylesheet" href="dist/bundle.css"/>
             </head>
             <body>
                 <div id="app">${html}</div>
-                <script rel="script" type="text/javascript">
-                    var cb = function() {
-                        var l = document.createElement('link'); l.rel = 'stylesheet';
-                        l.href = 'dist/bundle.css';
-                        var h = document.getElementsByTagName('head')[0]; h.parentNode.insertBefore(l, h);
-                    };
-
-                    var raf = requestAnimationFrame || mozRequestAnimationFrame || webkitRequestAnimationFrame || msRequestAnimationFrame;
-
-                    if (raf) {
-                        raf(cb);
-                    } else {
-                        window.addEventListener('load', cb);
-                    }
-                </script>
-                <script>
-                    window.__INITIAL_STATE__ = ${initialState};
-                </script>
-                <script rel="script" type="text/javascript" src="vendor/material.min.js"></script>
+                <script rel="script" type="text/javascript">window.__INITIAL_STATE__ = ${initialState};</script>
                 <script rel="script" type="text/javascript" src="dist/bundle.js"></script>
             </body>
     </html>
