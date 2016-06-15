@@ -17,7 +17,7 @@ const renderApp = () => {
             </Provider>
         );
 
-        initialState = store.getState();
+        initialState = JSON.stringify(store.getState());
 
         cache.put('html', html);
         cache.put('initialState', initialState);
@@ -38,9 +38,7 @@ const renderApp = () => {
                 <title>BlackBox Vision | Mobile and Web Software Factory</title>
             </head>
             <body>
-                <div id="app">
-                    ${html}
-                </div>
+                <div id="app">${html}</div>
                 <script rel="script" type="text/javascript">
                     var cb = function() {
                         var l = document.createElement('link'); l.rel = 'stylesheet';
@@ -57,7 +55,7 @@ const renderApp = () => {
                     }
                 </script>
                 <script>
-                    window.__INITIAL_STATE__ = ${JSON.stringify(initialState)};
+                    window.__INITIAL_STATE__ = ${initialState};
                 </script>
                 <script rel="script" type="text/javascript" src="vendor/material.min.js"></script>
                 <script rel="script" type="text/javascript" src="dist/bundle.js"></script>
