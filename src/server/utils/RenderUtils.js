@@ -4,6 +4,7 @@ import App from '../../shared/Application.jsx';
 import { Provider } from 'react-redux';
 import cache from 'memory-cache';
 import React from 'react';
+import { minify } from 'html-minifier';
 
 const renderApp = () => {
     let store = configureStore();
@@ -23,8 +24,12 @@ const renderApp = () => {
         cache.put('initialState', initialState);
     }
     
-    return (`
-    <!doctype html>
+    return renderHtml(html, initialState);
+};
+
+const renderHtml = (html, initialState) => {
+    const appHtml =
+    `<!doctype html>
         <html>
             <head>
                 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
@@ -43,8 +48,19 @@ const renderApp = () => {
                 <script rel="script" type="text/javascript">window.__INITIAL_STATE__ = ${initialState};</script>
                 <script rel="script" type="text/javascript" src="dist/bundle.js"></script>
             </body>
-    </html>
-    `);
+    </html>`;
+
+    let options = {
+        caseSensitive: true,
+        collapseBooleanAttributes: true,
+        collapseInlineTagWhitespace: true,
+        collapseWhitespace: true,
+        minifyCSS: true,
+        minifyJS: true,
+        minifyURLs: true
+    };
+    
+    return (process.env.NODE_ENV === 'production')? minify(appHtml, options): appHtml;
 };
 
 export default renderApp;
