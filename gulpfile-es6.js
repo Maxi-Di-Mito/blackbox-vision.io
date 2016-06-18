@@ -3,11 +3,13 @@ import cleanCSS from 'gulp-clean-css';
 import concatCss from 'gulp-concat-css';
 import liveReload from 'gulp-livereload';
 import del from 'del';
+import cssmin from 'gulp-cssmin';
 
 gulp.task('minify-css', () => {
     return gulp.src('src/public/assets/css/*.css')
         .pipe(concatCss("bundle.css"))
-        .pipe(cleanCSS('bundle.css'))
+        .pipe(cleanCSS({ advanced: true, compatibility: "ie8", aggressiveMerging: true, processImport: true }))
+        .pipe(cssmin())
         .pipe(gulp.dest('src/public/dist'));
 });
 

@@ -20,10 +20,14 @@ var _del = require('del');
 
 var _del2 = _interopRequireDefault(_del);
 
+var _gulpCssmin = require('gulp-cssmin');
+
+var _gulpCssmin2 = _interopRequireDefault(_gulpCssmin);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 _gulp2.default.task('minify-css', function () {
-    return _gulp2.default.src('src/public/assets/css/*.css').pipe((0, _gulpConcatCss2.default)("bundle.css")).pipe((0, _gulpCleanCss2.default)('bundle.css')).pipe(_gulp2.default.dest('src/public/dist'));
+    return _gulp2.default.src('src/public/assets/css/*.css').pipe((0, _gulpConcatCss2.default)("bundle.css")).pipe((0, _gulpCleanCss2.default)({ advanced: true, compatibility: "ie8", aggressiveMerging: true, processImport: true })).pipe((0, _gulpCssmin2.default)()).pipe(_gulp2.default.dest('src/public/dist'));
 });
 
 _gulp2.default.task('cleanDist', function () {

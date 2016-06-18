@@ -2,10 +2,11 @@ import 'material-design-lite/material';
 
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Provider } from 'react-redux';
+import Provider from 'react-redux/lib/components/Provider';
 import routes from '../shared/Router/Routes.jsx';
 import Application from '../shared/Application.jsx';
-import { Router, browserHistory } from 'react-router';
+import Router from 'react-router/lib/Router';
+import browserHistory from 'react-router/lib/browserHistory'
 import configureStore from '../shared/Redux/store/configureStore';
 
 const store = configureStore(window.__INITIAL_STATE__);

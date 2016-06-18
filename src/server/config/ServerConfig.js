@@ -4,7 +4,7 @@ import path from 'path';
 const ROOT_DIR = path.resolve(__dirname, "../..");
 
 // default to a 'localhost' configuration:
-let connectionString = '127.0.0.1:27017/reactspa';
+let connectionString = '127.0.0.1:27017/blackbox';
 
 // if OPENSHIFT env variables are present, use the available connection info:
 if(process.env.OPENSHIFT_MONGODB_DB_PASSWORD) {

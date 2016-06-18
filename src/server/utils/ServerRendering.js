@@ -1,15 +1,14 @@
 import configureStore from '../../shared/Redux/store/configureStore';
-import { match, RouterContext } from 'react-router';
+import match from 'react-router/lib/match';
+import RouterContext from 'react-router/lib/RouterContext';
 import routes from '../../shared/Router/Routes.jsx';
 import { renderToString } from 'react-dom/server';
 import { renderTemplate } from './Templating';
-import { Provider } from 'react-redux';
+import Provider from 'react-redux/lib/components/Provider';
 import React from 'react';
 
 export const handleRender = (request, response, next) => {
-    let context = { routes, location: request.url };
-
-    match(context, (error, redirectLocation, renderProps) => {
+    match({ routes, location: request.url }, (error, redirectLocation, renderProps) => {
         if (error) return next(error);
         if (!renderProps) return next();
         if (redirectLocation) return response.redirect(302, redirectLocation.pathname + redirectLocation.search);

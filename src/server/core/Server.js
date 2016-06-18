@@ -13,12 +13,13 @@ import { handleError } from '../utils/ErrorHandling';
 //const router = Router();
 const app = Express();
 
-if (process.env.NODE_ENV === 'development') {
+//Define what the app will use..
+if (process.env.NODE_ENV === 'production') {
+    app.use(compression({ level: 9, memLevel: 9 }));
+} else {
     app.use(morgan('dev'));
 }
 
-//Define what the app will use..
-app.use(compression());
 app.use(bodyParser.json({ limit: '20mb' }));
 app.use(bodyParser.urlencoded({ limit: '20mb', extended: false }));
 app.use(Express.static(ServerConfig.PUBLIC_STATIC_CONTENT_DIR));

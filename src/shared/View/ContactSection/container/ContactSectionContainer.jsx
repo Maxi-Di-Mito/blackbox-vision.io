@@ -1,6 +1,6 @@
 import React, { Component ,PropTypes } from 'react';
 import ContactSection from '../component/ContactSection.jsx';
-import { connect } from 'react-redux';
+import connect from 'react-redux/lib/components/connect';
 
 //TODO JS: update everything related to contact section
 const ContactSectionContainer = (props) => (
