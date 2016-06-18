@@ -21,7 +21,11 @@ gulp.task('cleanCSS', () => {
     return del(['src/public/dist/bundle.css']);
 });
 
-gulp.task('default', ['cleanCSS', 'cleanDist'], () => {
+gulp.task('fonts', () => {
+    return gulp.src(['src/public/assets/css/fonts/**/*']).pipe(gulp.dest('src/public/dist/fonts'));
+});
+
+gulp.task('default', ['cleanCSS', 'cleanDist', 'fonts'], () => {
     gulp.start('minify-css');
 });
 

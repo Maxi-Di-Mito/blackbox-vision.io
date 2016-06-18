@@ -19,16 +19,6 @@ module.exports = {
                 test   : /\.(ttf|eot|svg|woff(2)?)(\?[a-z0-9=&.]+)?$/,
                 loader: 'file-loader?name=fonts/[name]/[name].[ext]',
                 exclude: /node_modules/
-            },
-            {
-                test   : /\.(jpg|png|gif)(\?[a-z0-9=&.]+)?$/,
-                loader: 'url-loader',
-                exclude: /node_modules/
-            },
-            {
-                test: /\.css$/,
-                loader: "style-loader!css-loader",
-                exclude: /node_modules/
             }
         ]
     },

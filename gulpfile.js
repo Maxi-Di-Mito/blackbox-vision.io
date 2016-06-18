@@ -38,7 +38,11 @@ _gulp2.default.task('cleanCSS', function () {
     return (0, _del2.default)(['src/public/dist/bundle.css']);
 });
 
-_gulp2.default.task('default', ['cleanCSS', 'cleanDist'], function () {
+_gulp2.default.task('fonts', function () {
+    return _gulp2.default.src(['src/public/assets/css/fonts/**/*']).pipe(_gulp2.default.dest('src/public/dist/fonts'));
+});
+
+_gulp2.default.task('default', ['cleanCSS', 'cleanDist', 'fonts'], function () {
     _gulp2.default.start('minify-css');
 });
 
