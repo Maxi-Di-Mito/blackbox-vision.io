@@ -3,5 +3,5 @@ export const handleCaching = (request, response, next) => {
         response.header('Cache-Control', 'public, max-age=3600');
     }
 
-    next();
+    return next();
 };

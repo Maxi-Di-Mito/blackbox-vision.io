@@ -7,8 +7,9 @@ import Winston from 'winston';
 import morgan from 'morgan';
 import { handleCaching } from '../utils/Caching';
 import { handleRender } from '../utils/ServerRendering';
+import { handleError } from '../utils/ErrorHandling';
 
-//Get express and router instances.. 
+//Get express and router instances..
 //const router = Router();
 const app = Express();
 
@@ -21,10 +22,11 @@ app.use(compression());
 app.use(bodyParser.json({ limit: '20mb' }));
 app.use(bodyParser.urlencoded({ limit: '20mb', extended: false }));
 app.use(Express.static(ServerConfig.PUBLIC_STATIC_CONTENT_DIR));
-//app.use(router);
+//app.use("/api/v1", router);
 
 app.use(handleCaching);
 app.use(handleRender);
+app.use(handleError);
 
 app.listen(ServerConfig.PORT, ServerConfig.IP_ADDRESS, () => {
     Winston.log("info", "Node server listening @ " + ServerConfig.PORT);
