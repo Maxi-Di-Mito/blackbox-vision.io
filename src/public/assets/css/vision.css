@@ -1,5 +1,11 @@
-body {
+html, body {
     background-color: #e0e0e0;
+    top: 0;
+    bottom: 0;
+}
+
+section {
+    height: 100vh;
 }
 
 /*.mdl-layout__header .mdl-layout__drawer-button {*/

@@ -12,4 +12,4 @@ ContactSectionContainer.defaultProps = {
     description: "Do you have a Project in Mind? Just fill the Contact Form and We will be in touch with you to define what you need."
 };
 
-export default connect((state) => ({}))(ContactSectionContainer);
+export default connect()(ContactSectionContainer);

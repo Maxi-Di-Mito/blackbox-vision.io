@@ -6,4 +6,4 @@ const WhatWeDoSectionContainer = (props) => (
     <WhatWeDoSection {...props}/>
 );
 
-export default connect((state) => ({}))(WhatWeDoSectionContainer);
+export default connect()(WhatWeDoSectionContainer);
