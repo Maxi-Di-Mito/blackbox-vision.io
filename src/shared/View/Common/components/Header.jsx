@@ -1,5 +1,5 @@
 import React, { Component ,PropTypes } from 'react';
-import Link from './Link.jsx';
+import HashLink from './HashLink.jsx';
 
 const Header = ({ logoSize, logo, linkList}) => (
     <header className="mdl-layout__header mdl-color--indigo mdl-shadow--3dp">
@@ -7,9 +7,9 @@ const Header = ({ logoSize, logo, linkList}) => (
             <img height={logoSize} className="mdl-logo" src={logo} style={{ margin: "auto"}}/>
             <div className="mdl-layout-spacer"></div>
             <nav className="mdl-navigation mdl-layout--large-screen-only"> {
-                linkList.map((item, index) => {
-                    return <Link key={index} href={item.link} message={item.message} iconName={item.iconName} type="web" />
-                })
+                linkList.map((item, index) => (
+                    <HashLink key={index} href={item.link} message={item.message} iconName={item.iconName} isMobile={false}/>
+                ))
             }
             </nav>
         </div>

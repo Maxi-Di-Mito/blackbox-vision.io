@@ -10,9 +10,9 @@ const WhatWeDoSection = (props) =>(
             {props.description}
         </p>
         <div className="mdl-grid"> {
-            props.cardList.map((item, index) => {
-                return <ServiceCard key={index} {...item}/>
-            })
+            props.cardList.map((item, index) => (
+                <ServiceCard key={index} {...item}/>
+            ))
         }
         </div>
     </section>

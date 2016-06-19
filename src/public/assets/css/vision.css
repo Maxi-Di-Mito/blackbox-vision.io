@@ -1,5 +1,6 @@
 html, body {
     background-color: #e0e0e0;
+    scroll-behavior: smooth;
 }
 
 /*.mdl-layout__header .mdl-layout__drawer-button {*/
