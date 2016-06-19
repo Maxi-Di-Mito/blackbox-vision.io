@@ -25,7 +25,7 @@ const ServerConfig = {
 	MONGO_URI: connectionString || "mongodb://localhost:27017",
 	CMS_SPACE_ID: 'qfz80k5nhv3a',
 	CMS_API_TOKEN: 'd493a22ac10fa4aeacdaf6de42f633c9a4d7ec44852464c14ee27d3518727b43',
-	SMTPS_DATA: 'smtps://contact@blackbox-vision.io:blackbox123.0@mail.privateemail.com' //?pool=true'
+	SMTPS_DATA: 'smtps://contact@blackbox-vision.io:blackbox123.0@mail.privateemail.com'
 };
 
 export default ServerConfig;
