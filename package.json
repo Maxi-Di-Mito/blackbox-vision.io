@@ -8,10 +8,10 @@
     "babelify-gulpfile": "babel gulpfile-es6.js --out-file gulpfile.js",
     "gulp": "npm run babelify-gulpfile && gulp",
     "compile": "babel ./src/server -d ./src/dist",
-    "webpack:prod": "webpack --config webpack.config.prod.js",
+    "webpack:prod": "webpack --progress --profile --colors --config webpack.config.prod.js",
     "build:prod": "export NODE_ENV=production && npm prune && npm install && npm run gulp && npm run webpack:prod && npm run compile && node start.js",
     "start": "npm run build:prod",
-    "webpack:dev": "webpack --progress --profile --colors",
+    "webpack:dev": "webpack --progress --profile --colors --config webpack.config.js",
     "build:dev": "npm prune && npm install && npm run gulp && npm run webpack:dev && npm run compile && node start.js",
     "start:dev": "npm run build:dev",
     "test": "echo \"Error: no test specified\" && exit 1"
