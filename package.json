@@ -2,7 +2,7 @@
   "author": "Jonatan Salas",
   "name": "BlackBox-Vision-SPA",
   "description": "The definitive website of BlackBox Vision",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "main": "index.js",
   "scripts": {
     "babelify-gulpfile": "babel gulpfile-es6.js --out-file gulpfile.js",
