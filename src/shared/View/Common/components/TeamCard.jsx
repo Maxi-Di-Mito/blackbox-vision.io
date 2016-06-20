@@ -18,7 +18,7 @@ const TeamCard = ({ imageUrl, name, description, socialList }) => (
         </div>
         <div className="mdl-card__actions"> {
             socialList.map((item, index) => (
-                <SocialButton key={index} isFlat={true} {...item}/>
+                <SocialButton key={index} {...item} isFlat={true}/>
             ))
         }
         </div>

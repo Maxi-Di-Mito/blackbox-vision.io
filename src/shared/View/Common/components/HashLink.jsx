@@ -2,13 +2,13 @@ import React, { Component ,PropTypes } from 'react';
 import Link from 'react-router/lib/Link';
 
 const MobileHashLink = (props) => (
-    <Link activeClassName="mdl-navigation__link mdl-typography--text-uppercase" to={{pathname: '/', hash: props.href}}>
+    <Link activeClassName="mdl-navigation__link mdl-typography--text-uppercase" to={{pathname: '/', hash: props.link}}>
         {props.message}
     </Link>
 );
 
 const WebHashLink = (props) => (
-    <Link activeClassName="mdl-layout--large-screen-only mdl-navigation__link black-box__link mdl-js-button mdl-color-text--white mdl-js-ripple-effect mdl-typography--text-uppercase" to={{pathname: '/', hash: props.href}}>
+    <Link activeClassName="mdl-layout--large-screen-only mdl-navigation__link black-box__link mdl-js-button mdl-color-text--white mdl-js-ripple-effect mdl-typography--text-uppercase" to={{pathname: '/', hash: props.link}}>
         <i className="material-icons icon-left">{props.iconName}</i>{props.message}
     </Link>
 );
@@ -18,7 +18,7 @@ const HashLink = (props) => (
 );
 
 HashLink.propTypes = {
-    href: PropTypes.string.isRequired,
+    link: PropTypes.string.isRequired,
     message: PropTypes.string.isRequired,
     isMobile: PropTypes.bool.isRequired,
     iconName: PropTypes.string
