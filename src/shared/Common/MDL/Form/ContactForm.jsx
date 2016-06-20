@@ -1,21 +1,9 @@
 import React, { Component, PropTypes } from 'react';
+import FloatingTextField from '../Field/FloatingTextField.jsx';
+import FloatingTextArea from '../Field/FloatingTextArea.jsx';
 import { reduxForm } from 'redux-form'
 
 export const fields = ['name', 'email', 'subject', 'message'];
-
-const FloatingTextField = (props) => (
-    <div className="mdl-textfield mdl-textfield--full-width mdl-js-textfield mdl-textfield--floating-label">
-        <input className="mdl-textfield__input" type={props.type} id={props.id} maxLength={props.length}/>
-        <label className="mdl-textfield__label" for={props.id}>{props.label}</label>
-    </div>
-);
-
-const FloatingTextArea = (props) => (
-    <div className="mdl-textfield mdl-textfield--full-width mdl-js-textfield mdl-textfield--floating-label">
-        <textarea className="mdl-textfield__input" type={props.type} rows={props.rows} id={props.id} maxLength={props.length}/>
-        <label className="mdl-textfield__label" for={props.id}>{props.label}</label>
-    </div>
-);
 
 const SubmitButton = (props) => (
     <button className="mdl-button mdl-js-button mdl-button--raised mdl-button--colored mdl-js-ripple-effect" type={props.type}>

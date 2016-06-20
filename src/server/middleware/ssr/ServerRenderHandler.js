@@ -1,7 +1,7 @@
 import configureStore from '../../../shared/Redux/store/configureStore';
 import match from 'react-router/lib/match';
 import RouterContext from 'react-router/lib/RouterContext';
-import routes from '../../../shared/Router/Routes.jsx';
+import routes from '../../../shared/Common/Router/Routes.jsx';
 import { renderToString } from 'react-dom/server';
 import TemplateRenderer from './../../utils/TemplateRenderer';
 import Provider from 'react-redux/lib/components/Provider';

@@ -1,5 +1,5 @@
 import React, { Component ,PropTypes } from 'react';
-import ServiceCard from '../../Common/components/ServiceCard.jsx';
+import ServiceCard from '../../../Common/MDL/Card/ServiceCard.jsx';
 
 const WhatWeDoSection = (props) =>(
     <section id="WhatWeDo">

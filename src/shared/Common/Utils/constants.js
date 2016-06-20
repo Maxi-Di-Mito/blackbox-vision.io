@@ -2,6 +2,11 @@ export const logo = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAfMAAAA8CAMAA
 
 export const links = [
     {
+        link: "#Home",
+        message: "home",
+        iconName: "home"
+    },
+    {
         link: "#WhoWeAre",
         message: "who we are",
         iconName: "perm_identity"
@@ -128,7 +133,7 @@ export const whatWeDo = {
         {
             iconName: "work",
             name: "UI/UX Design",
-            description: "We take special care with the design of user interfaces to make beautiful and amazing experiences around your application. We are backed by the use of Google's Material Design guidelines."
+            description: "We take special care with the design of user interfaces to make beautiful and amazing experiences around your application. We are backed by the use of Google's MDL guidelines."
         },
         {
             iconName: "build",

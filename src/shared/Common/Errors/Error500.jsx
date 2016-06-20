@@ -1,5 +1,5 @@
 import React, { Component, PropTypes } from 'react';
-import { logo } from '../../../Utils/constants';
+import { logo } from '../Utils/constants';
 
 const style = {
     height: "100vh",

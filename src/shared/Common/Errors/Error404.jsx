@@ -1,10 +1,10 @@
 import React, { Component, PropTypes } from 'react';
-import Layout from '../../../../../node_modules/react-mdl/lib/Layout/Layout';
-import Content from '../../../../../node_modules/react-mdl/lib/Layout/Content';
-import SideNav from '../../Common/components/SideNav.jsx';
-import Footer from '../../Common/components/Footer.jsx';
-import Header from '../../Common/components/Header.jsx';
-import { logo } from '../../../Utils/constants';
+import Layout from 'react-mdl/lib/Layout/Layout';
+import Content from 'react-mdl/lib/Layout/Content';
+import SideNav from '../MDL/Navigation/SideNav.jsx';
+import Footer from '../MDL/Navigation/Footer.jsx';
+import Header from '../MDL/Navigation/Header.jsx';
+import { logo } from '../Utils/constants';
 
 const style = {
     height: "100vh",

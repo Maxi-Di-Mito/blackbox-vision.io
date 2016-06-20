@@ -1,7 +1,7 @@
 import React, { Component ,PropTypes } from 'react';
 
 const SlidesSection = (props) => (
-    <section id="Slides" className="slide-container slide-background--image">
+    <section id="Home" className="slide-container slide-background--image">
         <div className="slide-div">
             <h1 className="mdl-color-text--white mdl-typography--text-uppercase mdl-typography--text-center mdl-typography--font-bold mdl-typography--display-3">
                 Let's Make your projects come true

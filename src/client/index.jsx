@@ -4,7 +4,7 @@ import 'material-design-lite/material';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Provider from 'react-redux/lib/components/Provider';
-import routes from '../shared/Router/Routes.jsx';
+import routes from '../shared/Common/Router/Routes.jsx';
 import Application from '../shared/Application.jsx';
 import Router from 'react-router/lib/Router';
 import browserHistory from 'react-router/lib/browserHistory'

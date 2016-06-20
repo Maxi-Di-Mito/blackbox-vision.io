@@ -1,5 +1,5 @@
 import React, { Component ,PropTypes } from 'react';
-import NavLink from './HashLink.jsx';
+import NavLink from './../Link/HashLink.jsx';
 
 const SideNav = (props) => (
     <div className="mdl-layout__drawer mdl-layout--small-screen-only">

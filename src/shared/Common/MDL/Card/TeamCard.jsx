@@ -1,5 +1,5 @@
 import React, { Component ,PropTypes } from 'react';
-import SocialButton from './SocialButton.jsx';
+import SocialButton from './../Button/SocialButton.jsx';
 
 const TeamCard = ({ imageUrl, name, description, socialList }) => (
     <div className="mdl-cell mdl-cell--4-col mdl-cell--8-col-tablet mdl-cell--4-col-phone mdl-card mdl-shadow--2dp">

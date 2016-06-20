@@ -1,5 +1,5 @@
 import React, { Component ,PropTypes } from 'react';
-import ContactForm from '../../Common/components/ContactForm.jsx';
+import ContactForm from '../../../Common/MDL/Form/ContactForm.jsx';
 
 const ContactSection = (props) => (
     <section id="Contact" className="contact-background--image">

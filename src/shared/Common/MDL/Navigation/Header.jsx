@@ -1,5 +1,5 @@
 import React, { Component ,PropTypes } from 'react';
-import NavLink from './HashLink.jsx';
+import NavLink from './../Link/HashLink.jsx';
 
 const Header = (props) => (
     <header className="mdl-layout__header mdl-color--indigo mdl-shadow--3dp">
