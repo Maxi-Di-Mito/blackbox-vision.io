@@ -1,19 +1,25 @@
+import Middleware from '../middleware/Middleware';
 import ServerConfig from '../config/ServerConfig';
-import Express from 'express';
 import compression from 'compression';
 import bodyParser from 'body-parser';
 import nodemailer from 'nodemailer';
 import Winston from 'winston';
-import morgan from 'morgan';
-import Middleware from '../middleware/Middleware';
+import Express from 'express';
 
 const urlEncodedOptions = { limit: '20mb', extended: false };
 const compressionOptions = { level: 9, memLevel: 9 };
 const jsonOptions = { limit: '20mb'};
 
 class Server {
+    constructor() {
+        this.server = undefined;
+    }
+
     static getInstance() {
-        return new Server();
+        if (!this.server) {
+            this.server = new Server();
+        }
+        return this.server;
     }
 
     init() {
