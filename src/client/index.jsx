@@ -30,6 +30,7 @@ const hashLinkScroll = () => {
     }
 };
 
+
 ReactDOM.render(
     <Provider store={store}>
         <Router history={history} routes={routes} onUpdate={hashLinkScroll} render={applyRouterMiddleware(useScroll())}/>
