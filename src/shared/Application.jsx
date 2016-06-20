@@ -30,15 +30,13 @@ class Application extends Component {
                 <Header logo={logo} logoSize="25px" linkList={links}/>
                 <SideNav title="BlackBox Vision" linkList={links}/>
                 <Content>
-                    <ScrollArea speed={0.8} smoothScrolling={true} vertical={true} horizontal={false}>
-                        <SlidesSection/>
-                        <WhoWeAreSection/>
-                        <WhatWeDoSection {...whatWeDo}/>
-                        <MeetTheTeamSection {...team}/>
-                        <PortfolioSection/>
-                        <ContactSection/>
-                        <Footer socialList={social} copyright="BlackBox Vision @ 2016"/>
-                    </ScrollArea>
+                    <SlidesSection/>
+                    <WhoWeAreSection/>
+                    <WhatWeDoSection {...whatWeDo}/>
+                    <MeetTheTeamSection {...team}/>
+                    <PortfolioSection/>
+                    <ContactSection/>
+                    <Footer socialList={social} copyright="BlackBox Vision @ 2016"/>
                 </Content>
             </Layout>
         )
