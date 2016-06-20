@@ -1,3 +1,4 @@
+import 'babel-polyfill';
 import 'material-design-lite/material';
 
 import React from 'react';
