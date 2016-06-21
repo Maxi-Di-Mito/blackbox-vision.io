@@ -1,11 +1,15 @@
 import 'babel-polyfill';
-import 'material-design-lite/material';
+import 'es5-shim/es5-sham.min'
+import 'es5-shim/es5-shim.min'
+import 'es6-shim/es6-sham.min'
+import 'es6-shim/es6-shim.min'
+import 'es7-shim/dist/es7-shim.min'
+import 'material-design-lite/material.min';
 
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Provider from 'react-redux/lib/components/Provider';
 import routes from '../shared/Common/Router/Routes.jsx';
-import Application from '../shared/Application.jsx';
 import Router from 'react-router/lib/Router';
 import browserHistory from 'react-router/lib/browserHistory'
 import applyRouterMiddleware from 'react-router/lib/applyRouterMiddleware';

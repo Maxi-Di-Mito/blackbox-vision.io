@@ -2,7 +2,7 @@ import Middleware from '../middleware/Middleware';
 import ServerConfig from '../config/ServerConfig';
 import compression from 'compression';
 import bodyParser from 'body-parser';
-import nodemailer from 'nodemailer';
+// import nodemailer from 'nodemailer';
 import Winston from 'winston';
 import Express from 'express';
 
