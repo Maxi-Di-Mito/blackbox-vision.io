@@ -7,9 +7,8 @@ import TemplateRenderer from './../../utils/TemplateRenderer';
 import Provider from 'react-redux/lib/components/Provider';
 import React from 'react';
 
+const renderer = new TemplateRenderer();
 const ServerRenderHandler = (request, response, next) => {
-    const renderer = new TemplateRenderer();
-
     match({ routes, location: request.url }, (error, redirectLocation, renderProps) => {
         if (error) {
             return next(error);
