@@ -33,7 +33,7 @@ class TemplateRenderer {
                     <script rel="script" type="text/javascript" src="dist/bundle.js"></script>
                     <script type="text/javascript">
                         WebFontConfig = {
-                            google: { families: [ 'Roboto:400,300,100,500,700:latin,latin-ext' ] }
+                            google: { families: [ 'Roboto:400,300,500,700,100,900:latin,latin-ext' ] }
                         };
                         (function() {
                             var wf = document.createElement('script');
