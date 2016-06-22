@@ -1,5 +1,6 @@
 import React, { Component ,PropTypes } from 'react';
 import ContactForm from '../../../Common/MDL/Form/ContactForm.jsx';
+import Grid, { Cell } from 'react-mdl/lib/Grid';
 
 const ContactSection = (props) => (
     <section id="Contact" className="contact-background--image">
@@ -9,13 +10,13 @@ const ContactSection = (props) => (
         <p className="mdl-typography--text-center mdl-typography--font-light mdl-typography--subhead">
             {props.description}
         </p>
-        <div className="mdl-grid">
-            <div className="mdl-cell mdl-cell--4-col mdl-cell--12-col-tablet mdl-cell--12-col-phone"></div>
-            <div className="mdl-cell mdl-cell--4-col mdl-cell--12-col-tablet mdl-cell--12-col-phone mdl-card mdl-shadow--2dp blackbox-form__padding">
+        <Grid>
+            <Cell col={4} tablet={8} phone={4}/>
+            <Cell col={4} tablet={8} phone={4}>
                 <ContactForm onSubmit={ () => {} }/>
-            </div>
-            <div className="mdl-cell mdl-cell--4-col mdl-cell--12-col-tablet mdl-cell--12-col-phone"></div>
-        </div>
+            </Cell>
+            <Cell col={4} tablet={8} phone={4}/>
+        </Grid>
     </section>
 );
 

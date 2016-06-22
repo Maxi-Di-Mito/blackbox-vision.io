@@ -1,6 +1,9 @@
 import React, { Component, PropTypes } from 'react';
-import FloatingTextField from '../Field/FloatingTextField.jsx';
-import FloatingTextArea from '../Field/FloatingTextArea.jsx';
+import TextField from '../Field/FloatingTextField.jsx';
+import TextArea from '../Field/FloatingTextArea.jsx';
+import Card from 'react-mdl/lib/Card/Card';
+import CardTitle from 'react-mdl/lib/Card/CardTitle';
+import CardActions from 'react-mdl/lib/Card/CardActions';
 import { reduxForm } from 'redux-form'
 
 export const fields = ['name', 'email', 'subject', 'message'];
@@ -15,15 +18,17 @@ const SubmitButton = (props) => (
 );
 
 const ContactForm = (props) => (
-    <div className="mdl-card__supporting-text mdl-color-text--grey-800">
-        <form onSubmit={props.onSubmit}>
-            <FloatingTextField id="name" type="text" length="25" label="Name" {...props.name}/>
-            <FloatingTextField id="email" type="email" length="45" label="Email" {...props.email}/>
-            <FloatingTextField id="subject" type="text" length="25" label="Subject" {...props.subject}/>
-            <FloatingTextArea id="message" type="text" length="250" label="Message" rows="3" {...props.message}/>
-            <SubmitButton type="submit" message="Send" iconName="send"/>
-        </form>
-    </div>
+    <Card shadow={0} style={{width: 'auto', margin: 'auto', padding: 'auto' }}>
+        <div className="mdl-card__supporting-text mdl-color-text--grey-800">
+            <form onSubmit={props.onSubmit} style={{ margin: "10px" }}>
+                <TextField label="Name" {...props.name}/>
+                <TextField label="Email" pattern="email" maxLength="45" {...props.email}/>
+                <TextField label="Subject" {...props.subject}/>
+                <TextArea  label="Message" maxLength="250" rows="3" {...props.message}/>
+                <SubmitButton type="submit" message="Send" iconName="send"/>
+            </form>
+        </div>
+    </Card>
 );
 
 ContactForm.propTypes = {
