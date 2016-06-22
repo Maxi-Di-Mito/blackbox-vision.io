@@ -1,16 +1,33 @@
 import React, { Component, PropTypes } from 'react';
 
-const FloatingTextField = (props) => (
+const TextField = (props) => (
     <div className="mdl-textfield mdl-textfield--full-width mdl-js-textfield mdl-textfield--floating-label">
-        <input className="mdl-textfield__input" type={props.pattern || "text" } id={props.label} maxLength={props.length || "25" }/>
+        <input className="mdl-textfield__input" type={props.pattern} id={props.label} maxLength={props.length}/>
         <label className="mdl-textfield__label" for={props.label}>{props.label}</label>
     </div>
 );
 
+const TextArea = (props) => (
+    <div className="mdl-textfield mdl-textfield--full-width mdl-js-textfield mdl-textfield--floating-label">
+        <textarea className="mdl-textfield__input" type={props.pattern} rows={props.rows} id={props.label} maxLength={props.maxLength}/>
+        <label className="mdl-textfield__label" for={props.label}>{props.label}</label>
+    </div>
+);
+
+const FloatingTextField = (props) => (
+    (!props.rows)? <TextField {...props}/> : <TextArea {...props}/>
+);
+
 FloatingTextField.propTypes = {
-    pattern: PropTypes.string.isRequired,
-    maxLength: PropTypes.string.isRequired,
-    label: PropTypes.string.isRequired
+    label: PropTypes.string.isRequired,
+    maxLength: PropTypes.string,
+    pattern: PropTypes.string,
+    rows: PropTypes.number
+};
+
+FloatingTextField.defaultProps = {
+    pattern: "text",
+    maxLength: "25"
 };
 
 export default FloatingTextField;
