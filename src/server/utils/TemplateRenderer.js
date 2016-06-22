@@ -31,19 +31,6 @@ class TemplateRenderer {
                     <div id="app">${html}</div>
                     <script rel="script" type="text/javascript">window.__INITIAL_STATE__ = ${JSON.stringify(initialState)};</script>
                     <script rel="script" type="text/javascript" src="dist/bundle.js"></script>
-                    <script type="text/javascript">
-                        WebFontConfig = {
-                            google: { families: [ 'Roboto:400,300,500,700,100,900:latin,latin-ext' ] }
-                        };
-                        (function() {
-                            var wf = document.createElement('script');
-                            wf.src = 'https://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
-                            wf.type = 'text/javascript';
-                            wf.async = 'true';
-                            var s = document.getElementsByTagName('script')[0];
-                            s.parentNode.insertBefore(wf, s);
-                        })();
-                    </script>
                 </body>
             </html>
         `;
