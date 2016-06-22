@@ -4,7 +4,7 @@ import 'es5-shim/es5-shim.min'
 import 'es6-shim/es6-sham.min'
 import 'es6-shim/es6-shim.min'
 import 'es7-shim/dist/es7-shim.min'
-import 'material-design-lite/material.min';
+import 'react-mdl/extra/material.min'
 
 import React from 'react';
 import ReactDOM from 'react-dom';

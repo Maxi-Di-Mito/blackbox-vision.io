@@ -126,6 +126,11 @@ export const team = {
     ]
 };
 
+export const whoWeAre = {
+    title: "Who We Are",
+    description: "BlackBox Vision came up as an idea to put different knowledge together and conform a variety                     stack of technology solutions company.We are three advanced engineering students which are                        worried about nowadays software problematics and want to put their maximum effort to get along                    with the clients giving them a solution according to their needs.Our vision is that not only time                 matters but also the quality of the product. We try to provide well-designed solutions which                      guarantee the software to apply for the different quality attributes such as scalability,                         maintainability, efficiency, usability and fault tolerance, among others.Our main ambition is to                  make people be interested in our work and earn their trust. You should know about our talent. So,                 don’t hesitate to contact us. Your question is the main priority."
+};
+
 export const whatWeDo = {
     title: "Our Services",
     description: "These are some of the basic services that we offer to our clients. Our main focus is to cover all the development related processes, from the start to the end.",

@@ -10,7 +10,7 @@ import WhatWeDoSection from './View/WhatWeDoSection/container/WhatWeDoSectionCon
 import MeetTheTeamSection from './View/MeetTheTeam/container/MeetTheTeamSectionContainer.jsx';
 import PortfolioSection from './View/PortfolioSection/container/PortfolioSectionContainer.jsx';
 import ContactSection from './View/ContactSection/container/ContactSectionContainer.jsx';
-import { links, team, social, whatWeDo, logo } from './Common/Utils/constants'
+import { links, team, social, whatWeDo, logo, whoWeAre } from './Common/Utils/constants'
 
 import injectTapEventPlugin from 'react-tap-event-plugin';
 
@@ -31,7 +31,7 @@ class Application extends Component {
                 <SideNav title="BlackBox Vision" linkList={links}/>
                 <Content>
                     <SlidesSection/>
-                    <WhoWeAreSection/>
+                    <WhoWeAreSection {...whoWeAre}/>
                     <WhatWeDoSection {...whatWeDo}/>
                     <MeetTheTeamSection {...team}/>
                     <PortfolioSection/>
