@@ -9,10 +9,6 @@ const ErrorHandler = (error, request, response, next) => {
     let html;
 
     switch (error.status) {
-        case 404:
-            html = renderer.toErrorHtml(renderToStaticMarkup(<Error404 />));
-            response.status(error.status).header("Content-Type", "text/html; charset=utf-8").end(html);
-            break;
         case 500:
             html = renderer.toErrorHtml(renderToStaticMarkup(<Error500 />));
             response.status(error.status).header("Content-Type", "text/html; charset=utf-8").end(html);
