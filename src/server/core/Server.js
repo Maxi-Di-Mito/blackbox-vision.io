@@ -11,18 +11,7 @@ const compressionOptions = { level: 9, memLevel: 9 };
 const jsonOptions = { limit: '20mb'};
 
 class Server {
-    constructor() {
-        this.server = undefined;
-    }
-
-    static getInstance() {
-        if (!this.server) {
-            this.server = new Server();
-        }
-        return this.server;
-    }
-
-    init() {
+    static init() {
         const app = Express();
 
         //Setting up some data..
@@ -33,8 +22,8 @@ class Server {
 
         //Setting up custom middlewares..
         app.use(Middleware.handleCaching);
-        app.use(Middleware.handleErrors);
         app.use(Middleware.handleRender);
+        app.use(Middleware.handleErrors);
         //app.use(Middleware.handleRouting);
 
         app.listen(ServerConfig.PORT, ServerConfig.IP_ADDRESS, (error) => {

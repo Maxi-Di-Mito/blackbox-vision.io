@@ -10,6 +10,10 @@ import React from 'react';
 const renderer = new TemplateRenderer();
 const ServerRenderHandler = (request, response, next) => {
     match({ routes, location: request.url }, (error, redirectLocation, renderProps) => {
+        //Uncomment this lines when testing error 500 reactjs component
+        //error = {};
+        //error.status = 500;
+
         if (error) {
             return next(error);
         }

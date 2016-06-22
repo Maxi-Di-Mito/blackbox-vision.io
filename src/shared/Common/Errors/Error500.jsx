@@ -1,4 +1,7 @@
 import React, { Component, PropTypes } from 'react';
+import Grid, { Cell } from 'react-mdl/lib/Grid';
+import CardTitle from 'react-mdl/lib/Card/CardTitle';
+import Card from 'react-mdl/lib/Card/Card';
 import { logo } from '../Utils/constants';
 
 const style = {
@@ -8,27 +11,24 @@ const style = {
 };
 
 const Error500 = (props) => (
-    <section id="error500">
+    <section id="500">
         <div className="slide-background--image"  style={style}>
-            <div className="mdl-grid">
-                <div className="mdl-cell mdl-cell--4-col mdl-cell--8-col-tablet mdl-cell--4-col-phone"></div>
-                <div className="mdl-cell mdl-cell--4-col mdl-cell--8-col-tablet mdl-cell--4-col-phone mdl-card mdl-shadow--2dp">
-                    <div className="mdl-card__media img-container">
-                        <img className="img-responsive" width="100%" src={logo} />
-                    </div>
-                    <div className="mdl-card__title">
-                        <h4 className="mdl-card__title-text">
+            <Grid>
+                <Cell col={4} tablet={8} phone={4}/>
+                <Cell col={4} tablet={8} phone={4}>
+                    <Card style={{width: 'auto', margin: 'auto' }}>
+                        <CardTitle>
                             {props.title}
-                        </h4>
-                    </div>
-                    <div className="mdl-card__supporting-text">
-                        <span className="mdl-typography--font-light mdl-typography--subhead">
-                            {props.description}
-                        </span>
-                    </div>
-                </div>
-                <div className="mdl-cell mdl-cell--4-col mdl-cell--8-col-tablet mdl-cell--4-col-phone"></div>
-            </div>
+                        </CardTitle>
+                        <div className="mdl-card__supporting-text">
+                            <span className="mdl-typography--font-light mdl-typography--subhead">
+                                {props.description}
+                            </span>
+                        </div>
+                    </Card>
+                </Cell>
+                <Cell col={4} tablet={8} phone={4}/>
+            </Grid>
         </div>
     </section>
 );
