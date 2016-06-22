@@ -1,5 +1,6 @@
 import React, { Component ,PropTypes } from 'react';
 import TeamCard from '../../../Common/MDL/Card/TeamCard.jsx';
+import Grid from 'react-mdl/lib/Grid';
 
 const MeetTheTeamSection = (props) => (
     <section id="MeetTheTeam" className="mdl-color--grey-300">
@@ -9,12 +10,12 @@ const MeetTheTeamSection = (props) => (
         <p className="mdl-typography--text-center mdl-typography--font-light mdl-typography--subhead">
             {props.description}
         </p>
-        <div className="mdl-grid"> {
+        <Grid> {
             props.cardList.map((item, index) => (
                 <TeamCard key={index} {...item}/>
             ))
         }
-        </div>
+        </Grid>
     </section>
 );
 

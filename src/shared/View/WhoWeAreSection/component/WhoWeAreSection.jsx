@@ -1,19 +1,17 @@
-import React, { Component ,PropTypes } from 'react';
+import React, { Component, PropTypes } from 'react';
+import Grid, { Cell } from 'react-mdl/lib/Grid';
 
 const WhoWeAreSection = (props) => (
-    <section id="WhoWeAre">
-        <div className="mdl-grid">
-            <div className="mdl-cell mdl-cell--4-col mdl-cell--8-col-tablet mdl-cell--4-col-phone"></div>
-            <div className="mdl-cell mdl-cell--4-col mdl-cell--8-col-tablet mdl-cell--4-col-phone">
-                <h3 className="blackbox-title__padding mdl-typography--text-center mdl-typography--font-light mdl-typography--display-2-color-contrast">
-                    {props.title}
-                </h3>
+    <section id="WhoWeAre" className="mdl-color--indigo">
+        <Grid>
+            <Cell col={2} tablet={8} phone={4}/>
+            <Cell col={8} tablet={8} phone={4}>
                 <p className="mdl-typography--text-center mdl-typography--font-light mdl-typography--subhead">
                     {props.description}
                 </p>
-            </div>
-            <div className="mdl-cell mdl-cell--4-col mdl-cell--8-col-tablet mdl-cell--4-col-phone"></div>
-        </div>
+            </Cell>
+            <Cell col={2} tablet={8} phone={4}/>
+        </Grid>
     </section>
 );
 

@@ -1,5 +1,6 @@
 import React, { Component ,PropTypes } from 'react';
 import ServiceCard from '../../../Common/MDL/Card/ServiceCard.jsx';
+import Grid, { Cell } from 'react-mdl/lib/Grid';
 
 const WhatWeDoSection = (props) =>(
     <section id="WhatWeDo">
@@ -9,12 +10,12 @@ const WhatWeDoSection = (props) =>(
         <p className="mdl-typography--text-center mdl-typography--font-light mdl-typography--subhead">
             {props.description}
         </p>
-        <div className="mdl-grid"> {
+        <Grid> {
             props.cardList.map((item, index) => (
                 <ServiceCard key={index} {...item}/>
             ))
         }
-        </div>
+        </Grid>
     </section>
 );
 
