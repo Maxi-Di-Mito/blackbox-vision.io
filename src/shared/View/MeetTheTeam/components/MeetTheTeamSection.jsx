@@ -1,4 +1,4 @@
-import React, { Component ,PropTypes } from 'react';
+import React, { Component ,PropTypes } from './../../../Lib/React';
 import TeamCard from '../../../Common/MDL/Card/TeamCard.jsx';
 import Grid from 'react-mdl/lib/Grid';
 

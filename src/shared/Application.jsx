@@ -1,4 +1,4 @@
-import React, { Component ,PropTypes } from 'react';
+import React, { Component ,PropTypes } from './Lib/React';
 import Layout from 'react-mdl/lib/Layout/Layout';
 import Content from 'react-mdl/lib/Layout/Content';
 import SideNav from './Common/MDL/Navigation/SideNav.jsx';

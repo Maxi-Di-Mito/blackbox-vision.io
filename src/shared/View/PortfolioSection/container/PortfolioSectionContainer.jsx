@@ -1,4 +1,4 @@
-import React, { Component ,PropTypes } from 'react';
+import React, { Component ,PropTypes } from './../../../Lib/React';
 import PortfolioSection from '../component/PortfolioSection.jsx';
 import connect from 'react-redux/lib/components/connect';
 

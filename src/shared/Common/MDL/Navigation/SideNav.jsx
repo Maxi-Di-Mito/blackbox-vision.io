@@ -1,4 +1,4 @@
-import React, { Component ,PropTypes } from 'react';
+import React, { Component ,PropTypes } from './../../../Lib/React';
 import NavLink from './../Link/HashLink.jsx';
 
 const SideNav = (props) => (

@@ -1,9 +1,4 @@
-import React, { Component, PropTypes } from 'react';
-import Layout from 'react-mdl/lib/Layout/Layout';
-import Content from 'react-mdl/lib/Layout/Content';
-import SideNav from '../MDL/Navigation/SideNav.jsx';
-import Footer from '../MDL/Navigation/Footer.jsx';
-import Header from '../MDL/Navigation/Header.jsx';
+import React, { Component, PropTypes } from './../../Lib/React';
 import Grid, { Cell } from 'react-mdl/lib/Grid';
 import CardTitle from 'react-mdl/lib/Card/CardTitle';
 import Card from 'react-mdl/lib/Card/Card';

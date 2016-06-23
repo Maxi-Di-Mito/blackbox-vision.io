@@ -1,4 +1,4 @@
-import React, { Component ,PropTypes } from 'react';
+import React, { Component ,PropTypes } from './../../../Lib/React';
 import ServiceCard from '../../../Common/MDL/Card/ServiceCard.jsx';
 import Grid, { Cell } from 'react-mdl/lib/Grid';
 

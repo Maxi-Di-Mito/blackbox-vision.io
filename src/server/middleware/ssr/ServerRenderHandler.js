@@ -5,7 +5,7 @@ import routes from '../../../shared/Common/Router/Routes.jsx';
 import { renderToString } from 'react-dom/server';
 import TemplateRenderer from './../../utils/TemplateRenderer';
 import Provider from 'react-redux/lib/components/Provider';
-import React from 'react';
+import React from './../../../shared/Lib/React';
 
 const renderer = new TemplateRenderer();
 const ServerRenderHandler = (request, response, next) => {

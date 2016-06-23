@@ -1,4 +1,4 @@
-import React, { Component ,PropTypes } from 'react';
+import React, { Component ,PropTypes } from './../../../Lib/React';
 import SocialButton from './../Button/SocialButton.jsx';
 
 const SocialListItem = (props) => (

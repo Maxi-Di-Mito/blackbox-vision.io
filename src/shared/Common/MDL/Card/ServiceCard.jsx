@@ -1,8 +1,7 @@
-import React, { Component ,PropTypes } from 'react';
+import React, { Component ,PropTypes } from './../../../Lib/React';
 import { Cell } from 'react-mdl/lib/Grid';
 import Card from 'react-mdl/lib/Card/Card';
 import CardTitle from 'react-mdl/lib/Card/CardTitle';
-import CardActions from 'react-mdl/lib/Card/CardActions';
 
 const ServiceCard = (props) => (
     <Cell col={4} tablet={8} phone={4}>

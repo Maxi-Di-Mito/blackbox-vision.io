@@ -1,6 +1,6 @@
 import Route from 'react-router/lib/Route';
 import IndexRoute from 'react-router/lib/IndexRoute';
-import React from 'react';
+import React from './../../Lib/React';
 import MainApp from '../../Application.jsx';
 import Error404 from '../Errors/Error404.jsx';
 

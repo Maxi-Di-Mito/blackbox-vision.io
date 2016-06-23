@@ -1,4 +1,4 @@
-import React, { Component ,PropTypes } from 'react';
+import React, { Component ,PropTypes } from './../../../Lib/React';
 import MobileHashLink from './MobileHashLink.jsx';
 import WebHashLink from './WebHashLink.jsx';
 

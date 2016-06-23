@@ -1,4 +1,4 @@
-import React, { Component, PropTypes } from 'react';
+import React, { Component, PropTypes } from './../../../Lib/React';
 import Link from 'react-router/lib/Link';
 
 const WebHashLink = (props) => (
