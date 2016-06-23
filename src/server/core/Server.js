@@ -16,7 +16,6 @@ class Server {
     static init() {
         if (cluster.isMaster) {
             for (let i = 0; i < numCPUs; i++) {
-                // Fork workers.
                 cluster.fork();
             }
 
