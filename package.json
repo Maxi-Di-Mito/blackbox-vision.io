@@ -59,6 +59,7 @@
     "morgan": "^1.7.0",
     "nodemailer": "^2.4.1",
     "nodemon": "^1.9.2",
+    "offline-plugin": "^3.4.0",
     "path": "^0.12.7",
     "q": "^1.4.1",
     "react": "^15.0.2",
