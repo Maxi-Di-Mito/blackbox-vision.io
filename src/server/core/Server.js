@@ -2,9 +2,11 @@ import Middleware from '../middleware/Middleware';
 import ServerConfig from '../config/ServerConfig';
 import ClusterUtils from '../utils/ClusterUtils';
 import compression from 'compression';
+//import router from '../router/router';
 import bodyParser from 'body-parser';
 import Winston from 'winston';
 import Express from 'express';
+import Q from 'q';
 
 class Server {
     static init() {
@@ -17,10 +19,11 @@ class Server {
             app.use(bodyParser.urlencoded(ServerConfig.URL_ENCODED_OPTIONS));
 
             //Setting up custom middlewares..
-            app.use(Middleware.handleCaching);
-            app.use(Middleware.handleRender);
-            app.use(Middleware.handleErrors);
-            //app.use(Middleware.handleRouting);
+            app.use(Q.async(Middleware.handleCaching));
+            app.use(Q.async(Middleware.handleRender));
+            app.use(Q.async(Middleware.handleErrors));
+            //Add api to expose
+            //app.use("/api/v1", router);
 
             app.listen(ServerConfig.PORT, ServerConfig.IP_ADDRESS, (error) => {
                 if (error) {

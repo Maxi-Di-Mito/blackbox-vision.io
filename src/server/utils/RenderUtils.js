@@ -1,5 +1,6 @@
 import { minify } from 'html-minifier';
 
+const isProduction = process.env.NODE_ENV === 'production';
 const options = {
     caseSensitive: true,
     collapseBooleanAttributes: true,
@@ -16,8 +17,8 @@ class RenderUtils {
         `<!doctype html>
             <html>
                 <head>
-                    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-                    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+                    <meta http-equiv="Content-Type" content="text/html" charset="utf-8">
+                    <meta http-equiv="X-UA-Compatible" content="IE=9; IE=8; IE=7; IE=EDGE">
                     <meta name="keywords" content="blackbox, vision, blackboxvision, blackbox-vision, material design, web, mobile, design and development">
                     <meta name="author" content="Alan Vaudagna, Federico Catinello, Jonatan Salas">
                     <meta name="description" content="Blackbox Vision is a group of enthusiastic designers and developers with remarkable skills on different modern growing technologies. Our main focus is the interaction with the client and making solutions according to their needs.">
@@ -25,7 +26,7 @@ class RenderUtils {
                     <title>BlackBox Vision | Mobile and Web Software Factory</title>
 
                     <link rel="shortcut icon" type="image/png" href="assets/images/blackbox-vision.png"/>
-                    <link rel="stylesheet" href="dist/bundle.css"/>
+                    <link rel="stylesheet" type="text/css" href="dist/bundle.css"/>
                 </head>
                 <body>
                     <div id="app">${html}</div>
@@ -35,7 +36,7 @@ class RenderUtils {
             </html>
         `;
 
-        return (process.env.NODE_ENV === 'production') ? minify(mainHtml, options) : mainHtml;
+        return (isProduction) ? minify(mainHtml, options) : mainHtml;
     }
 
     static toErrorHtml(html) {
@@ -43,8 +44,8 @@ class RenderUtils {
         `<!doctype html>
             <html>
                 <head>
-                    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-                    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+                    <meta http-equiv="Content-Type" content="text/html" charset="utf-8">
+                    <meta http-equiv="X-UA-Compatible" content="IE=9; IE=8; IE=7; IE=EDGE">
                     <meta name="keywords" content="blackbox, vision, blackboxvision, blackbox-vision, material design, web, mobile, design and development">
                     <meta name="author" content="Alan Vaudagna, Federico Catinello, Jonatan Salas">
                     <meta name="description" content="Blackbox Vision is a group of enthusiastic designers and developers with remarkable skills on different modern growing technologies. Our main focus is the interaction with the client and making solutions according to their needs.">
@@ -52,7 +53,7 @@ class RenderUtils {
                     <title>BlackBox Vision | Mobile and Web Software Factory</title>
 
                     <link rel="shortcut icon" type="image/png" href="assets/images/blackbox-vision.png"/>
-                    <link rel="stylesheet" href="dist/bundle.css"/>
+                    <link rel="stylesheet" type="text/css" href="dist/bundle.css"/>
                 </head>
                 <body>
                     <div id="app">${html}</div>
@@ -61,7 +62,7 @@ class RenderUtils {
             </html>
         `;
 
-        return (process.env.NODE_ENV === 'production')? minify(mainHtml, options): mainHtml;
+        return (isProduction)? minify(mainHtml, options): mainHtml;
     }
 }
 
