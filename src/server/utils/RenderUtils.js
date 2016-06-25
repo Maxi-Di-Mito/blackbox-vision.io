@@ -10,8 +10,8 @@ const options = {
     minifyURLs: true
 };
 
-class TemplateRenderer {
-    toDefaultHtml(html, initialState = {}) {
+class RenderUtils {
+    static toDefaultHtml(html, initialState = {}) {
         const mainHtml =
         `<!doctype html>
             <html>
@@ -38,7 +38,7 @@ class TemplateRenderer {
         return (process.env.NODE_ENV === 'production') ? minify(mainHtml, options) : mainHtml;
     }
 
-    toErrorHtml(html) {
+    static toErrorHtml(html) {
         const mainHtml =
         `<!doctype html>
             <html>
@@ -65,4 +65,4 @@ class TemplateRenderer {
     }
 }
 
-export default TemplateRenderer;
+export default RenderUtils;

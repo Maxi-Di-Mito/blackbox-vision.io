@@ -74,6 +74,7 @@
     "redux-form": "^5.2.5",
     "redux-logger": "^2.6.1",
     "redux-thunk": "^2.0.1",
+    "strong-cluster-control": "^2.2.3",
     "uglifyjs": "^2.4.10",
     "url-loader": "^0.5.7",
     "util": "^0.10.3",

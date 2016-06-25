@@ -3,12 +3,13 @@ import match from 'react-router/lib/match';
 import RouterContext from 'react-router/lib/RouterContext';
 import routes from '../../../shared/Common/Router/Routes.jsx';
 import { renderToString } from 'react-dom/server';
-import TemplateRenderer from './../../utils/TemplateRenderer';
+import RenderUtils from './../../utils/RenderUtils';
 import Provider from 'react-redux/lib/components/Provider';
 import React from './../../../shared/Lib/React';
 
-const renderer = new TemplateRenderer();
 const ServerRenderHandler = (request, response, next) => {
+    let store = configureStore();
+
     match({ routes, location: request.url }, (error, redirectLocation, renderProps) => {
         //Uncomment this lines when testing error 500 reactjs component
         //error = {};
@@ -18,15 +19,14 @@ const ServerRenderHandler = (request, response, next) => {
             return next(error);
         }
 
-        if (redirectLocation) {
-            return response.redirect(302, redirectLocation.pathname + redirectLocation.search);
-        }
-
         if (!renderProps) {
             return next();
         }
 
-        let store = configureStore();
+        if (redirectLocation) {
+            return response.redirect(302, redirectLocation.pathname + redirectLocation.search);
+        }
+
         let initialHtml = renderToString(
             <Provider store={store}>
                 <RouterContext {...renderProps}/>
@@ -34,7 +34,7 @@ const ServerRenderHandler = (request, response, next) => {
         );
 
         let finalState = store.getState();
-        let finalHtml = renderer.toDefaultHtml(initialHtml, finalState);
+        let finalHtml = RenderUtils.toDefaultHtml(initialHtml, finalState);
 
         return response.status(200).header("Content-Type", "text/html; charset=utf-8").end(finalHtml);
     })
