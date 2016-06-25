@@ -1,27 +1,21 @@
+import ServerConfig from '../config/ServerConfig';
 import control from 'strong-cluster-control';
 import Winston from 'winston';
 import cluster from 'cluster';
-import os from 'os';
-
-const numCPUs = os.cpus().length;
-const controlOptions = {
-    size: control.CPUS,
-    shutdownTimeout: 5000,
-    terminateTimeout: 5000,
-    throttleDelay: 5000
-};
 
 class ClusterUtils {
     static runApp(callback) {
-        if (process.env.NODE_ENV === 'production') {
-            control.start(controlOptions).on('error', (error) => {
+        const isProduction = process.env.NODE_ENV === 'production';
+
+        if (isProduction) {
+            control.start(ServerConfig.CONTROL_OPTIONS).on('error', (error) => {
                 if (error) {
                     Winston.log(`error`, `There is an error with control manager: ${error}`);
                 }
             });
 
             if (cluster.isMaster) {
-                for (let i = 0; i < numCPUs; i++) {
+                for (let i = 0; i < ServerConfig.NUM_CPUS; i++) {
                     cluster.fork();
                 }
 

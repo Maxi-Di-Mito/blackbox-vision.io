@@ -6,19 +6,15 @@ import bodyParser from 'body-parser';
 import Winston from 'winston';
 import Express from 'express';
 
-const urlEncodedOptions = { limit: '20mb', extended: false };
-const compressionOptions = { level: 9, memLevel: 9 };
-const jsonOptions = { limit: '20mb'};
-
 class Server {
     static init() {
         ClusterUtils.runApp(() => {
             const app = Express();
 
-            app.use(bodyParser.json(jsonOptions));
-            app.use(compression(compressionOptions));
-            app.use(bodyParser.urlencoded(urlEncodedOptions));
+            app.use(bodyParser.json(ServerConfig.JSON_OPTIONS));
             app.use(Express.static(ServerConfig.STATIC_CONTENT));
+            app.use(compression(ServerConfig.COMPRESSION_OPTIONS));
+            app.use(bodyParser.urlencoded(ServerConfig.URL_ENCODED_OPTIONS));
 
             //Setting up custom middlewares..
             app.use(Middleware.handleCaching);
