@@ -25,7 +25,7 @@ class RenderUtils {
                     <meta name="viewport" content="width=device-width, initial-scale=1.0">
                     <title>BlackBox Vision | Mobile and Web Software Factory</title>
 
-                    <link rel="shortcut icon" type="image/png" href="assets/images/blackbox-vision.png"/>
+                    <link rel="shortcut icon" type="image/png" href="assets/images/blackbox_vision.ico"/>
                     <link rel="stylesheet" type="text/css" href="dist/bundle.css"/>
                 </head>
                 <body>
@@ -52,7 +52,7 @@ class RenderUtils {
                     <meta name="viewport" content="width=device-width, initial-scale=1.0">
                     <title>BlackBox Vision | Mobile and Web Software Factory</title>
 
-                    <link rel="shortcut icon" type="image/png" href="assets/images/blackbox-vision.png"/>
+                    <link rel="shortcut icon" type="image/png" href="assets/images/blackbox_vision.ico"/>
                     <link rel="stylesheet" type="text/css" href="dist/bundle.css"/>
                 </head>
                 <body>
