@@ -1,5 +1,5 @@
 import ServerConfig from '../config/ServerConfig';
-import control from 'strong-cluster-control';
+//import control from 'strong-cluster-control';
 import Winston from 'winston';
 import cluster from 'cluster';
 
@@ -8,11 +8,11 @@ class ClusterUtils {
         const isProduction = process.env.NODE_ENV === 'production';
 
         if (isProduction) {
-            control.start(ServerConfig.CONTROL_OPTIONS).on('error', (error) => {
-                if (error) {
-                    Winston.log(`error`, `There is an error with control manager: ${error}`);
-                }
-            });
+            //control.start(ServerConfig.CONTROL_OPTIONS).on('error', (error) => {
+            //    if (error) {
+            //        Winston.log(`error`, `There is an error with control manager: ${error}`);
+            //    }
+            //});
 
             if (cluster.isMaster) {
                 for (let i = 0; i < ServerConfig.NUM_CPUS; i++) {

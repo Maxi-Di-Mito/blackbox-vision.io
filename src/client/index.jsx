@@ -1,9 +1,4 @@
 import 'babel-polyfill';
-import 'es5-shim/es5-sham.min'
-import 'es5-shim/es5-shim.min'
-import 'es6-shim/es6-sham.min'
-import 'es6-shim/es6-shim.min'
-import 'es7-shim/dist/es7-shim.min'
 import 'react-mdl/extra/material.min'
 
 import React from 'react';
@@ -42,5 +37,5 @@ ReactDOM.render(
     dest
 );
 
-import { install } from 'offline-plugin/runtime';
-install();
+//import { install } from 'offline-plugin/runtime';
+//install();

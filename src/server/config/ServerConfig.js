@@ -32,7 +32,7 @@ const STATIC_CONTENT = ROOT_DIR + "/public";
 const CMS_SPACE_ID = 'qfz80k5nhv3a';
 const CMS_API_TOKEN = 'd493a22ac10fa4aeacdaf6de42f633c9a4d7ec44852464c14ee27d3518727b43';
 const NUM_CPUS = os.cpus().length;
-const CONTROL_OPTIONS = { size: control.CPUS, shutdownTimeout: 5000, terminateTimeout: 5000, throttleDelay: 5000 };
+//const CONTROL_OPTIONS = { size: control.CPUS, shutdownTimeout: 5000, terminateTimeout: 5000, throttleDelay: 5000 };
 
 export default {
     URL_ENCODED_OPTIONS,
