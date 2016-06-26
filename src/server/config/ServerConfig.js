@@ -46,5 +46,5 @@ export default {
 	CMS_SPACE_ID,
 	CMS_API_TOKEN,
     NUM_CPUS,
-    CONTROL_OPTIONS
+    //CONTROL_OPTIONS
 };
