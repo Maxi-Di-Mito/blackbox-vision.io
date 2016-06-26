@@ -34,7 +34,6 @@
     "babel-register": "^6.8.0",
     "body-parser": "^1.15.0",
     "compression": "^1.6.2",
-    "cross-env": "^1.0.8",
     "css-loader": "^0.23.1",
     "del": "^2.2.0",
     "es5-shim": "^4.5.9",
@@ -42,7 +41,6 @@
     "es6-shim": "^0.35.1",
     "es7-shim": "^5.0.0",
     "express": "^4.14.0",
-    "express-minify": "^0.2.0",
     "file-loader": "^0.8.5",
     "font-loader": "^0.1.2",
     "fs": "0.0.2",
@@ -81,7 +79,6 @@
     "url-loader": "^0.5.7",
     "util": "^0.10.3",
     "webpack": "^1.13.0",
-    "webpack-dev-server": "^1.14.1",
     "winston": "^2.2.0"
   },
   "engineStrict": true,

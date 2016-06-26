@@ -1,15 +1,5 @@
 import { minify } from 'html-minifier';
-
-const isProduction = process.env.NODE_ENV === 'production';
-const options = {
-    caseSensitive: true,
-    collapseBooleanAttributes: true,
-    collapseInlineTagWhitespace: true,
-    collapseWhitespace: true,
-    minifyCSS: true,
-    minifyJS: true,
-    minifyURLs: true
-};
+import ServerConfig from '../config/ServerConfig';
 
 class RenderUtils {
     static toDefaultHtml(html, initialState = {}) {
@@ -36,7 +26,7 @@ class RenderUtils {
             </html>
         `;
 
-        return (isProduction) ? minify(mainHtml, options) : mainHtml;
+        return (ServerConfig.isInProduction()) ? minify(mainHtml, ServerConfig.MINIFY_HTML_OPTIONS) : mainHtml;
     }
 
     static toErrorHtml(html) {
@@ -62,7 +52,7 @@ class RenderUtils {
             </html>
         `;
 
-        return (isProduction)? minify(mainHtml, options): mainHtml;
+        return (ServerConfig.isInProduction())? minify(mainHtml, ServerConfig.MINIFY_HTML_OPTIONS): mainHtml;
     }
 }
 

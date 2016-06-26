@@ -4,7 +4,6 @@ import ClusterUtils from '../utils/ClusterUtils';
 import compression from 'compression';
 //import router from '../router/router';
 import bodyParser from 'body-parser';
-import minify from 'express-minify'
 import Winston from 'winston';
 import Express from 'express';
 import helmet from 'helmet';
@@ -16,7 +15,6 @@ class Server {
             const app = Express();
 
             app.use(helmet());
-            app.use(minify());
             app.use(bodyParser.json(ServerConfig.JSON_OPTIONS));
             app.use(Express.static(ServerConfig.STATIC_CONTENT));
             app.use(compression(ServerConfig.COMPRESSION_OPTIONS));
