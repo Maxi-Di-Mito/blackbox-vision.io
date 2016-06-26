@@ -5,7 +5,7 @@ class RenderUtils {
     static toDefaultHtml(html, initialState = {}) {
         const mainHtml =
         `<!doctype html>
-            <html>
+            <html lang="en">
                 <head>
                     <meta http-equiv="Content-Type" content="text/html" charset="utf-8">
                     <meta http-equiv="X-UA-Compatible" content="IE=9; IE=8; IE=7; IE=EDGE">
@@ -32,7 +32,7 @@ class RenderUtils {
     static toErrorHtml(html) {
         const mainHtml =
         `<!doctype html>
-            <html>
+            <html lang="en">
                 <head>
                     <meta http-equiv="Content-Type" content="text/html" charset="utf-8">
                     <meta http-equiv="X-UA-Compatible" content="IE=9; IE=8; IE=7; IE=EDGE">
