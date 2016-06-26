@@ -1,6 +1,6 @@
 {
     "presets": ["es2015", "react", "stage-2"],
-    "plugins": ["transform-object-rest-spread", "transform-decorators-legacy"],
+    "plugins": ["transform-object-rest-spread", "transform-decorators-legacy", "lodash"],
     "env": {
         "production": {
             "presets": ["es2015", "react", "react-optimize", "stage-2"],
