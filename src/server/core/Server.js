@@ -17,7 +17,7 @@ class Server {
             app.use(compression(ServerConfig.COMPRESSION_OPTIONS));
             app.use(bodyParser.json(ServerConfig.JSON_OPTIONS));
             app.use(bodyParser.urlencoded(ServerConfig.URL_ENCODED_OPTIONS));
-            app.use(express.static(ServerConfig.STATIC_CONTENT, { maxAge: 86400000 }));
+            app.use(express.static(ServerConfig.STATIC_CONTENT, { maxAge: 604800000 }));
 
             //Setting up custom middlewares..
             app.use(Q.async(Middleware.handleCaching));

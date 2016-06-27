@@ -13,6 +13,12 @@ class RenderUtils {
                     <meta name="author" content="Alan Vaudagna, Federico Catinello, Jonatan Salas">
                     <meta name="description" content="Blackbox Vision is a group of enthusiastic designers and developers with remarkable skills on different modern growing technologies. Our main focus is the interaction with the client and making solutions according to their needs.">
                     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+                    <meta property="og:title" content="Blackbox Vision"/>
+                    <meta property="og:type" content="Website"/>
+                    <meta property="og:url" content="http://blackbox-vision.io"/>
+                    <meta property="og:image" content="http://blackbox-vision.io/assets/images/blackbox-vision.png"/>
+
                     <title>BlackBox Vision | Mobile and Web Software Factory</title>
 
                     <link rel="shortcut icon" type="image/png" href="assets/images/blackbox_vision.ico"/>
@@ -50,6 +56,12 @@ class RenderUtils {
                     <meta name="author" content="Alan Vaudagna, Federico Catinello, Jonatan Salas">
                     <meta name="description" content="Blackbox Vision is a group of enthusiastic designers and developers with remarkable skills on different modern growing technologies. Our main focus is the interaction with the client and making solutions according to their needs.">
                     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+                    <meta property="og:title" content="Blackbox Vision"/>
+                    <meta property="og:type" content="Website"/>
+                    <meta property="og:url" content="http://blackbox-vision.io"/>
+                    <meta property="og:image" content="http://blackbox-vision.io/assets/images/blackbox-vision.png"/>
+
                     <title>BlackBox Vision | Mobile and Web Software Factory</title>
 
                     <link rel="shortcut icon" type="image/png" href="assets/images/blackbox_vision.ico"/>
