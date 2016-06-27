@@ -13,6 +13,7 @@ class Server {
         ClusterUtils.runApp(() => {
             const app = express();
 
+            //TODO JS: add content security policy from helmet
             app.use(helmet());
             app.use(compression(ServerConfig.COMPRESSION_OPTIONS));
             app.use(bodyParser.json(ServerConfig.JSON_OPTIONS));
