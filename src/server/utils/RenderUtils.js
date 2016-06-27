@@ -22,6 +22,7 @@ class RenderUtils {
                     <title>BlackBox Vision | Mobile and Web Software Factory</title>
 
                     <link rel="shortcut icon" type="image/png" href="assets/images/blackbox_vision.ico"/>
+                    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.1.1/normalize.min.css"/>
                     <link rel="stylesheet" type="text/css" href="dist/bundle.css"/>
                 </head>
                 <body>
@@ -65,6 +66,7 @@ class RenderUtils {
                     <title>BlackBox Vision | Mobile and Web Software Factory</title>
 
                     <link rel="shortcut icon" type="image/png" href="assets/images/blackbox_vision.ico"/>
+                    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.1.1/normalize.min.css"/>
                     <link rel="stylesheet" type="text/css" href="dist/bundle.css"/>
                 </head>
                 <body>
