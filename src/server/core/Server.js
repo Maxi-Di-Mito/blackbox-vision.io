@@ -16,7 +16,7 @@ class Server {
 
             app.use(helmet());
             app.use(bodyParser.json(ServerConfig.JSON_OPTIONS));
-            app.use(Express.static(ServerConfig.STATIC_CONTENT));
+            app.use(Express.static(ServerConfig.STATIC_CONTENT, { maxAge: 86400000 }));
             app.use(compression(ServerConfig.COMPRESSION_OPTIONS));
             app.use(bodyParser.urlencoded(ServerConfig.URL_ENCODED_OPTIONS));
 

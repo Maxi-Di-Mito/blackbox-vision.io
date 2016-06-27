@@ -9,7 +9,7 @@ const TeamCard = (props) => (
     <Cell col={4} tablet={8} phone={4}>
         <Card shadow={0} style={{width: 'auto', margin: 'auto'}}>
             <div className="mdl-card__media img-container">
-                <img className="img-responsive" width="100%" src={props.imageUrl} />
+                <img className="img-responsive" width="100%" src={props.imageUrl} alt="team-images"/>
             </div>
             <CardTitle style={{color: '#000'}}>
                 { props.name }
