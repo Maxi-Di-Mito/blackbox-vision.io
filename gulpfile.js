@@ -31,7 +31,7 @@ _gulp2.default.task('minify-css', function () {
 });
 
 _gulp2.default.task('roboto-css', function () {
-    return _gulp2.default.src('src/public/assets/css/roboto-*.css').pipe((0, _gulpConcatCss2.default)("roboto.css")).pipe((0, _gulpCleanCss2.default)({ advanced: true, compatibility: "ie8", aggressiveMerging: true, processImport: true })).pipe((0, _gulpCssmin2.default)()).pipe(_gulp2.default.dest('src/public/dist'));
+    return _gulp2.default.src('src/public/assets/css/font-*.css').pipe((0, _gulpConcatCss2.default)("fonts.css")).pipe((0, _gulpCleanCss2.default)({ advanced: true, compatibility: "ie8", aggressiveMerging: true, processImport: true })).pipe((0, _gulpCssmin2.default)()).pipe(_gulp2.default.dest('src/public/dist'));
 });
 
 _gulp2.default.task('cleanDist', function () {

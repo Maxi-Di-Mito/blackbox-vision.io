@@ -29,7 +29,7 @@ class RenderUtils {
                     <script>
                         var cb = function() {
                         var l = document.createElement('link'); l.rel = 'stylesheet';
-                        l.href = 'dist/roboto.css';
+                        l.href = 'dist/fonts.css';
                         var h = document.getElementsByTagName('head')[0]; h.parentNode.insertBefore(l, h); };
                         var raf = requestAnimationFrame || mozRequestAnimationFrame ||
                                   webkitRequestAnimationFrame || msRequestAnimationFrame;
@@ -72,7 +72,7 @@ class RenderUtils {
                     <script>
                         var cb = function() {
                         var l = document.createElement('link'); l.rel = 'stylesheet';
-                        l.href = 'dist/roboto.css';
+                        l.href = 'dist/fonts.css';
                         var h = document.getElementsByTagName('head')[0]; h.parentNode.insertBefore(l, h); };
                         var raf = requestAnimationFrame || mozRequestAnimationFrame ||
                                   webkitRequestAnimationFrame || msRequestAnimationFrame;

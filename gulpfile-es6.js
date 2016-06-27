@@ -14,8 +14,8 @@ gulp.task('minify-css', () => {
 });
 
 gulp.task('roboto-css', () => {
-    return gulp.src('src/public/assets/css/roboto-*.css')
-        .pipe(concatCss("roboto.css"))
+    return gulp.src('src/public/assets/css/font-*.css')
+        .pipe(concatCss("fonts.css"))
         .pipe(cleanCSS({ advanced: true, compatibility: "ie8", aggressiveMerging: true, processImport: true }))
         .pipe(cssmin())
         .pipe(gulp.dest('src/public/dist'));

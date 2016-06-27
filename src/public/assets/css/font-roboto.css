@@ -1,0 +1,78 @@
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 700;
+  src: url("fonts/Roboto/Roboto-Bold/roboto-7b8b9dc89e814feddacb467e73df30cdaa7ac13e.eot") format("embedded-opentype");
+  src: local("Roboto Bold"), 
+    local("Roboto-Bold"),
+    url("fonts/Roboto/Roboto-Bold/roboto-7b8b9dc89e814feddacb467e73df30cdaa7ac13e.eot") format("embedded-opentype"),
+    url("fonts/Roboto/Roboto-Bold/roboto-bold.woff") format("woff"),
+    url("fonts/Roboto/Roboto-Bold/roboto-ee0b0480533c52e3c67b6c574213f205082febf5.ttf") format("truetype"),
+    url("fonts/Roboto/Roboto-Bold/roboto-35101c237ad0763d1e552b2d414e022e1e2a279b.svg#Roboto") format("svg");
+}
+
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 300;
+  /* IE6-8 compat */
+  src: url("fonts/Roboto/Roboto-Light/roboto-3add21c6e8f356e64417d428650b2f78cbae12cc.eot") format("embedded-opentype");
+  src: local("Roboto Light"),
+  local("Roboto-Light"),
+  url("fonts/Roboto/Roboto-Light/roboto-3add21c6e8f356e64417d428650b2f78cbae12cc.eot") format("embedded-opentype"),
+  url("fonts/Roboto/Roboto-Light/roboto-light.woff") format("woff"),
+  url("fonts/Roboto/Roboto-Light/roboto-7b4157813ab8be3ede30d2310b5f537f8a32eb79.ttf") format("truetype"),
+  url("fonts/Roboto/Roboto-Light/roboto-abc9fdf63e51f3b26f13302ed14525f1bb052d73.svg#Roboto") format("svg");
+}
+
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 500;
+  src: url("fonts/Roboto/Roboto-Medium/roboto-efdf871015c7e852a1f48a288b270977ab158082.eot") format("embedded-opentype");
+  src: local("Roboto Medium"),
+  local("Roboto-Medium"),
+  url("fonts/Roboto/Roboto-Medium/roboto-efdf871015c7e852a1f48a288b270977ab158082.eot") format("embedded-opentype"),
+  url("fonts/Roboto/Roboto-Medium/roboto-medium.woff") format("woff"),
+  url("fonts/Roboto/Roboto-Medium/roboto-3c9b1b24a6d85d557d5536b9335d0b000477e671.ttf") format("truetype"),
+  url("fonts/Roboto/Roboto-Medium/roboto-2920b9eb83fcf21d18001acf38fb74e0e3295121.svg#Roboto") format("svg");
+}
+
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  src: url("fonts/Roboto/Roboto-Normal/roboto-76fa00873219691ebb58df87a73c3c0e4b5574ec.eot") format("embedded-opentype");
+  src: local("Roboto"),
+  local("Roboto-Regular"),
+  url("fonts/Roboto/Roboto-Normal/roboto-76fa00873219691ebb58df87a73c3c0e4b5574ec.eot") format("embedded-opentype"),
+  url("fonts/Roboto/Roboto-Normal/roboto-normal.woff") format("woff"),
+  url("fonts/Roboto/Roboto-Normal/roboto-bfbb7ec5dd214e02abffa50be557e6fa7c9afe6a.ttf") format("truetype"),
+  url("fonts/Roboto/Roboto-Normal/roboto-148fe3b2ffcb825efff40a8378f22125ccf88cb0.svg#Roboto") format("svg");
+}
+
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 100;
+  src: url("fonts/Roboto/Roboto-Thin/roboto-7b0269393c9f3b36766cb243454080488cc7d2d9.eot") format("embedded-opentype");
+  src: local("Roboto Thin"),
+  local("Roboto-Thin"),
+  url("fonts/Roboto/Roboto-Thin/roboto-7b0269393c9f3b36766cb243454080488cc7d2d9.eot") format("embedded-opentype"),
+  url("fonts/Roboto/Roboto-Thin/roboto-thin.woff") format("woff"),
+  url("fonts/Roboto/Roboto-Thin/roboto-b70ac15ed7bcdfbe14f061b0de2e7f53d2547e6e.ttf") format("truetype"),
+  url("fonts/Roboto/Roboto-Thin/roboto-1ad3d233691cce0727e4c69cfa31f83b3ba65220.svg#Roboto") format("svg");
+}
+
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 900;
+  src: url("fonts/Roboto/Roboto-Ultra-Bold/roboto-6dd8a3828fd2daa6fcac2ff2429c54c7670ec07f.eot") format("embedded-opentype");
+  src: local("Roboto Black"),
+  local("Roboto-Black"),
+  url("fonts/Roboto/Roboto-Ultra-Bold/roboto-6dd8a3828fd2daa6fcac2ff2429c54c7670ec07f.eot") format("embedded-opentype"),
+  url("fonts/Roboto/Roboto-Ultra-Bold/roboto-ultra-bold.woff") format("woff"),
+  url("fonts/Roboto/Roboto-Ultra-Bold/roboto-049d90cbff945d64f654a4e00034f22af7472775.ttf") format("truetype"),
+  url("fonts/Roboto/Roboto-Ultra-Bold/roboto-40c99b1d35e0f9b529ed19e383031dee97d9ecef.svg#Roboto") format("svg");
+}
