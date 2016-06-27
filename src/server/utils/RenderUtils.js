@@ -20,6 +20,16 @@ class RenderUtils {
                 </head>
                 <body>
                     <div id="app">${html}</div>
+                    <script>
+                        var cb = function() {
+                        var l = document.createElement('link'); l.rel = 'stylesheet';
+                        l.href = 'dist/roboto.css';
+                        var h = document.getElementsByTagName('head')[0]; h.parentNode.insertBefore(l, h); };
+                        var raf = requestAnimationFrame || mozRequestAnimationFrame ||
+                                  webkitRequestAnimationFrame || msRequestAnimationFrame;
+                        if (raf) raf(cb);
+                        else window.addEventListener('load', cb);
+                    </script>
                     <script rel="script" type="text/javascript">window.__INITIAL_STATE__ = ${JSON.stringify(initialState)};</script>
                     <script rel="script" type="text/javascript" src="dist/bundle.js"></script>
                 </body>
@@ -47,6 +57,16 @@ class RenderUtils {
                 </head>
                 <body>
                     <div id="app">${html}</div>
+                    <script>
+                        var cb = function() {
+                        var l = document.createElement('link'); l.rel = 'stylesheet';
+                        l.href = 'dist/roboto.css';
+                        var h = document.getElementsByTagName('head')[0]; h.parentNode.insertBefore(l, h); };
+                        var raf = requestAnimationFrame || mozRequestAnimationFrame ||
+                                  webkitRequestAnimationFrame || msRequestAnimationFrame;
+                        if (raf) raf(cb);
+                        else window.addEventListener('load', cb);
+                    </script>
                     <script defer src="https://code.getmdl.io/1.1.3/material.min.js"></script>
                 </body>
             </html>

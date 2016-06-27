@@ -6,8 +6,16 @@ import del from 'del';
 import cssmin from 'gulp-cssmin';
 
 gulp.task('minify-css', () => {
-    return gulp.src('src/public/assets/css/*.css')
+    return gulp.src('src/public/assets/css/blackbox-*.css')
         .pipe(concatCss("bundle.css"))
+        .pipe(cleanCSS({ advanced: true, compatibility: "ie8", aggressiveMerging: true, processImport: true }))
+        .pipe(cssmin())
+        .pipe(gulp.dest('src/public/dist'));
+});
+
+gulp.task('roboto-css', () => {
+    return gulp.src('src/public/assets/css/roboto-*.css')
+        .pipe(concatCss("roboto.css"))
         .pipe(cleanCSS({ advanced: true, compatibility: "ie8", aggressiveMerging: true, processImport: true }))
         .pipe(cssmin())
         .pipe(gulp.dest('src/public/dist'));
@@ -25,7 +33,7 @@ gulp.task('fonts', () => {
     return gulp.src(['src/public/assets/css/fonts/**/*']).pipe(gulp.dest('src/public/dist/fonts'));
 });
 
-gulp.task('default', ['cleanCSS', 'cleanDist', 'fonts'], () => {
+gulp.task('default', ['cleanCSS', 'roboto-css', 'cleanDist', 'fonts'], () => {
     gulp.start('minify-css');
 });
 
