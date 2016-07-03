@@ -41,7 +41,7 @@
     "es6-shim": "^0.35.1",
     "es7-shim": "^5.0.0",
     "express": "^4.14.0",
-    "file-loader": "^0.8.5",
+    "file-loader": "^0.9.0",
     "font-loader": "^0.1.2",
     "fs": "0.0.2",
     "gulp": "^3.9.0",
