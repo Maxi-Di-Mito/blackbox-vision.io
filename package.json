@@ -79,7 +79,7 @@
     "uglifyjs": "^2.4.10",
     "url-loader": "^0.5.7",
     "util": "^0.10.3",
-    "webpack": "^1.13.0",
+    "webpack": "^1.13.1",
     "winston": "^2.2.0"
   },
   "engineStrict": true,
