@@ -1,21 +1,21 @@
-import React, { Component, PropTypes } from './../../../Lib/React';
+import React, { Component, PropTypes } from 'react';
 
-const TextField = (props) => (
+const TextField = ({ pattern, label, maxLength }) => (
     <div className="mdl-textfield mdl-textfield--full-width mdl-js-textfield mdl-textfield--floating-label">
-        <input className="mdl-textfield__input" type={props.pattern} id={props.label} maxLength={props.length}/>
-        <label className="mdl-textfield__label" for={props.label}>{props.label}</label>
+        <input className="mdl-textfield__input" type={pattern} id={label} maxLength={maxLength}/>
+        <label className="mdl-textfield__label" for={label}>{label}</label>
     </div>
 );
 
-const TextArea = (props) => (
+const TextArea = ({ pattern, label, maxLength, rows }) => (
     <div className="mdl-textfield mdl-textfield--full-width mdl-js-textfield mdl-textfield--floating-label">
-        <textarea className="mdl-textfield__input" type={props.pattern} rows={props.rows} id={props.label} maxLength={props.maxLength}/>
-        <label className="mdl-textfield__label" for={props.label}>{props.label}</label>
+        <textarea className="mdl-textfield__input" type={pattern} rows={rows} id={label} maxLength={maxLength}/>
+        <label className="mdl-textfield__label" for={label}>{label}</label>
     </div>
 );
 
-const FloatingTextField = (props) => (
-    (!props.rows)? <TextField {...props}/> : <TextArea {...props}/>
+const FloatingTextField = ({ rows, ...rest }) => (
+    (!rows)? <TextField {...rest}/> : <TextArea rows={rows} {...rest}/>
 );
 
 FloatingTextField.propTypes = {

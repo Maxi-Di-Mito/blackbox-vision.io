@@ -1,12 +1,12 @@
-import React, { Component ,PropTypes } from './../../../Lib/React';
+import React, { Component ,PropTypes } from 'react';
 import NavLink from './../Link/HashLink.jsx';
 
-const SideNav = (props) => (
+const SideNav = ({ title, linkList }) => (
     <div className="mdl-layout__drawer mdl-layout--small-screen-only">
-        <span className="mdl-layout-title">{props.title}</span>
+        <span className="mdl-layout-title">{title}</span>
         <nav className="mdl-navigation"> {
-            props.linkList.map((item, index) => (
-                <NavLink key={index} {...item} isMobile={true}/>
+            linkList.map((item, index) => (
+                <NavLink key={index} {...item} isMobile/>
             ))
         }
         </nav>

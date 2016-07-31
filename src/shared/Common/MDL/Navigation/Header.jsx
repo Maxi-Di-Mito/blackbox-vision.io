@@ -1,14 +1,14 @@
-import React, { Component ,PropTypes } from './../../../Lib/React';
+import React, { Component ,PropTypes } from 'react';
 import NavLink from './../Link/HashLink.jsx';
 
-const Header = (props) => (
+const Header = ({ logoSize, logo, linkList }) => (
     <header className="mdl-layout__header mdl-color--indigo mdl-shadow--3dp">
         <div className="mdl-layout__header-row">
-            <img height={props.logoSize} className="mdl-logo" src={props.logo} style={{ margin: "auto"}} alt="main-logo"/>
+            <img height={logoSize} className="mdl-logo" src={logo} style={{ margin: "auto"}} alt="main-logo"/>
             <div className="mdl-layout-spacer"></div>
             <nav className="mdl-navigation mdl-layout--large-screen-only"> {
-                props.linkList.map((item, index) => (
-                    <NavLink key={index} {...item} isMobile={false}/>
+                linkList.map((item, index) => (
+                    <NavLink key={index} isMobile={false} {...item}/>
                 ))
             }
             </nav>

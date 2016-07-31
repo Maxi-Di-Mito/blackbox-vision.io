@@ -5,7 +5,7 @@ import routes from '../../../shared/Common/Router/Routes.jsx';
 import { renderToString } from 'react-dom/server';
 import RenderUtils from './../../utils/RenderUtils';
 import Provider from 'react-redux/lib/components/Provider';
-import React from './../../../shared/Lib/React';
+|import React from 'react';
 
 const ServerRenderHandler = (request, response, next) => {
     let store = configureStore();

@@ -1,24 +1,24 @@
-import React, { Component ,PropTypes } from './../../../Lib/React';
+import React, { Component ,PropTypes } from 'react';
 import Link from 'react-router/lib/Link';
 
-const FlatButton = (props) => (
-    <Link to={props.link} target="_blank">
-        <button className={"mdl-button mdl-js-button mdl-js-ripple-effect mdl-typography--text-uppercase mdl-color-text--" + props.color}>
-            <i className={"fa fa-" + props.social + " fa-lg"} aria-hidden="true"/>
+const FlatButton = ({ link, social, color }) => (
+    <Link to={link} target="_blank">
+        <button className={`mdl-button mdl-js-button mdl-js-ripple-effect mdl-typography--text-uppercase mdl-color-text--${color}`}>
+            <i className={`fa fa-${social} fa-lg`} aria-hidden="true"/>
         </button>
     </Link>
 );
 
-const FloatingActionButton = (props) => (
-    <Link className="mdl-color-text--white" to={props.link} target="_blank">
-        <button className={"mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored mdl-color--" + props.color}>
-            <i className={"fa fa-" + props.social} aria-hidden="true"/>
+const FloatingActionButton = ({ link, social, color }) => (
+    <Link className="mdl-color-text--white" to={link} target="_blank">
+        <button className={`mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored mdl-color--${color}`}>
+            <i className={`fa fa-${social}`} aria-hidden="true"/>
         </button>
     </Link>
 );
 
-const SocialButton = (props) => (
-    (props.isFlat)? <FlatButton {...props}/> : <FloatingActionButton {...props}/>
+const SocialButton = ({ isFlat, ...rest }) => (
+    (isFlat)? <FlatButton {...rest}/> : <FloatingActionButton {...rest}/>
 );
 
 SocialButton.propTypes = {

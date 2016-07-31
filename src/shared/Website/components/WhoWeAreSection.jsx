@@ -1,4 +1,4 @@
-import React, { Component, PropTypes } from './../../../Lib/React';
+import React, { Component, PropTypes } from 'react';
 import Grid, { Cell } from 'react-mdl/lib/Grid';
 
 const WhoWeAreSection = (props) => (

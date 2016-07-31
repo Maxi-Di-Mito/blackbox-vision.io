@@ -1,4 +1,4 @@
-import React, { Component, PropTypes } from './../../Lib/React';
+import React, { Component, PropTypes } from 'react';
 import Grid, { Cell } from 'react-mdl/lib/Grid';
 import CardTitle from 'react-mdl/lib/Card/CardTitle';
 import Card from 'react-mdl/lib/Card/Card';

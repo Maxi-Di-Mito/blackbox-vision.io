@@ -1,4 +1,4 @@
-import React, { Component ,PropTypes } from './../../../Lib/React';
+import React, { Component ,PropTypes } from 'react';
 import SocialButton from './../Button/SocialButton.jsx';
 
 const SocialListItem = (props) => (
@@ -7,17 +7,17 @@ const SocialListItem = (props) => (
     </li>
 );
 
-const Footer = (props) => (
+const Footer = ({ socialList, copyright }) => (
     <footer className="mdl-mini-footer">
         <div className="footer__container">
             <ul className="footer-list"> {
-                props.socialList.map((item, index) => (
+                socialList.map((item, index) => (
                     <SocialListItem key={index} {...item}/>
                 ))
             }
             </ul>
             <h6 className="mdl-typography--text-center mdl-typography--font-regular">
-                {props.copyright}
+                {copyright}
             </h6>
         </div>
     </footer>

@@ -1,9 +1,9 @@
-import React, { Component ,PropTypes } from './../../../Lib/React';
-import TeamCard from '../../../Common/MDL/Card/TeamCard.jsx';
-import Grid from 'react-mdl/lib/Grid';
+import React, { Component ,PropTypes } from 'react';
+import ServiceCard from '../../Common/MDL/Card/ServiceCard.jsx';
+import Grid, { Cell } from 'react-mdl/lib/Grid';
 
-const MeetTheTeamSection = (props) => (
-    <section id="MeetTheTeam" className="mdl-color--grey-300">
+const WhatWeDoSection = (props) =>(
+    <section id="WhatWeDo">
         <h3 className="blackbox-title__padding mdl-typography--text-center mdl-typography--font-light mdl-typography--display-2-color-contrast">
             {props.title}
         </h3>
@@ -12,17 +12,16 @@ const MeetTheTeamSection = (props) => (
         </p>
         <Grid> {
             props.cardList.map((item, index) => (
-                <TeamCard key={index} {...item}/>
+                <ServiceCard key={index} {...item}/>
             ))
         }
         </Grid>
     </section>
 );
 
-MeetTheTeamSection.propTypes = {
+WhatWeDoSection.propTypes = {
     title: PropTypes.string.isRequired,
-    description: PropTypes.string.isRequired,
     cardList: PropTypes.array.isRequired
 };
 
-export default MeetTheTeamSection;
+export default WhatWeDoSection;

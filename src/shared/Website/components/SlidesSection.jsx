@@ -1,4 +1,4 @@
-import React, { Component ,PropTypes } from './../../../Lib/React';
+import React, { Component ,PropTypes } from 'react';
 
 const SlidesSection = (props) => (
     <section id="Home" className="slide-container slide-background--image blur-up">

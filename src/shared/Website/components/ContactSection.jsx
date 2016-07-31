@@ -1,5 +1,5 @@
-import React, { Component ,PropTypes } from './../../../Lib/React';
-import ContactForm from '../../../Common/MDL/Form/ContactForm.jsx';
+import React, { Component ,PropTypes } from 'react';
+import ContactForm from '../../Common/MDL/Form/ContactForm.jsx';
 import Grid, { Cell } from 'react-mdl/lib/Grid';
 
 const ContactSection = (props) => (
@@ -22,8 +22,13 @@ const ContactSection = (props) => (
 
 
 ContactSection.propTypes = {
-    title: PropTypes.string.isRequired,
-    description: PropTypes.string.isRequired
+    title: PropTypes.string,
+    description: PropTypes.string
+};
+
+ContactSection.defaultProps = {
+    title: "Contact Us",
+    description: "Do you have a Project in Mind? Just fill the Contact Form and We will be in touch with you to define what you need."
 };
 
 export default ContactSection;

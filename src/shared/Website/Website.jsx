@@ -1,20 +1,21 @@
-import React, { Component ,PropTypes } from './Lib/React';
+import React, { Component ,PropTypes } from 'react';
 import Layout from 'react-mdl/lib/Layout/Layout';
 import Content from 'react-mdl/lib/Layout/Content';
-import SideNav from './Common/MDL/Navigation/SideNav.jsx';
-import Footer from './Common/MDL/Navigation/Footer.jsx';
-import Header from './Common/MDL/Navigation/Header.jsx';
-import SlidesSection from './View/SlidesSection/container/SlidesSectionContainer.jsx';
-import WhoWeAreSection from './View/WhoWeAreSection/container/WhoWeAreSectionContainer.jsx';
-import WhatWeDoSection from './View/WhatWeDoSection/container/WhatWeDoSectionContainer.jsx';
-import MeetTheTeamSection from './View/MeetTheTeam/container/MeetTheTeamSectionContainer.jsx';
-import PortfolioSection from './View/PortfolioSection/container/PortfolioSectionContainer.jsx';
-import ContactSection from './View/ContactSection/container/ContactSectionContainer.jsx';
-import { links, team, social, whatWeDo, logo, whoWeAre } from './Common/Utils/constants'
+import SideNav from '../Common/MDL/Navigation/SideNav.jsx';
+import Footer from '../Common/MDL/Navigation/Footer.jsx';
+import Header from '../Common/MDL/Navigation/Header.jsx';
+import SlidesSection from './components/SlidesSection.jsx';
+import WhoWeAreSection from './components/WhoWeAreSection.jsx';
+import WhatWeDoSection from './components/WhatWeDoSection.jsx';
+import MeetTheTeamSection from './components/MeetTheTeamSection.jsx';
+import PortfolioSection from './components/PortfolioSection.jsx';
+import ContactSection from './components/ContactSection.jsx';
+
+import { links, team, social, whatWeDo, logo, whoWeAre } from '../Common/Utils/constants'
 
 import injectTapEventPlugin from 'react-tap-event-plugin';
 
-class Application extends Component {
+class Website extends Component {
     componentDidMount() {
         injectTapEventPlugin();
         componentHandler.upgradeAllRegistered();
@@ -43,4 +44,4 @@ class Application extends Component {
     }
 }
 
-export default Application;
+export default Website;
