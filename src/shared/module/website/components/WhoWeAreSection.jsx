@@ -1,5 +1,5 @@
 import React, { Component, PropTypes } from 'react';
-import Grid, { Cell } from 'react-mdl/lib/Grid';
+import Grid from 'react-mdl/lib/Grid';
 
 export default class WhoWeAreSection extends Component {
     render() {
@@ -8,13 +8,11 @@ export default class WhoWeAreSection extends Component {
         return (
             <section id="WhoWeAre" className="mdl-color--indigo-700">
                 <Grid>
-                    <Cell col={2} tablet={8} phone={4}/>
-                    <Cell col={8} tablet={8} phone={4}>
-                        <p className="mdl-typography--text-center mdl-typography--font-light mdl-typography--subhead">
+                    <div style={{ padding: "100px", color: "white" }}>
+                        <p className="mdl-typography--text-center mdl-typography--font-light mdl-typography--subhead who-we-are-paragraph">
                             {description}
                         </p>
-                    </Cell>
-                    <Cell col={2} tablet={8} phone={4}/>
+                    </div>
                 </Grid>
             </section>
         )
