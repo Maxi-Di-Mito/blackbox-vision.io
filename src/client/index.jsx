@@ -3,12 +3,11 @@ import 'react-mdl/extra/material.min'
 
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Provider from 'react-redux/lib/components/Provider';
-import routes from '../shared/Common/Router/Routes.jsx';
+import { Provider } from 'react-redux';
+import routes from '../shared/module/main/Routes.jsx';
 import Router from 'react-router/lib/Router';
-import browserHistory from 'react-router/lib/browserHistory'
-import applyRouterMiddleware from 'react-router/lib/applyRouterMiddleware';
-import configureStore from '../shared/Redux/store/configureStore';
+import { applyRouterMiddleware, browserHistory } from 'react-router';
+import configureStore from '../shared/module/main/store/configureStore';
 import useScroll from 'react-router-scroll';
 
 const store = configureStore(window.__INITIAL_STATE__);

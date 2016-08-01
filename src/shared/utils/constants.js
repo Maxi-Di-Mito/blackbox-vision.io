@@ -138,7 +138,7 @@ export const whatWeDo = {
         {
             iconName: "work",
             name: "UI/UX Design",
-            description: "We take special care with the design of user interfaces to make beautiful and amazing experiences around your application. We are backed by the use of Google's MDL guidelines."
+            description: "We take special care with the design of user interfaces to make beautiful and amazing experiences around your application. We are backed by the use of Google's material guidelines."
         },
         {
             iconName: "build",

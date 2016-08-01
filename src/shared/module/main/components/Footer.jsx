@@ -1,5 +1,5 @@
 import React, { Component ,PropTypes } from 'react';
-import SocialButton from './../Button/SocialButton.jsx';
+import SocialButton from './SocialButton.jsx';
 
 const SocialListItem = (props) => (
     <li className="footer-item">

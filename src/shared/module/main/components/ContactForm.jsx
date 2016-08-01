@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from 'react';
-import TextField from '../Field/FloatingTextField.jsx';
-import Card from 'react-mdl/lib/Card/Card';
+import TextField from './FloatingTextField.jsx';
+import { Card } from 'react-mdl';
 import { reduxForm } from 'redux-form'
 
 export const fields = ['name', 'email', 'subject', 'message'];

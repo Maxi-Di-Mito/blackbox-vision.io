@@ -1,5 +1,5 @@
 import React, { Component ,PropTypes } from 'react';
-import ContactForm from '../../Common/MDL/Form/ContactForm.jsx';
+import ContactForm from '../../main/components/ContactForm.jsx';
 import Grid, { Cell } from 'react-mdl/lib/Grid';
 
 const ContactSection = (props) => (
