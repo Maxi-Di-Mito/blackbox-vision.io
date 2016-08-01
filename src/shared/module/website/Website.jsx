@@ -15,7 +15,7 @@ import { links, team, social, whatWeDo, logo, whoWeAre } from '../../utils/const
 
 import injectTapEventPlugin from 'react-tap-event-plugin';
 
-class Website extends Component {
+export default class Website extends Component {
     componentDidMount() {
         injectTapEventPlugin();
         componentHandler.upgradeAllRegistered();
@@ -43,5 +43,3 @@ class Website extends Component {
         )
     }
 }
-
-export default Website;

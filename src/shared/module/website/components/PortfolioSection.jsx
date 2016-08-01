@@ -1,8 +1,9 @@
 import React, { Component ,PropTypes } from 'react';
 
-const PortfolioSection = (props) => (
-    <section id="Portfolio" style={{ height: "650px"}}/>
-);
-
-
-export default PortfolioSection;
+export default class PortfolioSection extends Component {
+    render() {
+        return (
+            <section id="Portfolio" style={{ height: "650px"}}/>
+        )
+    }
+}

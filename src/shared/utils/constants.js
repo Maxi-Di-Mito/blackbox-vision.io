@@ -41,7 +41,7 @@ export const social = [
     }, {
         color: "blue",
         social: "twitter",
-        link: ""
+        link: "https://twitter.com/blackbox_vision"
     }, {
         color: "red",
         social: "google-plus",
