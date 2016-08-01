@@ -45,7 +45,7 @@ export const social = [
     }, {
         color: "red",
         social: "google-plus",
-        link: ""
+        link: "https://plus.google.com/114282493754918657519?hl=es"
     }, {
         color: "black",
         social: "github",
