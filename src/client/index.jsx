@@ -9,10 +9,13 @@ import Router from 'react-router/lib/Router';
 import { applyRouterMiddleware, browserHistory } from 'react-router';
 import configureStore from '../shared/module/main/store/configureStore';
 import useScroll from 'react-router-scroll';
+import injectTapEventPlugin from 'react-tap-event-plugin';
 
 const store = configureStore(window.__INITIAL_STATE__);
 const history = browserHistory;
 const dest = document.getElementById('app');
+
+injectTapEventPlugin();
 
 const hashLinkScroll = () => {
     const { hash } = window.location;

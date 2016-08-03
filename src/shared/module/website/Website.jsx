@@ -1,4 +1,4 @@
-import React, { Component ,PropTypes } from 'react';
+import React, { Component, PropTypes } from 'react';
 import Layout from 'react-mdl/lib/Layout/Layout';
 import Content from 'react-mdl/lib/Layout/Content';
 import SideNav from '../main/components/SideNav.jsx';
@@ -13,11 +13,8 @@ import ContactSection from './components/ContactSection.jsx';
 
 import { links, team, social, whatWeDo, logo, whoWeAre } from '../../utils/constants'
 
-import injectTapEventPlugin from 'react-tap-event-plugin';
-
 export default class Website extends Component {
     componentDidMount() {
-        injectTapEventPlugin();
         componentHandler.upgradeAllRegistered();
     }
 
