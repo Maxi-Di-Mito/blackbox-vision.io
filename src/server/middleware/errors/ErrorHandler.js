@@ -1,5 +1,5 @@
-import Error500 from '../../../shared/Common/Errors/Error500.jsx';
-import Error404 from '../../../shared/Common/Errors/Error404.jsx';
+import Error500 from '../../../shared/module/main/components/Error500.jsx';
+import Error404 from '../../../shared/module/main/components/Error404.jsx';
 import { renderToStaticMarkup } from '../../../../node_modules/react-dom/server';
 import RenderUtils from './../../utils/RenderUtils';
 import React from 'react';
