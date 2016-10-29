@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import Grid from 'react-mdl/lib/Grid';
 
-export default class WhoWeAreSection extends Component {
+class WhoWeAreSection extends Component {
     render() {
         let { description } = this.props;
 
@@ -18,3 +18,9 @@ export default class WhoWeAreSection extends Component {
         )
     }
 }
+
+WhoWeAreSection.propTypes = {
+    description: PropTypes.string
+};
+
+export default WhoWeAreSection;

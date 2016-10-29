@@ -2,13 +2,7 @@ import React, { Component ,PropTypes } from 'react';
 import TeamCard from '../../main/components/TeamCard.js';
 import Grid from 'react-mdl/lib/Grid';
 
-export default class MeetTheTeamSection extends Component {
-    static propTypes = {
-        title: PropTypes.string.isRequired,
-        description: PropTypes.string.isRequired,
-        cardList: PropTypes.array.isRequired
-    };
-
+class MeetTheTeamSection extends Component {
     render() {
         let { title, description, cardList } = this.props;
 
@@ -30,3 +24,11 @@ export default class MeetTheTeamSection extends Component {
         )
     }
 }
+
+MeetTheTeamSection.ropTypes = {
+    title: PropTypes.string.isRequired,
+    description: PropTypes.string.isRequired,
+    cardList: PropTypes.array.isRequired
+};
+
+export default MeetTheTeamSection;

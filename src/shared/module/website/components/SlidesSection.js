@@ -1,16 +1,6 @@
 import React, { Component ,PropTypes } from 'react';
 
-export default class SlidesSection extends Component {
-    static propTypes = {
-        title: PropTypes.string,
-        subtitle: PropTypes.string
-    };
-
-    static defaultProps = {
-        title: "Let's Make your projects come true",
-        subtitle: "Let us make the hardest part for you and get the product you were looking for"
-    };
-
+class SlidesSection extends Component {
     render() {
         let { title, subtitle } = this.props;
 
@@ -28,3 +18,15 @@ export default class SlidesSection extends Component {
         )
     }
 }
+
+SlidesSection.propTypes = {
+    title: PropTypes.string,
+    subtitle: PropTypes.string
+};
+
+SlidesSection.defaultProps = {
+    title: "Let's Make your projects come true",
+    subtitle: "Let us make the hardest part for you and get the product you were looking for"
+};
+
+export default SlidesSection;

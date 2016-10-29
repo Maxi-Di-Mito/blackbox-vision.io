@@ -2,17 +2,7 @@ import React, { Component ,PropTypes } from 'react';
 import ContactForm from '../../main/components/ContactForm.js';
 import Grid, { Cell } from 'react-mdl/lib/Grid';
 
-export default class ContactSection extends Component {
-    static propTypes = {
-        title: PropTypes.string,
-        description: PropTypes.string
-    };
-
-    static defaultProps = {
-        title: "Contact Us",
-        description: "Do you have a Project in Mind? Just fill the Contact Form and We will be in touch with you to define what you need."
-    };
-
+class ContactSection extends Component {
     render() {
         let { title, description } = this.props;
 
@@ -35,3 +25,15 @@ export default class ContactSection extends Component {
         )
     }
 }
+
+ContactSection.propTypes = {
+    title: PropTypes.string,
+    description: PropTypes.string
+};
+
+ContactSection.defaultProps = {
+    title: "Contact Us",
+    description: "Do you have a Project in Mind? Just fill the Contact Form and We will be in touch with you to define what you need."
+};
+
+export default ContactSection;

@@ -2,12 +2,7 @@ import React, { Component ,PropTypes } from 'react';
 import ServiceCard from '../../main/components/ServiceCard.js';
 import Grid from 'react-mdl/lib/Grid';
 
-export default class WhatWeDoSection extends Component {
-    static propTypes = {
-        title: PropTypes.string.isRequired,
-        cardList: PropTypes.array.isRequired
-    };
-
+class WhatWeDoSection extends Component {
     render() {
         let { title, description, cardList } = this.props;
 
@@ -29,3 +24,10 @@ export default class WhatWeDoSection extends Component {
         )
     }
 }
+
+WhatWeDoSection.propTypes = {
+    title: PropTypes.string.isRequired,
+    cardList: PropTypes.array.isRequired
+};
+
+export default WhatWeDoSection;
