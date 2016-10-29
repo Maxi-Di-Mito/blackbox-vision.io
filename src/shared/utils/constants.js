@@ -35,21 +35,21 @@ export const links = [
 
 export const social = [
     {
-        color: "indigo",
-        social: "facebook",
-        link: "https://www.facebook.com/BlackBoxVision"
+        backgroundColor: "#3F51B5",
+        socialNetwork: "facebook",
+        linkTo: "https://www.facebook.com/BlackBoxVision"
     }, {
-        color: "blue",
-        social: "twitter",
-        link: "https://twitter.com/blackbox_vision"
+        backgroundColor: "#2196F3",
+        socialNetwork: "twitter",
+        linkTo: "https://twitter.com/blackbox_vision"
     }, {
-        color: "red",
-        social: "google-plus",
-        link: "https://plus.google.com/114282493754918657519?hl=es"
+        backgroundColor: "#F44336",
+        socialNetwork: "google-plus",
+        linkTo: "https://plus.google.com/114282493754918657519?hl=es"
     }, {
-        color: "black",
-        social: "github",
-        link: "https://github.com/BlackBoxVision"
+        backgroundColor: "#000000",
+        socialNetwork: "github",
+        linkTo: "https://github.com/BlackBoxVision"
     }
 ];
 
@@ -148,7 +148,7 @@ export const whatWeDo = {
         {
             iconName: "timeline",
             name: "Analytics & Marketing",
-            description: "You need to know the usage of your App in order to scale or define which features you should add to grow your market, or get more users around it. We can help you to record data and generate reports in order to know which is the current state of your product."
+            description: "You need to know the usage of your app in order to scale or define which features you should add to grow your market, or get more users around it. We can help you to record data and generate reports in order to know which is the current state of your product."
         }
     ]
 };

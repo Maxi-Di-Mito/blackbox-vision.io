@@ -22,21 +22,20 @@ class RenderUtils {
                     <title>BlackBox Vision | Mobile and Web Software Factory</title>
 
                     <link rel="shortcut icon" type="image/png" href="assets/images/blackbox_vision.ico"/>
-                    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.1.1/normalize.min.css"/>
-                    <link rel="stylesheet" type="text/css" href="dist/bundle.css"/>
+                    <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+                    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+                   <link href="http://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300ita‌​lic,400italic,500,500italic,700,700italic,900italic,900" rel="stylesheet">
+                    <style>
+                        body {
+                            font-family: 'Roboto', sans-serif;
+                            font-size: 12px;
+                            margin: 0;
+                            padding: 0;
+                        }
+                    </style>
                 </head>
                 <body>
                     <div id="app">${html}</div>
-                    <script>
-                        var cb = function() {
-                        var l = document.createElement('link'); l.rel = 'stylesheet';
-                        l.href = 'dist/fonts.css';
-                        var h = document.getElementsByTagName('head')[0]; h.parentNode.insertBefore(l, h); };
-                        var raf = requestAnimationFrame || mozRequestAnimationFrame ||
-                                  webkitRequestAnimationFrame || msRequestAnimationFrame;
-                        if (raf) raf(cb);
-                        else window.addEventListener('load', cb);
-                    </script>
                     <script rel="script" type="text/javascript">window.__INITIAL_STATE__ = ${JSON.stringify(initialState)};</script>
                     <script rel="script" type="text/javascript" src="dist/bundle.js"></script>
                 </body>
@@ -66,22 +65,20 @@ class RenderUtils {
                     <title>BlackBox Vision | Mobile and Web Software Factory</title>
 
                     <link rel="shortcut icon" type="image/png" href="assets/images/blackbox_vision.ico"/>
-                    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.1.1/normalize.min.css"/>
-                    <link rel="stylesheet" type="text/css" href="dist/bundle.css"/>
+                    <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+                    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+                   <link href="http://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300ita‌​lic,400italic,500,500italic,700,700italic,900italic,900" rel="stylesheet">
+                    <style>
+                        body {
+                            font-family: 'Roboto', sans-serif;
+                            font-size: 12px;
+                            margin: 0;
+                            padding: 0;
+                        }
+                    </style>
                 </head>
                 <body>
                     <div id="app">${html}</div>
-                    <script>
-                        var cb = function() {
-                        var l = document.createElement('link'); l.rel = 'stylesheet';
-                        l.href = 'dist/fonts.css';
-                        var h = document.getElementsByTagName('head')[0]; h.parentNode.insertBefore(l, h); };
-                        var raf = requestAnimationFrame || mozRequestAnimationFrame ||
-                                  webkitRequestAnimationFrame || msRequestAnimationFrame;
-                        if (raf) raf(cb);
-                        else window.addEventListener('load', cb);
-                    </script>
-                    <script defer src="https://code.getmdl.io/1.1.3/material.min.js"></script>
                 </body>
             </html>
         `;
