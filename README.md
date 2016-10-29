@@ -1,4 +1,4 @@
-#This is the Official Repository for Blackbox Website
+#This is the Official Repository for Blackbox Website [![Build Status](https://travis-ci.org/BlackBoxVision/blackbox-vision.io.svg?branch=master)](https://travis-ci.org/BlackBoxVision/blackbox-vision.io)
 
 The App is built around javascript stack. The entire stack of technologies is the following: 
 - NodeJS
