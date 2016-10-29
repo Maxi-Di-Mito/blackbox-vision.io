@@ -26,7 +26,7 @@ class ContactSection extends Component {
     }
 }
 
-ContactSection.propTypes = {
+ContactSection.props = {
     title: PropTypes.string,
     description: PropTypes.string
 };

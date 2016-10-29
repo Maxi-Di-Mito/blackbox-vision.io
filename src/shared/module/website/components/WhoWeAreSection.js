@@ -19,7 +19,7 @@ class WhoWeAreSection extends Component {
     }
 }
 
-WhoWeAreSection.propTypes = {
+WhoWeAreSection.props = {
     description: PropTypes.string
 };
 

@@ -19,7 +19,7 @@ class SlidesSection extends Component {
     }
 }
 
-SlidesSection.propTypes = {
+SlidesSection.props = {
     title: PropTypes.string,
     subtitle: PropTypes.string
 };

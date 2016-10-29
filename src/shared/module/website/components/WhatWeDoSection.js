@@ -25,7 +25,7 @@ class WhatWeDoSection extends Component {
     }
 }
 
-WhatWeDoSection.propTypes = {
+WhatWeDoSection.props = {
     title: PropTypes.string.isRequired,
     cardList: PropTypes.array.isRequired
 };

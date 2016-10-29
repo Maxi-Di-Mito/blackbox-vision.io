@@ -1,42 +1,39 @@
 import React, { Component, PropTypes } from 'react';
-import Layout from 'react-mdl/lib/Layout/Layout';
-import Content from 'react-mdl/lib/Layout/Content';
-import SideNav from '../main/components/SideNav.js';
-import Footer from '../main/components/Footer.js';
-import Header from '../main/components/Header.js';
-import SlidesSection from './components/SlidesSection.js';
-import WhoWeAreSection from './components/WhoWeAreSection.js';
-import WhatWeDoSection from './components/WhatWeDoSection.js';
-import MeetTheTeamSection from './components/MeetTheTeamSection.js';
-import PortfolioSection from './components/PortfolioSection.js';
-import ContactSection from './components/ContactSection.js';
+import { AppBar, Drawer } from 'material-ui';
+import { logo } from '../../utils/constants';
 
-import { links, team, social, whatWeDo, logo, whoWeAre } from '../../utils/constants'
+class Website extends Component {
+    state = {
+        isDrawerOpen: false,
+        open: false
+    };
 
-export default class Website extends Component {
-    componentDidMount() {
-        componentHandler.upgradeAllRegistered();
-    }
+    onLeftIconButtonTouchTap = (event) => this.changeDrawerState();
 
-    componentDidUpdate() {
-        componentHandler.upgradeDom();
-    }
+    handleLeftButtonClick = (open) => this.showDrawer(open);
+
+    changeDrawerState = () => {
+        let { isDrawerOpen } = this.state;
+
+        if (isDrawerOpen) {
+            this.showDrawer(false)
+        } else {
+            this.showDrawer(true);
+        }
+    };
+
+    showDrawer = (open) => this.setState({ open });
 
     render() {
+        let { open } = this.state;
+
         return (
-            <Layout fixedHeader>
-                <Header logo={logo} logoSize="25px" linkList={links}/>
-                <SideNav title="BlackBox Vision" linkList={links}/>
-                <Content>
-                    <SlidesSection/>
-                    <WhoWeAreSection {...whoWeAre}/>
-                    <WhatWeDoSection {...whatWeDo}/>
-                    <MeetTheTeamSection {...team}/>
-                    <PortfolioSection/>
-                    <ContactSection/>
-                    <Footer socialList={social} copyright="BlackBox Vision @ 2016"/>
-                </Content>
-            </Layout>
+            <div>
+                <AppBar title={<img height="45%" src={logo}/>} onLeftIconButtonTouchTap={this.onLeftIconButtonTouchTap}/>
+                <Drawer open={open} onRequestChange={this.handleLeftButtonClick}/>
+            </div>
         )
     }
 }
+
+export default Website;

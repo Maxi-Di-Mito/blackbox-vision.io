@@ -25,7 +25,7 @@ class MeetTheTeamSection extends Component {
     }
 }
 
-MeetTheTeamSection.ropTypes = {
+MeetTheTeamSection.props = {
     title: PropTypes.string.isRequired,
     description: PropTypes.string.isRequired,
     cardList: PropTypes.array.isRequired

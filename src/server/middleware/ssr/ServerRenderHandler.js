@@ -1,10 +1,10 @@
 import configureStore from '../../../shared/module/main/store/configureStore';
 import match from 'react-router/lib/match';
-import RouterContext from 'react-router/lib/RouterContext';
 import routes from '../../../shared/module/main/Routes.js';
+import lightBaseTheme from 'material-ui/styles/baseThemes/lightBaseTheme';
+import App from '../../../shared/module/App';
 import { renderToString } from 'react-dom/server';
 import RenderUtils from './../../utils/RenderUtils';
-import Provider from 'react-redux/lib/components/Provider';
 import React from 'react';
 
 const ServerRenderHandler = (request, response, next) => {
@@ -27,11 +27,14 @@ const ServerRenderHandler = (request, response, next) => {
             return response.redirect(302, redirectLocation.pathname + redirectLocation.search);
         }
 
-        let initialHtml = renderToString(
-            <Provider store={store}>
-                <RouterContext {...renderProps}/>
-            </Provider>
-        );
+        let theme = {
+            ...lightBaseTheme,
+            ...{
+                userAgent: request.headers['user-agent']
+            }
+        };
+
+        let initialHtml = renderToString(<App theme={theme} store={store} renderProps={renderProps} renderOnServer={true}/>);
 
         let finalState = store.getState();
         let finalHtml = RenderUtils.toDefaultHtml(initialHtml, finalState);

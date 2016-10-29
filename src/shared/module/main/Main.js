@@ -1,6 +1,6 @@
 import React, { Component ,PropTypes } from 'react';
 
-export default class Main extends Component {
+class Main extends Component {
     render() {
         return (
             <div>
@@ -9,3 +9,5 @@ export default class Main extends Component {
         )
     }
 }
+
+export default Main;
