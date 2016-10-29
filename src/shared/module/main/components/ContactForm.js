@@ -1,5 +1,5 @@
 import React, { Component, PropTypes } from 'react';
-import TextField from './FloatingTextField.jsx';
+import TextField from './FloatingTextField.js';
 import { Card } from 'react-mdl';
 import { reduxForm } from 'redux-form'
 

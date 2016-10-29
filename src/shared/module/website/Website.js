@@ -1,15 +1,15 @@
 import React, { Component, PropTypes } from 'react';
 import Layout from 'react-mdl/lib/Layout/Layout';
 import Content from 'react-mdl/lib/Layout/Content';
-import SideNav from '../main/components/SideNav.jsx';
-import Footer from '../main/components/Footer.jsx';
-import Header from '../main/components/Header.jsx';
-import SlidesSection from './components/SlidesSection.jsx';
-import WhoWeAreSection from './components/WhoWeAreSection.jsx';
-import WhatWeDoSection from './components/WhatWeDoSection.jsx';
-import MeetTheTeamSection from './components/MeetTheTeamSection.jsx';
-import PortfolioSection from './components/PortfolioSection.jsx';
-import ContactSection from './components/ContactSection.jsx';
+import SideNav from '../main/components/SideNav.js';
+import Footer from '../main/components/Footer.js';
+import Header from '../main/components/Header.js';
+import SlidesSection from './components/SlidesSection.js';
+import WhoWeAreSection from './components/WhoWeAreSection.js';
+import WhatWeDoSection from './components/WhatWeDoSection.js';
+import MeetTheTeamSection from './components/MeetTheTeamSection.js';
+import PortfolioSection from './components/PortfolioSection.js';
+import ContactSection from './components/ContactSection.js';
 
 import { links, team, social, whatWeDo, logo, whoWeAre } from '../../utils/constants'
 

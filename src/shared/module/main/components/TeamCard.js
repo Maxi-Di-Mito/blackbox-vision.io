@@ -1,5 +1,5 @@
 import React, { Component, PropTypes } from 'react';
-import SocialButton from './SocialButton.jsx';
+import SocialButton from './SocialButton.js';
 import { Cell } from 'react-mdl/lib/Grid';
 import Card from 'react-mdl/lib/Card/Card';
 import CardTitle from 'react-mdl/lib/Card/CardTitle';

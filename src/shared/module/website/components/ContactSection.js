@@ -1,5 +1,5 @@
 import React, { Component ,PropTypes } from 'react';
-import ContactForm from '../../main/components/ContactForm.jsx';
+import ContactForm from '../../main/components/ContactForm.js';
 import Grid, { Cell } from 'react-mdl/lib/Grid';
 
 export default class ContactSection extends Component {

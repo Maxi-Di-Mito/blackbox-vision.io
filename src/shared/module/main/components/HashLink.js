@@ -1,6 +1,6 @@
 import React, { Component ,PropTypes } from 'react';
-import MobileHashLink from './MobileHashLink.jsx';
-import WebHashLink from './WebHashLink.jsx';
+import MobileHashLink from './MobileHashLink.js';
+import WebHashLink from './WebHashLink.js';
 
 const HashLink = ({ isMobile, ...rest }) => (
     (isMobile)? <MobileHashLink {...rest}/> : <WebHashLink {...rest}/>

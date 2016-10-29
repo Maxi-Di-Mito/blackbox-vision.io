@@ -85,7 +85,12 @@
   },
   "engineStrict": true,
   "engines": {
-    "node": "6.2.2",
+    "node": "6.7.0",
     "npm": "3.9.5"
-  }
+  },
+  "repository": {
+    "url": "https://github.com/BlackBoxVision/blackbox-vision.io.git",
+    "type": "git"
+  },
+  "license": "MIT"
 }

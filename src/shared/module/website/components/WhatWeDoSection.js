@@ -1,5 +1,5 @@
 import React, { Component ,PropTypes } from 'react';
-import ServiceCard from '../../main/components/ServiceCard.jsx';
+import ServiceCard from '../../main/components/ServiceCard.js';
 import Grid from 'react-mdl/lib/Grid';
 
 export default class WhatWeDoSection extends Component {

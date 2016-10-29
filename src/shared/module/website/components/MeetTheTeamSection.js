@@ -1,5 +1,5 @@
 import React, { Component ,PropTypes } from 'react';
-import TeamCard from '../../main/components/TeamCard.jsx';
+import TeamCard from '../../main/components/TeamCard.js';
 import Grid from 'react-mdl/lib/Grid';
 
 export default class MeetTheTeamSection extends Component {

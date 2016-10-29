@@ -1,5 +1,5 @@
 import React, { Component ,PropTypes } from 'react';
-import NavLink from './HashLink.jsx';
+import NavLink from './HashLink.js';
 
 const Header = ({ logoSize, logo, linkList }) => (
     <header className="mdl-layout__header mdl-color--indigo mdl-shadow--3dp">

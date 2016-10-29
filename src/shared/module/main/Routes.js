@@ -1,9 +1,9 @@
 import Route from 'react-router/lib/Route';
 import IndexRoute from 'react-router/lib/IndexRoute';
 import React from 'react';
-import Main from '../main/Main.jsx';
-import Website from '../website/Website.jsx';
-import Error404 from './components/Error404.jsx';
+import Main from './Main.js';
+import Website from '../website/Website.js';
+import Error404 from './components/Error404.js';
 
 //New routes will be added here
 const routes = (

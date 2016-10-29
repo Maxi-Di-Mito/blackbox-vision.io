@@ -4,7 +4,7 @@ import 'react-mdl/extra/material.min'
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
-import routes from '../shared/module/main/Routes.jsx';
+import routes from '../shared/module/main/Routes.js';
 import Router from 'react-router/lib/Router';
 import { applyRouterMiddleware, browserHistory } from 'react-router';
 import configureStore from '../shared/module/main/store/configureStore';
