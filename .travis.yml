@@ -6,8 +6,7 @@ deploy:
   user: jonatansalas@live.com.ar
   password:
     secure: tzvBHkR88+IE8lYRR9OKQA7TkV0mj2wDL7Z0FgqpAUzBj6RbmhByIVK96z/PFExhgb8YNGrC4ScZdnyFENs1fWjarmLuEQ6DgKFzBpU+BBUp3rFKLE+/gX4CTfu+OJK7gPlR+4xlv4zL0fOTGAwjuLCZB/ppDKhjmIGLSiKLnMLof7LjUuN5Oep23bPRKlOfWbAkxskGyU+2As0/SraA3/XKDBZ31calb3MGa+9440bse7YsOS/qwJcdHuINkFFT5sNuiitlPkVONMVKmf1/HP0I3GgecGH/OjU3F3zongmAZHlwwBy+ci+QxS3EPtY8l7Ew8xs3xMIZDSyvYjUo8woQY4Tig7xqldLXrmZJ5zt52nGcJOnXCxNgaMJsigDMfQiaHnzoilcHB+x5uyr9JxRuMDykcPEhb0AReQw4Rh5c9Swr2t8qDO27/dlC+fHbTx6d3zxvkdzLT7kEvQ+ewRt9NXYqwsQSF8AIx/GanNmhy/wkxx06vHo8ljbejQP9HGErNPZLZj6ZIfxtEILafluGJ+DBPbTy1zosv4NvNZsuk413EUTuQETsKK0zMlQiGd1lCc50g96qDlgh6uvTtNFs2G29zB1NEKHk/nFlw4xtg9zpNoaWCkz2dWE7rqKItKgPC/QMSV6RwfsX0gWttM+M5TLdtFpdbu0iOkNuleM=
-  app:
-    master: web
-  domain: reactspa
+  app: reactspa
+  domain: blackboxvision
   on:
     repo: BlackBoxVision/blackbox-vision.io
