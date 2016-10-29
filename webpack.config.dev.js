@@ -3,7 +3,7 @@ var webpack = require('webpack');
 
 module.exports = {
     devtool: 'eval',
-    entry: [path.join(__dirname, './src/client/index.jsx')],
+    entry: [path.join(__dirname, './src/client/index.js')],
     output: {
         path: path.join(__dirname, './src/public/dist'),
         filename: 'bundle.js'

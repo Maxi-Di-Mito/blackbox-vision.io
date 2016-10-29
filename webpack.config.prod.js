@@ -4,7 +4,7 @@ var OfflinePlugin = require('offline-plugin');
 
 module.exports = {
     devtool: 'cheap-module-source-map',
-    entry: [path.join(__dirname, './src/client/index.jsx')],
+    entry: [path.join(__dirname, './src/client/index.js')],
     output: {
         path: path.join(__dirname, './src/public/dist'),
         filename: 'bundle.js'
