@@ -1,8 +1,8 @@
 import React, {Component, PropTypes} from 'react'
 import HeaderContainer from '../atoms/HeaderContainer';
-import HeaderFlatButton from '../molecules/HeaderFlatButton';
+import HeaderMenuItem from './HeaderMenuItem';
 
-class HeaderLinkList extends Component {
+class HeaderMenu extends Component {
     render() {
         const { links } = this.props;
 
@@ -10,8 +10,8 @@ class HeaderLinkList extends Component {
             <HeaderContainer>
                 {
                     links.map((link, index) => (
-                        <HeaderFlatButton
-                            key={`header-flat-button-${index}`}
+                        <HeaderMenuItem
+                            key={`header-menu-item-${index}`}
                             text={link.message}
                             iconName={link.iconName}
                         />
@@ -22,8 +22,8 @@ class HeaderLinkList extends Component {
     }
 }
 
-HeaderLinkList.props = {};
+HeaderMenu.props = {};
 
-HeaderLinkList.defaultProps = {};
+HeaderMenu.defaultProps = {};
 
-export default HeaderLinkList;
+export default HeaderMenu;
