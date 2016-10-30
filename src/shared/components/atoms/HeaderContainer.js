@@ -3,5 +3,5 @@ import styled from 'styled-components';
 
 export default styled.div`
     width: auto;
-    height: 56px;
+    height: 64px;
 `;

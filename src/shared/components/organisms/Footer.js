@@ -9,12 +9,8 @@ class Footer extends Component {
         const { links, copyright } = this.props;
 
         return (
-            <FooterContainer fixed>
-                <Flex
-                    align="center"
-                    justify="center"
-                    wrap
-                >
+            <FooterContainer>
+                <Flex align="center" justify="center" wrap>
                     <Box col={12}>
                         <FooterSocialList links={links}/>
                         <FooterCopyright>

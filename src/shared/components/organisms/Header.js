@@ -14,7 +14,8 @@ var styles = {
             height: 'auto'
         },
         style: {
-            backgroundColor: '#3F51B5'
+            backgroundColor: '#3F51B5',
+            position: 'fixed'
         }
     }
 };

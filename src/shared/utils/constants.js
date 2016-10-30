@@ -2,32 +2,32 @@ export const logo = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAfMAAAA8CAMAA
 
 export const links = [
     {
-        link: "#Home",
+        linkTo: "#Home",
         text: "home",
         iconName: "home"
     },
     {
-        link: "#WhoWeAre",
+        linkTo: "#WhoWeAre",
         text: "who we are",
         iconName: "perm_identity"
     },
     {
-        link: "#WhatWeDo",
+        linkTo: "#WhatWeDo",
         text: "what we do",
         iconName: "build"
     },
     {
-        link: "#MeetTheTeam",
+        linkTo: "#MeetTheTeam",
         text: "meet the team",
         iconName: "group"
     },
     {
-        link: "#Portfolio",
+        linkTo: "#Portfolio",
         text: "portfolio",
         iconName: "work"
     },
     {
-        link: "#Contact",
+        linkTo: "#Contact",
         text: "contact",
         iconName: "person_add"
     }
