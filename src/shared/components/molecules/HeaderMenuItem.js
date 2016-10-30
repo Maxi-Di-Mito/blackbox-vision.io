@@ -24,8 +24,9 @@ class HeaderFlatButton extends Component {
     }
 }
 
-HeaderFlatButton.props = {};
-
-HeaderFlatButton.defaultProps = {};
+HeaderFlatButton.props = {
+    iconName: PropTypes.string.isRequired,
+    text: PropTypes.string.isRequired
+};
 
 export default HeaderFlatButton;

@@ -9,20 +9,20 @@ class FooterSocialList extends Component {
 
         return (
             <FooterList>
-                {
-                    links.map((link, index) => (
-                        <FooterListItem key={`footer-list-item-${index}`}>
-                            <SocialFloatingButton
-                                linkTo={link.linkTo}
-                                fontIconClassName={`fa fa-${link.socialNetwork}`}
-                                floatingBackgroundColor={link.backgroundColor}
-                            />
-                        </FooterListItem>
-                    ))
-                }
+                {links.map(this.renderItem)}
             </FooterList>
         );
     }
+
+    renderItem = (link, index) => (
+        <FooterListItem key={`footer-list-item-${index}`}>
+            <SocialFloatingButton
+                linkTo={link.linkTo}
+                fontIconClassName={`fa fa-${link.socialNetwork}`}
+                floatingBackgroundColor={link.backgroundColor}
+            />
+        </FooterListItem>
+    )
 }
 
 FooterSocialList.props = {

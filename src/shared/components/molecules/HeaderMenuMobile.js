@@ -7,8 +7,9 @@ import HeaderMenuItem from '../molecules/HeaderMenuItemMobile';
 class HeaderMenuMobile extends Component {
     render() {
         const { links } = this.props;
+
         let iconButton = (
-            <IconButton>
+            <IconButton style={{ marginTop: "8px" }}>
                 <MenuIcon color="white"/>
             </IconButton>
         );
@@ -21,23 +22,17 @@ class HeaderMenuMobile extends Component {
                     targetOrigin={{horizontal: 'left', vertical: 'top'}}
                     animated
                 >
-                    {
-                        links.map((link, index) => (
-                            <HeaderMenuItem
-                                key={`header-menu-item-${index}-mobile`}
-                                text={link.message}
-                                iconName={link.iconName}
-                            />
-                        ))
-                    }
+                    {links.map(this.renderItem)}
                 </IconMenu>
             </HeaderContainer>
         );
     }
+
+    renderItem = (link, index) => <HeaderMenuItem key={`header-menu-item-${index}-mobile`} {...link}/>
 }
 
-HeaderMenuMobile.props = {};
-
-HeaderMenuMobile.defaultProps = {};
+HeaderMenuMobile.props = {
+    links: PropTypes.array.isRequired
+};
 
 export default HeaderMenuMobile;

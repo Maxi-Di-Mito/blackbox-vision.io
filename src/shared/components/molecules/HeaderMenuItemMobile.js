@@ -20,8 +20,9 @@ class HeaderMenuItemMobile extends Component {
     }
 }
 
-HeaderMenuItemMobile.props = {};
-
-HeaderMenuItemMobile.defaultProps = {};
+HeaderMenuItemMobile.props = {
+    iconName: PropTypes.string.isRequired,
+    text: PropTypes.string.isRequired
+};
 
 export default HeaderMenuItemMobile;

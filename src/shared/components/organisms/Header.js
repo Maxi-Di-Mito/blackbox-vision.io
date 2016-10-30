@@ -25,13 +25,7 @@ class Header extends Component {
     render() {
         const { logo, links } = this.props;
         let { width } = this.state;
-        let headerMenu;
-
-        if (width < 1024) {
-            headerMenu = <HeaderMenuMobile links={links}/>;
-        } else {
-            headerMenu = <HeaderMenu links={links}/>;
-        }
+        let headerMenu = (width < 1024) ? <HeaderMenuMobile links={links}/> : <HeaderMenu links={links}/>;
 
         return (
             <HeaderContainer fixed>
@@ -54,8 +48,9 @@ class Header extends Component {
     }
 }
 
-Header.props = {};
-
-Header.defaultProps = {};
+Header.props = {
+    logo: PropTypes.string.isRequired,
+    links: PropTypes.string.isRequired
+};
 
 export default Header;

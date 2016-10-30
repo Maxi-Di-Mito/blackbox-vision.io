@@ -8,22 +8,16 @@ class HeaderMenu extends Component {
 
         return (
             <HeaderContainer>
-                {
-                    links.map((link, index) => (
-                        <HeaderMenuItem
-                            key={`header-menu-item-${index}`}
-                            text={link.message}
-                            iconName={link.iconName}
-                        />
-                    ))
-                }
+                {links.map(this.renderItem)}
             </HeaderContainer>
         );
     }
+
+    renderItem = (link, index) => <HeaderMenuItem key={`header-menu-item-${index}`} {...link}/>;
 }
 
-HeaderMenu.props = {};
-
-HeaderMenu.defaultProps = {};
+HeaderMenu.props = {
+    links: PropTypes.array.isRequired
+};
 
 export default HeaderMenu;

@@ -5,15 +5,10 @@ import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import lightBaseTheme from 'material-ui/styles/baseThemes/lightBaseTheme';
 import useScroll from 'react-router-scroll';
 import { Provider } from 'react-redux';
-import injectTapEventPlugin from 'react-tap-event-plugin';
 import hashLinkScroll from './utils/hashLinkScroll';
 import configureStore from './redux/store/configureStore';
 
 class App extends Component {
-    componentDidMount() {
-        injectTapEventPlugin();
-    }
-
     render() {
         const { renderOnServer, renderProps, routes, history, theme, store } = this.props;
         let router;
