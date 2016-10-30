@@ -14,7 +14,7 @@ module.exports = {
   },
 
   output: {
-    path: __dirname,
+    path: __dirname + '/dist/',
     filename: 'app.js',
     publicPath: 'http://0.0.0.0:8000/',
   },
@@ -36,6 +36,9 @@ module.exports = {
         test: /\.jsx*$/,
         exclude: [/node_modules/, /.+\.config.js/],
         loader: 'babel',
+      }, {
+        test: /\.json$/,
+        loader: 'json-loader',
       }
     ],
   },
@@ -46,6 +49,7 @@ module.exports = {
       name: 'vendor',
       minChunks: Infinity,
       filename: 'vendor.js',
+      path: __dirname + '/dist/'
     }),
     new webpack.DefinePlugin({
       'process.env': {

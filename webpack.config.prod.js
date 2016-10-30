@@ -1,5 +1,7 @@
 var webpack = require('webpack');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
+var ManifestPlugin = require('webpack-manifest-plugin');
+var ChunkManifestPlugin = require('chunk-manifest-webpack-plugin');
 
 module.exports = {
   devtool: "source-map",
@@ -34,6 +36,9 @@ module.exports = {
         test: /\.jsx*$/,
         exclude: /node_modules/,
         loader: 'babel',
+      }, {
+        test: /\.json$/,
+        loader: 'json-loader',
       }
     ],
   },
@@ -50,10 +55,17 @@ module.exports = {
       filename: 'vendor.js',
     }),
     new ExtractTextPlugin('app.[chunkhash].css', { allChunks: true }),
+    new ManifestPlugin({
+      basePath: '/',
+    }),
+    new ChunkManifestPlugin({
+      filename: "chunk-manifest.json",
+      manifestVariable: "webpackManifest",
+    }),
     new webpack.optimize.UglifyJsPlugin({
       compressor: {
         warnings: false,
       }
     }),
-  ]
+  ],
 };

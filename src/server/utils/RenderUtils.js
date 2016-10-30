@@ -3,6 +3,10 @@ import ServerConfig from '../config/ServerConfig';
 
 class RenderUtils {
     static toDefaultHtml(html, initialState = {}) {
+        // Import Manifests
+        const assetsManifest = process.env.webpackAssets && JSON.parse(process.env.webpackAssets);
+        const chunkManifest = process.env.webpackChunkAssets && JSON.parse(process.env.webpackChunkAssets);
+
         const mainHtml =
         `<!doctype html>
             <html lang="en">
@@ -36,8 +40,15 @@ class RenderUtils {
                 </head>
                 <body>
                     <div id="app">${html}</div>
-                    <script rel="script" type="text/javascript">window.__INITIAL_STATE__ = ${JSON.stringify(initialState)};</script>
-                    <script rel="script" type="text/javascript" src="dist/bundle.js"></script>
+                    <script rel="script" type="text/javascript">
+                        window.__INITIAL_STATE__ = ${JSON.stringify(initialState)};
+                        ${process.env.NODE_ENV === 'production' ?
+                        `//<![CDATA[
+                            window.webpackManifest = ${JSON.stringify(chunkManifest)};
+                        //]]>` : ''}
+                    </script>
+                    <script src='${process.env.NODE_ENV === 'production' ? assetsManifest['/vendor.js'] : '/vendor.js'}'></script>
+                    <script src='${process.env.NODE_ENV === 'production' ? assetsManifest['/app.js'] : '/app.js'}'></script>
                 </body>
             </html>
         `;

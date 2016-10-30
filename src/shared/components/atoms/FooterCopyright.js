@@ -6,5 +6,5 @@ export default styled.h3`
     margin-top: 15px;
     display: inline;
     text-align: center
-    color: ${props => props.color? props.color : "white"};
+    color: ${props => props.color || "white"};
 `;

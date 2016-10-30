@@ -24,6 +24,10 @@ module.exports = {
       'client',
       'node_modules',
     ],
+    alias: {
+      "react": './node_modules/react',
+      "react-dom": './node_modules/react-dom'
+    }
   },
 
   module: {
@@ -39,13 +43,24 @@ module.exports = {
             'stage-0',
           ]
         },
+        plugins: [
+          [
+            'babel-plugin-webpack-loaders', {
+            'config': './webpack.config.babel.js',
+            "verbose": false
+          }
+          ]
+        ]
+      },{
+        test: /\.json$/,
+        loader: 'json-loader',
       },
     ],
   },
   plugins: [
     new ExternalsPlugin({
       type: 'commonjs',
-      include: path.join(__dirname, './node_modules/'),
+      include: path.join(__dirname, 'node_modules'),
     }),
   ],
 };

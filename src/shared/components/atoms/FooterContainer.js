@@ -7,6 +7,6 @@ export default styled.div`
     left: 0px;
     bottom: 0px;
     width: 100%;
-    height: ${props => props.height? props.height : "125px"};
+    height: ${props => props.height || "125px"};
     text-align: center;
 `;
