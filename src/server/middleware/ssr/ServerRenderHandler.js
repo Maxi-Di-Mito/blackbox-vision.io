@@ -1,8 +1,8 @@
 import configureStore from '../../../shared/redux/store/configureStore';
 import match from 'react-router/lib/match';
-import routes from '../../../shared/components/enviroment/routes.js';
+import routes from '../../../shared/routes.js';
 import lightBaseTheme from 'material-ui/styles/baseThemes/lightBaseTheme';
-import App from '../../../shared/components/enviroment/App';
+import App from '../../../shared/App';
 import { renderToString } from 'react-dom/server';
 import RenderUtils from './../../utils/RenderUtils';
 import React from 'react';

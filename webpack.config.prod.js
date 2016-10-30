@@ -1,6 +1,5 @@
 var path = require('path');
 var webpack = require('webpack');
-var OfflinePlugin = require('offline-plugin');
 
 module.exports = {
     devtool: 'cheap-module-source-map',
