@@ -1,10 +1,10 @@
 {
     "presets": ["es2015", "react", "stage-0"],
-    "plugins": ["transform-object-rest-spread", "transform-decorators-legacy", "lodash"],
+    "plugins": ["transform-decorators-legacy", "transform-object-rest-spread", "lodash"],
     "env": {
         "production": {
             "presets": ["es2015", "react", "react-optimize", "stage-0"],
-            "plugins": ["transform-object-rest-spread", "transform-decorators-legacy"]
+            "plugins": ["transform-decorators-legacy", "transform-object-rest-spread"]
         }
     }
 }

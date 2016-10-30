@@ -1,9 +1,23 @@
 import React, {Component, PropTypes} from 'react'
 import { AppBar } from 'material-ui';
+import radium from 'radium';
 import HeaderContainer from '../atoms/HeaderContainer';
 import HeaderLogo from '../atoms/HeaderLogo';
 import HeaderMenu from '../molecules/HeaderMenu';
 import HeaderMenuMobile from '../molecules/HeaderMenuMobile';
+
+var styles = {
+    appBar: {
+        iconStyle: {
+            padding: '0',
+            margin: '0',
+            height: 'auto'
+        },
+        style: {
+            backgroundColor: '#3F51B5'
+        }
+    }
+};
 
 class Header extends Component {
     state = {
@@ -33,8 +47,8 @@ class Header extends Component {
                     showMenuIconButton={false}
                     title={<HeaderLogo src={logo}/>}
                     iconElementRight={headerMenu}
-                    iconStyleRight={{ padding: "0px", margin: "0px", height: "auto" }}
-                    style={{ backgroundColor: "#3F51B5" }}
+                    iconStyleRight={styles.appBar.iconStyle}
+                    style={styles.appBar.style}
                     zDepth={2}
                 />
             </HeaderContainer>
@@ -50,7 +64,7 @@ class Header extends Component {
 
 Header.props = {
     logo: PropTypes.string.isRequired,
-    links: PropTypes.string.isRequired
+    links: PropTypes.array.isRequired
 };
 
-export default Header;
+export default radium(Header);
