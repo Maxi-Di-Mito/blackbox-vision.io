@@ -7,11 +7,12 @@
   "scripts": {
     "compile": "babel ./src/server -d ./src/dist/",
     "webpack:prod": "webpack --config webpack.config.prod.js",
-    "build:prod": "export NODE_ENV=production && npm prune && npm install && npm run webpack:prod && npm run compile && node start.js",
+    "build:prod": "export NODE_ENV=production && npm install && npm run webpack:prod && npm run build:server && node start.js",
     "start": "npm run build:prod",
     "webpack:dev": "webpack --config webpack.config.dev.js",
-    "build:dev": "npm prune && npm install && npm run webpack:dev && npm run compile && node start.js",
-    "start:dev": "npm run build:dev"
+    "build:dev": "npm install && npm run webpack:dev && npm run build:server && node start.js",
+    "start:dev": "npm run build:dev",
+    "build:server": "BABEL_DISABLE_CACHE=1 webpack --config webpack.config.server.js"
   },
   "dependencies": {
     "body-parser": "^1.15.0",
@@ -59,7 +60,10 @@
     "babel-preset-react-optimize": "^1.0.1",
     "babel-preset-stage-0": "^6.5.0",
     "babel-preset-stage-2": "^6.5.0",
-    "babel-register": "^6.11.5"
+    "babel-register": "^6.11.5",
+    "extract-text-webpack-plugin": "^1.0.1",
+    "webpack-externals-plugin": "^1.0.0",
+    "webpack-manifest-plugin": "^1.1.0"
   },
   "engineStrict": true,
   "engines": {

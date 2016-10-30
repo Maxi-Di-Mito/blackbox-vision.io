@@ -1,41 +1,57 @@
-var path = require('path');
 var webpack = require('webpack');
 
 module.exports = {
-    devtool: 'eval',
-    entry: [path.join(__dirname, './src/client/index.js')],
-    output: {
-        path: path.join(__dirname, './src/public/dist'),
-        filename: 'bundle.js'
-    },
-    module: {
-        loaders: [
-            {
-                test: /.jsx?$/,
-                loaders: ['babel-loader'],
-                exclude: /node_modules/
-            },
-            {
-                test   : /\.(ttf|eot|svg|woff(2)?)(\?[a-z0-9=&.]+)?$/,
-                loader: 'file-loader?name=fonts/[name]/[name].[ext]',
-                exclude: /node_modules/
-            },
-            {
-                test   : /\.(jpg|png|gif)(\?[a-z0-9=&.]+)?$/,
-                loader: 'url-loader',
-                exclude: /node_modules/
-            },
-            {
-                test: /\.css$/,
-                loader: "style-loader!css-loader",
-                exclude: /node_modules/
-            }
-        ]
-    },
-    plugins: [
-        new webpack.optimize.UglifyJsPlugin({
-            sourceMap: false,
-            mangle: false
-        })
-    ]
+  devtool: 'cheap-module-eval-source-map',
+
+  entry: {
+    app: [
+      './src/client/index.js',
+    ],
+    vendor: [
+      'react',
+      'react-dom',
+    ],
+  },
+
+  output: {
+    path: __dirname,
+    filename: 'app.js',
+    publicPath: 'http://0.0.0.0:8000/',
+  },
+
+  resolve: {
+    extensions: ['', '.js', '.jsx'],
+    modules: [
+      'client',
+      'node_modules',
+    ],
+    alias: {
+      "react": __dirname + '/node_modules/react',
+    }
+  },
+
+  module: {
+    loaders: [
+      {
+        test: /\.jsx*$/,
+        exclude: [/node_modules/, /.+\.config.js/],
+        loader: 'babel',
+      }
+    ],
+  },
+
+  plugins: [
+    new webpack.HotModuleReplacementPlugin(),
+    new webpack.optimize.CommonsChunkPlugin({
+      name: 'vendor',
+      minChunks: Infinity,
+      filename: 'vendor.js',
+    }),
+    new webpack.DefinePlugin({
+      'process.env': {
+        CLIENT: JSON.stringify(true),
+        'NODE_ENV': JSON.stringify('development'),
+      }
+    }),
+  ]
 };
