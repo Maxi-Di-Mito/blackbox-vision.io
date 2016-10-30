@@ -1,6 +1,6 @@
-import Middlewares from '../middleware/Middlewares';
-import ServerConfig from '../config';
-import ClusterHelper from '../helper/ClusterHelper';
+import Middlewares from './middleware/Middlewares';
+import ServerConfig from './config';
+import ClusterHelper from './helper/ClusterHelper';
 import compression from 'compression';
 import bodyParser from 'body-parser';
 import Winston from 'winston';
@@ -41,4 +41,4 @@ class Server {
     }
 }
 
-export default Server;
+export default Server.init();
