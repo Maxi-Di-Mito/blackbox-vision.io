@@ -1,17 +1,19 @@
-#This is the Official Repository for Blackbox Website [![Build Status](https://travis-ci.org/BlackBoxVision/blackbox-vision.io.svg?branch=master)](https://travis-ci.org/BlackBoxVision/blackbox-vision.io)
+#blackbox-vision.io source code [![Build Status](https://travis-ci.org/BlackBoxVision/blackbox-vision.io.svg?branch=master)](https://travis-ci.org/BlackBoxVision/blackbox-vision.io)
 
-The App is built around javascript stack. The entire stack of technologies is the following: 
+The web is built around javascript stack. The entire stack of technologies is the following: 
 - NodeJS
 - Express
 - NodeMailer
 - Redux
 - ReactJS
-- Material Design Lite 
+- Material UI
 - Other related React/Redux technologies
+- Webpack 
 
-##Why we select this stack?
+#About the site
 
-Actually I'm working with all this Javascript stuff, and the main version of this website was being built with AngularJS. AngularJS was pretty slow when interacting with the DOM and the load times of the website deployed on localhost where around 3/4 seconds. 
+This site has no css, since we are using tecniques related to inline styles. In the project we are using styled-components and radium to manage primitives style and inline styles. 
 
-Migrating the version to ReactJS was a good decision, because with the mix of React and Server Side Rendering we get faster load of the page, about 200/350 milliseconds.
+Also, the project structure has changed a lot, we are migrating the structure to follow the Atomic Design approach. 
+
 
