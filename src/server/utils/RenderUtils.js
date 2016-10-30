@@ -1,5 +1,6 @@
 import { minify } from 'html-minifier';
 import ServerConfig from '../config/ServerConfig';
+import path from 'path';
 
 class RenderUtils {
     static toDefaultHtml(html, initialState = {}) {
@@ -47,8 +48,8 @@ class RenderUtils {
                             window.webpackManifest = ${JSON.stringify(chunkManifest)};
                         //]]>` : ''}
                     </script>
-                    <script src='${process.env.NODE_ENV === 'production' ? assetsManifest['/vendor.js'] : '/vendor.js'}'></script>
-                    <script src='${process.env.NODE_ENV === 'production' ? assetsManifest['/app.js'] : '/app.js'}'></script>
+                    <script src='${process.env.NODE_ENV === 'production' ? assetsManifest['/vendor.js'] : 'vendor.js'}'></script>
+                    <script src='${process.env.NODE_ENV === 'production' ? assetsManifest['/app.js'] : 'app.js'}'></script>
                 </body>
             </html>
         `;

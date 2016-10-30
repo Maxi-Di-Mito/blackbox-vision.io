@@ -3,64 +3,60 @@ var path = require('path');
 var ExternalsPlugin = require('webpack-externals-plugin');
 
 module.exports = {
+    entry: path.resolve(__dirname, 'src/server/index.js'),
 
-  entry: path.resolve(__dirname, 'src/server/index.js'),
+    output: {
+        path: __dirname + '/dist/',
+        filename: 'server.bundle.js',
+    },
 
-  output: {
-    path: __dirname + '/dist/',
-    filename: 'server.bundle.js',
-  },
+    target: 'node',
 
-  target: 'node',
+    node: {
+        __filename: true,
+        __dirname: true,
+    },
 
-  node: {
-    __filename: true,
-    __dirname: true,
-  },
-
-  resolve: {
-    extensions: ['', '.js', '.jsx'],
-    modules: [
-      'client',
-      'node_modules',
-    ],
-    alias: {
-      "react": './node_modules/react',
-      "react-dom": './node_modules/react-dom'
-    }
-  },
-
-  module: {
-    loaders: [
-      {
-        test: /\.js$/,
-        exclude: /node_modules/,
-        loader: 'babel-loader',
-        query: {
-          presets: [
-            'react',
-            'es2015',
-            'stage-0',
-          ]
-        },
-        plugins: [
-          [
-            'babel-plugin-webpack-loaders', {
-            'config': './webpack.config.babel.js',
-            "verbose": false
-          }
-          ]
+    resolve: {
+        extensions: ['', '.js', '.jsx'],
+        modules: [
+            'client',
+            'node_modules',
         ]
-      },{
-        test: /\.json$/,
-        loader: 'json-loader',
-      },
+    },
+
+    module: {
+        loaders: [
+            {
+                test: /\.js$/,
+                exclude: /node_modules/,
+                loader: 'babel-loader',
+                query: {
+                    presets: [
+                        'react',
+                        'es2015',
+                        'stage-0',
+                    ]
+                },
+                plugins: [
+                    [
+                        'babel-plugin-webpack-loaders', {
+                            'config': './webpack.config.babel.js',
+                            "verbose": false
+                        }
+                    ]
+                ]
+            },
+            {
+                test: /\.json$/,
+                loader: 'json-loader',
+            },
+        ],
+    },
+    plugins: [
+        new ExternalsPlugin({
+            type: 'commonjs',
+            include: path.resolve(__dirname, 'node_modules'),
+        }),
     ],
-  },
-  plugins: [
-    new ExternalsPlugin({
-      type: 'commonjs',
-      include: path.join(__dirname, 'node_modules'),
-    }),
-  ],
 };
