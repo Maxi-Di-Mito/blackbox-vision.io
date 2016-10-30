@@ -1,11 +1,12 @@
-import Middleware from '../middleware/Middleware';
-import ServerConfig from '../config/ServerConfig';
-import ClusterHelper from '../utils/ClusterUtils';
+import Middlewares from '../middleware/Middlewares';
+import ServerConfig from '../config';
+import ClusterHelper from '../helper/ClusterHelper';
 import compression from 'compression';
 import bodyParser from 'body-parser';
 import Winston from 'winston';
 import express from 'express';
 import helmet from 'helmet';
+import path from 'path';
 
 class Server {
     static init() {
@@ -16,14 +17,13 @@ class Server {
 
                 //TODO JS: add content security policy from helmet
                 app.use(helmet());
-                app.use(compression(ServerConfig.COMPRESSION_OPTIONS));
-                app.use(bodyParser.json(ServerConfig.JSON_OPTIONS));
-                app.use(bodyParser.urlencoded(ServerConfig.URL_ENCODED_OPTIONS));
-                app.use(express.static(ServerConfig.STATIC_CONTENT, { maxAge: 604800000 }));
+                app.use(compression({ level: 9, memLevel: 9 }));
+                app.use(bodyParser.json({ limit: '20mb'}));
+                app.use(bodyParser.urlencoded({ limit: '20mb', extended: false }));
+                app.use(express.static(path.resolve(__dirname, '../../../dist'), { maxAge: 604800000 }));
 
-                //Setting up custom middlewares..
-                app.use(Middleware.handleRender);
-                app.use(Middleware.handleErrors);
+                app.use(Middlewares.handleRender);
+                app.use(Middlewares.handleErrors);
 
                 app.listen(ServerConfig.PORT, ServerConfig.IP_ADDRESS, (error) => {
                     if (error) {

@@ -1,10 +1,18 @@
 import { minify } from 'html-minifier';
-import ServerConfig from '../config/ServerConfig';
-import path from 'path';
+import Config from '../config';
 
-class RenderUtils {
+let htmlConfig = {
+    caseSensitive: true,
+    collapseBooleanAttributes: true,
+    collapseInlineTagWhitespace: true,
+    collapseWhitespace: true,
+    minifyCSS: true,
+    minifyJS: true,
+    minifyURLs: true
+};
+
+class RenderHelper {
     static toDefaultHtml(html, initialState = {}) {
-        // Import Manifests
         const assetsManifest = process.env.webpackAssets && JSON.parse(process.env.webpackAssets);
         const chunkManifest = process.env.webpackChunkAssets && JSON.parse(process.env.webpackChunkAssets);
 
@@ -54,7 +62,7 @@ class RenderUtils {
             </html>
         `;
 
-        return (ServerConfig.isInProduction()) ? minify(mainHtml, ServerConfig.MINIFY_HTML_OPTIONS) : mainHtml;
+        return (Config.isProd()) ? minify(mainHtml, htmlConfig) : mainHtml;
     }
 
     static toErrorHtml(html) {
@@ -95,8 +103,8 @@ class RenderUtils {
             </html>
         `;
 
-        return (ServerConfig.isInProduction())? minify(mainHtml, ServerConfig.MINIFY_HTML_OPTIONS): mainHtml;
+        return (Config.isProd())? minify(mainHtml, htmlConfig): mainHtml;
     }
 }
 
-export default RenderUtils;
+export default RenderHelper;

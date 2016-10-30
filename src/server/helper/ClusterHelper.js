@@ -1,16 +1,19 @@
-import ServerConfig from '../config/ServerConfig';
+import Config from '../config';
 import control from 'strong-cluster-control';
 import Winston from 'winston';
 import cluster from 'cluster';
 
-class ClusterUtils {
+class ClusterHelper {
     static runApp() {
         return new Promise((resolve, reject) => {
-            if (ServerConfig.isInProduction()) {
-                control.start(ServerConfig.CONTROL_OPTIONS).on('error', error => reject(error));
+            if (Config.isProd()) {
+                control
+                    .start({ size: control.CPUS, shutdownTimeout: 5000, terminateTimeout: 5000, throttleDelay: 5000 })
+                    .on('error', error => reject(error));
 
                 if (cluster.isMaster) {
-                    for (let i = 0; i < ServerConfig.NUM_CPUS; i++) {
+                    let cpus = os.cpus().length;
+                    for (let i = 0; i < cpus; i++) {
                         cluster.fork();
                     }
 
@@ -33,4 +36,4 @@ class ClusterUtils {
     }
 }
 
-export default ClusterUtils;
+export default ClusterHelper;
