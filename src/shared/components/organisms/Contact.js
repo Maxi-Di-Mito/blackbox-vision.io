@@ -24,7 +24,8 @@ class Contact extends Component {
     render() {
         let { width } = this.state;
         let boxProps = {
-            p: (width < 1024)? 2 : 6,
+            pt: (width < 1024)? 5 : 0,
+            p: (width < 1024)? 1 : 6,
             mt: 4
         };
 
