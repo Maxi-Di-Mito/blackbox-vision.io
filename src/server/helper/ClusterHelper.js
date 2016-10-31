@@ -2,6 +2,7 @@ import Config from '../config';
 import control from 'strong-cluster-control';
 import Winston from 'winston';
 import cluster from 'cluster';
+import os from 'os';
 
 class ClusterHelper {
     static runApp() {

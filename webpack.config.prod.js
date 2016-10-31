@@ -4,8 +4,6 @@ var ManifestPlugin = require('webpack-manifest-plugin');
 var ChunkManifestPlugin = require('chunk-manifest-webpack-plugin');
 
 module.exports = {
-    devtool: "source-map",
-
     entry: {
         app: [
             './src/client/index.js',
