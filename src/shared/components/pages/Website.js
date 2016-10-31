@@ -10,7 +10,7 @@ class Website extends Component {
         return (
             <div>
                 <Header links={links} logo={logo}/>
-                <Section id="Home" backgroundColor="#F44336"/>
+                <Section id="Home" backgroundImage="https://images.contentful.com/lwht5a8170mc/w3FDlOYi6yCwsGu6EkQu/792767747799e3091c757da781993b75/slide.jpeg" backgroundColor="#F44336" paddingTop="64px"/>
                 <Section id="WhoWeAre" backgroundColor="#E91E63"/>
                 <Section id="WhatWeDo" backgroundColor="#9C27B0"/>
                 <Section id="MeetTheTeam" backgroundColor="#673AB7"/>
