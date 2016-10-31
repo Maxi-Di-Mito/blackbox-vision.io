@@ -31,11 +31,11 @@ class Contact extends Component {
         return (
             <Section id="Contact" backgroundImage="https://images.contentful.com/lwht5a8170mc/1fcaauUZJ2S8eyu2cwqQwo/4cda9968521f1ac51abd64bbbaaca909/contact.jpeg" backgroundColor="#2196F3">
                 <Flex align="center" justify="center" wrap>
-                    <Box col={12} sm={0} md={3} lg={3}/>
+                    <Box col={12} sm={1} md={3} lg={3}/>
                     <Box col={12} sm={12} md={6} lg={6} {...boxProps}>
                         <ContactForm/>
                     </Box>
-                    <Box col={12} sm={0} md={3} lg={3}/>
+                    <Box col={12} sm={1} md={3} lg={3}/>
                 </Flex>
             </Section>
         );
