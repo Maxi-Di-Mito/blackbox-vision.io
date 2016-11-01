@@ -1,5 +1,5 @@
 import React, {Component, PropTypes} from 'react'
-import { AppBar } from 'material-ui';
+import AppBar from 'material-ui/AppBar/AppBar';
 import radium from 'radium';
 import HeaderContainer from '../atoms/HeaderContainer';
 import HeaderLogo from '../atoms/HeaderLogo';

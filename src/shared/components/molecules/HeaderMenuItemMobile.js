@@ -1,6 +1,7 @@
 import React, {Component, PropTypes} from 'react'
-import { FontIcon, MenuItem } from 'material-ui';
-import { Link } from 'react-router';
+import FontIcon from 'material-ui/FontIcon/FontIcon';
+import MenuItem from 'material-ui/MenuItem/MenuItem';
+import Link from 'react-router/lib/Link';
 
 var styles = {
     fontIcon: {

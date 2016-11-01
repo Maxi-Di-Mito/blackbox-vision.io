@@ -61,10 +61,13 @@ module.exports = {
             filename: "chunk-manifest.json",
             manifestVariable: "webpackManifest",
         }),
+        new webpack.optimize.OccurenceOrderPlugin(),
+        new webpack.optimize.DedupePlugin(),
         new webpack.optimize.UglifyJsPlugin({
             compressor: {
               warnings: false,
             }
         }),
+        new webpack.optimize.AggressiveMergingPlugin()
     ],
 };

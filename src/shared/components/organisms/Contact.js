@@ -1,5 +1,6 @@
 import React, {Component, PropTypes} from 'react'
-import { Flex, Box } from 'reflexbox';
+import Flex from 'reflexbox/dist/Flex';
+import Box from 'reflexbox/dist/Box';
 import Section from '../atoms/Section';
 import ContactForm from '../molecules/ContactForm';
 

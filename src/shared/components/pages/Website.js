@@ -1,4 +1,4 @@
-import React, { Component, PropTypes } from 'react';
+import React, {Component, PropTypes} from 'react';
 import Header from '../organisms/Header';
 import Footer from '../organisms/Footer';
 import Contact from '../organisms/Contact';

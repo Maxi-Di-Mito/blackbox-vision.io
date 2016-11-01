@@ -1,6 +1,7 @@
 import React, {Component, PropTypes} from 'react'
-import { FlatButton, FontIcon } from 'material-ui';
-import { Link } from 'react-router';
+import FontIcon from 'material-ui/FontIcon/FontIcon';
+import FlatButton from 'material-ui/FlatButton/FlatButton';
+import Link from 'react-router/lib/Link';
 import radium from 'radium';
 
 var styles = {

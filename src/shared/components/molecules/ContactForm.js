@@ -1,5 +1,11 @@
 import React, {Component, PropTypes} from 'react'
-import { Card, CardText, CardActions, CardTitle, TextField, RaisedButton } from 'material-ui';
+import Card from 'material-ui/Card/Card';
+import CardText from 'material-ui/Card/CardText';
+import CardActions from 'material-ui/Card/CardActions';
+import CardTitle from 'material-ui/Card/CardTitle';
+import TextField from 'material-ui/TextField/TextField';
+import RaisedButton from 'material-ui/RaisedButton/RaisedButton';
+
 
 class ContactForm extends Component {
     render() {

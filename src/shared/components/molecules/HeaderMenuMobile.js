@@ -1,5 +1,6 @@
 import React, {Component, PropTypes} from 'react'
-import { IconButton, IconMenu } from 'material-ui';
+import IconButton from 'material-ui/IconButton/IconButton';
+import IconMenu from 'material-ui/IconMenu/IconMenu';
 import MenuIcon from 'material-ui/svg-icons/navigation/menu';
 import HeaderContainer from '../atoms/HeaderContainer';
 import HeaderMenuItem from '../molecules/HeaderMenuItemMobile';

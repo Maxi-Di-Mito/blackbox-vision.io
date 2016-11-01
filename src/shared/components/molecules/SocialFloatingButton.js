@@ -1,6 +1,7 @@
 import React, {Component, PropTypes} from 'react'
-import { FontIcon, FloatingActionButton } from 'material-ui';
-import { Link } from 'react-router';
+import FontIcon from 'material-ui/FontIcon/FontIcon';
+import FloatingActionButton from 'material-ui/FloatingActionButton/FloatingActionButton';
+import Link from 'react-router/lib/Link';
 
 class SocialFloatingButton extends Component {
     render() {
