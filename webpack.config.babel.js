@@ -4,14 +4,14 @@ module.exports = {
         libraryTarget: 'commonjs2',
     },
     resolve: {
-        extensions: ['', '.js', '.jsx'],
+        extensions: ['.js', '.jsx'],
         modules: [
           'client',
           'node_modules',
         ],
     },
     module: {
-        loaders: [
+        rules: [
            {
               test: /\.jpe?g$|\.gif$|\.png$|\.svg$/i,
               loader: 'url-loader?limit=10000',

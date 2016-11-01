@@ -21,7 +21,7 @@ module.exports = {
     },
 
     resolve: {
-        extensions: ['', '.js', '.jsx'],
+        extensions: ['.js', '.jsx'],
         modules: [
             'client',
             'node_modules',
@@ -29,7 +29,7 @@ module.exports = {
     },
 
     module: {
-        loaders: [
+        rules: [
             {
                 test: /\.jsx*$/,
                 exclude: /node_modules/,
@@ -50,10 +50,9 @@ module.exports = {
         }),
         new webpack.optimize.CommonsChunkPlugin({
             name: 'vendor',
-            minChunks: Infinity,
+            minChunks: 2,
             filename: 'vendor.js',
         }),
-        new ExtractTextPlugin('app.[chunkhash].css', { allChunks: true }),
         new ManifestPlugin({
             basePath: '/',
         }),
@@ -61,13 +60,11 @@ module.exports = {
             filename: "chunk-manifest.json",
             manifestVariable: "webpackManifest",
         }),
-        new webpack.optimize.OccurenceOrderPlugin(),
         new webpack.optimize.DedupePlugin(),
         new webpack.optimize.UglifyJsPlugin({
             compressor: {
               warnings: false,
             }
-        }),
-        new webpack.optimize.AggressiveMergingPlugin()
+        })
     ],
 };

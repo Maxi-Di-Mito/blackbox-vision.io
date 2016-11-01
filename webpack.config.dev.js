@@ -20,7 +20,7 @@ module.exports = {
     },
 
     resolve: {
-        extensions: ['', '.js', '.jsx'],
+        extensions: ['.js', '.jsx'],
         modules: [
             'client',
             'node_modules',
@@ -28,7 +28,7 @@ module.exports = {
     },
 
     module: {
-        loaders: [
+        rules: [
             {
                 test: /\.jsx*$/,
                 exclude: [/node_modules/, /.+\.config.js/],
