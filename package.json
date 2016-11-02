@@ -26,31 +26,27 @@
    },
   "betterScripts": {
       "build:dev": {
-          "command": "npm run clean && npm install && npm run webpack-app:dev && node index.js"
-      },
-      "build:prod": {
-          "command": "npm run clean && npm install && npm run webpack-app:prod && npm run webpack-server:prod && node index.js"
-      },
-      "webpack-app:dev": {
-          "command": "webpack --config webpack.config.dev",
+          "command": "npm run clean && npm install && npm run webpack-app:dev && node index.js",
           "env": {
               "BABEL_DISABLE_CACHE": "1",
               "NODE_ENV": "development"
           }
       },
-      "webpack-app:prod": {
-          "command": "webpack --config webpack.config.prod.js",
+      "build:prod": {
+          "command": "npm run clean && npm install && npm run webpack-app:prod && npm run webpack-server:prod && node index.js",
           "env": {
-              "BABEL_DISABLE_CACHE": "1",
-              "NODE_ENV": "production"
+            "BABEL_DISABLE_CACHE": "1",
+            "NODE_ENV": "production"
           }
       },
+      "webpack-app:dev": {
+          "command": "webpack --config webpack.config.dev.js"
+      },
+      "webpack-app:prod": {
+          "command": "webpack --config webpack.config.prod.js"
+      },
       "webpack-server:prod": {
-          "command": "webpack --config webpack.config.server.js",
-          "env": {
-              "BABEL_DISABLE_CACHE": "1",
-              "NODE_ENV": "production"
-          }
+          "command": "webpack --config webpack.config.server.js"
       }
   },
   "dependencies": {

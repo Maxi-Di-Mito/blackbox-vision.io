@@ -1,5 +1,3 @@
-var webpack = require('webpack');
-
 module.exports = {
     output: {
         publicPath: '/',
@@ -19,13 +17,5 @@ module.exports = {
               loader: 'url-loader?limit=10000',
            },
         ],
-    },
-    plugins: [
-        new webpack.DefinePlugin({
-            'process.env': {
-                'NODE_ENV': JSON.stringify('development'),
-                BABEL_DISABLE_CACHE: JSON.stringify(1)
-            }
-        })
-    ]
+    }
 };
