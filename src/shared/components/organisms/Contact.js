@@ -3,35 +3,19 @@ import Flex from 'reflexbox/dist/Flex';
 import Box from 'reflexbox/dist/Box';
 import Section from '../atoms/Section';
 import ContactForm from '../molecules/ContactForm';
+import withWidth, { Responsive } from '../../utils/withWidth';
 
 class Contact extends Component {
-
-    state = {
-        width: (typeof window !== 'undefined')? window.innerWidth : 0
-    };
-
-    componentDidMount() {
-        this.setState({
-            width: window.innerWidth
-        });
-
-        window.addEventListener('resize', this.handleResize);
-    }
-
-    componentWillUnmount() {
-        window.removeEventListener('resize', this.handleResize);
-    }
-
     render() {
-        let { width } = this.state;
+        let { width, ...sectionProps } = this.props;
         let boxProps = {
-            pt: (width < 1024)? 5 : 0,
-            p: (width < 1024)? 1 : 6,
+            pt: (width <= Responsive.TABLET)? 5 : 3,
+            p: (width <= Responsive.TABLET)? 1 : 6,
             mt: 4
         };
 
         return (
-            <Section id="Contact" backgroundImage="https://images.contentful.com/lwht5a8170mc/1fcaauUZJ2S8eyu2cwqQwo/4cda9968521f1ac51abd64bbbaaca909/contact.jpeg" backgroundColor="#2196F3">
+            <Section id="Contact" {...sectionProps}>
                 <Flex align="center" justify="center" wrap>
                     <Box col={12} sm={1} md={3} lg={3}/>
                     <Box col={12} sm={12} md={6} lg={6} {...boxProps}>
@@ -42,12 +26,16 @@ class Contact extends Component {
             </Section>
         );
     }
-
-    handleResize = (event) => {
-        this.setState({
-            width: window.innerWidth
-        });
-    }
 }
 
-export default Contact;
+Contact.props = {
+    backgroundColor: PropTypes.string.isRequired,
+    backgroundImage: PropTypes.string.isRequired
+};
+
+Contact.defaultProps = {
+    backgroundColor: "#2196F3",
+    backgroundImage: "https://images.contentful.com/lwht5a8170mc/1fcaauUZJ2S8eyu2cwqQwo/4cda9968521f1ac51abd64bbbaaca909/contact.jpeg"
+};
+
+export default withWidth(Contact);

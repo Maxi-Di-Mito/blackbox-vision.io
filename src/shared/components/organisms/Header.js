@@ -1,10 +1,11 @@
 import React, {Component, PropTypes} from 'react'
 import AppBar from 'material-ui/AppBar/AppBar';
-import radium from 'radium';
 import HeaderContainer from '../atoms/HeaderContainer';
 import HeaderLogo from '../atoms/HeaderLogo';
 import HeaderMenu from '../molecules/HeaderMenu';
 import HeaderMenuMobile from '../molecules/HeaderMenuMobile';
+import { links } from '../../utils/constants';
+import withWidth, { Responsive } from '../../utils/withWidth';
 
 var styles = {
     appBar: {
@@ -21,29 +22,18 @@ var styles = {
 };
 
 class Header extends Component {
-    state = {
-        width: (typeof window !== 'undefined')? window.innerWidth : 0
-    };
-
-    componentDidMount() {
-        this.setState({
-            width: window.innerWidth
-        });
-
-        window.addEventListener('resize', this.handleResize);
-    }
-
-    componentWillUnmount() {
-        window.removeEventListener('resize', this.handleResize);
-    }
-
     render() {
-        const { logo, links } = this.props;
-        let { width } = this.state;
-        let headerMenu = (width < 1024) ? <HeaderMenuMobile links={links}/> : <HeaderMenu links={links}/>;
+        const { logo, links, width } = this.props;
+        let headerMenu;
+
+        if (width <= Responsive.TABLET) {
+            headerMenu = <HeaderMenuMobile links={links}/>;
+        } else {
+            headerMenu = <HeaderMenu links={links}/>;
+        }
 
         return (
-            <HeaderContainer fixed>
+            <HeaderContainer>
                 <AppBar
                     showMenuIconButton={false}
                     title={<HeaderLogo src={logo}/>}
@@ -55,12 +45,6 @@ class Header extends Component {
             </HeaderContainer>
         );
     }
-
-    handleResize = (event) => {
-        this.setState({
-            width: window.innerWidth
-        });
-    }
 }
 
 Header.props = {
@@ -68,4 +52,9 @@ Header.props = {
     links: PropTypes.array.isRequired
 };
 
-export default radium(Header);
+Header.defaultProps = {
+    logo: "https://images.contentful.com/lwht5a8170mc/5uEer0MvQcWKCag4acE6QA/89079779f364bd7936518d85ef5f0801/logo_white.png",
+    links: links
+};
+
+export default withWidth(Header);

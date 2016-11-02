@@ -4,6 +4,7 @@ import FooterCopyright from '../atoms/FooterCopyright';
 import FooterSocialList from '../molecules/FooterSocialList';
 import Flex from 'reflexbox/dist/Flex';
 import Box from 'reflexbox/dist/Box';
+import { social } from '../../utils/constants';
 
 class Footer extends Component {
     render() {
@@ -27,6 +28,11 @@ class Footer extends Component {
 Footer.props = {
     links: PropTypes.array.isRequired,
     copyright: PropTypes.string.isRequired
+};
+
+Footer.defaultProps = {
+    links: social,
+    copyright: "BlackBox Vision @ 2016"
 };
 
 export default Footer;

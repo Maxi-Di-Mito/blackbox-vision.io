@@ -1,23 +1,27 @@
 import React, {Component, PropTypes} from 'react';
+import WebsiteContainer from '../atoms/WebsiteContainer';
 import Header from '../organisms/Header';
-import Footer from '../organisms/Footer';
+import Home from '../organisms/Home';
+import WhoWeAre from '../organisms/WhoWeAre';
+import WhatWeDo from '../organisms/WhatWeDo';
+import MeetTheTeam from '../organisms/MeetTheTeam';
+import Portfolio from '../organisms/Portfolio';
 import Contact from '../organisms/Contact';
-import Section from '../atoms/Section';
-import { social, links, logo } from '../../utils/constants';
+import Footer from '../organisms/Footer';
 
 class Website extends Component {
     render() {
         return (
-            <div>
-                <Header links={links} logo={logo}/>
-                <Section id="Home" backgroundImage="https://images.contentful.com/lwht5a8170mc/w3FDlOYi6yCwsGu6EkQu/792767747799e3091c757da781993b75/slide.jpeg" backgroundColor="#F44336" paddingTop="64px"/>
-                <Section id="WhoWeAre" backgroundColor="#E91E63"/>
-                <Section id="WhatWeDo" backgroundColor="#9C27B0"/>
-                <Section id="MeetTheTeam" backgroundColor="#673AB7"/>
-                <Section id="Portfolio" backgroundColor="#3F51B5"/>
+            <WebsiteContainer>
+                <Header/>
+                <Home/>
+                <WhoWeAre/>
+                <WhatWeDo/>
+                <MeetTheTeam/>
+                <Portfolio/>
                 <Contact/>
-                <Footer links={social} copyright="BlackBox Vision @ 2016"/>
-            </div>
+                <Footer/>
+            </WebsiteContainer>
         )
     }
 }
