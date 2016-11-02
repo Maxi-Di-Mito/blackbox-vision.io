@@ -16,8 +16,6 @@ class RenderHelper {
         const assetsManifest = require('../../../dist/manifest.json');
         const chunkManifest = require('../../../dist/chunk-manifest.json');
 
-        console.info('This is the type of assetsManifest -> ' + typeof assetsManifest);
-
         const mainHtml =
         `<!doctype html>
             <html lang="en">
