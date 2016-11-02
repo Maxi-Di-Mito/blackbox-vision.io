@@ -2,7 +2,6 @@ import React, {Component, PropTypes} from 'react'
 import FontIcon from 'material-ui/FontIcon/FontIcon';
 import FlatButton from 'material-ui/FlatButton/FlatButton';
 import Link from 'react-router/lib/Link';
-import radium from 'radium';
 
 var styles = {
     flatButton: {
@@ -47,4 +46,4 @@ HeaderFlatButton.props = {
     linkTo: PropTypes.string.isRequired
 };
 
-export default radium(HeaderFlatButton);
+export default HeaderFlatButton;
