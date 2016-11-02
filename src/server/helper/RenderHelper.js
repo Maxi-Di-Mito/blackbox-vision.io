@@ -13,8 +13,8 @@ let htmlConfig = {
 
 class RenderHelper {
     static toDefaultHtml(html, initialState = {}) {
-        const assetsManifest = process.env.webpackAssets && JSON.parse(process.env.webpackAssets);
-        const chunkManifest = process.env.webpackChunkAssets && JSON.parse(process.env.webpackChunkAssets);
+        const assetsManifest = require('../../../dist/manifest.json');
+        const chunkManifest = require('../../../dist/chunk-manifest.json');
 
         console.info('This is the type of assetsManifest -> ' + typeof assetsManifest);
 
