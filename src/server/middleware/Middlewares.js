@@ -38,6 +38,7 @@ class Middlewares {
     }
 
     static handleErrors(error, request, response, next) {
+        console.error(`This is the error --> ${error}`);
         return next();
     }
 }

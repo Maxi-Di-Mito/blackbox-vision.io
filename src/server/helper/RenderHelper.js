@@ -16,6 +16,8 @@ class RenderHelper {
         const assetsManifest = process.env.webpackAssets && JSON.parse(process.env.webpackAssets);
         const chunkManifest = process.env.webpackChunkAssets && JSON.parse(process.env.webpackChunkAssets);
 
+        console.info('This is the type of assetsManifest -> ' + typeof assetsManifest);
+
         const mainHtml =
         `<!doctype html>
             <html lang="en">

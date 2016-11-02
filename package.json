@@ -34,6 +34,7 @@
       "webpack-app:dev": {
           "command": "webpack --config webpack.config.dev",
           "env": {
+              "BABEL_DISABLE_CACHE": "1",
               "NODE_ENV": "development"
           }
       },

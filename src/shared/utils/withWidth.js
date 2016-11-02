@@ -7,13 +7,13 @@ export const Responsive = {
 };
 
 function isUndefined(value) {
-    return typeof(value) !== 'undefined';
+    return value && typeof(value) !== 'undefined';
 }
 
 function withWidth(WrappedComponent) {
     return class ResizeListener extends Component {
         state = {
-            width: (!isUndefined(window))? window.innerWidth : 0
+            width: 1024
         };
 
         componentDidMount() {

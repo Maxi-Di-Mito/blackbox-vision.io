@@ -46,6 +46,7 @@ module.exports = {
         new webpack.DefinePlugin({
             'process.env': {
                 'NODE_ENV': JSON.stringify('production'),
+                BABEL_DISABLE_CACHE: JSON.stringify(1)
             }
         }),
         new webpack.optimize.CommonsChunkPlugin({

@@ -52,6 +52,7 @@ module.exports = {
             'process.env': {
                 CLIENT: JSON.stringify(true),
                 'NODE_ENV': JSON.stringify('development'),
+                BABEL_DISABLE_CACHE: JSON.stringify(1)
             }
         }),
     ]
