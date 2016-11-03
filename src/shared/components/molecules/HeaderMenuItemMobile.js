@@ -21,7 +21,7 @@ class HeaderMenuItemMobile extends Component {
 
         return (
             <MenuItem
-                containerElement={<Link to={linkTo}/>}
+                containerElement={<Link to={{pathname: '/', hash: linkTo}}/>}
                 leftIcon={icon}
                 primaryText={text.toUpperCase()}
             />

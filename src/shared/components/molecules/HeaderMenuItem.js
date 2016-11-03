@@ -1,7 +1,7 @@
 import React, {Component, PropTypes} from 'react'
 import FontIcon from 'material-ui/FontIcon/FontIcon';
 import FlatButton from 'material-ui/FlatButton/FlatButton';
-import Link from 'react-router/lib/Link';
+import browserHistory from 'react-router/lib/browserHistory';
 
 var styles = {
     flatButton: {
@@ -17,7 +17,7 @@ var styles = {
 
 class HeaderFlatButton extends Component {
     render() {
-        const { iconName, text, linkTo } = this.props;
+        const { iconName, text } = this.props;
 
         const icon = (
             <FontIcon className="material-icons" style={styles.fontIcon}>
@@ -26,18 +26,22 @@ class HeaderFlatButton extends Component {
         );
 
         return (
-            <Link to={linkTo}>
-                <FlatButton
-                    labelPosition="before"
-                    icon={icon}
-                    style={styles.flatButton}
-                    primary
-                >
-                    {text.toUpperCase()}
-                </FlatButton>
-            </Link>
+            <FlatButton
+                labelPosition="before"
+                icon={icon}
+                style={styles.flatButton}
+                onTouchTap={this.handleTouchTap}
+                primary
+            >
+                {text.toUpperCase()}
+            </FlatButton>
         );
     }
+
+    handleTouchTap = (event) => {
+        const { linkTo } = this.props;
+        browserHistory.push({pathname: '/', hash: linkTo});
+    };
 }
 
 HeaderFlatButton.props = {

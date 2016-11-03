@@ -1,12 +1,10 @@
 import React, { Component, PropTypes } from 'react';
-import applyRouterMiddleware from 'react-router/lib/applyRouterMiddleware';
 import browserHistory from 'react-router/lib/browserHistory';
 import Router from 'react-router/lib/Router';
 import RouterContext from 'react-router/lib/RouterContext';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import lightBaseTheme from 'material-ui/styles/baseThemes/lightBaseTheme';
-import useScroll from 'react-router-scroll';
 import Provider from 'react-redux/lib/components/Provider';
 import hashLinkScroll from './utils/hashLinkScroll';
 import configureStore from './redux/store/configureStore';
@@ -28,7 +26,6 @@ class App extends Component {
                     history={history}
                     routes={routes}
                     onUpdate={hashLinkScroll}
-                    render={applyRouterMiddleware(useScroll())}
                 />
             );
         }
