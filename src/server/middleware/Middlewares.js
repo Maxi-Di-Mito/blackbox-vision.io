@@ -40,7 +40,7 @@ class Middlewares {
             const html = (
                 <Html
                     content={content}
-                    state={store.getState()}
+                    store={store}
                     styles={styles}
                 />
             );

@@ -8,8 +8,8 @@ class MeetTheTeam extends Component {
         const { ...sectionProps } = this.props;
 
         return (
-            <Section id="MeetTheTeam" {...sectionProps}>
-                <Flex align="center" justify="center" wrap>
+            <Section id='MeetTheTeam' {...sectionProps}>
+                <Flex align='center' justify='center' wrap>
                     <Box col={12} pt={2}>
                     </Box>
                 </Flex>
@@ -25,7 +25,7 @@ MeetTheTeam.props = {
 };
 
 MeetTheTeam.defaultProps = {
-    backgroundColor: "#673AB7"
+    backgroundColor: '#673AB7'
 };
 
 export default MeetTheTeam;

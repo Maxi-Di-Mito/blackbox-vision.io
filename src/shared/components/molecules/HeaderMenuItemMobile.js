@@ -14,7 +14,7 @@ class HeaderMenuItemMobile extends Component {
         const { iconName, text, linkTo } = this.props;
 
         const icon = (
-            <FontIcon className="material-icons" style={styles.fontIcon}>
+            <FontIcon className='material-icons' style={styles.fontIcon}>
                 {iconName}
             </FontIcon>
         );

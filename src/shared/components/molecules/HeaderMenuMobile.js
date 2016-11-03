@@ -10,8 +10,8 @@ class HeaderMenuMobile extends Component {
         const { links } = this.props;
 
         let iconButton = (
-            <IconButton style={{ marginTop: "8px" }}>
-                <MenuIcon color="white"/>
+            <IconButton style={{ marginTop: '8px' }}>
+                <MenuIcon color='white'/>
             </IconButton>
         );
 

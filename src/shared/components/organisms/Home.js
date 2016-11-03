@@ -36,10 +36,10 @@ Home.props = {
 
 Home.defaultProps = {
     title: "Let's make your projects come true",
-    subtitle: "Let us make the hardest part for you and get the product you were looking for",
-    backgroundColor: "#F44336",
-    backgroundImage: "https://images.contentful.com/lwht5a8170mc/w3FDlOYi6yCwsGu6EkQu/792767747799e3091c757da781993b75/slide.jpeg",
-    paddingTop: "64px"
+    subtitle: 'Let us make the hardest part for you and get the product you were looking for',
+    backgroundColor: '#F44336',
+    backgroundImage: 'https://images.contentful.com/lwht5a8170mc/w3FDlOYi6yCwsGu6EkQu/792767747799e3091c757da781993b75/slide.jpeg',
+    paddingTop: '64px'
 };
 
 export default Home;

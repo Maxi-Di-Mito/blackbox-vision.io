@@ -12,7 +12,7 @@ class Footer extends Component {
 
         return (
             <FooterContainer>
-                <Flex align="center" justify="center" wrap>
+                <Flex align='center' justify='center' wrap>
                     <Box col={12}>
                         <FooterSocialList links={links}/>
                         <FooterCopyright>
@@ -32,7 +32,7 @@ Footer.props = {
 
 Footer.defaultProps = {
     links: social,
-    copyright: "BlackBox Vision @ 2016"
+    copyright: 'BlackBox Vision @ 2016'
 };
 
 export default Footer;

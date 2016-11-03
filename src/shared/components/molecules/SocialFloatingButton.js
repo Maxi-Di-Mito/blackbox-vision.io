@@ -44,10 +44,10 @@ SocialFloatingButton.props = {
 };
 
 SocialFloatingButton.defaultProps = {
-    fontIconColor: "white",
-    fontIconHoverColor: "white",
-    floatingBackgroundColor: "black",
-    linkTarget: "_blank"
+    fontIconColor: 'white',
+    fontIconHoverColor: 'white',
+    floatingBackgroundColor: 'black',
+    linkTarget: '_blank'
 };
 
 export default SocialFloatingButton;

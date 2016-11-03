@@ -53,7 +53,7 @@ Header.props = {
 };
 
 Header.defaultProps = {
-    logo: "https://images.contentful.com/lwht5a8170mc/5uEer0MvQcWKCag4acE6QA/89079779f364bd7936518d85ef5f0801/logo_white.png",
+    logo: 'https://images.contentful.com/lwht5a8170mc/5uEer0MvQcWKCag4acE6QA/89079779f364bd7936518d85ef5f0801/logo_white.png',
     links: links
 };
 

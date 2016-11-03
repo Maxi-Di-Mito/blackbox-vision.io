@@ -8,8 +8,8 @@ class WhatWeDo extends Component {
         const { ...sectionProps } = this.props;
 
         return (
-            <Section id="WhatWeDo" {...sectionProps}>
-                <Flex align="center" justify="center" wrap>
+            <Section id='WhatWeDo' {...sectionProps}>
+                <Flex align='center' justify='center' wrap>
                     <Box col={12} pt={2}>
                     </Box>
                 </Flex>
@@ -25,7 +25,7 @@ WhatWeDo.props = {
 };
 
 WhatWeDo.defaultProps = {
-    backgroundColor: "#9C27B0"
+    backgroundColor: '#9C27B0'
 };
 
 export default WhatWeDo;

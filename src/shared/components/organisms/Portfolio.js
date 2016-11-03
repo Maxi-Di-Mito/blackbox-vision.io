@@ -8,8 +8,8 @@ class Portfolio extends Component {
         const { ...sectionProps } = this.props;
 
         return (
-            <Section id="Portfolio" {...sectionProps}>
-                <Flex align="center" justify="center" wrap>
+            <Section id='Portfolio' {...sectionProps}>
+                <Flex align='center' justify='center' wrap>
                     <Box col={12} pt={2}>
                     </Box>
                 </Flex>
@@ -25,7 +25,7 @@ Portfolio.props = {
 };
 
 Portfolio.defaultProps = {
-    backgroundColor: "#3F51B5"
+    backgroundColor: '#3F51B5'
 };
 
 export default Portfolio;

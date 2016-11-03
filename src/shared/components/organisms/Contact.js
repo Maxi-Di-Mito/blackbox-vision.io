@@ -15,8 +15,8 @@ class Contact extends Component {
         };
 
         return (
-            <Section id="Contact" {...sectionProps}>
-                <Flex align="center" justify="center" wrap>
+            <Section id='Contact' {...sectionProps}>
+                <Flex align='center' justify='center' wrap>
                     <Box col={12} sm={1} md={3} lg={3}/>
                     <Box col={12} sm={12} md={6} lg={6} {...boxProps}>
                         <ContactForm/>
@@ -34,8 +34,8 @@ Contact.props = {
 };
 
 Contact.defaultProps = {
-    backgroundColor: "#2196F3",
-    backgroundImage: "https://images.contentful.com/lwht5a8170mc/1fcaauUZJ2S8eyu2cwqQwo/4cda9968521f1ac51abd64bbbaaca909/contact.jpeg"
+    backgroundColor: '#2196F3',
+    backgroundImage: 'https://images.contentful.com/lwht5a8170mc/1fcaauUZJ2S8eyu2cwqQwo/4cda9968521f1ac51abd64bbbaaca909/contact.jpeg'
 };
 
 export default withWidth(Contact);

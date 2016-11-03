@@ -20,14 +20,14 @@ class HeaderFlatButton extends Component {
         const { iconName, text } = this.props;
 
         const icon = (
-            <FontIcon className="material-icons" style={styles.fontIcon}>
+            <FontIcon className='material-icons' style={styles.fontIcon}>
                 {iconName}
             </FontIcon>
         );
 
         return (
             <FlatButton
-                labelPosition="before"
+                labelPosition='before'
                 icon={icon}
                 style={styles.flatButton}
                 onTouchTap={this.handleTouchTap}
