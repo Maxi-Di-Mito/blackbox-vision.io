@@ -2232,6 +2232,10 @@ js-base64@^2.1.9:
   version "2.1.9"
   resolved "https://registry.yarnpkg.com/js-base64/-/js-base64-2.1.9.tgz#f0e80ae039a4bd654b5f281fc93f04a914a7fcce"
 
+js-polyfills:
+  version "0.1.27"
+  resolved "https://registry.yarnpkg.com/js-polyfills/-/js-polyfills-0.1.27.tgz#095cc76dc7c7e9213818094d204fb082456e846f"
+
 js-tokens@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/js-tokens/-/js-tokens-2.0.0.tgz#79903f5563ee778cc1162e6dcf1a0027c97f9cb5"
@@ -3474,6 +3478,10 @@ slash@^1.0.0:
 smart-buffer@^1.0.4:
   version "1.0.11"
   resolved "https://registry.yarnpkg.com/smart-buffer/-/smart-buffer-1.0.11.tgz#3050337098a8e4cdf0350fef63dd146049ff940a"
+
+smoothscroll-polyfill:
+  version "0.3.4"
+  resolved "https://registry.yarnpkg.com/smoothscroll-polyfill/-/smoothscroll-polyfill-0.3.4.tgz#6f59459788b6b8a7e21d223ef674151d1e3ddefd"
 
 smtp-connection@2.12.0:
   version "2.12.0"
